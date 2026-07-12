@@ -209,6 +209,43 @@ summary {
 }
 
 /*
+ * Laufband: langsam ziehende Leistungs-Zeile am Hero-Fuß.
+ * Inhalt ist dupliziert (zweite Kopie aria-hidden) für die nahtlose Schleife.
+ * Nur transform wird animiert; pausiert bei Hover, aus bei reduced-motion.
+ */
+.laufband {
+  display: flex;
+  width: max-content;
+  animation: laufband 45s linear infinite;
+}
+.laufband-huelle:hover .laufband {
+  animation-play-state: paused;
+}
+@keyframes laufband {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .laufband {
+    animation: none;
+  }
+}
+
+/* Foto-Chip in der Headline: läuft im Textfluss mit.
+   width:auto überschreibt das width-Attribut (das bleibt für CLS-Reservierung) */
+.hero-chip {
+  display: inline-block;
+  width: auto;
+  height: 0.72em;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  vertical-align: baseline;
+  transform: translateY(0.08em);
+  border: 1px solid var(--fuge);
+}
+
+/*
  * Scroll-Reveal-System (progressive enhancement):
  * Ohne JavaScript ist alles sichtbar — html.js blendet erst aus, ein kleines
  * Skript in Base.astro (IntersectionObserver) blendet beim Scrollen ein.
