@@ -82,3 +82,22 @@ Fallback-Alternative, falls Fraunces dem Kunden zu editorial ist: **Archivo** (S
 - Inhaber-/Teamfoto
 - Genaues Einzugsgebiet (nur Köln? Umland bis wohin?)
 - Öffnungs-/Erreichbarkeitszeiten
+
+---
+
+## Nachtrag (2026-07-12): Richtungswechsel auf „Dark Editorial"
+
+Nach Review des ersten Entwurfs fiel die Entscheidung auf einen kompletten visuellen
+Neuanfang (Auswahl aus drei Richtungen: Dark Editorial / Bold Graphic / Scroll-Storytelling).
+
+**Umgesetzt: Dark Editorial** — High-End-Interior-Magazin-Anmutung:
+- Warmes Fast-Schwarz (`#121110`) als Bühne, Materialkorn-Textur, Haarlinien-Fugen
+- **Kupfer-Glut** (`#c96f42`) als einziger Akzent — Konzeptbezug: gebrannter Ton kommt aus dem Ofen; der Glut-Schein im Hero und Kontakt-Finale ist dieses Motiv
+- Fraunces jetzt als große Display-Type (bis 7rem) mit kursiven Akzentwörtern
+- Leistungen als editorialer Index (Inhaltsverzeichnis-Zeilen statt Karten)
+- Ein helles „Papier"-Kapitel (Ablauf + Betrieb) als editorialer Rhythmus-Kontrast
+- Komplettsanierung als einzige voll gesättigte Kupferfläche der Seite
+
+**Damit entfällt:** das A/B-Farbvarianten-System samt Vorschau-Schalter.
+Struktur, Inhalte, Conversion-Elemente (Mobile-Call-Bar, CTA-Kette, Scrollspy)
+und alle Platzhalter-Kennzeichnungen wurden unverändert übernommen.

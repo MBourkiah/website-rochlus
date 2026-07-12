@@ -1,12 +1,11 @@
 ---
 /**
- * Sticky-Header mit Logo-Slot, Ankernavigation (mit Scrollspy) und Telefon-CTA.
+ * Sticky-Header: dunkel, Haarlinie unten, Wortmarke in Fraunces.
  *
  * LOGO-SLOT: aktuell typografische Wortmarke als Interim.
- * Sobald die Logo-Entscheidung des Kunden vorliegt, hier tauschen:
- *   – bestehendes Mosaik-Logo: <img src="/bilder/logo-bestand.jpg" ...> (liegt in public/bilder/)
- *   – neues Logo: als SVG einsetzen
- * Der Slot ist höhenbegrenzt (h-10), beide Fälle passen ohne Layout-Änderung.
+ * Sobald die Logo-Entscheidung des Kunden vorliegt, hier tauschen
+ * (bestehendes Mosaik-Logo liegt unter public/bilder/logo-bestand.jpg —
+ * auf dunklem Grund empfiehlt sich aber eine helle/invertierte Fassung).
  */
 const nav = [
   { href: '#leistungen', label: 'Leistungen' },
@@ -19,14 +18,14 @@ const nav = [
 
 <header
   id="hauptkopf"
-  class="sticky top-0 z-40 border-b border-fuge bg-grund transition-shadow duration-150 data-gescrollt:shadow-[0_1px_0_var(--fuge),0_8px_24px_-16px_rgb(0_0_0/0.25)]"
+  class="sticky top-0 z-40 border-b border-fuge bg-grund/95 backdrop-blur-sm transition-shadow duration-150 data-gescrollt:shadow-[0_12px_32px_-16px_rgb(0_0_0/0.6)]"
 >
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
     <!-- Logo-Slot -->
-    <a href="/" class="flex h-10 items-center gap-3" aria-label="Fliesenfachbetrieb Rochlus GmbH — zur Startseite">
-      <span class="font-headline text-2xl font-semibold tracking-tight">Rochlus</span>
-      <span class="hidden border-l border-fuge pl-3 text-[0.65rem] leading-tight font-semibold tracking-[0.18em] uppercase text-tinte-soft sm:block">
-        Fliesenfachbetrieb<br />Köln
+    <a href="/" class="flex h-10 items-baseline gap-3" aria-label="Fliesenfachbetrieb Rochlus GmbH — zur Startseite">
+      <span class="font-headline text-2xl font-semibold tracking-tight italic">Rochlus</span>
+      <span class="hidden text-[0.6rem] leading-tight font-semibold tracking-[0.24em] uppercase text-tinte-soft sm:block">
+        Fliesenfachbetrieb · Köln
       </span>
     </a>
 
@@ -38,10 +37,9 @@ const nav = [
           class="group relative px-3 py-2.5 text-sm font-medium text-tinte-soft transition-colors duration-150 hover:text-tinte aria-[current]:text-tinte"
         >
           {n.label}
-          <!-- animierte Fugen-Unterstreichung: wächst bei Hover/aktiver Section -->
           <span
             aria-hidden="true"
-            class="absolute inset-x-3 bottom-1 h-0.5 origin-left scale-x-0 bg-akzent transition-transform duration-150 ease-out group-hover:scale-x-100 group-aria-[current]:scale-x-100"
+            class="absolute inset-x-3 bottom-1 h-px origin-left scale-x-0 bg-akzent transition-transform duration-150 ease-out group-hover:scale-x-100 group-aria-[current]:scale-x-100"
           ></span>
         </a>
       ))}
@@ -64,9 +62,9 @@ const nav = [
             <span class="block h-px w-4 bg-tinte"></span>
           </span>
         </summary>
-        <nav class="absolute right-0 mt-2 flex w-52 flex-col border border-fuge bg-grund shadow-sm" aria-label="Mobile Navigation">
+        <nav class="absolute right-0 mt-2 flex w-52 flex-col border border-fuge bg-flaeche" aria-label="Mobile Navigation">
           {nav.map((n) => (
-            <a href={n.href} class="border-b border-fuge px-4 py-3.5 text-sm font-medium last:border-b-0 hover:bg-flaeche">
+            <a href={n.href} class="border-b border-fuge px-4 py-3.5 text-sm font-medium last:border-b-0 hover:bg-grund">
               {n.label}
             </a>
           ))}
@@ -77,12 +75,10 @@ const nav = [
 </header>
 
 <script is:inline>
-  // Mobile-Menü nach Ankerklick schließen
   document.querySelectorAll('details nav a').forEach((a) =>
     a.addEventListener('click', () => a.closest('details')?.removeAttribute('open'))
   );
 
-  // Header wirft erst nach dem ersten Scroll einen Schatten (ruhiger Start)
   const kopf = document.getElementById('hauptkopf');
   const schattenSetzen = () => {
     if (window.scrollY > 8) kopf.setAttribute('data-gescrollt', '');
@@ -91,7 +87,6 @@ const nav = [
   schattenSetzen();
   window.addEventListener('scroll', schattenSetzen, { passive: true });
 
-  // Scrollspy: aktive Section in der Navigation markieren (aria-current)
   const spyLinks = new Map(
     [...document.querySelectorAll('[data-spy]')].map((a) => [a.getAttribute('data-spy'), a])
   );

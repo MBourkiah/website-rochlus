@@ -1,42 +1,42 @@
 @import "tailwindcss";
 
 /*
- * Design-Tokens — zwei umschaltbare Farbvarianten (siehe konzept/design-konzept.md)
- * Umschaltung über data-variante="a" | "b" auf <html>.
- * Variante A: warme Materialtöne (Terrakotta / Kalkstein / Anthrazit) — Default
- * Variante B: Mosaik modernisiert (Tiefblau / Ziegelrot / Ocker)
+ * DARK EDITORIAL — die gewählte Design-Richtung (ersetzt das frühere A/B-System).
+ *
+ * Konzept: High-End-Interior-Magazin auf warmem Fast-Schwarz. Die Akzentfarbe
+ * ist Kupfer/Terrakotta-Glut — der Bezug zum Gewerk: gebrannter Ton kommt aus
+ * dem Ofen. Feine Haarlinien (Fugen) strukturieren, große Serifen-Typografie
+ * (Fraunces) trägt die Hierarchie. Ein helles "Papier"-Kapitel (Ablauf/Betrieb)
+ * setzt den editorialen Rhythmus-Kontrast.
  */
-:root,
-[data-variante="a"] {
-  --grund: #f5f1ea; /* Kalkstein-Weiß */
-  --flaeche: #e8e0d3; /* Sandstein */
-  --tinte: #26251f; /* Anthrazit */
-  --tinte-soft: #5c5648;
-  --akzent: #b85c38; /* Terrakotta */
-  --akzent-hover: #9d4c2d;
-  --akzent-tief: #8f4526; /* Akzent für kleinen Text (Kontrast ≥ 4.5:1 auf Grund) */
-  --akzent-kontrast: #fff6ef; /* Text auf Akzentfläche */
-  --fuge: #c9bfae; /* Linienfarbe (Fugen) */
-  --dunkel: #26251f; /* dunkle Abschlussflächen */
-  --dunkel-tinte: #f5f1ea;
-  --dunkel-soft: #b0a897;
-  --mikro: #a79e90; /* Steingrau */
-}
+:root {
+  /* Dunkle Bühne */
+  --grund: #121110; /* warmes Fast-Schwarz */
+  --flaeche: #1b1916; /* erhöhte Fläche (Karten, Header) */
+  --tinte: #efe7db; /* warmes Papierweiß als Text */
+  --tinte-soft: #a89d8c;
+  --fuge: #322e28; /* Haarlinien auf dunkel */
 
-[data-variante="b"] {
-  --grund: #f6f4ef;
-  --flaeche: #e8e4d9;
-  --tinte: #22211d;
-  --tinte-soft: #55534b;
-  --akzent: #a6392e; /* Ziegelrot */
-  --akzent-hover: #8c2f26;
-  --akzent-tief: #8c2f26;
-  --akzent-kontrast: #fbf3f1;
-  --fuge: #c2beb0;
-  --dunkel: #2e4a62; /* Tiefblau */
-  --dunkel-tinte: #f6f4ef;
-  --dunkel-soft: #a9bacb;
-  --mikro: #c9a227; /* Ocker — nur sparsam einsetzen */
+  /* Kupfer-Glut */
+  --akzent: #c96f42; /* Flächen, Buttons */
+  --akzent-hover: #da8354;
+  --akzent-hell: #e0906128; /* nur als Schimmer/Glut (mit Alpha) */
+  --akzent-text: #e08d5f; /* Akzent als Kleintext auf dunkel (≥4.5:1) */
+  --akzent-kontrast: #16100b; /* Text auf Kupferfläche */
+
+  /* Papier-Kapitel (helle Sections) */
+  --papier: #efe7db;
+  --papier-flaeche: #e3d9c9;
+  --papier-tinte: #17150f;
+  --papier-tinte-soft: #5d5545;
+  --papier-fuge: #cfc4b1;
+
+  /* Motion-Tokens: eine Rhythmik für alle Animationen */
+  --dauer-schnell: 150ms;
+  --dauer-normal: 250ms;
+  --dauer-reveal: 450ms;
+  --kurve-aus: cubic-bezier(0.22, 1, 0.36, 1);
+  --kurve-ein: cubic-bezier(0.55, 0, 0.55, 0.2);
 }
 
 @theme inline {
@@ -44,32 +44,24 @@
   --color-flaeche: var(--flaeche);
   --color-tinte: var(--tinte);
   --color-tinte-soft: var(--tinte-soft);
+  --color-fuge: var(--fuge);
   --color-akzent: var(--akzent);
   --color-akzent-hover: var(--akzent-hover);
-  --color-akzent-tief: var(--akzent-tief);
+  --color-akzent-text: var(--akzent-text);
   --color-akzent-kontrast: var(--akzent-kontrast);
-  --color-fuge: var(--fuge);
-  --color-dunkel: var(--dunkel);
-  --color-dunkel-tinte: var(--dunkel-tinte);
-  --color-dunkel-soft: var(--dunkel-soft);
-  --color-mikro: var(--mikro);
+  --color-papier: var(--papier);
+  --color-papier-flaeche: var(--papier-flaeche);
+  --color-papier-tinte: var(--papier-tinte);
+  --color-papier-tinte-soft: var(--papier-tinte-soft);
+  --color-papier-fuge: var(--papier-fuge);
 
   --font-headline: "Fraunces Variable", Georgia, "Times New Roman", serif;
   --font-text: "Instrument Sans Variable", system-ui, -apple-system, sans-serif;
 }
 
-/* Motion-Tokens: eine Rhythmik für alle Animationen (150–400ms, ease-out rein / ease-in raus) */
-:root {
-  --dauer-schnell: 150ms;
-  --dauer-normal: 250ms;
-  --dauer-reveal: 400ms;
-  --kurve-aus: cubic-bezier(0.22, 1, 0.36, 1); /* entering: ease-out */
-  --kurve-ein: cubic-bezier(0.55, 0, 0.55, 0.2); /* exiting: ease-in */
-}
-
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* sticky Header nicht über Ankerziele */
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -77,6 +69,11 @@ body {
   color: var(--tinte);
   font-family: var(--font-text);
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--akzent);
+  color: var(--akzent-kontrast);
 }
 
 a,
@@ -87,49 +84,71 @@ summary {
   cursor: pointer;
 }
 
-/* Sichtbarer Fokus für Tastaturnutzer — nie entfernen, nur gestalten */
 :focus-visible {
   outline: 2px solid var(--akzent);
   outline-offset: 3px;
 }
 
-::selection {
-  background-color: var(--akzent);
-  color: var(--akzent-kontrast);
-}
-
-/* Fugenraster: feines Fliesen-Linienraster als Hintergrund (Formensprache, kein Deko-Effekt) */
-.fugenraster {
-  background-image:
-    repeating-linear-gradient(to right, var(--fuge) 0 1px, transparent 1px 96px),
-    repeating-linear-gradient(to bottom, var(--fuge) 0 1px, transparent 1px 96px);
-  background-size: 96px 96px;
+/* Fraunces mit hoher optischer Größe für Display-Headlines */
+.font-headline {
+  font-variation-settings: "opsz" 72;
 }
 
 /* Eyebrow-Label: gesperrte Versalien über Headlines */
 .eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 /*
- * Buttons: eine Definition für konsistente Hover-/Press-/Fokus-Zustände.
- * Nur transform/opacity/background werden animiert (compositor-freundlich).
+ * Korn: feine Materialtextur über der dunklen Bühne (statisch, dezent).
+ * Gibt den Flächen das Stoffliche von Stein/Ton — kein Deko-Effekt.
+ */
+.korn {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/*
+ * Glut: warmer Lichtschein im Hero — der Ofen, aus dem die Fliese kommt.
+ * Bewusst ein einziger, konzeptgebundener Schein; kein beliebiger Blob.
+ */
+.glut {
+  background:
+    radial-gradient(ellipse 90% 60% at 78% 12%, var(--akzent-hell), transparent 65%);
+}
+
+/* Fugenraster auf dunkel: kaum sichtbare Haarlinien als Ordnungsprinzip */
+.fugenraster {
+  background-image:
+    repeating-linear-gradient(to right, var(--fuge) 0 1px, transparent 1px 112px),
+    repeating-linear-gradient(to bottom, var(--fuge) 0 1px, transparent 1px 112px);
+  background-size: 112px 112px;
+}
+
+/*
+ * Buttons: Kupfer auf dunkel, mit dunkler Schrift (Kontrast > 5:1).
+ * Nur transform/opacity/background werden animiert.
  */
 .knopf-primaer,
 .knopf-sekundaer {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 3rem; /* Touch-Target ≥ 44px */
+  min-height: 3rem;
   padding: 0.875rem 1.5rem;
   font-size: 0.875rem;
   font-weight: 600;
   transition:
     background-color var(--dauer-schnell) var(--kurve-aus),
     color var(--dauer-schnell) var(--kurve-aus),
+    border-color var(--dauer-schnell) var(--kurve-aus),
     transform var(--dauer-schnell) var(--kurve-aus);
 }
 .knopf-primaer {
@@ -140,17 +159,27 @@ summary {
   background-color: var(--akzent-hover);
 }
 .knopf-sekundaer {
-  border: 1px solid currentColor;
+  border: 1px solid var(--tinte-soft);
+  color: var(--tinte);
 }
 .knopf-sekundaer:hover {
+  border-color: var(--tinte);
   background-color: var(--tinte);
   color: var(--grund);
+}
+/* Varianten für Papier-Kapitel */
+.papier-kontext .knopf-sekundaer {
+  border-color: var(--papier-tinte-soft);
+  color: var(--papier-tinte);
+}
+.papier-kontext .knopf-sekundaer:hover {
+  background-color: var(--papier-tinte);
+  color: var(--papier);
 }
 .knopf-primaer:active,
 .knopf-sekundaer:active {
   transform: scale(0.98);
 }
-/* Pfeil im Button rückt beim Hover nach — Bewegung mit Richtung, kein Deko */
 .knopf-primaer svg,
 .knopf-sekundaer svg {
   transition: transform var(--dauer-schnell) var(--kurve-aus);
@@ -161,14 +190,32 @@ summary {
 }
 
 /*
+ * Leistungs-Index: editoriale Zeilen wie ein Inhaltsverzeichnis.
+ * Hover: Zeile hellt auf, Pfeil rückt nach (nur transform/color).
+ */
+.index-zeile {
+  transition:
+    background-color var(--dauer-schnell) var(--kurve-aus),
+    color var(--dauer-schnell) var(--kurve-aus);
+}
+.index-zeile:hover {
+  background-color: var(--flaeche);
+}
+.index-zeile .index-pfeil {
+  transition: transform var(--dauer-normal) var(--kurve-aus);
+}
+.index-zeile:hover .index-pfeil {
+  transform: translateX(6px);
+}
+
+/*
  * Scroll-Reveal-System (progressive enhancement):
  * Ohne JavaScript ist alles sichtbar — html.js blendet erst aus, ein kleines
  * Skript in Base.astro (IntersectionObserver) blendet beim Scrollen ein.
- * Nur opacity/transform, Dauer 400ms, y-Versatz 12px (liest sich als Fade).
  */
 html.js [data-reveal] {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateY(14px);
   transition:
     opacity var(--dauer-reveal) var(--kurve-aus),
     transform var(--dauer-reveal) var(--kurve-aus);
@@ -179,7 +226,7 @@ html.js [data-reveal].ist-sichtbar {
   transform: none;
 }
 
-/* Fugen-Linie, die sich beim Erscheinen zieht (Ablauf-Section) */
+/* Fugen-Linie, die sich beim Erscheinen zieht */
 html.js [data-linie] {
   transform: scaleX(0);
   transform-origin: left;
@@ -189,7 +236,7 @@ html.js [data-linie].ist-sichtbar {
   transform: scaleX(1);
 }
 
-/* Referenz-Kacheln: Foto rückt im Fugen-Rahmen leicht heran (nur transform) */
+/* Referenz-Kacheln: Foto rückt im Rahmen leicht heran (nur transform) */
 .referenz-kachel img {
   transition: transform var(--dauer-normal) var(--kurve-aus);
 }
@@ -210,12 +257,14 @@ html.js [data-linie].ist-sichtbar {
   }
   .referenz-kachel:hover img,
   .knopf-primaer:hover svg,
-  .knopf-sekundaer:hover svg {
+  .knopf-sekundaer:hover svg,
+  .index-zeile:hover .index-pfeil {
     transform: none;
   }
   .knopf-primaer,
   .knopf-sekundaer,
-  .referenz-kachel img {
+  .referenz-kachel img,
+  .index-zeile {
     transition-duration: 1ms;
   }
 }

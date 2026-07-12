@@ -1,12 +1,11 @@
 ---
 /**
- * Basis-Layout: Fonts (self-hosted via Fontsource), Meta/SEO, Varianten-Schalter.
+ * Basis-Layout: Fonts (self-hosted via Fontsource), Meta/SEO, Reveal-System.
  * ENTWURF: noindex ist gesetzt — vor Livegang entfernen!
  */
 import '@fontsource-variable/instrument-sans';
 import '@fontsource-variable/fraunces/opsz.css';
 import '../styles/global.css';
-import VariantenSchalter from '../components/VariantenSchalter.astro';
 
 interface Props {
   title: string;
@@ -32,7 +31,7 @@ const ldJson = {
 ---
 
 <!doctype html>
-<html lang="de" data-variante="a">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,16 +39,14 @@ const ldJson = {
     <meta name="description" content={description} />
     <!-- ENTWURF: vor Livegang entfernen -->
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#121110" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
-    <!-- Farbvariante vor dem ersten Paint setzen (verhindert Flackern);
-         html.js aktiviert das Reveal-System (ohne JS bleibt alles sichtbar) -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+    <!-- html.js aktiviert das Reveal-System (ohne JS bleibt alles sichtbar) -->
     <script is:inline>
-      const v = localStorage.getItem('farbvariante');
-      if (v === 'a' || v === 'b') document.documentElement.dataset.variante = v;
       document.documentElement.classList.add('js');
     </script>
   </head>
@@ -61,7 +58,8 @@ const ldJson = {
       Zum Inhalt springen
     </a>
     <slot />
-    <VariantenSchalter />
+    <!-- Materialtextur über der gesamten Bühne (rein visuell) -->
+    <div class="korn" aria-hidden="true"></div>
     <!-- Scroll-Reveal: beobachtet [data-reveal]; Gruppen ([data-reveal-gruppe])
          staffeln ihre Kinder um 45ms. Bei prefers-reduced-motion macht das CSS
          alles sofort sichtbar — der Observer schadet dann nicht. -->

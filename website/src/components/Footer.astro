@@ -1,6 +1,6 @@
 ---
 /**
- * Footer: schlicht, mit Rechtslinks. Bewusst ohne CMS-Werbezeile.
+ * Footer: schlicht, Haarlinie, Rechtslinks. Bewusst ohne CMS-Werbezeile.
  */
 const jahr = new Date().getFullYear();
 ---
@@ -9,8 +9,8 @@ const jahr = new Date().getFullYear();
   <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-8 text-sm text-tinte-soft sm:px-6">
     <p>© {jahr} Fliesenfachbetrieb Rochlus GmbH, Köln</p>
     <nav class="flex gap-6" aria-label="Rechtliches">
-      <a href="/impressum" class="hover:text-tinte">Impressum</a>
-      <a href="/datenschutz" class="hover:text-tinte">Datenschutz</a>
+      <a href="/impressum" class="py-1 transition-colors duration-150 hover:text-tinte">Impressum</a>
+      <a href="/datenschutz" class="py-1 transition-colors duration-150 hover:text-tinte">Datenschutz</a>
     </nav>
   </div>
 </footer>

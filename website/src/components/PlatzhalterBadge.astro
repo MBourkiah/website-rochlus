@@ -1,6 +1,7 @@
 ---
 /**
  * Kennzeichnet Inhalte, die noch vom Kunden kommen müssen.
+ * Dunkler Chip mit Kupfer-Text — lesbar auf dunklen Flächen, Papier und Fotos.
  * Jede Verwendung entspricht einem Punkt auf der Kunden-Checkliste (siehe konzept/).
  */
 interface Props {
@@ -9,9 +10,8 @@ interface Props {
 const { text = 'Platzhalter' } = Astro.props;
 ---
 
-<!-- bg-grund macht das Badge auch auf dunklen Flächen und Fotos lesbar -->
 <span
-  class="inline-flex items-center gap-1.5 border border-dashed border-akzent bg-grund px-2 py-0.5 text-[0.65rem] font-semibold tracking-widest uppercase text-akzent-tief"
+  class="inline-flex items-center gap-1.5 border border-dashed border-akzent bg-grund px-2 py-0.5 text-[0.65rem] font-semibold tracking-widest uppercase text-akzent-text"
 >
   {text}
 </span>
