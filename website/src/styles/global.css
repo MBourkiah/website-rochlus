@@ -1,35 +1,34 @@
 @import "tailwindcss";
 
 /*
- * DARK EDITORIAL — die gewählte Design-Richtung (ersetzt das frühere A/B-System).
+ * LIGHT EDITORIAL — warme, helle Bühne (Interior-Magazin auf Papier).
  *
- * Konzept: High-End-Interior-Magazin auf warmem Fast-Schwarz. Die Akzentfarbe
- * ist Kupfer/Terrakotta-Glut — der Bezug zum Gewerk: gebrannter Ton kommt aus
- * dem Ofen. Feine Haarlinien (Fugen) strukturieren, große Serifen-Typografie
- * (Fraunces) trägt die Hierarchie. Ein helles "Papier"-Kapitel (Ablauf/Betrieb)
- * setzt den editorialen Rhythmus-Kontrast.
+ * Konzept: warmes Papier statt Fast-Schwarz, Tinte als Text, Terrakotta als
+ * Akzent (gebrannter Ton = das Material des Gewerks). Feine Haarlinien (Fugen)
+ * strukturieren, große Serifen-Typografie (Fraunces) trägt die Hierarchie.
+ * Ein dunkles "Kapitel" (Ablauf/Betrieb) setzt den editorialen Rhythmus-Kontrast.
  */
 :root {
-  /* Dunkle Bühne */
-  --grund: #121110; /* warmes Fast-Schwarz */
-  --flaeche: #1b1916; /* erhöhte Fläche (Karten, Header) */
-  --tinte: #efe7db; /* warmes Papierweiß als Text */
-  --tinte-soft: #a89d8c;
-  --fuge: #322e28; /* Haarlinien auf dunkel */
+  /* Helle Bühne */
+  --grund: #f6f1e8; /* warmes Papier */
+  --flaeche: #ece4d4; /* erhöhte Fläche (Karten, Menü) */
+  --tinte: #191712; /* warme Tinte */
+  --tinte-soft: #5d5749;
+  --fuge: #d9cfbd; /* Haarlinien auf hell */
 
-  /* Kupfer-Glut */
-  --akzent: #c96f42; /* Flächen, Buttons */
-  --akzent-hover: #da8354;
-  --akzent-hell: #e0906128; /* nur als Schimmer/Glut (mit Alpha) */
-  --akzent-text: #e08d5f; /* Akzent als Kleintext auf dunkel (≥4.5:1) */
-  --akzent-kontrast: #16100b; /* Text auf Kupferfläche */
+  /* Terrakotta */
+  --akzent: #b0512c; /* Flächen, Buttons */
+  --akzent-hover: #96431f;
+  --akzent-hell: #b0512c1f; /* nur als warmer Schein (mit Alpha) */
+  --akzent-text: #96431f; /* Akzent als Kleintext auf hell (≥4.5:1) */
+  --akzent-kontrast: #fff6ee; /* Text auf Terrakottafläche */
 
-  /* Papier-Kapitel (helle Sections) */
-  --papier: #efe7db;
-  --papier-flaeche: #e3d9c9;
-  --papier-tinte: #17150f;
-  --papier-tinte-soft: #5d5545;
-  --papier-fuge: #cfc4b1;
+  /* Dunkles Kontrast-Kapitel (Ablauf/Betrieb) */
+  --kapitel: #1b1916;
+  --kapitel-flaeche: #262219;
+  --kapitel-tinte: #efe7db;
+  --kapitel-tinte-soft: #a89d8c;
+  --kapitel-fuge: #38332b;
 
   /* Motion-Tokens: eine Rhythmik für alle Animationen */
   --dauer-schnell: 150ms;
@@ -49,11 +48,11 @@
   --color-akzent-hover: var(--akzent-hover);
   --color-akzent-text: var(--akzent-text);
   --color-akzent-kontrast: var(--akzent-kontrast);
-  --color-papier: var(--papier);
-  --color-papier-flaeche: var(--papier-flaeche);
-  --color-papier-tinte: var(--papier-tinte);
-  --color-papier-tinte-soft: var(--papier-tinte-soft);
-  --color-papier-fuge: var(--papier-fuge);
+  --color-kapitel: var(--kapitel);
+  --color-kapitel-flaeche: var(--kapitel-flaeche);
+  --color-kapitel-tinte: var(--kapitel-tinte);
+  --color-kapitel-tinte-soft: var(--kapitel-tinte-soft);
+  --color-kapitel-fuge: var(--kapitel-fuge);
 
   --font-headline: "Fraunces Variable", Georgia, "Times New Roman", serif;
   --font-text: "Instrument Sans Variable", system-ui, -apple-system, sans-serif;
@@ -111,7 +110,7 @@ summary {
   inset: 0;
   z-index: 5;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -167,14 +166,14 @@ summary {
   background-color: var(--tinte);
   color: var(--grund);
 }
-/* Varianten für Papier-Kapitel */
-.papier-kontext .knopf-sekundaer {
-  border-color: var(--papier-tinte-soft);
-  color: var(--papier-tinte);
+/* Varianten fürs dunkle Kontrast-Kapitel */
+.kapitel-kontext .knopf-sekundaer {
+  border-color: var(--kapitel-tinte-soft);
+  color: var(--kapitel-tinte);
 }
-.papier-kontext .knopf-sekundaer:hover {
-  background-color: var(--papier-tinte);
-  color: var(--papier);
+.kapitel-kontext .knopf-sekundaer:hover {
+  background-color: var(--kapitel-tinte);
+  color: var(--kapitel);
 }
 .knopf-primaer:active,
 .knopf-sekundaer:active {
