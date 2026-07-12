@@ -1,11 +1,10 @@
 ---
 /**
- * Vertrauens-Section, Fortsetzung des Papier-Kapitels.
- * WICHTIG — alle als Platzhalter markierten Angaben sind NICHT bestätigt:
- *   – Meisterbetrieb: offene Aussage, erst nach Kundenbestätigung setzen
- *   – Gründungsjahr / Jahre am Markt: keine erfundene Zahl
- *   – Inhaber-Foto: fehlt
- * Der Name Marc Rochlus stammt aus dem Impressum der Bestandsseite (belegt).
+ * Vertrauens-Section im dunklen Kapitel. Nur belegte Fakten stehen groß
+ * (GmbH, inhabergeführt, Marc Rochlus, Köln); alles Unbestätigte ist in EINEM
+ * gebündelten Klärungskasten statt in drei gleichwertigen Platzhalter-Zellen —
+ * so wirkt die Section für Endkunden nicht lückenhaft, bleibt aber ehrlich.
+ * WICHTIG: Meisterbetrieb/Gründungsjahr NICHT setzen, bis der Kunde bestätigt.
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 ---
@@ -19,35 +18,33 @@ import PlatzhalterBadge from './PlatzhalterBadge.astro';
       </h2>
       <p class="mt-6 max-w-lg leading-relaxed text-kapitel-tinte-soft" data-reveal>
         Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln.
-        Wer anruft, spricht direkt mit dem Betrieb — und wer uns beauftragt,
+        Wer anruft, spricht direkt mit dem Betrieb — und wer beauftragt,
         bekommt die Arbeit vom Fachbetrieb, nicht von wechselnden Kolonnen.
       </p>
 
-      <dl class="mt-12 grid max-w-lg grid-cols-1 gap-8 sm:grid-cols-2">
-        <div class="border-t border-kapitel-tinte pt-4" data-reveal>
-          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Am Markt seit</dt>
-          <dd class="mt-2">
-            <PlatzhalterBadge text="Gründungsjahr folgt" />
-          </dd>
-        </div>
-        <div class="border-t border-kapitel-tinte pt-4" data-reveal>
-          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Qualifikation</dt>
-          <dd class="mt-2 text-sm leading-relaxed">
-            <PlatzhalterBadge text="Meisterbetrieb? — vom Kunden bestätigen lassen" />
-          </dd>
-        </div>
-        <div class="border-t border-kapitel-tinte pt-4" data-reveal>
-          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Einzugsgebiet</dt>
-          <dd class="mt-2 text-sm leading-relaxed">
-            Köln und Umgebung<br />
-            <span class="mt-1 inline-block"><PlatzhalterBadge text="genaues Gebiet klären" /></span>
-          </dd>
-        </div>
-        <div class="border-t border-kapitel-tinte pt-4" data-reveal>
+      <dl class="mt-12 max-w-lg space-y-6" data-reveal>
+        <div class="flex items-baseline justify-between gap-6 border-t border-kapitel-fuge pt-4">
           <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Ihr Ansprechpartner</dt>
-          <dd class="font-headline mt-2 text-xl font-semibold">Marc Rochlus</dd>
+          <dd class="font-headline text-2xl font-semibold">Marc Rochlus</dd>
+        </div>
+        <div class="flex items-baseline justify-between gap-6 border-t border-kapitel-fuge pt-4">
+          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Betrieb</dt>
+          <dd class="text-sm">Inhabergeführte GmbH, Sitz in Köln</dd>
+        </div>
+        <div class="flex items-baseline justify-between gap-6 border-t border-kapitel-fuge pt-4">
+          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Einzugsgebiet</dt>
+          <dd class="text-sm">Köln und Umgebung</dd>
         </div>
       </dl>
+
+      <!-- Gebündelter Klärungskasten statt verstreuter Platzhalter -->
+      <div class="mt-8 max-w-lg border border-dashed border-kapitel-fuge px-5 py-4" data-reveal>
+        <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
+        <p class="mt-2 text-xs leading-relaxed text-kapitel-tinte-soft">
+          Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet werden
+          ergänzt, sobald der Betrieb sie bestätigt — hier steht nichts Erfundenes.
+        </p>
+      </div>
     </div>
 
     <!-- Inhaber-Foto: Platzhalterfläche im Fugen-Rahmen -->

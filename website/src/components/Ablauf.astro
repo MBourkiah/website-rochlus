@@ -1,25 +1,25 @@
 ---
 /**
- * Papier-Kapitel (heller Kontrastblock im editorialen Rhythmus).
- * Die Beratungs-/Service-Punkte des Bestands als Prozess erzählt.
- * Kupfer-Linie zieht sich beim Erscheinen über alle Schritte.
+ * Dunkles Kontrast-Kapitel. Die Nummern bleiben hier bewusst: der Ablauf IST
+ * eine Sequenz (frontend-design: Struktur nur, wo sie Information trägt).
+ * Abschlusszeile senkt die Anruf-Hürde: Schritt 1 ist belegt unverbindlich.
  */
 const schritte = [
   {
     titel: 'Besichtigung vor Ort',
-    text: 'Wir schauen uns Ihr Projekt bei Ihnen an — unverbindlich und mit ehrlicher Einschätzung.',
+    text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen Ihnen ehrlich, was geht — und was nicht.',
   },
   {
     titel: 'Planung & Beratung',
-    text: 'Individuelle Planung: Material, Format, Verlegebild und Budget werden gemeinsam festgelegt.',
+    text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden, wir beraten.',
   },
   {
     titel: 'Ausführung',
-    text: 'Materialanlieferung und Ausführung aus einer Hand — mit laufender Überwachung der Leistungen.',
+    text: 'Wir liefern das Material an und führen alle Arbeiten aus einer Hand aus — mit laufender Überwachung.',
   },
   {
     titel: 'Übergabe',
-    text: 'Gemeinsame Abnahme bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch danach.',
+    text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch danach.',
   },
 ];
 ---
@@ -31,7 +31,7 @@ const schritte = [
       Vier Schritte, <em class="italic">ein</em> Ansprechpartner.
     </h2>
 
-    <!-- Kupfer-Linie, die sich beim Erscheinen über alle Schritte zieht -->
+    <!-- Terrakotta-Linie, die sich beim Erscheinen über alle Schritte zieht -->
     <div class="mt-16 h-0.5 bg-akzent" data-linie></div>
 
     <ol class="grid grid-cols-1 gap-10 pt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-reveal-gruppe>
@@ -47,5 +47,13 @@ const schritte = [
         ))
       }
     </ol>
+
+    <!-- Die Hürde für Schritt 1 senken: Besichtigung ist laut Bestand unverbindlich -->
+    <p class="mt-16 border-t border-kapitel-fuge pt-8 text-lg" data-reveal>
+      <span class="text-kapitel-tinte-soft">Schritt 1 kostet Sie nichts als einen Anruf:</span>
+      <a href="tel:+492219687575" class="font-headline ml-2 text-2xl font-semibold whitespace-nowrap transition-colors duration-150 hover:text-akzent-text">
+        0221&nbsp;968&nbsp;75&nbsp;75
+      </a>
+    </p>
   </div>
 </section>

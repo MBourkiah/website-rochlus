@@ -1,52 +1,38 @@
 ---
 /**
- * Feature-Section fürs Kernangebot: Kupferfläche als einziger voll gesättigter
- * Block der Seite — maximale Aufmerksamkeit für das wertvollste Angebot.
- * Alle Aussagen stammen aus der bestehenden Leistungsliste — nichts erfunden.
+ * These-Block fürs Kernangebot: die einzige voll gesättigte Terrakottafläche.
+ * Bewusst kurz — der Ablauf wird in der Ablauf-Section erzählt, nicht hier
+ * (Redundanz raus). Aussage stammt aus der Bestandsleistung „Komplettsanierungen
+ * inkl. Raumgestaltung"; das Bad als Anwendungsfall entspricht dem Bestand.
  */
 ---
 
 <section class="bg-akzent text-akzent-kontrast">
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-24" data-reveal-gruppe>
-    <div class="lg:col-span-4" data-reveal>
-      <span class="font-headline text-8xl leading-none font-light opacity-40" aria-hidden="true">01</span>
-      <p class="eyebrow mt-4 opacity-85">Unser Kernangebot</p>
-    </div>
-    <div class="lg:col-span-7 lg:col-start-6">
-      <h2 class="font-headline text-3xl leading-tight font-semibold text-balance sm:text-5xl" data-reveal>
-        Komplettsanierung — inklusive <em class="italic">Raumgestaltung.</em>
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-end lg:py-24" data-reveal-gruppe>
+    <div class="lg:col-span-7">
+      <p class="eyebrow opacity-85" data-reveal>Unser Kernangebot</p>
+      <h2 class="font-headline mt-5 text-3xl leading-tight font-medium text-balance sm:text-5xl" data-reveal>
+        Ein Raum, eine Nummer: die Komplettsanierung — <em class="italic">inklusive Raumgestaltung.</em>
       </h2>
-      <p class="mt-6 max-w-xl leading-relaxed opacity-80" data-reveal>
-        Ein Bad oder ein ganzer Raum, ein Ansprechpartner: Wir übernehmen Planung und
-        Beratung, liefern das Material an, führen alle Arbeiten aus und überwachen
-        die Leistungen bis zur Übergabe. Sie müssen nichts koordinieren.
+      <p class="mt-6 max-w-xl leading-relaxed opacity-90" data-reveal>
+        Vom durchgesessenen Bad zum fertigen Raum, ohne dass Sie Handwerker
+        koordinieren müssen: Wir planen mit Ihnen, liefern das Material,
+        führen alle Arbeiten rund um die Fliese aus und übergeben besenrein.
       </p>
-      <ul class="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 text-sm font-medium sm:grid-cols-2">
-        {
-          [
-            'Individuelle Planung und Beratung',
-            'Materialanlieferung',
-            'Ausführung aller Gewerke rund um die Fliese',
-            'Überwachung der Leistungen',
-          ].map((punkt) => (
-            <li class="flex items-start gap-3" data-reveal>
-              <span class="mt-1.5 block h-2 w-2 shrink-0 bg-akzent-kontrast" aria-hidden="true"></span>
-              {punkt}
-            </li>
-          ))
-        }
-      </ul>
-      <div class="mt-10" data-reveal>
-        <a
-          href="#kontakt"
-          class="inline-flex min-h-12 items-center gap-2 bg-akzent-kontrast px-6 py-3.5 text-sm font-semibold text-tinte transition-transform duration-150 active:scale-[0.98]"
-        >
-          Sanierung anfragen
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
+    </div>
+    <div class="lg:col-span-4 lg:col-start-9" data-reveal>
+      <a
+        href="#kontakt"
+        class="inline-flex min-h-12 items-center gap-2 bg-akzent-kontrast px-6 py-3.5 text-sm font-semibold text-tinte transition-transform duration-150 active:scale-[0.98]"
+      >
+        Sanierung anfragen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <p class="mt-4 max-w-xs text-sm leading-relaxed opacity-85">
+        Wie das abläuft, steht zwei Abschnitte weiter unten — in vier Schritten.
+      </p>
     </div>
   </div>
 </section>
