@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Vier Fliesen im Verband mit Fuge — neutrales Interim-Favicon, funktioniert für beide Farbvarianten -->
+  <rect width="64" height="64" fill="#f5f1ea"/>
+  <rect x="4" y="4" width="27" height="27" fill="#26251f"/>
+  <rect x="34" y="4" width="26" height="27" fill="#b85c38"/>
+  <rect x="4" y="34" width="27" height="26" fill="#a79e90"/>
+  <rect x="34" y="34" width="26" height="26" fill="#26251f"/>
+</svg>

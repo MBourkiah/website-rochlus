@@ -1,0 +1,266 @@
+{
+  "erfasstAm": "2026-07-06T13:51:34.222Z",
+  "url": "https://fliesen-rochlus.de/",
+  "tech": {
+    "generator": "WordPress 5.5.18",
+    "hinweise": [
+      "WordPress",
+      "Bootstrap",
+      "jQuery"
+    ]
+  },
+  "performance": {
+    "domContentLoaded": 420,
+    "loadEvent": 421,
+    "ttfb": 324,
+    "firstContentfulPaint": 408,
+    "transferSizeKB": 18,
+    "resourceCount": 16,
+    "wallClockLoadMs": 421,
+    "gesamtTransferKBLautHeadern": 234,
+    "requestsNachTyp": {
+      "document": {
+        "anzahl": 1,
+        "kb": 0
+      },
+      "stylesheet": {
+        "anzahl": 5,
+        "kb": 0
+      },
+      "script": {
+        "anzahl": 8,
+        "kb": 0
+      },
+      "image": {
+        "anzahl": 3,
+        "kb": 234
+      }
+    }
+  },
+  "design": {
+    "textfarben": [
+      {
+        "wert": "rgb(51, 51, 51)",
+        "gewicht": 50
+      },
+      {
+        "wert": "rgb(34, 34, 34)",
+        "gewicht": 6
+      },
+      {
+        "wert": "rgb(255, 255, 255)",
+        "gewicht": 6
+      },
+      {
+        "wert": "rgb(118, 118, 118)",
+        "gewicht": 3
+      },
+      {
+        "wert": "rgb(102, 102, 102)",
+        "gewicht": 2
+      }
+    ],
+    "hintergrundfarben": [
+      {
+        "wert": "rgb(255, 255, 255)",
+        "gewicht": 603680
+      },
+      {
+        "wert": "rgb(250, 250, 250)",
+        "gewicht": 500000
+      },
+      {
+        "wert": "rgb(0, 0, 0)",
+        "gewicht": 87120
+      },
+      {
+        "wert": "rgb(0, 169, 157)",
+        "gewicht": 1169
+      }
+    ],
+    "schriftfamilien": [
+      {
+        "wert": "\"Libre Franklin\", \"Helvetica Neue\", helvetica, arial, sans-serif",
+        "gewicht": 70
+      },
+      {
+        "wert": "-apple-system, \"system-ui\", Arial, Roboto, \"Helvetica Neue\", sans-serif",
+        "gewicht": 6
+      }
+    ],
+    "headlineFonts": [
+      "\"Libre Franklin\", \"Helvetica Neue\", helvetica, arial, sans-serif"
+    ],
+    "bodyFont": "\"Libre Franklin\", \"Helvetica Neue\", helvetica, arial, sans-serif",
+    "akzentKandidaten": [
+      "rgb(34, 34, 34)",
+      "rgb(255, 255, 255)",
+      "rgb(118, 118, 118)",
+      "rgb(102, 102, 102)",
+      "rgb(0, 169, 157)"
+    ],
+    "geladeneFontDateien": []
+  },
+  "struktur": [
+    {
+      "tag": "div",
+      "id": "page",
+      "klassen": "site",
+      "ueberschrift": "FLIESENFACHBETRIEB ROCHLUS GMBH",
+      "hoehePx": 2508
+    },
+    {
+      "tag": "div",
+      "id": "cookie-notice",
+      "klassen": "cookie-revoke-hidden cn-position-bottom cn-effect-fade cookie-notice-visible",
+      "ueberschrift": null,
+      "hoehePx": 61
+    }
+  ],
+  "inhalt": {
+    "title": "Fliesenfachbetrieb Rochlus GmbH",
+    "metaDescription": null,
+    "lang": "de",
+    "headlines": [
+      {
+        "tag": "h1",
+        "text": "FLIESENFACHBETRIEB ROCHLUS GMBH"
+      },
+      {
+        "tag": "h2",
+        "text": "HOME"
+      },
+      {
+        "tag": "h2",
+        "text": "Unser Serviceangebot:"
+      },
+      {
+        "tag": "h2",
+        "text": "KONTAKT"
+      }
+    ],
+    "paragraphs": [
+      "Fliesenfachbetrieb Rochlus GmbH",
+      "Kranzbinderweg 15 51067 Köln",
+      "Fon: 0221 / 9687575 Fax: 0221/ 9687576",
+      "Mobil: 0172 / 2770674 Mail: mrochlus@web.de"
+    ],
+    "lists": [
+      {
+        "isNav": true,
+        "items": [
+          "Home",
+          "Impressum",
+          "Datenschutz"
+        ]
+      },
+      {
+        "isNav": false,
+        "items": [
+          "Verlegung von Wand und Bodenfliesen",
+          "Verlegung von Naturstein",
+          "Trockenausbau",
+          "Elastische Fugen",
+          "Abdichtungsarbeiten",
+          "Verarbeitung edler Materialien",
+          "Einbau elektrischer Fußbodenheizungen",
+          "Besichtigung und Vorortberatung",
+          "Überwachung der Leistungen",
+          "Individuelle Planung, sowie Beratung",
+          "Materialanlieferung",
+          "Ausführung kleiner Reparaturarbeiten",
+          "Komplettsanierungen inkl. Raumgestaltung"
+        ]
+      }
+    ],
+    "ctas": [
+      {
+        "text": "Zum Inhalt springen",
+        "href": "#content",
+        "looksLikeButton": false
+      },
+      {
+        "text": "FLIESENFACHBETRIEB ROCHLUS GMBH",
+        "href": "https://fliesen-rochlus.de/",
+        "looksLikeButton": ""
+      },
+      {
+        "text": "Home",
+        "href": "https://fliesen-rochlus.de/",
+        "looksLikeButton": ""
+      },
+      {
+        "text": "Impressum",
+        "href": "https://fliesen-rochlus.de/?page_id=8",
+        "looksLikeButton": ""
+      },
+      {
+        "text": "Datenschutz",
+        "href": "https://fliesen-rochlus.de/?page_id=11",
+        "looksLikeButton": ""
+      },
+      {
+        "text": "Zum Inhalt nach unten scrollen",
+        "href": "#content",
+        "looksLikeButton": false
+      },
+      {
+        "text": "mrochlus@web.de",
+        "href": "mailto:mrochlus@web.de",
+        "looksLikeButton": false
+      },
+      {
+        "text": "Stolz präsentiert von WordPress",
+        "href": "https://de.wordpress.org/",
+        "looksLikeButton": false
+      },
+      {
+        "text": "OK",
+        "href": "#",
+        "looksLikeButton": true
+      }
+    ],
+    "kontakt": {
+      "telLinks": [],
+      "mailLinks": [
+        "mailto:mrochlus@web.de"
+      ],
+      "telefonImText": [],
+      "mailsImText": [
+        "mrochlus@web.de"
+      ],
+      "adressen": [
+        "Kranzbinderweg 15\n51067 Köln"
+      ]
+    }
+  },
+  "bilder": [
+    {
+      "art": "img",
+      "src": "https://fliesen-rochlus.de/wp-content/uploads/2020/05/cropped-Teaserbild_Badezimmer-Trends_2019-1536x1023.jpg",
+      "alt": "Fliesenfachbetrieb Rochlus GmbH",
+      "natuerlicheGroesse": "1439x959",
+      "dargestellteGroesse": "1440x900",
+      "loading": "auto",
+      "einsatzort": "masthead"
+    },
+    {
+      "art": "img",
+      "src": "https://fliesen-rochlus.de/wp-content/uploads/2020/05/cropped-logo-1536x140.jpg",
+      "alt": "Fliesenfachbetrieb Rochlus GmbH",
+      "natuerlicheGroesse": "1439x131",
+      "dargestellteGroesse": "350x32",
+      "loading": "auto",
+      "einsatzort": "masthead"
+    },
+    {
+      "art": "img",
+      "src": "https://fliesen-rochlus.de/wp-content/uploads/2020/05/collage.jpg",
+      "alt": null,
+      "natuerlicheGroesse": "600x420",
+      "dargestellteGroesse": "600x420",
+      "loading": "lazy",
+      "einsatzort": "main"
+    }
+  ]
+}

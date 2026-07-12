@@ -1,0 +1,49 @@
+---
+/**
+ * Feature-Section für das wertvollste Angebot (stand im Bestand an Listenplatz 13).
+ * Dunkle Fläche als bewusster Kontrastblock, Inhalt asymmetrisch gesetzt.
+ * Alle Aussagen stammen aus der bestehenden Leistungsliste — nichts erfunden.
+ */
+---
+
+<section class="bg-dunkel text-dunkel-tinte">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-24" data-reveal-gruppe>
+    <div class="lg:col-span-4" data-reveal>
+      <span class="font-headline text-7xl font-light text-dunkel-soft" aria-hidden="true">01</span>
+      <p class="eyebrow mt-4 text-dunkel-soft">Unser Kernangebot</p>
+    </div>
+    <div class="lg:col-span-7 lg:col-start-6">
+      <h2 class="font-headline text-3xl leading-tight font-semibold text-balance sm:text-4xl" data-reveal>
+        Komplettsanierung — inklusive Raumgestaltung.
+      </h2>
+      <p class="mt-6 max-w-xl leading-relaxed text-dunkel-soft" data-reveal>
+        Ein Bad oder ein ganzer Raum, ein Ansprechpartner: Wir übernehmen Planung und
+        Beratung, liefern das Material an, führen alle Arbeiten aus und überwachen
+        die Leistungen bis zur Übergabe. Sie müssen nichts koordinieren.
+      </p>
+      <ul class="mt-8 grid max-w-xl grid-cols-1 gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
+        {
+          [
+            'Individuelle Planung und Beratung',
+            'Materialanlieferung',
+            'Ausführung aller Gewerke rund um die Fliese',
+            'Überwachung der Leistungen',
+          ].map((punkt) => (
+            <li class="flex items-start gap-3" data-reveal>
+              <span class="mt-1.5 block h-2 w-2 shrink-0 bg-akzent" aria-hidden="true"></span>
+              {punkt}
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-10" data-reveal>
+        <a href="#kontakt" class="knopf-primaer">
+          Sanierung anfragen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

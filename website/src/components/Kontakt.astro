@@ -1,0 +1,53 @@
+---
+/**
+ * Kontakt: dunkle Schlussfläche, Telefonnummer als größtes Element (Hauptkanal
+ * eines Handwerksbetriebs). Alle Daten aus dem Bestand übernommen (belegt).
+ * Erreichbarkeitszeiten: Platzhalter — vom Kunden.
+ */
+import PlatzhalterBadge from './PlatzhalterBadge.astro';
+---
+
+<section id="kontakt" class="scroll-mt-20 bg-dunkel text-dunkel-tinte">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-24">
+    <div class="lg:col-span-7" data-reveal-gruppe>
+      <p class="eyebrow text-dunkel-soft" data-reveal>Kontakt</p>
+      <h2 class="font-headline mt-4 max-w-xl text-3xl leading-tight font-semibold text-balance sm:text-4xl" data-reveal>
+        Erzählen Sie uns von Ihrem Projekt.
+      </h2>
+      <p class="mt-5 max-w-md leading-relaxed text-dunkel-soft" data-reveal>
+        Am schnellsten geht es telefonisch — oder Sie schreiben eine E-Mail mit ein
+        paar Eckdaten, wir melden uns zurück.
+      </p>
+
+      <a
+        href="tel:+492219687575"
+        class="group font-headline mt-10 inline-block text-4xl font-semibold tracking-tight transition-colors duration-150 hover:text-akzent sm:text-5xl"
+        data-reveal
+      >
+        0221&nbsp;968&nbsp;75&nbsp;75
+        <!-- Fugen-Linie unter der Nummer wächst bei Hover -->
+        <span aria-hidden="true" class="mt-2 block h-0.5 w-full origin-left scale-x-0 bg-akzent transition-transform duration-150 ease-out group-hover:scale-x-100"></span>
+      </a>
+      <div class="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-dunkel-soft">
+        <a href="tel:+491722770674" class="hover:text-dunkel-tinte">Mobil: 0172&nbsp;277&nbsp;06&nbsp;74</a>
+        <a href="mailto:mrochlus@web.de" class="underline underline-offset-4 hover:text-dunkel-tinte">
+          mrochlus@web.de
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-dunkel-soft/40 pt-8 text-sm leading-relaxed lg:col-span-4 lg:col-start-9 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
+      <p class="font-semibold">Fliesenfachbetrieb Rochlus GmbH</p>
+      <p class="mt-2 text-dunkel-soft">
+        Kranzbinderweg 15<br />
+        51067 Köln
+      </p>
+      <p class="mt-6 text-xs font-semibold tracking-widest uppercase text-dunkel-soft">Erreichbarkeit</p>
+      <p class="mt-2">
+        <PlatzhalterBadge text="Zeiten folgen vom Kunden" />
+      </p>
+      <p class="mt-6 text-xs font-semibold tracking-widest uppercase text-dunkel-soft">Einzugsgebiet</p>
+      <p class="mt-2 text-dunkel-soft">Köln und Umgebung</p>
+    </div>
+  </div>
+</section>

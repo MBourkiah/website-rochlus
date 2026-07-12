@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/*
+ * Design-Tokens — zwei umschaltbare Farbvarianten (siehe konzept/design-konzept.md)
+ * Umschaltung über data-variante="a" | "b" auf <html>.
+ * Variante A: warme Materialtöne (Terrakotta / Kalkstein / Anthrazit) — Default
+ * Variante B: Mosaik modernisiert (Tiefblau / Ziegelrot / Ocker)
+ */
+:root,
+[data-variante="a"] {
+  --grund: #f5f1ea; /* Kalkstein-Weiß */
+  --flaeche: #e8e0d3; /* Sandstein */
+  --tinte: #26251f; /* Anthrazit */
+  --tinte-soft: #5c5648;
+  --akzent: #b85c38; /* Terrakotta */
+  --akzent-hover: #9d4c2d;
+  --akzent-tief: #8f4526; /* Akzent für kleinen Text (Kontrast ≥ 4.5:1 auf Grund) */
+  --akzent-kontrast: #fff6ef; /* Text auf Akzentfläche */
+  --fuge: #c9bfae; /* Linienfarbe (Fugen) */
+  --dunkel: #26251f; /* dunkle Abschlussflächen */
+  --dunkel-tinte: #f5f1ea;
+  --dunkel-soft: #b0a897;
+  --mikro: #a79e90; /* Steingrau */
+}
+
+[data-variante="b"] {
+  --grund: #f6f4ef;
+  --flaeche: #e8e4d9;
+  --tinte: #22211d;
+  --tinte-soft: #55534b;
+  --akzent: #a6392e; /* Ziegelrot */
+  --akzent-hover: #8c2f26;
+  --akzent-tief: #8c2f26;
+  --akzent-kontrast: #fbf3f1;
+  --fuge: #c2beb0;
+  --dunkel: #2e4a62; /* Tiefblau */
+  --dunkel-tinte: #f6f4ef;
+  --dunkel-soft: #a9bacb;
+  --mikro: #c9a227; /* Ocker — nur sparsam einsetzen */
+}
+
+@theme inline {
+  --color-grund: var(--grund);
+  --color-flaeche: var(--flaeche);
+  --color-tinte: var(--tinte);
+  --color-tinte-soft: var(--tinte-soft);
+  --color-akzent: var(--akzent);
+  --color-akzent-hover: var(--akzent-hover);
+  --color-akzent-tief: var(--akzent-tief);
+  --color-akzent-kontrast: var(--akzent-kontrast);
+  --color-fuge: var(--fuge);
+  --color-dunkel: var(--dunkel);
+  --color-dunkel-tinte: var(--dunkel-tinte);
+  --color-dunkel-soft: var(--dunkel-soft);
+  --color-mikro: var(--mikro);
+
+  --font-headline: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-text: "Instrument Sans Variable", system-ui, -apple-system, sans-serif;
+}
+
+/* Motion-Tokens: eine Rhythmik für alle Animationen (150–400ms, ease-out rein / ease-in raus) */
+:root {
+  --dauer-schnell: 150ms;
+  --dauer-normal: 250ms;
+  --dauer-reveal: 400ms;
+  --kurve-aus: cubic-bezier(0.22, 1, 0.36, 1); /* entering: ease-out */
+  --kurve-ein: cubic-bezier(0.55, 0, 0.55, 0.2); /* exiting: ease-in */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* sticky Header nicht über Ankerziele */
+}
+
+body {
+  background-color: var(--grund);
+  color: var(--tinte);
+  font-family: var(--font-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+summary {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+/* Sichtbarer Fokus für Tastaturnutzer — nie entfernen, nur gestalten */
+:focus-visible {
+  outline: 2px solid var(--akzent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--akzent);
+  color: var(--akzent-kontrast);
+}
+
+/* Fugenraster: feines Fliesen-Linienraster als Hintergrund (Formensprache, kein Deko-Effekt) */
+.fugenraster {
+  background-image:
+    repeating-linear-gradient(to right, var(--fuge) 0 1px, transparent 1px 96px),
+    repeating-linear-gradient(to bottom, var(--fuge) 0 1px, transparent 1px 96px);
+  background-size: 96px 96px;
+}
+
+/* Eyebrow-Label: gesperrte Versalien über Headlines */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/*
+ * Buttons: eine Definition für konsistente Hover-/Press-/Fokus-Zustände.
+ * Nur transform/opacity/background werden animiert (compositor-freundlich).
+ */
+.knopf-primaer,
+.knopf-sekundaer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem; /* Touch-Target ≥ 44px */
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition:
+    background-color var(--dauer-schnell) var(--kurve-aus),
+    color var(--dauer-schnell) var(--kurve-aus),
+    transform var(--dauer-schnell) var(--kurve-aus);
+}
+.knopf-primaer {
+  background-color: var(--akzent);
+  color: var(--akzent-kontrast);
+}
+.knopf-primaer:hover {
+  background-color: var(--akzent-hover);
+}
+.knopf-sekundaer {
+  border: 1px solid currentColor;
+}
+.knopf-sekundaer:hover {
+  background-color: var(--tinte);
+  color: var(--grund);
+}
+.knopf-primaer:active,
+.knopf-sekundaer:active {
+  transform: scale(0.98);
+}
+/* Pfeil im Button rückt beim Hover nach — Bewegung mit Richtung, kein Deko */
+.knopf-primaer svg,
+.knopf-sekundaer svg {
+  transition: transform var(--dauer-schnell) var(--kurve-aus);
+}
+.knopf-primaer:hover svg,
+.knopf-sekundaer:hover svg {
+  transform: translateX(3px);
+}
+
+/*
+ * Scroll-Reveal-System (progressive enhancement):
+ * Ohne JavaScript ist alles sichtbar — html.js blendet erst aus, ein kleines
+ * Skript in Base.astro (IntersectionObserver) blendet beim Scrollen ein.
+ * Nur opacity/transform, Dauer 400ms, y-Versatz 12px (liest sich als Fade).
+ */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity var(--dauer-reveal) var(--kurve-aus),
+    transform var(--dauer-reveal) var(--kurve-aus);
+  transition-delay: var(--reveal-verzoegerung, 0ms);
+}
+html.js [data-reveal].ist-sichtbar {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fugen-Linie, die sich beim Erscheinen zieht (Ablauf-Section) */
+html.js [data-linie] {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 700ms var(--kurve-aus) 150ms;
+}
+html.js [data-linie].ist-sichtbar {
+  transform: scaleX(1);
+}
+
+/* Referenz-Kacheln: Foto rückt im Fugen-Rahmen leicht heran (nur transform) */
+.referenz-kachel img {
+  transition: transform var(--dauer-normal) var(--kurve-aus);
+}
+.referenz-kachel:hover img {
+  transform: scale(1.03);
+}
+
+/* Reduced Motion: alle Animationen aus, Inhalte sofort sichtbar */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html.js [data-reveal],
+  html.js [data-linie] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .referenz-kachel:hover img,
+  .knopf-primaer:hover svg,
+  .knopf-sekundaer:hover svg {
+    transform: none;
+  }
+  .knopf-primaer,
+  .knopf-sekundaer,
+  .referenz-kachel img {
+    transition-duration: 1ms;
+  }
+}

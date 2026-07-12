@@ -1,0 +1,88 @@
+---
+/**
+ * Basis-Layout: Fonts (self-hosted via Fontsource), Meta/SEO, Varianten-Schalter.
+ * ENTWURF: noindex ist gesetzt — vor Livegang entfernen!
+ */
+import '@fontsource-variable/instrument-sans';
+import '@fontsource-variable/fraunces/opsz.css';
+import '../styles/global.css';
+import VariantenSchalter from '../components/VariantenSchalter.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+
+// Strukturierte Daten: nur belegte Fakten aus dem Bestand (Impressum), nichts erfunden.
+const ldJson = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Fliesenfachbetrieb Rochlus GmbH',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Kranzbinderweg 15',
+    postalCode: '51067',
+    addressLocality: 'Köln',
+    addressCountry: 'DE',
+  },
+  telephone: '+492219687575',
+  email: 'mrochlus@web.de',
+};
+---
+
+<!doctype html>
+<html lang="de" data-variante="a">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <!-- ENTWURF: vor Livegang entfernen -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+    <!-- Farbvariante vor dem ersten Paint setzen (verhindert Flackern);
+         html.js aktiviert das Reveal-System (ohne JS bleibt alles sichtbar) -->
+    <script is:inline>
+      const v = localStorage.getItem('farbvariante');
+      if (v === 'a' || v === 'b') document.documentElement.dataset.variante = v;
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <a
+      href="#inhalt"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-akzent focus:text-akzent-kontrast focus:px-4 focus:py-2"
+    >
+      Zum Inhalt springen
+    </a>
+    <slot />
+    <VariantenSchalter />
+    <!-- Scroll-Reveal: beobachtet [data-reveal]; Gruppen ([data-reveal-gruppe])
+         staffeln ihre Kinder um 45ms. Bei prefers-reduced-motion macht das CSS
+         alles sofort sichtbar — der Observer schadet dann nicht. -->
+    <script is:inline>
+      document.querySelectorAll('[data-reveal-gruppe]').forEach((gruppe) => {
+        gruppe.querySelectorAll(':scope [data-reveal]').forEach((kind, i) => {
+          kind.style.setProperty('--reveal-verzoegerung', `${i * 45}ms`);
+        });
+      });
+      const beobachter = new IntersectionObserver(
+        (eintraege) => {
+          for (const e of eintraege) {
+            if (e.isIntersecting) {
+              e.target.classList.add('ist-sichtbar');
+              beobachter.unobserve(e.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -10% 0px' }
+      );
+      document.querySelectorAll('[data-reveal], [data-linie]').forEach((el) => beobachter.observe(el));
+    </script>
+  </body>
+</html>

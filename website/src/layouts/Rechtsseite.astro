@@ -1,0 +1,27 @@
+---
+/**
+ * Layout für Impressum/Datenschutz: schmale Textspalte, einfache Typo-Stile.
+ */
+import Base from './Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  ueberschrift: string;
+}
+const { title, ueberschrift } = Astro.props;
+---
+
+<Base title={title} description={ueberschrift + ' — Fliesenfachbetrieb Rochlus GmbH, Köln.'}>
+  <Header />
+  <main id="inhalt" class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h1 class="font-headline text-4xl font-semibold tracking-tight">{ueberschrift}</h1>
+    <div
+      class="mt-10 space-y-4 text-sm leading-relaxed text-tinte-soft [&_h2]:font-headline [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-tinte [&_h3]:mt-6 [&_h3]:font-semibold [&_h3]:text-tinte [&_a]:underline [&_a]:underline-offset-4"
+    >
+      <slot />
+    </div>
+  </main>
+  <Footer />
+</Base>

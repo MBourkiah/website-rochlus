@@ -1,0 +1,93 @@
+---
+/**
+ * Referenzen: versetzte Bildkacheln im Fugen-Raster (Verband-Versatz).
+ *
+ * PLATZHALTER: Die vier Motive sind Ausschnitte aus der collage.jpg der
+ * Bestandsseite (Original nur 600×420px — daher die geringe Qualität).
+ * Sie werden 1:1 durch Originalfotos in voller Auflösung ersetzt, sobald
+ * der Kunde sie liefert. Das Layout ist für Vorher/Nachher-Paare vorbereitet:
+ * einfach zwei <figure> nebeneinander mit Labels "Vorher"/"Nachher" einsetzen.
+ * KEINE erfundenen Projektnamen oder Kundenzitate — bewusst weggelassen.
+ */
+import PlatzhalterBadge from './PlatzhalterBadge.astro';
+
+const motive = [
+  {
+    src: '/bilder/platzhalter-verlegung-boden.jpg',
+    alt: 'Verlegung großformatiger Bodenfliesen',
+    beschriftung: 'Bodenverlegung, Großformat',
+    versatz: '',
+  },
+  {
+    src: '/bilder/platzhalter-klebebett.jpg',
+    alt: 'Aufziehen des Klebebetts mit der Zahnkelle',
+    beschriftung: 'Klebebett im Dünnbettverfahren',
+    versatz: 'sm:translate-y-8',
+  },
+  {
+    src: '/bilder/platzhalter-ausrichtung.jpg',
+    alt: 'Ausrichten einer Bodenfliese mit der Wasserwaage',
+    beschriftung: 'Ausrichtung auf der Wasserwaage',
+    versatz: '',
+  },
+  {
+    src: '/bilder/platzhalter-wandarbeiten.jpg',
+    alt: 'Vorbereitete Wandfläche mit Richtschnur',
+    beschriftung: 'Wandarbeiten nach Richtschnur',
+    versatz: 'sm:translate-y-8',
+  },
+];
+---
+
+<section id="referenzen" class="scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
+    <div class="flex flex-wrap items-end justify-between gap-6" data-reveal-gruppe>
+      <div>
+        <p class="eyebrow text-akzent-tief" data-reveal>Einblicke in die Arbeit</p>
+        <h2 class="font-headline mt-4 max-w-xl text-3xl leading-tight font-semibold text-balance sm:text-4xl" data-reveal>
+          Handwerk sieht man am besten an der Fuge.
+        </h2>
+      </div>
+      <PlatzhalterBadge text="Alle Fotos: Platzhalter in geringer Auflösung — Originale folgen" />
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4" data-reveal-gruppe>
+      {
+        motive.map((m) => (
+          <figure class={`referenz-kachel border border-fuge bg-flaeche p-1.5 ${m.versatz}`} data-reveal>
+            <div class="relative aspect-square overflow-hidden">
+              <img src={m.src} alt={m.alt} class="h-full w-full object-cover" loading="lazy" width="210" height="195" />
+              <span class="absolute bottom-1.5 left-1.5">
+                <PlatzhalterBadge text="Platzhalter" />
+              </span>
+            </div>
+            <figcaption class="px-1.5 py-2 text-xs text-tinte-soft">{m.beschriftung}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <!-- Hinweisfläche: hier entsteht die Vorher/Nachher-Galerie -->
+    <div class="mt-10 border border-dashed border-mikro bg-flaeche/50 px-6 py-8 lg:px-10" data-reveal>
+      <p class="max-w-2xl text-sm leading-relaxed text-tinte-soft">
+        <strong class="text-tinte">Hier entsteht die Referenz-Galerie mit Vorher/Nachher-Paaren.</strong>
+        Sobald Originalfotos abgeschlossener Projekte vorliegen (idealerweise je ein Bild vor und
+        nach der Sanierung), werden sie an dieser Stelle paarweise gezeigt — das Layout ist dafür
+        vorbereitet.
+      </p>
+    </div>
+
+    <!-- Conversion: CTA direkt nach dem Proof (Muster „CTA nach Social Proof“) -->
+    <div class="mt-14 flex flex-wrap items-center justify-between gap-6 border-t-2 border-tinte pt-8" data-reveal>
+      <p class="font-headline max-w-md text-2xl font-semibold text-balance">
+        So etwas soll bei Ihnen entstehen?
+      </p>
+      <a href="#kontakt" class="knopf-primaer">
+        Unverbindlich anfragen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+# Abhängigkeiten & Build-Artefakte
+node_modules/
+dist/
+.astro/
+
+# Lokale Agent-Tooling-Skills (per `npx skills add` reinstallierbar)
+.agents/
+.claude/
+
+# System
+.DS_Store

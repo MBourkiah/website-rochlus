@@ -1,0 +1,66 @@
+---
+/**
+ * Vertrauens-Section: Fakten zum Betrieb.
+ * WICHTIG — alle als Platzhalter markierten Angaben sind NICHT bestätigt:
+ *   – Meisterbetrieb: offene Aussage, erst nach Kundenbestätigung setzen
+ *   – Gründungsjahr / Jahre am Markt: keine erfundene Zahl
+ *   – Inhaber-Foto: fehlt
+ * Der Name Marc Rochlus stammt aus dem Impressum der Bestandsseite (belegt).
+ */
+import PlatzhalterBadge from './PlatzhalterBadge.astro';
+---
+
+<section id="betrieb" class="scroll-mt-20 border-b border-fuge">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-24">
+    <div class="lg:col-span-6" data-reveal-gruppe>
+      <p class="eyebrow text-akzent-tief" data-reveal>Der Betrieb</p>
+      <h2 class="font-headline mt-4 text-3xl leading-tight font-semibold text-balance sm:text-4xl" data-reveal>
+        Ein Kölner Fachbetrieb, kein Vermittlungsportal.
+      </h2>
+      <p class="mt-6 max-w-lg leading-relaxed text-tinte-soft" data-reveal>
+        Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln.
+        Wer anruft, spricht direkt mit dem Betrieb — und wer uns beauftragt,
+        bekommt die Arbeit vom Fachbetrieb, nicht von wechselnden Kolonnen.
+      </p>
+
+      <dl class="mt-10 grid max-w-lg grid-cols-1 gap-6 sm:grid-cols-2">
+        <div class="border-t-2 border-tinte pt-4" data-reveal>
+          <dt class="text-xs font-semibold tracking-widest uppercase text-tinte-soft">Am Markt seit</dt>
+          <dd class="font-headline mt-1 text-3xl font-semibold">
+            <PlatzhalterBadge text="Gründungsjahr folgt" />
+          </dd>
+        </div>
+        <div class="border-t-2 border-tinte pt-4" data-reveal>
+          <dt class="text-xs font-semibold tracking-widest uppercase text-tinte-soft">Qualifikation</dt>
+          <dd class="mt-1 text-sm leading-relaxed">
+            <PlatzhalterBadge text="Meisterbetrieb? — vom Kunden bestätigen lassen" />
+          </dd>
+        </div>
+        <div class="border-t-2 border-tinte pt-4" data-reveal>
+          <dt class="text-xs font-semibold tracking-widest uppercase text-tinte-soft">Einzugsgebiet</dt>
+          <dd class="mt-1 text-sm leading-relaxed">
+            Köln und Umgebung<br />
+            <PlatzhalterBadge text="genaues Gebiet klären" />
+          </dd>
+        </div>
+        <div class="border-t-2 border-tinte pt-4" data-reveal>
+          <dt class="text-xs font-semibold tracking-widest uppercase text-tinte-soft">Ihr Ansprechpartner</dt>
+          <dd class="mt-1 text-sm leading-relaxed">Marc Rochlus</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Inhaber-Foto: Platzhalterfläche im Fugen-Rahmen -->
+    <div class="lg:col-span-5 lg:col-start-8 lg:translate-y-10">
+      <figure class="border border-fuge bg-flaeche p-1.5">
+        <div class="flex aspect-4/5 flex-col items-center justify-center gap-3 border border-dashed border-mikro text-center">
+          <PlatzhalterBadge text="Foto folgt" />
+          <p class="max-w-[24ch] px-4 text-xs leading-relaxed text-tinte-soft">
+            Hier: Foto von Marc Rochlus oder dem Team — kommt vom Kunden.
+          </p>
+        </div>
+        <figcaption class="px-2 py-2 text-xs text-tinte-soft">Marc Rochlus, Geschäftsführer</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

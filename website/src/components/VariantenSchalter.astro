@@ -1,0 +1,43 @@
+---
+/**
+ * NUR FÜR DIE PRÄSENTATION: schaltet zwischen Farbvariante A und B um.
+ * Vor Livegang entfernen (Komponente + Einbindung in Base.astro),
+ * dann die gewählte Variante fest in global.css belassen.
+ * Position: rechts unten; auf Mobile oberhalb der Call-Bar.
+ */
+---
+
+<div
+  class="fixed right-4 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] z-50 flex items-center gap-1 border border-fuge bg-grund/95 p-1 text-xs shadow-sm md:bottom-4"
+  role="group"
+  aria-label="Farbvariante umschalten (nur Vorschau)"
+>
+  <span class="px-2 text-tinte-soft" aria-hidden="true">Vorschau:</span>
+  <button data-variante-btn="a" class="min-h-9 px-3 py-1.5 font-semibold transition-colors duration-150 hover:bg-flaeche aria-pressed:bg-akzent aria-pressed:text-akzent-kontrast" type="button">
+    A · Terrakotta
+  </button>
+  <button data-variante-btn="b" class="min-h-9 px-3 py-1.5 font-semibold transition-colors duration-150 hover:bg-flaeche aria-pressed:bg-akzent aria-pressed:text-akzent-kontrast" type="button">
+    B · Mosaik
+  </button>
+</div>
+
+<script is:inline>
+  const knoepfe = document.querySelectorAll('[data-variante-btn]');
+  function markiereAktiv() {
+    const aktiv = document.documentElement.dataset.variante || 'a';
+    knoepfe.forEach((b) => {
+      const ist = b.getAttribute('data-variante-btn') === aktiv;
+      if (ist) b.setAttribute('aria-pressed', 'true');
+      else b.removeAttribute('aria-pressed');
+    });
+  }
+  knoepfe.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const v = btn.getAttribute('data-variante-btn');
+      document.documentElement.dataset.variante = v;
+      localStorage.setItem('farbvariante', v);
+      markiereAktiv();
+    });
+  });
+  markiereAktiv();
+</script>
