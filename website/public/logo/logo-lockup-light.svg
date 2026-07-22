@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 140">
+  <rect width="640" height="140" fill="#f6f1e8"></rect>
+  <rect x="24" y="46" width="66" height="56" fill="#191712"></rect>
+  <rect x="94" y="76" width="66" height="56" fill="#b0512c"></rect>
+  <text x="192" y="86" font-family="Fraunces Variable, Fraunces, Georgia, serif" font-weight="600" font-size="52" letter-spacing="-1" fill="#191712">Rochlus</text>
+  <text x="194" y="112" font-family="Instrument Sans Variable, Instrument Sans, Arial, sans-serif" font-weight="600" font-size="14" letter-spacing="3.2" fill="#96431f">FLIESENFACHBETRIEB</text>
+</svg>

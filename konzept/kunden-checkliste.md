@@ -5,8 +5,7 @@ Alle Punkte sind im Entwurf sichtbar als „Platzhalter" markiert.
 
 ## Entscheidungen
 
-- [ ] **Farbrichtung wählen:** Variante A (warme Materialtöne, Terrakotta) oder Variante B (Ihre Logofarben, modernisiert) — beide sind im Entwurf live umschaltbar
-- [ ] **Logo:** bestehendes Mosaik-Logo behalten oder überarbeiten lassen? (Der Entwurf funktioniert mit beidem; aktuell steht eine typografische Wortmarke als Interim)
+- [ ] **Logo:** Der Entwurf zeigt jetzt ein neu gestaltetes Logo (Wortmarke „Rochlus" + Fugen-Grid-Icon), das exakt auf die Website-Farben und -Schriften abgestimmt ist — als Ablösung des alten Mosaik-Logos. Bitte gegenlesen und freigeben, oder Rückmeldung, falls das bestehende Logo doch erhalten bleiben soll.
 
 ## Angaben (kurz, per Telefon oder E-Mail)
 

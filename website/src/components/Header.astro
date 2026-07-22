@@ -1,12 +1,21 @@
 ---
 /**
- * Sticky-Header: dunkel, Haarlinie unten, Wortmarke in Fraunces.
- *
- * LOGO-SLOT: aktuell typografische Wortmarke als Interim.
- * Sobald die Logo-Entscheidung des Kunden vorliegt, hier tauschen
- * (bestehendes Mosaik-Logo liegt unter public/bilder/logo-bestand.jpg —
- * auf dunklem Grund empfiehlt sich aber eine helle/invertierte Fassung).
+ * Sticky-Header: Haarlinie unten, finale Wortmarke aus dem Logo-Paket
+ * (public/logo/). Inline statt <img>, damit die Texte darin unsere
+ * self-hosted Fonts (Fraunces Variable / Instrument Sans Variable) nutzen —
+ * als <img> würde die SVG in einem eigenen Dokument ohne Zugriff auf unsere
+ * @font-face-Regeln rendern und auf Georgia/Arial zurückfallen.
+ * Der Header selbst bleibt immer hell (bg-grund), auch über den dunklen
+ * Kapiteln — die helle Lockup-Variante ist daher die einzig genutzte;
+ * logo-lockup-dark.svg liegt für dunkle Anwendungen (Print, E-Mail-Signatur)
+ * bereit, falls der Kunde sie später braucht.
  */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+// process.cwd() ist das Astro-Projekt-Root (website/), stabil in dev & build —
+// ein Pfad relativ zu import.meta.url zeigt beim Build zeitweise ins dist/-Verzeichnis.
+const logoLockup = readFileSync(join(process.cwd(), 'public/logo/logo-lockup-light.svg'), 'utf-8');
+
 const nav = [
   { href: '#leistungen', label: 'Leistungen' },
   { href: '#ablauf', label: 'Ablauf' },
@@ -21,12 +30,9 @@ const nav = [
   class="sticky top-0 z-40 border-b border-fuge bg-grund/95 backdrop-blur-sm transition-shadow duration-150 data-gescrollt:shadow-[0_12px_32px_-16px_rgb(0_0_0/0.6)]"
 >
   <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-    <!-- Logo-Slot -->
-    <a href="/" class="flex h-10 items-baseline gap-3" aria-label="Fliesenfachbetrieb Rochlus GmbH — zur Startseite">
-      <span class="font-headline text-2xl font-semibold tracking-tight italic">Rochlus</span>
-      <span class="hidden text-[0.6rem] leading-tight font-semibold tracking-[0.24em] uppercase text-tinte-soft sm:block">
-        Fliesenfachbetrieb · Köln
-      </span>
+    <!-- Logo: Wortmarke aus public/logo/logo-lockup-light.svg, inline gerendert -->
+    <a href="/" class="flex h-8 w-auto items-center [&_svg]:h-full [&_svg]:w-auto" aria-label="Fliesenfachbetrieb Rochlus GmbH — zur Startseite">
+      <Fragment set:html={logoLockup} />
     </a>
 
     <nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
