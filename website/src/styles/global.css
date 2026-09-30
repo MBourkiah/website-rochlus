@@ -103,216 +103,225 @@ summary {
   outline-color: var(--anthrazit);
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-schild);
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  text-wrap: balance;
-}
-
-.link,
-.rechtstext a {
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.3em;
-  text-decoration-color: var(--stahl);
-  transition: text-decoration-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
-}
-.link:hover,
-.rechtstext a:hover {
-  text-decoration-color: currentColor;
-}
-/* Tippziel ≥ 44px für freistehende Links (nicht für Links im Fließtext) */
-.ziel {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-}
-
-.link-anruf {
-  text-decoration-color: var(--oxid);
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-schild);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
 }
 
 /*
- * Putz: feine, statische Wandstruktur. Rein visuell, liegt unter allem.
+ * Komponenten liegen in @layer components, damit Tailwind-Utilities im Markup
+ * (z. B. `absolute` am Menü-Schild, Variablen-Utilities an Hausnummern)
+ * Vorrang vor den Grundregeln der Schilder haben.
  */
-.putz-struktur {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.09;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23p)'/%3E%3C/svg%3E");
-}
+@layer components {
+  .link,
+  .rechtstext a {
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.3em;
+    text-decoration-color: var(--stahl);
+    transition: text-decoration-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
+  }
+  .link:hover,
+  .rechtstext a:hover {
+    text-decoration-color: currentColor;
+  }
+  /* Tippziel ≥ 44px für freistehende Links (nicht für Links im Fließtext) */
+  .ziel {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
 
-/*
- * DAS SCHILD
- * Emaille-Platte mit Radius, eingelegtem Rand (::before) und Schraubköpfen
- * (::after). Farbvarianten setzen nur Grund, Schrift und Rand.
- */
-.schild {
-  --schild-grund: var(--emaille);
-  --schild-tinte: var(--anthrazit);
-  --schild-rand: var(--anthrazit);
-  --rand-abstand: 9px;
-  --rand-staerke: 2.5px;
-  --schraube-abstand: 20px;
-  position: relative;
-  isolation: isolate;
-  border-radius: 14px;
-  background-color: var(--schild-grund);
-  color: var(--schild-tinte);
-  box-shadow:
-    var(--schatten-schild),
-    inset 0 1px 0 rgb(255 255 255 / 0.22),
-    inset 0 -2px 0 rgb(0 0 0 / 0.1);
-}
-.schild::before {
-  content: "";
-  position: absolute;
-  inset: var(--rand-abstand);
-  border: var(--rand-staerke) solid var(--schild-rand);
-  border-radius: 8px;
-  pointer-events: none;
-  z-index: -1;
-}
-/* Vier Schraubköpfe: Stahl mit Lichtkante */
-.schild::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  --kopf: radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px);
-  background:
-    var(--kopf) left var(--schraube-abstand) top var(--schraube-abstand) / 10px 10px no-repeat,
-    var(--kopf) right var(--schraube-abstand) top var(--schraube-abstand) / 10px 10px no-repeat,
-    var(--kopf) left var(--schraube-abstand) bottom var(--schraube-abstand) / 10px 10px no-repeat,
-    var(--kopf) right var(--schraube-abstand) bottom var(--schraube-abstand) / 10px 10px no-repeat;
-}
-.schild--kobalt {
-  --schild-grund: var(--kobalt);
-  --schild-tinte: #fff;
-  --schild-rand: #fff;
-}
-.schild--rot {
-  --schild-grund: var(--oxid);
-  --schild-tinte: var(--oxid-kontrast);
-  --schild-rand: rgb(255 255 255 / 0.9);
-}
+  .link-anruf {
+    text-decoration-color: var(--oxid);
+  }
 
-/* Straßenschild-Format: flach, zwei Schrauben seitlich */
-.schild--strasse {
-  --rand-abstand: 5px;
-  --rand-staerke: 2px;
-  border-radius: 8px;
-}
-.schild--strasse::before {
-  border-radius: 5px;
-}
-.schild--strasse::after {
-  background:
-    var(--kopf) left 12px center / 10px 10px no-repeat,
-    var(--kopf) right 12px center / 10px 10px no-repeat;
-}
+  /*
+   * Putz: feine, statische Wandstruktur. Rein visuell, liegt unter allem.
+   */
+  .putz-struktur {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23p)'/%3E%3C/svg%3E");
+  }
 
-/* Flach an der Wand: reine Beschriftung ohne Wandschatten. Tiefe bekommen
-   nur Schilder, die man drücken kann (Anruf, Klingel, Menü). */
-.schild--flach {
-  box-shadow: none;
-}
+  /*
+   * DAS SCHILD
+   * Emaille-Platte mit Radius, eingelegtem Rand (::before) und Schraubköpfen
+   * (::after). Farbvarianten setzen nur Grund, Schrift und Rand.
+   */
+  .schild {
+    --schild-grund: var(--emaille);
+    --schild-tinte: var(--anthrazit);
+    --schild-rand: var(--anthrazit);
+    --rand-abstand: 9px;
+    --rand-staerke: 2.5px;
+    --schraube-abstand: 20px;
+    position: relative;
+    isolation: isolate;
+    border-radius: 14px;
+    background-color: var(--schild-grund);
+    color: var(--schild-tinte);
+    box-shadow:
+      var(--schatten-schild),
+      inset 0 1px 0 rgb(255 255 255 / 0.22),
+      inset 0 -2px 0 rgb(0 0 0 / 0.1);
+  }
+  .schild::before {
+    content: "";
+    position: absolute;
+    inset: var(--rand-abstand);
+    border: var(--rand-staerke) solid var(--schild-rand);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: -1;
+  }
+  /* Vier Schraubköpfe: Stahl mit Lichtkante */
+  .schild::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    --kopf: radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px);
+    background:
+      var(--kopf) left var(--schraube-abstand) top var(--schraube-abstand) / 10px 10px no-repeat,
+      var(--kopf) right var(--schraube-abstand) top var(--schraube-abstand) / 10px 10px no-repeat,
+      var(--kopf) left var(--schraube-abstand) bottom var(--schraube-abstand) / 10px 10px no-repeat,
+      var(--kopf) right var(--schraube-abstand) bottom var(--schraube-abstand) / 10px 10px no-repeat;
+  }
+  .schild--kobalt {
+    --schild-grund: var(--kobalt);
+    --schild-tinte: #fff;
+    --schild-rand: #fff;
+  }
+  .schild--rot {
+    --schild-grund: var(--oxid);
+    --schild-tinte: var(--oxid-kontrast);
+    --schild-rand: rgb(255 255 255 / 0.9);
+  }
 
-/* Kleinformat ohne Schrauben (Header, Etiketten) */
-.schild--mini {
-  --rand-abstand: 3px;
-  --rand-staerke: 1.5px;
-  border-radius: 7px;
-}
-.schild--mini::before {
-  border-radius: 4.5px;
-}
-.schild--mini::after {
-  display: none;
-}
+  /* Straßenschild-Format: flach, zwei Schrauben seitlich */
+  .schild--strasse {
+    --rand-abstand: 5px;
+    --rand-staerke: 2px;
+    border-radius: 8px;
+  }
+  .schild--strasse::before {
+    border-radius: 5px;
+  }
+  .schild--strasse::after {
+    background:
+      var(--kopf) left 12px center / 10px 10px no-repeat,
+      var(--kopf) right 12px center / 10px 10px no-repeat;
+  }
 
-/* Klickbare Schilder: sinken beim Drücken an die Wand */
-a.schild,
-button.schild {
-  transition:
-    transform var(--dauer) var(--kurve),
-    box-shadow var(--dauer) var(--kurve),
-    background-color var(--dauer) var(--kurve);
-}
-a.schild--rot:hover {
-  --schild-grund: var(--oxid-tief);
-}
-a.schild:active {
-  transform: translateY(2px);
-  box-shadow:
-    var(--schatten-schild-gedrueckt),
-    inset 0 1px 0 rgb(255 255 255 / 0.18),
-    inset 0 -1px 0 rgb(0 0 0 / 0.1);
-}
+  /* Flach an der Wand: reine Beschriftung ohne Wandschatten. Tiefe bekommen
+     nur Schilder, die man drücken kann (Anruf, Klingel, Menü). */
+  .schild--flach {
+    box-shadow: none;
+  }
 
-/*
- * Die Klingel: Anruf-Knopf am Türschild. Stahlring, oxidroter Drücker,
- * echter Druckzustand. Einzige Signatur-Interaktion der Seite.
- */
-.klingel-ring {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 5.5rem;
-  height: 5.5rem;
-  border-radius: 999px;
-  background-color: var(--stahl-hell);
-  border: 1px solid var(--stahl);
-  box-shadow: var(--schatten-schild);
-}
-.klingel-knopf {
-  display: grid;
-  place-items: center;
-  width: 3.9rem;
-  height: 3.9rem;
-  border-radius: 999px;
-  background-color: var(--oxid);
-  color: #fff;
-  box-shadow: 0 2px 4px -1px rgb(24 26 32 / 0.45);
-  transition:
-    transform 90ms var(--kurve),
-    box-shadow 90ms var(--kurve),
-    background-color var(--dauer) var(--kurve);
-}
-.klingel:hover .klingel-knopf {
-  background-color: var(--oxid-tief);
-}
-.klingel:active .klingel-knopf {
-  transform: translateY(2px) scale(0.97);
-  box-shadow: 0 0 0 rgb(24 26 32 / 0);
-}
+  /* Kleinformat ohne Schrauben (Header, Etiketten) */
+  .schild--mini {
+    --rand-abstand: 3px;
+    --rand-staerke: 1.5px;
+    border-radius: 7px;
+  }
+  .schild--mini::before {
+    border-radius: 4.5px;
+  }
+  .schild--mini::after {
+    display: none;
+  }
 
-/* Schichtaufbau-Schnitt in der Komplettsanierung */
-.schicht-fliese {
-  background-color: #f4f3ee;
-  background-image: repeating-linear-gradient(to right, transparent 0 calc(25% - 3px), var(--stahl-hell) calc(25% - 3px) 25%);
-}
-.schicht-kleber {
-  background-color: #b9b8b1;
-  background-image: repeating-linear-gradient(135deg, transparent 0 7px, rgb(0 0 0 / 0.08) 7px 9px);
-}
-.schicht-heizung {
-  background-color: #b9b8b1;
-  background-image: repeating-linear-gradient(to right, var(--anthrazit-soft) 0 14px, transparent 14px 22px);
-}
-.schicht-abdichtung {
-  background-color: #5f7fb8;
-}
-.schicht-untergrund {
-  background-color: #9c9a93;
-  background-image: radial-gradient(rgb(0 0 0 / 0.14) 1px, transparent 1.4px);
-  background-size: 7px 7px;
+  /* Klickbare Schilder: sinken beim Drücken an die Wand */
+  a.schild,
+  button.schild {
+    transition:
+      transform var(--dauer) var(--kurve),
+      box-shadow var(--dauer) var(--kurve),
+      background-color var(--dauer) var(--kurve);
+  }
+  a.schild--rot:hover {
+    --schild-grund: var(--oxid-tief);
+  }
+  a.schild:active {
+    transform: translateY(2px);
+    box-shadow:
+      var(--schatten-schild-gedrueckt),
+      inset 0 1px 0 rgb(255 255 255 / 0.18),
+      inset 0 -1px 0 rgb(0 0 0 / 0.1);
+  }
+
+  /*
+   * Die Klingel: Anruf-Knopf am Türschild. Stahlring, oxidroter Drücker,
+   * echter Druckzustand. Einzige Signatur-Interaktion der Seite.
+   */
+  .klingel-ring {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 999px;
+    background-color: var(--stahl-hell);
+    border: 1px solid var(--stahl);
+    box-shadow: var(--schatten-schild);
+  }
+  .klingel-knopf {
+    display: grid;
+    place-items: center;
+    width: 3.9rem;
+    height: 3.9rem;
+    border-radius: 999px;
+    background-color: var(--oxid);
+    color: #fff;
+    box-shadow: 0 2px 4px -1px rgb(24 26 32 / 0.45);
+    transition:
+      transform 90ms var(--kurve),
+      box-shadow 90ms var(--kurve),
+      background-color var(--dauer) var(--kurve);
+  }
+  .klingel:hover .klingel-knopf {
+    background-color: var(--oxid-tief);
+  }
+  .klingel:active .klingel-knopf {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 0 0 rgb(24 26 32 / 0);
+  }
+
+  /* Schichtaufbau-Schnitt in der Komplettsanierung */
+  .schicht-fliese {
+    background-color: #f4f3ee;
+    background-image: repeating-linear-gradient(to right, transparent 0 calc(25% - 3px), var(--stahl-hell) calc(25% - 3px) 25%);
+  }
+  .schicht-kleber {
+    background-color: #b9b8b1;
+    background-image: repeating-linear-gradient(135deg, transparent 0 7px, rgb(0 0 0 / 0.08) 7px 9px);
+  }
+  .schicht-heizung {
+    background-color: #b9b8b1;
+    background-image: repeating-linear-gradient(to right, var(--anthrazit-soft) 0 14px, transparent 14px 22px);
+  }
+  .schicht-abdichtung {
+    background-color: #5f7fb8;
+  }
+  .schicht-untergrund {
+    background-color: #9c9a93;
+    background-image: radial-gradient(rgb(0 0 0 / 0.14) 1px, transparent 1.4px);
+    background-size: 7px 7px;
+  }
 }
 
 /* Header-Telefon: wird rot, sobald das Anruf-Schild im Hero aus dem Blick ist */
