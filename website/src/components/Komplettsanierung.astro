@@ -1,38 +1,63 @@
 ---
 /**
- * These-Block fürs Kernangebot: die einzige voll gesättigte Terrakottafläche.
- * Bewusst kurz — der Ablauf wird in der Ablauf-Section erzählt, nicht hier
- * (Redundanz raus). Aussage stammt aus der Bestandsleistung „Komplettsanierungen
- * inkl. Raumgestaltung"; das Bad als Anwendungsfall entspricht dem Bestand.
+ * Komplettsanierung als Schichtaufbau: Ein Bad besteht aus Schichten, und
+ * jede Schicht ist eine Leistung des Bestands. Der Schnitt ist ein schlichtes
+ * Schema (Aufbau von oben nach unten), keine Abbildung eines echten Projekts.
+ * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
+const schichten = [
+  { klasse: 'schicht-fliese', name: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien' },
+  { klasse: 'schicht-kleber', name: 'Fliesenkleber im Dünnbett', leistung: 'Verlegung' },
+  { klasse: 'schicht-heizung bg-[#b9b8b1]', name: 'Heizmatte, wenn gewünscht', leistung: 'Elektrische Fußbodenheizung' },
+  { klasse: 'schicht-abdichtung', name: 'Abdichtung', leistung: 'Abdichtungsarbeiten' },
+  { klasse: 'schicht-untergrund', name: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
+];
 ---
 
-<section class="bg-akzent text-akzent-kontrast">
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-end lg:py-24" data-reveal-gruppe>
-    <div class="lg:col-span-7">
-      <p class="eyebrow opacity-85" data-reveal>Unser Kernangebot</p>
-      <h2 class="font-headline mt-5 text-3xl leading-tight font-medium text-balance sm:text-5xl" data-reveal>
-        Ein Raum, eine Nummer: die Komplettsanierung — <em class="italic">inklusive Raumgestaltung.</em>
-      </h2>
-      <p class="mt-6 max-w-xl leading-relaxed opacity-90" data-reveal>
-        Vom durchgesessenen Bad zum fertigen Raum, ohne dass Sie Handwerker
-        koordinieren müssen: Wir planen mit Ihnen, liefern das Material,
-        führen alle Arbeiten rund um die Fliese aus und übergeben besenrein.
+<section class="border-y border-linie bg-putz-tief/60">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
+    <div class="lg:col-span-5 lg:pt-6">
+      <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Bad ist mehr als die Fliese obendrauf.</h2>
+      <p class="mt-7 max-w-136 text-lg leading-relaxed text-anthrazit-soft">
+        Bei einer Komplettsanierung übernehmen wir jede Schicht rund um die Fliese,
+        vom Untergrund bis zur elastischen Fuge am Wandanschluss. Dazu die
+        Raumgestaltung: Material, Format und Verlegebild planen wir mit Ihnen.
+      </p>
+      <p class="mt-5 max-w-136 text-lg leading-relaxed text-anthrazit-soft">
+        Sie haben dabei einen Ansprechpartner, der das ganze Bad im Blick hat.
+      </p>
+      <p class="mt-9 text-lg">
+        Sanierung besprechen:
+        <a href="tel:+492219687575" class="link link-anruf font-schild text-2xl font-semibold whitespace-nowrap">0221 968 75 75</a>
       </p>
     </div>
-    <div class="lg:col-span-4 lg:col-start-9" data-reveal>
-      <a
-        href="#kontakt"
-        class="inline-flex min-h-12 items-center gap-2 bg-akzent-kontrast px-6 py-3.5 text-sm font-semibold text-tinte transition-transform duration-150 active:scale-[0.98]"
-      >
-        Sanierung anfragen
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-      <p class="mt-4 max-w-xs text-sm leading-relaxed opacity-85">
-        Wie das abläuft, steht zwei Abschnitte weiter unten — in vier Schritten.
+
+    <figure class="schild px-6 pt-12 pb-8 sm:px-12 sm:pt-14 sm:pb-10 lg:col-span-7">
+      <figcaption class="font-schild text-xl font-semibold tracking-wide">Schnitt durch einen Badboden</figcaption>
+      <p class="mt-1 text-sm text-anthrazit-soft">Schema, von oben nach unten</p>
+
+      <!-- Querschnitt: links die Schicht, rechts ihre Beschriftung -->
+      <ol class="mt-8">
+        {
+          schichten.map((s) => (
+            <li class="group grid min-h-16 grid-cols-[3.5rem_1fr] gap-x-5 sm:grid-cols-[6rem_1fr] sm:gap-x-8">
+              <span class={`${s.klasse} border-x border-anthrazit/25 group-first:rounded-t-[3px] group-first:border-t group-last:rounded-b-[3px] group-last:border-b`} aria-hidden="true" />
+              <span class="flex flex-col justify-center border-b border-dashed border-linie py-2.5 group-last:border-b-0">
+                <span class="font-schild text-lg leading-tight font-semibold">{s.name}</span>
+                <span class="text-sm leading-snug text-anthrazit-soft">{s.leistung}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+
+      <p class="mt-8 flex items-start gap-3 border-t border-linie pt-5 text-base">
+        <span class="mt-2 block h-3 w-1.5 shrink-0 rounded-sm bg-stahl" aria-hidden="true"></span>
+        <span>
+          <span class="font-schild text-lg font-semibold">Am Wandanschluss:</span>{' '}
+          <span class="text-anthrazit-soft">elastische Fuge statt Zementfuge, damit nichts reißt.</span>
+        </span>
       </p>
-    </div>
+    </figure>
   </div>
 </section>

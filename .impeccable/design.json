@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T17:11:19.935Z",
+  "title": "Design System: Fliesenfachbetrieb Rochlus",
+  "extensions": {
+    "colorMeta": {
+      "putz": {
+        "role": "neutral",
+        "displayName": "Heller Putz",
+        "canonical": "oklch(93.4% 0.008 91)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#252420",
+          "#41403b",
+          "#5f5d58",
+          "#82807b",
+          "#a6a49f",
+          "#cccac5",
+          "#f0eee8"
+        ]
+      },
+      "putz-tief": {
+        "role": "neutral",
+        "displayName": "Putz tief",
+        "canonical": "oklch(90.0% 0.010 93)",
+        "tonalRamp": [
+          "#0c0b07",
+          "#25241f",
+          "#41403a",
+          "#5f5e58",
+          "#82807a",
+          "#a6a59e",
+          "#cccac4",
+          "#f0eee7"
+        ]
+      },
+      "linie": {
+        "role": "neutral",
+        "displayName": "Fugenlinie",
+        "canonical": "oklch(84.5% 0.011 89)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#26241e",
+          "#424039",
+          "#605d56",
+          "#838079",
+          "#a7a49d",
+          "#cdcac2",
+          "#f1eee6"
+        ]
+      },
+      "emaille": {
+        "role": "neutral",
+        "displayName": "Emaille-Weiß",
+        "canonical": "oklch(98.7% 0.005 106)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#242421",
+          "#40403d",
+          "#5e5e5a",
+          "#80807d",
+          "#a5a5a1",
+          "#cbcbc7",
+          "#efefeb"
+        ]
+      },
+      "kobalt": {
+        "role": "primary",
+        "displayName": "Emaille-Kobalt",
+        "canonical": "oklch(38.2% 0.132 264)",
+        "tonalRamp": [
+          "#020041",
+          "#041862",
+          "#1c3884",
+          "#3859a7",
+          "#597dcf",
+          "#7ca2f7",
+          "#a0c9ff",
+          "#c3edff"
+        ]
+      },
+      "kobalt-soft": {
+        "role": "primary",
+        "displayName": "Kobalt-Nebentext",
+        "canonical": "oklch(86.1% 0.036 268)",
+        "tonalRamp": [
+          "#050a1a",
+          "#1c2336",
+          "#373f53",
+          "#555d73",
+          "#778097",
+          "#9ba4bc",
+          "#c0cae3",
+          "#e4eeff"
+        ]
+      },
+      "oxid": {
+        "role": "secondary",
+        "displayName": "Oxidrot",
+        "canonical": "oklch(54.8% 0.134 40)",
+        "tonalRamp": [
+          "#300000",
+          "#520000",
+          "#751900",
+          "#993c15",
+          "#c1613c",
+          "#ea8560",
+          "#ffac85",
+          "#ffd0a9"
+        ]
+      },
+      "oxid-tief": {
+        "role": "secondary",
+        "displayName": "Oxid tief",
+        "canonical": "oklch(48.5% 0.122 42)",
+        "tonalRamp": [
+          "#2d0000",
+          "#4f0000",
+          "#712100",
+          "#94411d",
+          "#bc6542",
+          "#e48a66",
+          "#ffaf8a",
+          "#ffd3ad"
+        ]
+      },
+      "oxid-kontrast": {
+        "role": "secondary",
+        "displayName": "Oxid-Kontrast (Weiß)"
+      },
+      "anthrazit": {
+        "role": "neutral",
+        "displayName": "Anthrazit",
+        "canonical": "oklch(23.1% 0.004 264)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3f4042",
+          "#5c5e60",
+          "#7f8083",
+          "#a3a4a7",
+          "#c9cacd",
+          "#edeef1"
+        ]
+      },
+      "anthrazit-soft": {
+        "role": "neutral",
+        "displayName": "Anthrazit soft",
+        "canonical": "oklch(42.3% 0.008 255)",
+        "tonalRamp": [
+          "#090b0e",
+          "#222428",
+          "#3d4044",
+          "#5b5e62",
+          "#7d8085",
+          "#a1a5a9",
+          "#c7cbd0",
+          "#ebeff4"
+        ]
+      },
+      "stahl": {
+        "role": "neutral",
+        "displayName": "Stahl",
+        "canonical": "oklch(65.9% 0.008 228)",
+        "tonalRamp": [
+          "#080c0e",
+          "#202527",
+          "#3b4143",
+          "#595f61",
+          "#7b8184",
+          "#a0a6a9",
+          "#c5cccf",
+          "#e9f0f3"
+        ]
+      },
+      "stahl-hell": {
+        "role": "neutral",
+        "displayName": "Stahl hell",
+        "canonical": "oklch(84.6% 0.005 228)",
+        "tonalRamp": [
+          "#090c0d",
+          "#222526",
+          "#3d4042",
+          "#5b5e60",
+          "#7d8183",
+          "#a1a5a7",
+          "#c7cbcd",
+          "#ebeff1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Nur die Hero-Aussage auf dem Kobalt-Schild."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section-Headlines (h2); Kontakt eine Stufe größer."
+      },
+      "nummer": {
+        "displayName": "Nummer",
+        "purpose": "Telefonnummern als Hauptinhalt eines Schilds, ohne Umbruch."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h3 der Gruppen und Stationen."
+      },
+      "schild": {
+        "displayName": "Schild",
+        "purpose": "Beschriftung auf Straßenschildern, Kontakt-Labels, Nav."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Einleitungstexte neben Headlines."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Fließtext in anthrazit-soft."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Bildunterschriften, Schema-Beschriftungen, Klärungshinweise."
+      }
+    },
+    "shadows": [
+      {
+        "name": "schatten-schild",
+        "value": "0 1px 1px rgb(24 26 32 / 0.12), 0 12px 24px -14px rgb(24 26 32 / 0.45)",
+        "purpose": "Wandschatten jedes Schilds, Fotorahmens und des Klingelrings."
+      },
+      {
+        "name": "glasurkanten",
+        "value": "inset 0 1px 0 rgb(255 255 255 / 0.22), inset 0 -2px 0 rgb(0 0 0 / 0.1)",
+        "purpose": "Licht- und Schattenkante der Emaille, zusätzlich auf jedem Schild."
+      },
+      {
+        "name": "schatten-schild-gedrueckt",
+        "value": "0 1px 1px rgb(24 26 32 / 0.14), 0 4px 10px -8px rgb(24 26 32 / 0.4)",
+        "purpose": "Active-Zustand klickbarer Schilder, mit 2px Versatz."
+      },
+      {
+        "name": "klingel-knopf",
+        "value": "0 2px 4px -1px rgb(24 26 32 / 0.45)",
+        "purpose": "Drücker der Klingel in Ruhe; verschwindet beim Druck."
+      }
+    ],
+    "motion": [
+      {
+        "name": "dauer",
+        "value": "160ms",
+        "purpose": "Standarddauer für Hover-, Druck- und Farbzustände."
+      },
+      {
+        "name": "kurve",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Einzige Easing-Kurve der Welt."
+      },
+      {
+        "name": "klingel-druck",
+        "value": "90ms",
+        "purpose": "Druck des Klingelknopfs."
+      },
+      {
+        "name": "anrufleiste",
+        "value": "260ms",
+        "purpose": "Ein- und Ausfahren der mobilen Anrufleiste."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "1ms",
+        "purpose": "Alle Übergänge bei prefers-reduced-motion, kein Smooth-Scroll."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "40rem"
+      },
+      {
+        "name": "md",
+        "value": "48rem"
+      },
+      {
+        "name": "lg",
+        "value": "64rem"
+      }
+    ],
+    "brand": {
+      "logo": "website/public/logo/ (logo-lockup-light.svg inline im Header ohne Papierfläche, icon-verband.svg im Footer, favicon.svg)",
+      "fonts": "Fraunces (Wortmarke) und Instrument Sans (Unterzeile), nur für das Logo geladen",
+      "colors": "Anthrazit-Fliese #191712 und Terrakotta-Fliese #b0512c (= oxid), Unterzeile #96431f (= oxid-tief)",
+      "status": "verbindlich, Kundenfreigabe ausstehend"
+    }
+  },
+  "components": [
+    {
+      "name": "Anruf-Schild",
+      "kind": "button",
+      "refersTo": "schild-anruf",
+      "description": "Die eine rote Primäraktion: Telefonnummer auf Oxidrot-Emaille, sinkt beim Drücken an die Wand.",
+      "html": "<a href=\"tel:+492219687575\" class=\"ds-schild ds-schild-rot\"><span class=\"ds-label\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> Anrufen</span><span class=\"ds-nummer\">0221 968 75 75</span><span class=\"ds-satz\">Sie sprechen direkt mit dem Betrieb.</span></a>",
+      "css": ".ds-schild{position:relative;isolation:isolate;border-radius:14px;background:var(--g,#fbfbf7);color:var(--t,#1c1d1f);box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45),inset 0 1px 0 rgb(255 255 255 / 0.22),inset 0 -2px 0 rgb(0 0 0 / 0.1);font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;}.ds-schild::before{content:\"\";position:absolute;inset:9px;border:2.5px solid var(--r,#1c1d1f);border-radius:8px;pointer-events:none;z-index:-1;}.ds-schild::after{content:\"\";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 20px top 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 20px top 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 20px bottom 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 20px bottom 20px/10px 10px no-repeat;}.ds-schild-rot{--g:#b0512c;--t:#fff;--r:rgb(255 255 255 / 0.9);display:flex;flex-direction:column;gap:1.5rem;padding:2rem 2.5rem;text-decoration:none;width:20rem;transition:transform 160ms cubic-bezier(0.22,1,0.36,1),box-shadow 160ms cubic-bezier(0.22,1,0.36,1),background-color 160ms cubic-bezier(0.22,1,0.36,1);}.ds-schild-rot:hover{--g:#96431f;}.ds-schild-rot:active{transform:translateY(2px);box-shadow:0 1px 1px rgb(24 26 32 / 0.14),0 4px 10px -8px rgb(24 26 32 / 0.4),inset 0 1px 0 rgb(255 255 255 / 0.18),inset 0 -1px 0 rgb(0 0 0 / 0.1);}.ds-schild-rot:focus-visible{outline:2px solid #fff;outline-offset:3px;}.ds-label{display:flex;align-items:center;gap:0.625rem;font-size:1.25rem;letter-spacing:0.025em;}.ds-nummer{font-size:3rem;line-height:1;white-space:nowrap;}.ds-satz{font-family:Barlow,system-ui,sans-serif;font-weight:400;font-size:1rem;color:rgb(255 255 255 / 0.9);margin-top:-1rem;}"
+    },
+    {
+      "name": "Kobalt-Schild",
+      "kind": "card",
+      "refersTo": "schild-kobalt",
+      "description": "Aussage-Schild: Kobalt-Emaille mit weißem eingelegtem Rand und vier Schrauben.",
+      "html": "<div class=\"ds-schild ds-schild-kobalt\"><h2 class=\"ds-h\">Fliesen,<br>Naturstein,<br>ganze Bäder.</h2><p class=\"ds-p\">Vom ersten Aufmaß bis zur letzten Fuge aus einer Hand.</p></div>",
+      "css": ".ds-schild{position:relative;isolation:isolate;border-radius:14px;background:var(--g,#fbfbf7);color:var(--t,#1c1d1f);box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45),inset 0 1px 0 rgb(255 255 255 / 0.22),inset 0 -2px 0 rgb(0 0 0 / 0.1);font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;}.ds-schild::before{content:\"\";position:absolute;inset:9px;border:2.5px solid var(--r,#1c1d1f);border-radius:8px;pointer-events:none;z-index:-1;}.ds-schild::after{content:\"\";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 20px top 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 20px top 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 20px bottom 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 20px bottom 20px/10px 10px no-repeat;}.ds-schild-kobalt{--g:#1f3c88;--t:#fff;--r:#fff;padding:3rem 3.5rem;max-width:32rem;}.ds-h{margin:0;font-size:3.5rem;line-height:0.9;font-weight:600;letter-spacing:-0.005em;}.ds-p{margin:1.75rem 0 0;font-family:Barlow,system-ui,sans-serif;font-weight:400;font-size:1.125rem;line-height:1.625;color:#c7d1ea;}"
+    },
+    {
+      "name": "Emaille-Schild",
+      "kind": "card",
+      "refersTo": "schild-emaille",
+      "description": "Helles Grundschild (Türschild, Firmenschild): Emaille-Weiß, Anthrazit-Rand.",
+      "html": "<div class=\"ds-schild ds-schild-weiss\"><p class=\"ds-t\">Fliesenfachbetrieb Rochlus GmbH</p><p class=\"ds-s\">Kranzbinderweg 15 · 51067 Köln</p></div>",
+      "css": ".ds-schild{position:relative;isolation:isolate;border-radius:14px;background:var(--g,#fbfbf7);color:var(--t,#1c1d1f);box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45),inset 0 1px 0 rgb(255 255 255 / 0.22),inset 0 -2px 0 rgb(0 0 0 / 0.1);font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;}.ds-schild::before{content:\"\";position:absolute;inset:9px;border:2.5px solid var(--r,#1c1d1f);border-radius:8px;pointer-events:none;z-index:-1;}.ds-schild::after{content:\"\";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 20px top 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 20px top 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 20px bottom 20px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 20px bottom 20px/10px 10px no-repeat;}.ds-schild-weiss{padding:3rem 2.5rem 2.5rem;max-width:28rem;}.ds-t{margin:0;font-size:2.25rem;line-height:1;}.ds-s{margin:1.25rem 0 0;padding-top:1.25rem;border-top:1px solid rgb(28 29 31 / 0.15);font-family:Barlow,system-ui,sans-serif;font-weight:500;font-size:1rem;}"
+    },
+    {
+      "name": "Straßenschild",
+      "kind": "chip",
+      "refersTo": "schild-strasse",
+      "description": "Beschriftung einer Leistung: flaches Schild, zwei Schrauben seitlich, keine Interaktion.",
+      "html": "<ul class=\"ds-liste\"><li class=\"ds-strasse ds-kobalt\">Komplettsanierung inkl. Raumgestaltung</li><li class=\"ds-strasse\">Wand- und Bodenfliesen</li><li class=\"ds-strasse\">Naturstein</li></ul>",
+      "css": ".ds-liste{list-style:none;margin:0;padding:0;display:grid;gap:0.75rem;width:22rem;}.ds-strasse{position:relative;isolation:isolate;border-radius:14px;background:var(--g,#fbfbf7);color:var(--t,#1c1d1f);box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45),inset 0 1px 0 rgb(255 255 255 / 0.22),inset 0 -2px 0 rgb(0 0 0 / 0.1);font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;border-radius:8px;padding:0.875rem 2.25rem;font-size:1.25rem;line-height:1.25;}.ds-strasse::before{content:\"\";position:absolute;inset:5px;border:2px solid var(--r,#1c1d1f);border-radius:5px;pointer-events:none;z-index:-1;}.ds-strasse::after{content:\"\";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 12px center/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 12px center/10px 10px no-repeat;}.ds-kobalt{--g:#1f3c88;--t:#fff;--r:#fff;}"
+    },
+    {
+      "name": "Hausnummer",
+      "kind": "custom",
+      "refersTo": "hausnummer",
+      "description": "Quadratisches Kobalt-Schild mit Ziffer; trägt Reihenfolge oder Adresse.",
+      "html": "<span class=\"ds-nr\">1</span>",
+      "css": ".ds-nr{position:relative;isolation:isolate;border-radius:14px;background:var(--g,#fbfbf7);color:var(--t,#1c1d1f);box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45),inset 0 1px 0 rgb(255 255 255 / 0.22),inset 0 -2px 0 rgb(0 0 0 / 0.1);font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;--g:#1f3c88;--t:#fff;--r:#fff;display:flex;align-items:center;justify-content:center;width:6rem;height:6rem;font-size:3.75rem;line-height:1;font-weight:700;}.ds-nr::before{content:\"\";position:absolute;inset:6px;border:2.5px solid var(--r,#1c1d1f);border-radius:8px;pointer-events:none;z-index:-1;}.ds-nr::after{content:\"\";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 13px top 13px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 13px top 13px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) left 13px bottom 13px/10px 10px no-repeat,radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px) right 13px bottom 13px/10px 10px no-repeat;}"
+    },
+    {
+      "name": "Klingel",
+      "kind": "button",
+      "refersTo": "klingel-knopf",
+      "description": "Signatur: Stahlring mit oxidrotem Drücker; der Druck ist der Anruf.",
+      "html": "<a href=\"tel:+492219687575\" class=\"ds-klingel\" aria-label=\"Anrufen: 0221 968 75 75\"><span class=\"ds-ring\"><span class=\"ds-knopf\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg></span></span><span class=\"ds-knr\">0221 968 75 75</span></a>",
+      "css": ".ds-klingel{display:flex;align-items:center;gap:1.75rem;text-decoration:none;color:#1c1d1f;}.ds-ring{display:grid;place-items:center;width:5.5rem;height:5.5rem;border-radius:999px;background:#c9cdcf;border:1px solid #8d9396;box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45);}.ds-knopf{display:grid;place-items:center;width:3.9rem;height:3.9rem;border-radius:999px;background:#b0512c;color:#fff;box-shadow:0 2px 4px -1px rgb(24 26 32 / 0.45);transition:transform 90ms cubic-bezier(0.22,1,0.36,1),box-shadow 90ms cubic-bezier(0.22,1,0.36,1),background-color 160ms cubic-bezier(0.22,1,0.36,1);}.ds-klingel:hover .ds-knopf{background:#96431f;}.ds-klingel:active .ds-knopf{transform:translateY(2px) scale(0.97);box-shadow:0 0 0 rgb(24 26 32 / 0);}.ds-klingel:focus-visible{outline:2px solid #1f3c88;outline-offset:3px;border-radius:4px;}.ds-knr{font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;font-size:3rem;line-height:1;white-space:nowrap;}"
+    },
+    {
+      "name": "Header-Navigation",
+      "kind": "nav",
+      "refersTo": "schild-mini",
+      "description": "Schilderschrift-Nav mit Scrollspy in Kobalt, daneben das Mini-Telefonschild.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nl\">Leistungen</a><a href=\"#\" class=\"ds-nl\" aria-current=\"true\">Ablauf</a><a href=\"#\" class=\"ds-nl\">Kontakt</a><a href=\"tel:+492219687575\" class=\"ds-mini\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> 0221 968 75 75</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:0.25rem;padding:0.75rem 1rem;background:rgb(235 233 227 / 0.95);border-bottom:1px solid #cfccc4;}.ds-nl{padding:0.75rem 0.875rem;font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-size:1.125rem;font-weight:500;letter-spacing:0.025em;color:#4b4e52;text-decoration:none;transition:color 150ms;}.ds-nl:hover{color:#1c1d1f;}.ds-nl[aria-current]{color:#1f3c88;}.ds-nl:focus-visible,.ds-mini:focus-visible{outline:2px solid #1f3c88;outline-offset:3px;border-radius:4px;}.ds-mini{position:relative;isolation:isolate;border-radius:14px;background:var(--g,#fbfbf7);color:var(--t,#1c1d1f);box-shadow:0 1px 1px rgb(24 26 32 / 0.12),0 12px 24px -14px rgb(24 26 32 / 0.45),inset 0 1px 0 rgb(255 255 255 / 0.22),inset 0 -2px 0 rgb(0 0 0 / 0.1);font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;margin-left:auto;display:flex;align-items:center;gap:0.5rem;min-height:2.75rem;padding:0 1rem;border-radius:7px;font-size:1.125rem;letter-spacing:0.025em;text-decoration:none;transition:transform 160ms cubic-bezier(0.22,1,0.36,1),box-shadow 160ms cubic-bezier(0.22,1,0.36,1),background-color 160ms cubic-bezier(0.22,1,0.36,1);}.ds-mini::before{content:\"\";position:absolute;inset:3px;border:1.5px solid var(--r,#1c1d1f);border-radius:4.5px;pointer-events:none;z-index:-1;}.ds-mini:active{transform:translateY(2px);box-shadow:0 1px 1px rgb(24 26 32 / 0.14),0 4px 10px -8px rgb(24 26 32 / 0.4),inset 0 1px 0 rgb(255 255 255 / 0.18),inset 0 -1px 0 rgb(0 0 0 / 0.1);}"
+    },
+    {
+      "name": "Text-Link",
+      "kind": "custom",
+      "refersTo": "body",
+      "description": "Unterstrichener Link in Stahl; Telefon-Links mit Oxid-Unterstreichung.",
+      "html": "<p class=\"ds-lp\">Lieber schreiben? <a href=\"#\" class=\"ds-link\">Kurze Anfrage per E-Mail</a>. Oder: <a href=\"#\" class=\"ds-link ds-anruf\">0221 968 75 75</a></p>",
+      "css": ".ds-lp{font-family:Barlow,system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;color:#4b4e52;}.ds-link{color:#1c1d1f;font-weight:500;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:0.3em;text-decoration-color:#8d9396;transition:text-decoration-color 160ms cubic-bezier(0.22,1,0.36,1);}.ds-link:hover{text-decoration-color:currentColor;}.ds-link:focus-visible{outline:2px solid #1f3c88;outline-offset:3px;border-radius:4px;}.ds-anruf{text-decoration-color:#b0512c;font-family:\"Barlow Condensed\",\"Arial Narrow\",sans-serif;font-weight:600;font-size:1.5rem;white-space:nowrap;}"
+    },
+    {
+      "name": "Platzhalter-Etikett",
+      "kind": "chip",
+      "refersTo": "platzhalter-etikett",
+      "description": "Neutrale Kennzeichnung unbestätigter Inhalte bis zur Kundenfreigabe.",
+      "html": "<span class=\"ds-ph\">Foto folgt</span>",
+      "css": ".ds-ph{display:inline-flex;align-items:center;border:1px dashed #4b4e52;border-radius:4px;background:#fbfbf7;padding:0.125rem 0.5rem;font-family:Barlow,system-ui,sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.025em;color:#4b4e52;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die Schilderwand am Haus um die Ecke",
+    "overview": "Die Seite ist eine helle Putzwand, an der Emaille-Schilder hängen: gebrannte Glasur auf Stahl, das Material, das der glasierten Fliese am nächsten ist. Jede tragende Information steht auf einem Schild – die Aussage auf dem großen Kobalt-Schild, die Adresse als Hausnummer und Straßenschild, jede der 13 Leistungen als eigenes Straßenschild, der Ablauf als Hausnummern 1–4, der Kontakt als Türschild mit Klingel. Zwischen den Schildern bleibt Wand: ruhiger Putz, Haarlinien, Fließtext in Anthrazit.\n\nDie Welt ist handfest, lokal und ruhig. Die Schilder haben echte Materialeigenschaften (Radius, eingelegter Rand, vier Schraubköpfe, weicher Wandschatten, sinken beim Drücken ein paar Millimeter an die Wand), aber es gibt keine Inszenierung: keine Scroll-Reveals, keine Laufbänder, keine Parallaxe. Bewegung existiert nur als Antwort auf Hand und Blick – Druck, Hover, Scrollspy, das Ein- und Ausfahren der Anrufleiste.\n\nDie Welt verweigert zwei Nachbarn ausdrücklich: das Vollbild-Badfoto mit Icon-Kacheln (der 08/15-Handwerker) und das cremefarbene Serifen-Editorial (die Vorgängerwelt dieses Projekts). Sie ist hell, nie dunkel.",
+    "keyCharacteristics": [
+      "Heller Putz als Grund, Emaille-Weiß und Kobalt als Schildfarben, Anthrazit als Schrift.",
+      "Oxidrot gehört allein der Anruf-Handlung, ein aktives Rot pro Blick.",
+      "Barlow Condensed als Schilderschrift, Barlow als Text.",
+      "Das Schild ist die einzige Container-Form; es gibt keine generischen Karten.",
+      "Tiefe entsteht durch Wandschatten und Glasurkanten, nicht durch Ebenen-Stapel.",
+      "Bewegung nur als Zustand (Druck, Hover), nie als Auftritt."
+    ],
+    "rules": [
+      {
+        "name": "The Ein-Rot-pro-Blick Rule",
+        "body": "Oxidrot markiert die eine Handlung „Anrufen“, und im Blickfeld leuchtet immer nur eine rote Anruf-Fläche. Das ist im Code gebaut, nicht nur gemeint: Solange das Hero-Anrufschild sichtbar ist, bleiben Header-Telefon neutral und die mobile Anrufleiste eingefahren; an der Klingel treten beide wieder zurück. Das kleine Terrakotta-Quadrat im Logo ist Marke, keine Handlung, und zählt nicht mit. Kein anderes Element – kein Hinweis, kein Status, keine Dekoration – wird rot.",
+        "section": "colors"
+      },
+      {
+        "name": "The Kobalt-trägt-Aussage Rule",
+        "body": "Kobalt ist für Schilder, die etwas Wesentliches sagen (die Hauptaussage, die Hausnummer, die Reihenfolge, die führende Leistung). Die übrigen Schilder bleiben Emaille-Weiß; ein Kobalt-Schild pro Gruppe genügt.",
+        "section": "colors"
+      },
+      {
+        "name": "The Schilderschrift Rule",
+        "body": "Alles, was auf einem Schild steht oder als Überschrift wirkt, ist Barlow Condensed; alles, was man liest, ist Barlow. Keine dritte Textschrift.",
+        "section": "typography"
+      },
+      {
+        "name": "The Wortmarken-Grenze Rule",
+        "body": "Fraunces und Instrument Sans existieren nur in der verbindlichen Logo-Wortmarke. Sie werden nie für Headlines, Labels oder Text verwendet.",
+        "section": "typography"
+      },
+      {
+        "name": "The Eine-Ebene Rule",
+        "body": "Ein Schild hängt an der Wand, nie auf einem anderen Schild. Schatten beschreiben den Abstand zur Wand und sonst nichts; Druck verkleinert ihn.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do jede tragende Information auf ein Schild setzen: Emaille-Platte mit 14px Radius, eingelegtem Rand und Schrauben (bzw. Straßen- oder Mini-Format).",
+      "Do Oxidrot nur für „Anrufen“ nutzen und die Ein-Rot-pro-Blick-Logik aus `Base.astro` auf jeder neuen Seite mitnehmen.",
+      "Do Kobalt-Schilder für Aussage, Hausnummer und Reihenfolge reservieren, sonst Emaille-Weiß.",
+      "Do Barlow Condensed für Schild- und Überschriftentext, Barlow für Lesetext.",
+      "Do Tiefe nur über Wandschatten und Glasurkanten; klickbare Schilder sinken beim Drücken 2px an die Wand.",
+      "Do Sections über Haarlinien in `linie` und den Wechsel zu `putz-tief` gliedern.",
+      "Do unbestätigte Inhalte mit dem neutralen, gestrichelten Platzhalter-Etikett kennzeichnen."
+    ],
+    "donts": [
+      "Don't Vollbild-Badfotos mit Icon-Kacheln – der 08/15-Handwerker ist die abgelehnte Nachbarwelt.",
+      "Don't Creme-Editorial mit Serifen und keine dunklen Flächen oder Kapitel; die Welt ist heller Putz.",
+      "Don't Fraunces oder Instrument Sans außerhalb der Logo-Wortmarke.",
+      "Don't Rot für Hinweise, Status, Hervorhebungen oder Dekoration, und nie zwei aktive Anruf-Flächen gleichzeitig im Blick.",
+      "Don't Scroll-Reveals, Laufbänder oder Auftritts-Animationen; Bewegung nur als Druck-, Hover- oder Leisten-Zustand (160ms, 260ms für die Leiste).",
+      "Don't Schilder auf Schilder stapeln oder Schilder schweben lassen; harte Versatzschatten gehören nicht zu dieser Welt.",
+      "Don't reine Beschriftungs-Schilder (Leistungen) wie Buttons aussehen oder reagieren lassen."
+    ]
+  }
+}

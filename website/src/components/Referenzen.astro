@@ -1,89 +1,48 @@
 ---
 /**
- * Referenzen, zurück auf der dunklen Bühne: Fotos in Haarlinien-Rahmen,
- * versetzt wie Fliesen im Verband. Danach CTA nach dem Proof.
+ * Arbeiten: Fotos im Stahlrahmen, jedes mit kleinem Emaille-Etikett.
  *
  * PLATZHALTER: Die vier Motive sind Ausschnitte aus der collage.jpg der
- * Bestandsseite (Original nur 600×420px — daher die geringe Qualität).
- * Sie werden 1:1 durch Originalfotos in voller Auflösung ersetzt, sobald
- * der Kunde sie liefert. Das Layout ist für Vorher/Nachher-Paare vorbereitet.
- * KEINE erfundenen Projektnamen oder Kundenzitate — bewusst weggelassen.
+ * Bestandsseite (Original nur 600×420px). Sie werden 1:1 durch Originalfotos
+ * ersetzt, sobald der Kunde sie liefert; Vorher/Nachher-Paare passen ins Raster.
+ * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 
 const motive = [
-  {
-    src: '/bilder/platzhalter-verlegung-boden.jpg',
-    alt: 'Verlegung großformatiger Bodenfliesen',
-    beschriftung: 'Bodenverlegung, Großformat',
-    versatz: '',
-  },
-  {
-    src: '/bilder/platzhalter-klebebett.jpg',
-    alt: 'Aufziehen des Klebebetts mit der Zahnkelle',
-    beschriftung: 'Klebebett im Dünnbettverfahren',
-    versatz: 'sm:translate-y-10',
-  },
-  {
-    src: '/bilder/platzhalter-ausrichtung.jpg',
-    alt: 'Ausrichten einer Bodenfliese mit der Wasserwaage',
-    beschriftung: 'Ausrichtung auf der Wasserwaage',
-    versatz: '',
-  },
-  {
-    src: '/bilder/platzhalter-wandarbeiten.jpg',
-    alt: 'Vorbereitete Wandfläche mit Richtschnur',
-    beschriftung: 'Wandarbeiten nach Richtschnur',
-    versatz: 'sm:translate-y-10',
-  },
+  { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen', etikett: 'Bodenverlegung, Großformat', klasse: '' },
+  { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle', etikett: 'Klebebett im Dünnbett', klasse: 'lg:mt-12' },
+  { src: '/bilder/platzhalter-ausrichtung.jpg', alt: 'Ausrichten einer Bodenfliese mit der Wasserwaage', etikett: 'Ausrichten mit der Wasserwaage', klasse: '' },
+  { src: '/bilder/platzhalter-wandarbeiten.jpg', alt: 'Vorbereitete Wandfläche mit Richtschnur', etikett: 'Wandarbeiten nach Richtschnur', klasse: 'lg:mt-12' },
 ];
 ---
 
-<section id="referenzen" class="scroll-mt-20 border-b border-fuge">
-  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-28">
-    <div class="flex flex-wrap items-end justify-between gap-6" data-reveal-gruppe>
-      <div>
-        <p class="eyebrow text-akzent-text" data-reveal>Einblicke in die Arbeit</p>
-        <h2 class="font-headline mt-5 max-w-xl text-3xl leading-tight font-medium text-balance sm:text-5xl" data-reveal>
-          Handwerk sieht man am besten <em class="italic">an der Fuge.</em>
-        </h2>
-      </div>
-      <PlatzhalterBadge text="Alle Fotos: Platzhalter in geringer Auflösung — Originale folgen" />
+<section id="arbeiten" class="scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <h2 class="max-w-xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
+      <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4" data-reveal-gruppe>
+    <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-x-6">
       {
         motive.map((m) => (
-          <figure class={`referenz-kachel border border-fuge bg-flaeche p-1.5 ${m.versatz}`} data-reveal>
-            <div class="relative aspect-square overflow-hidden">
-              <img src={m.src} alt={m.alt} class="h-full w-full object-cover" loading="lazy" width="210" height="195" />
-              <span class="absolute bottom-1.5 left-1.5">
+          <figure class={m.klasse}>
+            <div class="relative rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
+              <img src={m.src} alt={m.alt} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" width="210" height="158" />
+              <span class="absolute bottom-4 left-4">
                 <PlatzhalterBadge text="Platzhalter" />
               </span>
             </div>
-            <figcaption class="px-1.5 py-2.5 text-xs text-tinte-soft">{m.beschriftung}</figcaption>
+            <figcaption class="schild schild--mini mt-3 inline-block px-3.5 py-1.5 font-schild text-base leading-tight font-medium sm:text-lg">{m.etikett}</figcaption>
           </figure>
         ))
       }
     </div>
 
-    <!-- Kurzer Hinweis statt großem Kasten: ehrlich, aber nicht dominant -->
-    <p class="mt-6 text-xs leading-relaxed text-tinte-soft" data-reveal>
-      Hier entsteht die Galerie mit Vorher/Nachher-Paaren abgeschlossener Projekte —
-      das Layout ist vorbereitet, die Originalfotos kommen vom Betrieb.
+    <p class="mt-10 max-w-xl text-base leading-relaxed text-anthrazit-soft">
+      Hier entsteht die Galerie abgeschlossener Projekte, gern als Vorher/Nachher-Paare.
+      Das Raster steht, die Originalfotos kommen vom Betrieb.
     </p>
-
-    <!-- Conversion: CTA direkt nach dem Proof -->
-    <div class="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-fuge pt-10" data-reveal>
-      <p class="font-headline max-w-md text-2xl font-medium text-balance sm:text-3xl">
-        So etwas soll bei Ihnen entstehen?
-      </p>
-      <a href="#kontakt" class="knopf-primaer">
-        Projekt anfragen
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-    </div>
   </div>
 </section>

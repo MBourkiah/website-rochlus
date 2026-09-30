@@ -1,63 +1,62 @@
 ---
 /**
- * Vertrauens-Section im dunklen Kapitel. Nur belegte Fakten stehen groß
- * (GmbH, inhabergeführt, Marc Rochlus, Köln); alles Unbestätigte ist in EINEM
- * gebündelten Klärungskasten statt in drei gleichwertigen Platzhalter-Zellen —
- * so wirkt die Section für Endkunden nicht lückenhaft, bleibt aber ehrlich.
+ * Der Betrieb: das Firmenschild neben der Tür. Nur belegte Fakten stehen auf
+ * dem Schild (GmbH, Marc Rochlus, Adresse). Alles Unbestätigte liegt in EINEM
+ * gebündelten Klärungskasten.
  * WICHTIG: Meisterbetrieb/Gründungsjahr NICHT setzen, bis der Kunde bestätigt.
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 ---
 
-<section id="betrieb" class="kapitel-kontext scroll-mt-20 border-t border-kapitel-fuge bg-kapitel text-kapitel-tinte">
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-28">
-    <div class="lg:col-span-6" data-reveal-gruppe>
-      <p class="eyebrow text-kapitel-tinte-soft" data-reveal>Der Betrieb</p>
-      <h2 class="font-headline mt-5 text-3xl leading-tight font-medium text-balance sm:text-5xl" data-reveal>
-        Ein Kölner Fachbetrieb, kein <em class="italic">Vermittlungsportal.</em>
-      </h2>
-      <p class="mt-6 max-w-lg leading-relaxed text-kapitel-tinte-soft" data-reveal>
-        Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln.
-        Wer anruft, spricht direkt mit dem Betrieb — und wer beauftragt,
-        bekommt die Arbeit vom Fachbetrieb, nicht von wechselnden Kolonnen.
+<section id="betrieb" class="scroll-mt-20 border-y border-linie bg-putz-tief/60">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
+    <div class="lg:col-span-6">
+      <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Kölner Betrieb. Kein Vermittlungsportal.</h2>
+      <p class="mt-7 max-w-136 text-lg leading-relaxed text-anthrazit-soft">
+        Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln und
+        wird vom Inhaber geführt. Wer anruft, spricht direkt mit dem Betrieb. Wer
+        beauftragt, bekommt die Arbeit vom Fachbetrieb, nicht von wechselnden Kolonnen.
       </p>
 
-      <dl class="mt-12 max-w-lg space-y-6" data-reveal>
-        <div class="flex items-baseline justify-between gap-6 border-t border-kapitel-fuge pt-4">
-          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Ihr Ansprechpartner</dt>
-          <dd class="font-headline text-2xl font-semibold">Marc Rochlus</dd>
+      <!-- Inhaber-Foto: kompakter Platzhalter unter dem Text, dem Firmenschild untergeordnet -->
+      <figure class="mt-10 flex items-center gap-5">
+        <div class="flex aspect-4/5 w-32 shrink-0 flex-col items-center justify-center gap-2 rounded-[6px] border border-dashed border-stahl bg-emaille p-2 text-center sm:w-36">
+          <PlatzhalterBadge text="Foto folgt" />
         </div>
-        <div class="flex items-baseline justify-between gap-6 border-t border-kapitel-fuge pt-4">
-          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Betrieb</dt>
-          <dd class="text-sm">Inhabergeführte GmbH, Sitz in Köln</dd>
-        </div>
-        <div class="flex items-baseline justify-between gap-6 border-t border-kapitel-fuge pt-4">
-          <dt class="text-xs font-semibold tracking-widest uppercase text-kapitel-tinte-soft">Einzugsgebiet</dt>
-          <dd class="text-sm">Köln und Umgebung</dd>
-        </div>
-      </dl>
-
-      <!-- Gebündelter Klärungskasten statt verstreuter Platzhalter -->
-      <div class="mt-8 max-w-lg border border-dashed border-kapitel-fuge px-5 py-4" data-reveal>
-        <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
-        <p class="mt-2 text-xs leading-relaxed text-kapitel-tinte-soft">
-          Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet werden
-          ergänzt, sobald der Betrieb sie bestätigt — hier steht nichts Erfundenes.
-        </p>
-      </div>
+        <figcaption class="text-sm leading-relaxed text-anthrazit-soft">
+          <span class="block font-schild text-lg font-semibold text-anthrazit">Marc Rochlus</span>
+          Geschäftsführer. Hier kommt ein Foto von ihm oder dem Team hin.
+        </figcaption>
+      </figure>
     </div>
 
-    <!-- Inhaber-Foto: Platzhalterfläche im Fugen-Rahmen -->
-    <div class="lg:col-span-5 lg:col-start-8 lg:translate-y-10" data-reveal>
-      <figure class="border border-kapitel-fuge bg-kapitel-flaeche p-1.5">
-        <div class="flex aspect-4/5 flex-col items-center justify-center gap-3 border border-dashed border-kapitel-tinte-soft/50 text-center">
-          <PlatzhalterBadge text="Foto folgt" />
-          <p class="max-w-[24ch] px-4 text-xs leading-relaxed text-kapitel-tinte-soft">
-            Hier: Foto von Marc Rochlus oder dem Team — kommt vom Kunden.
-          </p>
-        </div>
-        <figcaption class="px-2 py-2 text-xs text-kapitel-tinte-soft">Marc Rochlus, Geschäftsführer</figcaption>
-      </figure>
+    <div class="lg:col-span-6 lg:col-start-7 lg:pt-2">
+      <!-- Das Firmenschild -->
+      <div class="schild max-w-lg px-10 pt-12 pb-10 sm:px-12">
+        <p class="font-schild text-3xl leading-none font-semibold sm:text-4xl">Fliesenfachbetrieb Rochlus GmbH</p>
+        <dl class="mt-7 space-y-3 border-t border-anthrazit/15 pt-5 text-base">
+          <div class="flex flex-wrap justify-between gap-x-6">
+            <dt class="text-anthrazit-soft">Ihr Ansprechpartner</dt>
+            <dd class="font-schild text-xl font-semibold">Marc Rochlus, Geschäftsführer</dd>
+          </div>
+          <div class="flex flex-wrap justify-between gap-x-6">
+            <dt class="text-anthrazit-soft">Sitz</dt>
+            <dd class="font-medium">Kranzbinderweg 15, 51067 Köln</dd>
+          </div>
+          <div class="flex flex-wrap justify-between gap-x-6">
+            <dt class="text-anthrazit-soft">Einsatz</dt>
+            <dd class="font-medium">Köln und Umgebung</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="mt-6 max-w-lg rounded-lg border border-dashed border-stahl px-5 py-4">
+        <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
+        <p class="mt-2 text-sm leading-relaxed text-anthrazit-soft">
+          Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet werden
+          ergänzt, sobald der Betrieb sie bestätigt. Hier steht nichts Erfundenes.
+        </p>
+      </div>
     </div>
   </div>
 </section>

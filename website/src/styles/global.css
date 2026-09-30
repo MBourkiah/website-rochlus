@@ -1,78 +1,86 @@
 @import "tailwindcss";
 
 /*
- * LIGHT EDITORIAL — warme, helle Bühne (Interior-Magazin auf Papier).
+ * EMAILLE-SCHILD — die Schilderwand am Haus um die Ecke.
  *
- * Konzept: warmes Papier statt Fast-Schwarz, Tinte als Text, Terrakotta als
- * Akzent (gebrannter Ton = das Material des Gewerks). Feine Haarlinien (Fugen)
- * strukturieren, große Serifen-Typografie (Fraunces) trägt die Hierarchie.
- * Ein dunkles "Kapitel" (Ablauf/Betrieb) setzt den editorialen Rhythmus-Kontrast.
+ * Heller Putz als Wand, darauf Emaille-Schilder: gebrannte Glasur auf Stahl,
+ * verwandt mit der glasierten Fliese. Kobalt und Emaille-Weiß tragen die
+ * Schilder, Oxidrot (Logo-Terrakotta) gehört allein der Anruf-Handlung.
+ * Schrift: Barlow Condensed als Schilderschrift, Barlow als Text.
  */
 :root {
-  /* Helle Bühne */
-  --grund: #f6f1e8; /* warmes Papier */
-  --flaeche: #ece4d4; /* erhöhte Fläche (Karten, Menü) */
-  --tinte: #191712; /* warme Tinte */
-  --tinte-soft: #5d5749;
-  --fuge: #d9cfbd; /* Haarlinien auf hell */
+  /* Wand */
+  --putz: #ebe9e3;
+  --putz-tief: #e0ded7;
+  --linie: #cfccc4;
 
-  /* Terrakotta */
-  --akzent: #b0512c; /* Flächen, Buttons */
-  --akzent-hover: #96431f;
-  --akzent-hell: #b0512c1f; /* nur als warmer Schein (mit Alpha) */
-  --akzent-text: #96431f; /* Akzent als Kleintext auf hell (≥4.5:1) */
-  --akzent-kontrast: #fff6ee; /* Text auf Terrakottafläche */
+  /* Emaille */
+  --emaille: #fbfbf7;
+  --kobalt: #1f3c88;
+  --kobalt-tief: #183171;
+  --kobalt-soft: #c7d1ea; /* Nebentext auf Kobalt (≥ 7:1) */
 
-  /* Dunkles Kontrast-Kapitel (Ablauf/Betrieb) */
-  --kapitel: #1b1916;
-  --kapitel-flaeche: #262219;
-  --kapitel-tinte: #efe7db;
-  --kapitel-tinte-soft: #a89d8c;
-  --kapitel-fuge: #38332b;
+  /* Oxidrot: nur für „Anrufen“ */
+  --oxid: #b0512c;
+  --oxid-tief: #96431f;
+  --oxid-kontrast: #ffffff;
 
-  /* Motion-Tokens: eine Rhythmik für alle Animationen */
-  --dauer-schnell: 150ms;
-  --dauer-normal: 250ms;
-  --dauer-reveal: 450ms;
-  --kurve-aus: cubic-bezier(0.22, 1, 0.36, 1);
-  --kurve-ein: cubic-bezier(0.55, 0, 0.55, 0.2);
+  /* Schrift & Metall */
+  --anthrazit: #1c1d1f;
+  --anthrazit-soft: #4b4e52;
+  --stahl: #8d9396;
+  --stahl-hell: #c9cdcf;
+
+  /* Wandschatten: Schild steht ein paar Millimeter vor dem Putz */
+  --schatten-schild:
+    0 1px 1px rgb(24 26 32 / 0.12),
+    0 12px 24px -14px rgb(24 26 32 / 0.45);
+  --schatten-schild-gedrueckt:
+    0 1px 1px rgb(24 26 32 / 0.14),
+    0 4px 10px -8px rgb(24 26 32 / 0.4);
+
+  --dauer: 160ms;
+  --kurve: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
-  --color-grund: var(--grund);
-  --color-flaeche: var(--flaeche);
-  --color-tinte: var(--tinte);
-  --color-tinte-soft: var(--tinte-soft);
-  --color-fuge: var(--fuge);
-  --color-akzent: var(--akzent);
-  --color-akzent-hover: var(--akzent-hover);
-  --color-akzent-text: var(--akzent-text);
-  --color-akzent-kontrast: var(--akzent-kontrast);
-  --color-kapitel: var(--kapitel);
-  --color-kapitel-flaeche: var(--kapitel-flaeche);
-  --color-kapitel-tinte: var(--kapitel-tinte);
-  --color-kapitel-tinte-soft: var(--kapitel-tinte-soft);
-  --color-kapitel-fuge: var(--kapitel-fuge);
+  --color-putz: var(--putz);
+  --color-putz-tief: var(--putz-tief);
+  --color-linie: var(--linie);
+  --color-emaille: var(--emaille);
+  --color-kobalt: var(--kobalt);
+  --color-kobalt-tief: var(--kobalt-tief);
+  --color-kobalt-soft: var(--kobalt-soft);
+  --color-oxid: var(--oxid);
+  --color-oxid-tief: var(--oxid-tief);
+  --color-anthrazit: var(--anthrazit);
+  --color-anthrazit-soft: var(--anthrazit-soft);
+  --color-stahl: var(--stahl);
+  --color-stahl-hell: var(--stahl-hell);
 
-  --font-headline: "Fraunces Variable", Georgia, "Times New Roman", serif;
-  --font-text: "Instrument Sans Variable", system-ui, -apple-system, sans-serif;
+  --font-schild: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-text: "Barlow", system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
+  scrollbar-color: var(--stahl) var(--putz);
 }
 
 body {
-  background-color: var(--grund);
-  color: var(--tinte);
+  background-color: var(--putz);
+  color: var(--anthrazit);
   font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  caret-color: var(--kobalt);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: var(--akzent);
-  color: var(--akzent-kontrast);
+  background-color: var(--kobalt);
+  color: #fff;
 }
 
 a,
@@ -80,227 +88,247 @@ button,
 summary {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
 }
 
 :focus-visible {
-  outline: 2px solid var(--akzent);
+  outline: 2px solid var(--kobalt);
   outline-offset: 3px;
+  border-radius: 4px;
+}
+.schild--kobalt :focus-visible,
+.schild--rot:focus-visible,
+.schild--rot :focus-visible {
+  outline-color: #fff;
 }
 
-/* Fraunces mit hoher optischer Größe für Display-Headlines */
-.font-headline {
-  font-variation-settings: "opsz" 72;
-}
-
-/* Eyebrow-Label: gesperrte Versalien über Headlines */
-.eyebrow {
-  font-size: 0.72rem;
+h1,
+h2,
+h3 {
+  font-family: var(--font-schild);
   font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: var(--stahl);
+  transition: text-decoration-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
+}
+.link:hover {
+  text-decoration-color: currentColor;
+}
+.link-anruf {
+  text-decoration-color: var(--oxid);
 }
 
 /*
- * Korn: feine Materialtextur über der dunklen Bühne (statisch, dezent).
- * Gibt den Flächen das Stoffliche von Stein/Ton — kein Deko-Effekt.
+ * Putz: feine, statische Wandstruktur. Rein visuell, liegt unter allem.
  */
-.korn {
+.putz-struktur {
   position: fixed;
   inset: 0;
-  z-index: 5;
+  z-index: -1;
   pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23p)'/%3E%3C/svg%3E");
 }
 
 /*
- * Glut: warmer Lichtschein im Hero — der Ofen, aus dem die Fliese kommt.
- * Bewusst ein einziger, konzeptgebundener Schein; kein beliebiger Blob.
+ * DAS SCHILD
+ * Emaille-Platte mit Radius, eingelegtem Rand (::before) und Schraubköpfen
+ * (::after). Farbvarianten setzen nur Grund, Schrift und Rand.
  */
-.glut {
+.schild {
+  --schild-grund: var(--emaille);
+  --schild-tinte: var(--anthrazit);
+  --schild-rand: var(--anthrazit);
+  --rand-abstand: 9px;
+  --rand-staerke: 2.5px;
+  --schraube-abstand: 20px;
+  position: relative;
+  isolation: isolate;
+  border-radius: 14px;
+  background-color: var(--schild-grund);
+  color: var(--schild-tinte);
+  box-shadow:
+    var(--schatten-schild),
+    inset 0 1px 0 rgb(255 255 255 / 0.22),
+    inset 0 -2px 0 rgb(0 0 0 / 0.1);
+}
+.schild::before {
+  content: "";
+  position: absolute;
+  inset: var(--rand-abstand);
+  border: var(--rand-staerke) solid var(--schild-rand);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: -1;
+}
+/* Vier Schraubköpfe: Stahl mit Lichtkante */
+.schild::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  --kopf: radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px);
   background:
-    radial-gradient(ellipse 90% 60% at 78% 12%, var(--akzent-hell), transparent 65%);
+    var(--kopf) left var(--schraube-abstand) top var(--schraube-abstand) / 10px 10px no-repeat,
+    var(--kopf) right var(--schraube-abstand) top var(--schraube-abstand) / 10px 10px no-repeat,
+    var(--kopf) left var(--schraube-abstand) bottom var(--schraube-abstand) / 10px 10px no-repeat,
+    var(--kopf) right var(--schraube-abstand) bottom var(--schraube-abstand) / 10px 10px no-repeat;
+}
+.schild--kobalt {
+  --schild-grund: var(--kobalt);
+  --schild-tinte: #fff;
+  --schild-rand: #fff;
+}
+.schild--rot {
+  --schild-grund: var(--oxid);
+  --schild-tinte: var(--oxid-kontrast);
+  --schild-rand: rgb(255 255 255 / 0.9);
 }
 
-/* Fugenraster auf dunkel: kaum sichtbare Haarlinien als Ordnungsprinzip */
-.fugenraster {
-  background-image:
-    repeating-linear-gradient(to right, var(--fuge) 0 1px, transparent 1px 112px),
-    repeating-linear-gradient(to bottom, var(--fuge) 0 1px, transparent 1px 112px);
-  background-size: 112px 112px;
+/* Straßenschild-Format: flach, zwei Schrauben seitlich */
+.schild--strasse {
+  --rand-abstand: 5px;
+  --rand-staerke: 2px;
+  border-radius: 8px;
+}
+.schild--strasse::before {
+  border-radius: 5px;
+}
+.schild--strasse::after {
+  background:
+    var(--kopf) left 12px center / 10px 10px no-repeat,
+    var(--kopf) right 12px center / 10px 10px no-repeat;
 }
 
-/*
- * Buttons: Kupfer auf dunkel, mit dunkler Schrift (Kontrast > 5:1).
- * Nur transform/opacity/background werden animiert.
- */
-.knopf-primaer,
-.knopf-sekundaer {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 3rem;
-  padding: 0.875rem 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+/* Kleinformat ohne Schrauben (Header, Etiketten) */
+.schild--mini {
+  --rand-abstand: 3px;
+  --rand-staerke: 1.5px;
+  border-radius: 7px;
+}
+.schild--mini::before {
+  border-radius: 4.5px;
+}
+.schild--mini::after {
+  display: none;
+}
+
+/* Klickbare Schilder: sinken beim Drücken an die Wand */
+a.schild,
+button.schild {
   transition:
-    background-color var(--dauer-schnell) var(--kurve-aus),
-    color var(--dauer-schnell) var(--kurve-aus),
-    border-color var(--dauer-schnell) var(--kurve-aus),
-    transform var(--dauer-schnell) var(--kurve-aus);
+    transform var(--dauer) var(--kurve),
+    box-shadow var(--dauer) var(--kurve),
+    background-color var(--dauer) var(--kurve);
 }
-.knopf-primaer {
-  background-color: var(--akzent);
-  color: var(--akzent-kontrast);
+a.schild--rot:hover {
+  --schild-grund: var(--oxid-tief);
 }
-.knopf-primaer:hover {
-  background-color: var(--akzent-hover);
-}
-.knopf-sekundaer {
-  border: 1px solid var(--tinte-soft);
-  color: var(--tinte);
-}
-.knopf-sekundaer:hover {
-  border-color: var(--tinte);
-  background-color: var(--tinte);
-  color: var(--grund);
-}
-/* Varianten fürs dunkle Kontrast-Kapitel */
-.kapitel-kontext .knopf-sekundaer {
-  border-color: var(--kapitel-tinte-soft);
-  color: var(--kapitel-tinte);
-}
-.kapitel-kontext .knopf-sekundaer:hover {
-  background-color: var(--kapitel-tinte);
-  color: var(--kapitel);
-}
-.knopf-primaer:active,
-.knopf-sekundaer:active {
-  transform: scale(0.98);
-}
-.knopf-primaer svg,
-.knopf-sekundaer svg {
-  transition: transform var(--dauer-schnell) var(--kurve-aus);
-}
-.knopf-primaer:hover svg,
-.knopf-sekundaer:hover svg {
-  transform: translateX(3px);
+a.schild:active {
+  transform: translateY(2px);
+  box-shadow:
+    var(--schatten-schild-gedrueckt),
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    inset 0 -1px 0 rgb(0 0 0 / 0.1);
 }
 
 /*
- * Leistungs-Index: editoriale Zeilen wie ein Inhaltsverzeichnis.
- * Hover: Zeile hellt auf, Pfeil rückt nach (nur transform/color).
+ * Die Klingel: Anruf-Knopf am Türschild. Stahlring, oxidroter Drücker,
+ * echter Druckzustand. Einzige Signatur-Interaktion der Seite.
  */
-.index-zeile {
+.klingel-ring {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 999px;
+  background-color: var(--stahl-hell);
+  border: 1px solid var(--stahl);
+  box-shadow: var(--schatten-schild);
+}
+.klingel-knopf {
+  display: grid;
+  place-items: center;
+  width: 3.9rem;
+  height: 3.9rem;
+  border-radius: 999px;
+  background-color: var(--oxid);
+  color: #fff;
+  box-shadow: 0 2px 4px -1px rgb(24 26 32 / 0.45);
   transition:
-    background-color var(--dauer-schnell) var(--kurve-aus),
-    color var(--dauer-schnell) var(--kurve-aus);
+    transform 90ms var(--kurve),
+    box-shadow 90ms var(--kurve),
+    background-color var(--dauer) var(--kurve);
 }
-.index-zeile:hover {
-  background-color: var(--flaeche);
+.klingel:hover .klingel-knopf {
+  background-color: var(--oxid-tief);
 }
-.index-zeile .index-pfeil {
-  transition: transform var(--dauer-normal) var(--kurve-aus);
-}
-.index-zeile:hover .index-pfeil {
-  transform: translateX(6px);
+.klingel:active .klingel-knopf {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 0 0 0 rgb(24 26 32 / 0);
 }
 
-/*
- * Laufband: langsam ziehende Leistungs-Zeile am Hero-Fuß.
- * Inhalt ist dupliziert (zweite Kopie aria-hidden) für die nahtlose Schleife.
- * Nur transform wird animiert; pausiert bei Hover, aus bei reduced-motion.
- */
-.laufband {
-  display: flex;
-  width: max-content;
-  animation: laufband 45s linear infinite;
+/* Schichtaufbau-Schnitt in der Komplettsanierung */
+.schicht-fliese {
+  background-color: #f4f3ee;
+  background-image: repeating-linear-gradient(to right, transparent 0 calc(25% - 3px), var(--stahl-hell) calc(25% - 3px) 25%);
 }
-.laufband-huelle:hover .laufband {
-  animation-play-state: paused;
+.schicht-kleber {
+  background-color: #b9b8b1;
+  background-image: repeating-linear-gradient(135deg, transparent 0 7px, rgb(0 0 0 / 0.08) 7px 9px);
 }
-@keyframes laufband {
-  to {
-    transform: translateX(-50%);
+.schicht-heizung {
+  background-image: repeating-linear-gradient(to right, var(--anthrazit-soft) 0 14px, transparent 14px 22px);
+}
+.schicht-abdichtung {
+  background-color: #5f7fb8;
+}
+.schicht-untergrund {
+  background-color: #9c9a93;
+  background-image: radial-gradient(rgb(0 0 0 / 0.14) 1px, transparent 1.4px);
+  background-size: 7px 7px;
+}
+
+/* Header-Telefon: wird rot, sobald das Anruf-Schild im Hero aus dem Blick ist */
+.kopf-anruf {
+  transition: background-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve), box-shadow var(--dauer) var(--kurve);
+}
+/* Ab md; darunter gehört das Rot der Anrufleiste. Neutral, solange die Klingel im Blick ist. */
+@media (min-width: 48rem) {
+  html[data-anruf-weg]:not([data-klingel-da]) .kopf-anruf {
+    --schild-grund: var(--oxid);
+    --schild-tinte: #fff;
+    --schild-rand: rgb(255 255 255 / 0.9);
+  }
+  html[data-anruf-weg]:not([data-klingel-da]) .kopf-anruf:hover {
+    --schild-grund: var(--oxid-tief);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .laufband {
-    animation: none;
-  }
+
+/* Mobile Call-Bar: fährt erst ein, wenn das Hero-Schild weg ist (ohne JS: immer da) */
+.anrufleiste {
+  transition: transform 260ms var(--kurve);
+}
+html.js:not([data-anruf-weg]) .anrufleiste,
+html[data-klingel-da] .anrufleiste {
+  transform: translateY(110%);
 }
 
-/* Foto-Chip in der Headline: läuft im Textfluss mit.
-   width:auto überschreibt das width-Attribut (das bleibt für CLS-Reservierung) */
-.hero-chip {
-  display: inline-block;
-  width: auto;
-  height: 0.72em;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  vertical-align: baseline;
-  transform: translateY(0.08em);
-  border: 1px solid var(--fuge);
-}
-
-/*
- * Scroll-Reveal-System (progressive enhancement):
- * Ohne JavaScript ist alles sichtbar — html.js blendet erst aus, ein kleines
- * Skript in Base.astro (IntersectionObserver) blendet beim Scrollen ein.
- */
-html.js [data-reveal] {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity var(--dauer-reveal) var(--kurve-aus),
-    transform var(--dauer-reveal) var(--kurve-aus);
-  transition-delay: var(--reveal-verzoegerung, 0ms);
-}
-html.js [data-reveal].ist-sichtbar {
-  opacity: 1;
-  transform: none;
-}
-
-/* Fugen-Linie, die sich beim Erscheinen zieht */
-html.js [data-linie] {
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 700ms var(--kurve-aus) 150ms;
-}
-html.js [data-linie].ist-sichtbar {
-  transform: scaleX(1);
-}
-
-/* Referenz-Kacheln: Foto rückt im Rahmen leicht heran (nur transform) */
-.referenz-kachel img {
-  transition: transform var(--dauer-normal) var(--kurve-aus);
-}
-.referenz-kachel:hover img {
-  transform: scale(1.03);
-}
-
-/* Reduced Motion: alle Animationen aus, Inhalte sofort sichtbar */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  html.js [data-reveal],
-  html.js [data-linie] {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .referenz-kachel:hover img,
-  .knopf-primaer:hover svg,
-  .knopf-sekundaer:hover svg,
-  .index-zeile:hover .index-pfeil {
-    transform: none;
-  }
-  .knopf-primaer,
-  .knopf-sekundaer,
-  .referenz-kachel img,
-  .index-zeile {
-    transition-duration: 1ms;
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
   }
 }

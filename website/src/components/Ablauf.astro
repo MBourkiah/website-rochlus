@@ -1,59 +1,65 @@
 ---
 /**
- * Dunkles Kontrast-Kapitel. Die Nummern bleiben hier bewusst: der Ablauf IST
- * eine Sequenz (frontend-design: Struktur nur, wo sie Information trägt).
- * Abschlusszeile senkt die Anruf-Hürde: Schritt 1 ist belegt unverbindlich.
+ * Ablauf als vier feste Stationen, jede mit einem Hausnummern-Schild.
+ * Die Nummer trägt Information (Reihenfolge). Jede Station nennt schon den
+ * nächsten Schritt, damit niemand rätseln muss, was danach passiert.
+ * Inhalte aus den Bestandsleistungen: Besichtigung, Planung, Materialanlieferung,
+ * Überwachung, Reparaturen.
  */
-const schritte = [
+const stationen = [
   {
     titel: 'Besichtigung vor Ort',
-    text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen Ihnen ehrlich, was geht — und was nicht.',
+    text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.',
+    danach: 'Wir planen mit Ihnen.',
   },
   {
-    titel: 'Planung & Beratung',
-    text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden, wir beraten.',
+    titel: 'Planung',
+    text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden.',
+    danach: 'Wir legen los.',
   },
   {
     titel: 'Ausführung',
-    text: 'Wir liefern das Material an und führen alle Arbeiten aus einer Hand aus — mit laufender Überwachung.',
+    text: 'Wir liefern das Material an, führen die Arbeiten aus und überwachen jeden Schritt selbst.',
+    danach: 'Gemeinsame Abnahme.',
   },
   {
     titel: 'Übergabe',
-    text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch danach.',
+    text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch später.',
+    danach: 'Ihr Raum ist fertig.',
   },
 ];
 ---
 
-<section id="ablauf" class="kapitel-kontext scroll-mt-20 bg-kapitel text-kapitel-tinte">
-  <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-28">
-    <p class="eyebrow text-kapitel-tinte-soft" data-reveal>So läuft Ihr Projekt</p>
-    <h2 class="font-headline mt-5 max-w-2xl text-3xl leading-tight font-medium text-balance sm:text-5xl" data-reveal>
-      Vier Schritte, <em class="italic">ein</em> Ansprechpartner.
-    </h2>
+<section id="ablauf" class="scroll-mt-20 border-t border-linie">
+  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+    <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Vier Stationen bis zum fertigen Raum.</h2>
 
-    <!-- Terrakotta-Linie, die sich beim Erscheinen über alle Schritte zieht -->
-    <div class="mt-16 h-0.5 bg-akzent" data-linie></div>
-
-    <ol class="grid grid-cols-1 gap-10 pt-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-reveal-gruppe>
+    <ol class="mt-14 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
       {
-        schritte.map((s, i) => (
-          <li data-reveal>
-            <span class="font-headline text-5xl leading-none font-light text-kapitel-tinte-soft/60" aria-hidden="true">
-              {String(i + 1).padStart(2, '0')}
+        stationen.map((s, i) => (
+          <li class="flex flex-col">
+            <span class="schild schild--kobalt flex h-24 w-24 items-center justify-center font-schild text-6xl leading-none font-bold [--rand-abstand:6px] [--schraube-abstand:13px]">
+              <span class="sr-only">Station </span>
+              {i + 1}
             </span>
-            <h3 class="font-headline mt-4 text-xl font-semibold">{s.titel}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-kapitel-tinte-soft">{s.text}</p>
+            <h3 class="mt-6 text-2xl leading-tight">{s.titel}</h3>
+            <p class="mt-2 text-base leading-relaxed text-anthrazit-soft">{s.text}</p>
+            <p class="mt-auto flex items-center gap-2 border-t border-linie pt-3 text-base">
+              <svg class="mt-px shrink-0 text-kobalt" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+              <span>
+                <span class="font-semibold">Danach:</span> {s.danach}
+              </span>
+            </p>
           </li>
         ))
       }
     </ol>
 
-    <!-- Die Hürde für Schritt 1 senken: Besichtigung ist laut Bestand unverbindlich -->
-    <p class="mt-16 border-t border-kapitel-fuge pt-8 text-lg" data-reveal>
-      <span class="text-kapitel-tinte-soft">Schritt 1 kostet Sie nichts als einen Anruf:</span>
-      <a href="tel:+492219687575" class="font-headline ml-2 text-2xl font-semibold whitespace-nowrap transition-colors duration-150 hover:text-akzent-text">
-        0221&nbsp;968&nbsp;75&nbsp;75
-      </a>
+    <p class="mt-16 text-lg">
+      Station 1 beginnt mit einem Anruf:
+      <a href="tel:+492219687575" class="link link-anruf font-schild text-2xl font-semibold whitespace-nowrap">0221 968 75 75</a>
     </p>
   </div>
 </section>

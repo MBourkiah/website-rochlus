@@ -1,10 +1,18 @@
 ---
 /**
- * Basis-Layout: Fonts (self-hosted via Fontsource), Meta/SEO, Reveal-System.
+ * Basis-Layout: Fonts (self-hosted via Fontsource), Meta/SEO.
+ * Barlow / Barlow Condensed tragen die Seite; Fraunces und Instrument Sans
+ * werden nur für die Logo-Wortmarke geladen (Logo ist verbindlich).
  * ENTWURF: noindex ist gesetzt — vor Livegang entfernen!
  */
-import '@fontsource-variable/instrument-sans';
+import '@fontsource/barlow/400.css';
+import '@fontsource/barlow/500.css';
+import '@fontsource/barlow/600.css';
+import '@fontsource/barlow-condensed/500.css';
+import '@fontsource/barlow-condensed/600.css';
+import '@fontsource/barlow-condensed/700.css';
 import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/instrument-sans';
 import '../styles/global.css';
 
 interface Props {
@@ -39,48 +47,46 @@ const ldJson = {
     <meta name="description" content={description} />
     <!-- ENTWURF: vor Livegang entfernen -->
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#f6f1e8" />
+    <meta name="theme-color" content="#ebe9e3" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(ldJson)} />
-    <!-- html.js aktiviert das Reveal-System (ohne JS bleibt alles sichtbar) -->
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
   </head>
   <body>
+    <div class="putz-struktur" aria-hidden="true"></div>
     <a
       href="#inhalt"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-akzent focus:text-akzent-kontrast focus:px-4 focus:py-2"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-kobalt focus:px-4 focus:py-2 focus:text-white"
     >
       Zum Inhalt springen
     </a>
     <slot />
-    <!-- Materialtextur über der gesamten Bühne (rein visuell) -->
-    <div class="korn" aria-hidden="true"></div>
-    <!-- Scroll-Reveal: beobachtet [data-reveal]; Gruppen ([data-reveal-gruppe])
-         staffeln ihre Kinder um 45ms. Bei prefers-reduced-motion macht das CSS
-         alles sofort sichtbar — der Observer schadet dann nicht. -->
+    <!-- Ein Rot pro Blick: Solange das Anruf-Schild im Hero sichtbar ist, bleiben
+         Header-Telefon neutral und Call-Bar eingefahren. Seiten ohne Hero-Schild
+         (Rechtsseiten) zeigen beide sofort. An der Klingel (Kontakt) treten beide zurück. -->
     <script is:inline>
-      document.querySelectorAll('[data-reveal-gruppe]').forEach((gruppe) => {
-        gruppe.querySelectorAll(':scope [data-reveal]').forEach((kind, i) => {
-          kind.style.setProperty('--reveal-verzoegerung', `${i * 45}ms`);
-        });
-      });
-      const beobachter = new IntersectionObserver(
-        (eintraege) => {
-          for (const e of eintraege) {
-            if (e.isIntersecting) {
-              e.target.classList.add('ist-sichtbar');
-              beobachter.unobserve(e.target);
-            }
-          }
-        },
-        { rootMargin: '0px 0px -10% 0px' }
-      );
-      document.querySelectorAll('[data-reveal], [data-linie]').forEach((el) => beobachter.observe(el));
+      const wurzel = document.documentElement;
+      const heroAnruf = document.querySelector('[data-hero-anruf]');
+      if (!heroAnruf) {
+        wurzel.setAttribute('data-anruf-weg', '');
+      } else {
+        new IntersectionObserver(([e]) => {
+          if (e.isIntersecting) wurzel.removeAttribute('data-anruf-weg');
+          else wurzel.setAttribute('data-anruf-weg', '');
+        }).observe(heroAnruf);
+      }
+      const klingel = document.querySelector('[data-klingel]');
+      if (klingel) {
+        new IntersectionObserver(([e]) => {
+          if (e.isIntersecting) wurzel.setAttribute('data-klingel-da', '');
+          else wurzel.removeAttribute('data-klingel-da');
+        }).observe(klingel);
+      }
     </script>
   </body>
 </html>

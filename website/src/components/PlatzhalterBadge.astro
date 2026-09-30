@@ -1,7 +1,8 @@
 ---
 /**
- * Kennzeichnet Inhalte, die noch vom Kunden kommen müssen.
- * Dunkler Chip mit Kupfer-Text — lesbar auf dunklen Flächen, Papier und Fotos.
+ * Kennzeichnet Inhalte, die noch vom Kunden kommen müssen: kleines Etikett,
+ * gestrichelter Rand, bewusst neutral (kein Kobalt, kein Rot), lesbar auf
+ * Putz, Emaille und Fotos.
  * Jede Verwendung entspricht einem Punkt auf der Kunden-Checkliste (siehe konzept/).
  */
 interface Props {
@@ -10,8 +11,6 @@ interface Props {
 const { text = 'Platzhalter' } = Astro.props;
 ---
 
-<span
-  class="inline-flex items-center gap-1.5 border border-dashed border-akzent bg-grund px-2 py-0.5 text-[0.65rem] font-semibold tracking-widest uppercase text-akzent-text"
->
+<span class="inline-flex items-center rounded border border-dashed border-anthrazit-soft bg-emaille px-2 py-0.5 text-xs font-semibold tracking-wide text-anthrazit-soft">
   {text}
 </span>
