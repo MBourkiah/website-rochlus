@@ -8,20 +8,26 @@
  * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
+import { fotos } from '../fotos.mjs';
 
-const motive = [
+// Echte Projektfotos aus src/fotos.mjs haben Vorrang vor den Archiv-Platzhaltern.
+const echt = fotos.referenzen.length > 0;
+const archiv = [
   { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen', etikett: 'Bodenverlegung, Großformat', klasse: '' },
   { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle', etikett: 'Klebebett im Dünnbett', klasse: 'lg:mt-12' },
   { src: '/bilder/platzhalter-ausrichtung.jpg', alt: 'Ausrichten einer Bodenfliese mit der Wasserwaage', etikett: 'Ausrichten mit der Wasserwaage', klasse: '' },
   { src: '/bilder/platzhalter-wandarbeiten.jpg', alt: 'Vorbereitete Wandfläche mit Richtschnur', etikett: 'Wandarbeiten nach Richtschnur', klasse: 'lg:mt-12' },
 ];
+const motive = echt
+  ? fotos.referenzen.map((f, i) => ({ ...f, klasse: i % 2 ? 'lg:mt-12' : '' }))
+  : archiv.map((m) => ({ ...m, breite: 210, hoehe: 158 }));
 ---
 
 <section id="arbeiten" class="scroll-mt-20">
   <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
     <div class="flex flex-wrap items-end justify-between gap-6">
       <h2 class="max-w-xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
-      <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />
+      {!echt && <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />}
     </div>
 
     <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-x-6">
@@ -29,10 +35,12 @@ const motive = [
         motive.map((m) => (
           <figure class={m.klasse}>
             <div class="relative rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-              <img src={m.src} alt={m.alt} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" width="210" height="158" />
-              <span class="absolute bottom-4 left-4">
-                <PlatzhalterBadge text="Platzhalter" />
-              </span>
+              <img src={m.src} alt={m.alt} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" width={m.breite} height={m.hoehe} />
+              {!echt && (
+                <span class="absolute bottom-4 left-4">
+                  <PlatzhalterBadge text="Platzhalter" />
+                </span>
+              )}
             </div>
             <figcaption class="schild schild--mini mt-3 inline-block px-3.5 py-1.5 font-schild text-base leading-tight font-medium sm:text-lg">{m.etikett}</figcaption>
           </figure>
@@ -40,9 +48,11 @@ const motive = [
       }
     </div>
 
-    <p class="mt-10 max-w-xl text-base leading-relaxed text-anthrazit-soft">
-      Hier entsteht die Galerie abgeschlossener Projekte, gern als Vorher/Nachher-Paare.
-      Das Raster steht, die Originalfotos kommen vom Betrieb.
-    </p>
+    {!echt && (
+      <p class="mt-10 max-w-xl text-base leading-relaxed text-anthrazit-soft">
+        Hier entsteht die Galerie abgeschlossener Projekte, gern als Vorher/Nachher-Paare.
+        Das Raster steht, die Originalfotos kommen vom Betrieb.
+      </p>
+    )}
   </div>
 </section>

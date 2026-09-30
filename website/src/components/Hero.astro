@@ -2,13 +2,14 @@
 /**
  * Erster Blick: die Schilderwand am Haus. Großes Kobalt-Schild mit der
  * Aussage, daneben die Hausnummer des Betriebs (Kranzbinderweg 15, belegt)
- * und das einzige rote Schild: der Anruf. Keine Fotos — die vorhandenen sind
- * nur Platzhalter in geringer Auflösung und stehen weiter unten.
+ * und das einzige rote Schild: der Anruf. Sobald ein Porträt in src/fotos.mjs
+ * steht, zeigt das Anruf-Schild, mit wem man spricht.
  */
 import Telefon from './Telefon.astro';
+import { fotos } from '../fotos.mjs';
 ---
 
-<section class="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-4 pt-6 pb-20 sm:gap-5 sm:px-6 sm:pt-10 lg:grid-cols-12 lg:gap-6 lg:pt-14 lg:pb-28">
+<section class="mx-auto grid max-w-6xl grid-cols-1 gap-4 lg:grid-rows-[auto_1fr_auto] px-4 pt-6 pb-20 sm:gap-5 sm:px-6 sm:pt-10 lg:grid-cols-12 lg:gap-6 lg:pt-14 lg:pb-28">
   <div class="schild schild--kobalt flex flex-col justify-between px-8 pt-11 pb-9 sm:px-14 sm:pt-20 sm:pb-16 lg:col-span-8 lg:row-span-2 lg:min-h-136 lg:px-16">
     <h1 class="text-[clamp(3.4rem,9vw,6rem)] leading-[0.9] font-semibold">
       Fliesen,<br />Naturstein,<br />ganze Bäder.
@@ -20,10 +21,10 @@ import Telefon from './Telefon.astro';
   </div>
 
   <!-- Hausnummernschild: Nummer mittig, Straße auf eigenem Schild darunter -->
-  <div role="img" aria-label="Unsere Adresse: Kranzbinderweg 15, 51067 Köln" class="flex items-center gap-3 sm:gap-4 lg:col-span-4 lg:col-start-9 lg:row-start-1 lg:flex-col lg:items-stretch">
-    <span class="schild schild--kobalt grid h-20 w-20 shrink-0 place-items-center font-schild text-5xl leading-none font-bold max-lg:after:hidden [--rand-abstand:5px] sm:h-24 sm:w-24 sm:text-6xl lg:h-auto lg:w-auto lg:flex-1 lg:text-[7.5rem] lg:[--rand-abstand:9px] lg:[--schraube-abstand:20px]" aria-hidden="true">15</span>
-    <span class="schild schild--strasse flex-1 px-8 py-3 text-center font-schild text-lg leading-tight font-semibold sm:text-xl lg:flex-none">
-      Kranzbinderweg · 51067 Köln
+  <div role="img" aria-label="Unsere Adresse: Kranzbinderweg 15, 51067 Köln" class="flex items-center gap-3 sm:gap-4 lg:col-span-4 lg:col-start-9 lg:row-start-1">
+    <span class="schild schild--kobalt grid h-20 w-20 shrink-0 place-items-center font-schild text-5xl leading-none font-bold max-lg:after:hidden [--rand-abstand:5px] sm:h-24 sm:w-24 sm:text-6xl lg:h-26 lg:w-26 lg:text-[4.5rem] lg:[--rand-abstand:6px] lg:[--schraube-abstand:12px]" aria-hidden="true">15</span>
+    <span class="schild schild--strasse flex-1 px-8 py-3 text-center font-schild text-lg leading-tight font-semibold sm:text-xl lg:px-9 lg:text-lg">
+      Kranzbinderweg · Köln
     </span>
   </div>
 
@@ -37,7 +38,16 @@ import Telefon from './Telefon.astro';
     </span>
     <span>
       <span class="block font-schild text-[clamp(2.4rem,5vw,3.1rem)] leading-none font-semibold whitespace-nowrap">0221 968 75 75</span>
-      <span class="mt-3 block text-base leading-snug text-white/90">Sie sprechen direkt mit dem Betrieb.</span>
+      {
+        fotos.inhaber ? (
+          <span class="mt-4 flex items-center gap-3 text-base leading-snug text-white/90">
+            <img src={fotos.inhaber.src} alt="" width={fotos.inhaber.breite} height={fotos.inhaber.hoehe} class="h-12 w-12 shrink-0 rounded-md object-cover ring-2 ring-white/80" />
+            Sie sprechen direkt mit Marc Rochlus.
+          </span>
+        ) : (
+          <span class="mt-3 block text-base leading-snug text-white/90">Sie sprechen direkt mit dem Betrieb.</span>
+        )
+      }
     </span>
   </a>
 

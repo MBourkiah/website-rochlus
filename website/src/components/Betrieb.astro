@@ -8,6 +8,7 @@
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { istReview } from '../stand';
+import { fotos } from '../fotos.mjs';
 ---
 
 <section id="betrieb" class="scroll-mt-20 border-y border-linie bg-putz-tief/60">
@@ -21,7 +22,15 @@ import { istReview } from '../stand';
       </p>
 
       <!-- Inhaber-Foto: kompakter Platzhalter unter dem Text, dem Firmenschild untergeordnet -->
-      {istReview && (
+      {fotos.inhaber ? (
+      <figure class="mt-10 flex items-center gap-5">
+        <img src={fotos.inhaber.src} alt={fotos.inhaber.alt} width={fotos.inhaber.breite} height={fotos.inhaber.hoehe} class="aspect-4/5 w-32 shrink-0 rounded-[6px] object-cover shadow-(--schatten-schild) sm:w-40" loading="lazy" />
+        <figcaption class="text-sm leading-relaxed text-anthrazit-soft">
+          <span class="block font-schild text-lg font-semibold text-anthrazit">Marc Rochlus</span>
+          Geschäftsführer
+        </figcaption>
+      </figure>
+      ) : istReview && (
       <figure class="mt-10 flex items-center gap-5">
         <div class="flex aspect-4/5 w-32 shrink-0 flex-col items-center justify-center gap-2 rounded-[6px] border border-dashed border-stahl bg-emaille p-2 text-center sm:w-36">
           <PlatzhalterBadge text="Foto folgt" />

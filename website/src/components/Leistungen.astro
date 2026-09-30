@@ -1,25 +1,27 @@
 ---
 /**
- * Schilderwand: Jede der 13 Leistungen des Bestands bekommt ein eigenes
- * Straßenschild, in drei Gruppen an der Wand. Nichts verschwindet im Fließtext.
- * Die Schilder sind reine Beschriftung, keine Links: flach ohne Wandschatten,
- * damit sie nicht wie die drückbaren Anruf-Schilder aussehen.
+ * Leistungen als drei Hinweistafeln, wie das Verzeichnis im Hauseingang:
+ * eine Tafel pro Gruppe, jede Leistung eine Zeile. Das liest sich als Liste,
+ * nicht als 13 einzelne Knöpfe, und ist mobil halb so lang.
+ * Die führende Gruppe (Verlegen, mit der Komplettsanierung) steht auf Kobalt.
+ * Alle 13 Punkte des Bestands bleiben erhalten. Flach, weil nicht klickbar.
  */
 const gruppen = [
   {
     titel: 'Verlegen',
     text: 'Das Kernhandwerk, auf Wand und Boden.',
-    schilder: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
+    punkte: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
+    fuehrend: true,
   },
   {
     titel: 'Unter und neben der Fliese',
     text: 'Damit der Untergrund so gut ist wie die Oberfläche.',
-    schilder: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
+    punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
   },
   {
     titel: 'Planung und Service',
     text: 'Was vor, während und nach der Arbeit passiert.',
-    schilder: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
+    punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
   },
 ];
 ---
@@ -33,18 +35,18 @@ const gruppen = [
       </p>
     </div>
 
-    <div class="mt-14 grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-8">
+    <div class="mt-14 grid grid-cols-1 items-start gap-5 md:grid-cols-3 md:gap-6">
       {
-        gruppen.map((m) => (
-          <div>
-            <h3 class="text-2xl leading-tight">{m.titel}</h3>
-            <p class="mt-1 text-base text-anthrazit-soft">{m.text}</p>
-            <ul class="mt-6 space-y-3">
-                {m.schilder.map((s, i) => (
-                  <li class={`schild schild--strasse schild--flach px-9 py-3.5 font-schild text-xl leading-tight font-semibold ${i === 0 && m.titel === 'Verlegen' ? 'schild--kobalt' : ''}`}>
-                    {s}
-                  </li>
-                ))}
+        gruppen.map((g) => (
+          <div class={`schild schild--flach px-7 pt-10 pb-7 sm:px-8 ${g.fuehrend ? 'schild--kobalt' : ''}`}>
+            <h3 class="text-2xl leading-tight">{g.titel}</h3>
+            <p class={`mt-1 text-base leading-snug ${g.fuehrend ? 'text-kobalt-soft' : 'text-anthrazit-soft'}`}>{g.text}</p>
+            <ul class={`mt-5 border-t ${g.fuehrend ? 'border-white/30' : 'border-anthrazit/15'}`}>
+              {g.punkte.map((p) => (
+                <li class={`border-b py-2.5 font-schild text-xl leading-tight font-semibold last:border-b-0 ${g.fuehrend ? 'border-white/30' : 'border-anthrazit/15'}`}>
+                  {p}
+                </li>
+              ))}
             </ul>
           </div>
         ))

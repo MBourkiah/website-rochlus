@@ -3,6 +3,10 @@
 Fliesenfachbetrieb Rochlus GmbH · Website-Neugestaltung (Entwurf)
 Alle Punkte sind im Entwurf sichtbar als „Platzhalter" markiert.
 
+## Wichtigster Punkt: Fotos
+
+- [ ] **Fotoshooting** (oder vorhandene Originale): 2–3 fertige Bäder, gern als Vorher/Nachher-Paare, und ein Porträt von Marc Rochlus. Ohne Fotos zeigt die Live-Seite kein einziges Bild; Plätze dafür sind vorbereitet (Anruf-Schild, Komplettsanierung, Der Betrieb, Arbeiten). Eintragen in `website/src/fotos.mjs`.
+
 ## Entscheidungen
 
 - [ ] **Logo:** Der Entwurf zeigt jetzt ein neu gestaltetes Logo (Wortmarke „Rochlus" + Fugen-Grid-Icon), das exakt auf die Website-Farben und -Schriften abgestimmt ist — als Ablösung des alten Mosaik-Logos. Bitte gegenlesen und freigeben, oder Rückmeldung, falls das bestehende Logo doch erhalten bleiben soll.
@@ -13,6 +17,7 @@ Alle Punkte sind im Entwurf sichtbar als „Platzhalter" markiert.
 - [ ] **Gründungsjahr** bzw. seit wann der Betrieb am Markt ist
 - [ ] **Genaues Einzugsgebiet** (nur Köln? Umland bis wohin?)
 - [ ] **Erreichbarkeitszeiten** (wann sind Sie telefonisch am besten erreichbar?)
+- [ ] **Umfang „ganze Bäder“:** Die Hauptaussage lautet „Fliesen, Naturstein, ganze Bäder.“ Übernehmen oder koordinieren Sie bei Komplettsanierungen auch Sanitär und Elektro (z. B. mit festen Partnern)? Wenn nicht, formulieren wir die Aussage enger.
 - [ ] **Besichtigung unverbindlich?** Dürfen wir schreiben, dass die Besichtigung vor Ort unverbindlich ist (und ggf. kostenlos)?
 - [ ] **Umsatzsteuer-Identifikationsnummer** fürs Impressum (war auf der alten Seite ebenfalls nicht ausgefüllt)
 

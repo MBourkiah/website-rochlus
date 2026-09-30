@@ -10,6 +10,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Telefon from './Telefon.astro';
 import { istReview } from '../stand';
+import { fotos } from '../fotos.mjs';
 
 // process.cwd() ist das Astro-Projekt-Root (website/), stabil in dev & build.
 const logoLockup = readFileSync(join(process.cwd(), 'public/logo/logo-lockup-light.svg'), 'utf-8').replace(
@@ -23,7 +24,7 @@ const nav = [
   { href: '#betrieb', label: 'Der Betrieb' },
   { href: '#arbeiten', label: 'Arbeiten', nurReview: true },
   { href: '#kontakt', label: 'Kontakt' },
-].filter((n) => istReview || !n.nurReview);
+].filter((n) => istReview || fotos.referenzen.length > 0 || !n.nurReview);
 ---
 
 <header class="sticky top-0 z-40 border-b border-linie bg-putz/95 backdrop-blur-sm">

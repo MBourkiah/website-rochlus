@@ -227,6 +227,8 @@ Außerhalb der Schilder: Fotorahmen aus Emaille mit 8px Radius und 6px Passepart
 
 ## Components
 
+Alle Schild-, Klingel-, Link- und Schema-Klassen liegen in `@layer components`, damit Tailwind-Utilities im Markup Vorrang haben.
+
 ### Schild (Grundkomponente)
 Das Emaille-Schild ist der einzige Container der Welt. Varianten: **Emaille** (weiß, Anthrazit-Rand), **Kobalt** (weiße Schrift, weißer Rand), **Rot** (nur Anruf, Rand weiß 90 %). Innenabstand großzügig (Hero 4rem seitlich, Türschild 3.5rem, Firmenschild 2.5–3rem), damit die Schrauben nie Text berühren.
 
@@ -241,10 +243,10 @@ Das Emaille-Schild ist der einzige Container der Welt. Varianten: **Emaille** (w
 - **Anrufleiste (mobil):** fixiert unten, rotes Mini-Schild mit Nummer plus Emaille-Mini-Schild „E-Mail“ im Abstand von 1rem; fährt (260ms) erst ein, wenn das Hero-Schild aus dem Blick ist, und an der Klingel wieder aus. Ohne JavaScript immer sichtbar.
 
 ### Straßenschilder (Leistungen)
-Jede Leistung ist ein flaches Straßenschild (`schild--flach`, ohne Wandschatten) in `schild`-Typo, in Gruppen gestapelt (0.75rem Abstand). Reine Beschriftung, keine Links, kein Hover. Das erste Schild der führenden Gruppe ist Kobalt.
+Drei flache Hinweistafeln (`schild--flach`), eine pro Gruppe, wie das Verzeichnis im Hauseingang: Gruppentitel (h3) und Satz oben, darunter jede Leistung als Zeile in `schild`-Typo, getrennt durch Haarlinien. Reine Beschriftung, keine Links, kein Hover. Die Tafel der führenden Gruppe (Verlegen, mit der Komplettsanierung) ist Kobalt.
 
 ### Hausnummern (Ablauf, Adresse)
-Quadratisches Schild (6rem) mit Ziffer in Barlow Condensed 700. Adresse im Hero: Kobalt mit weißer Ziffer, Straße auf eigenem Straßenschild darunter, für Screenreader als eine Adresse gelesen. Ablauf-Stationen im Kobalt-Band invertiert: Emaille-Weiß mit Kobalt-Ziffer und Kobalt-Rand. Die Nummer trägt Information (Reihenfolge, Adresse), nie Dekoration. Unter jeder Station eine Haarlinie (Weiß 25 %) mit Pfeil und „Danach: …“.
+Quadratisches Schild (6rem) mit Ziffer in Barlow Condensed 700. Adresse im Hero: Kobalt mit weißer Ziffer (ab lg 6.5rem-Schild, Ziffer 4.5rem, bewusst kleiner als die Telefonnummer), „Kranzbinderweg · Köln“ auf eigenem Straßenschild daneben, für Screenreader als eine Adresse gelesen. Ablauf-Stationen im Kobalt-Band invertiert: Emaille-Weiß mit Kobalt-Ziffer und Kobalt-Rand. Die Nummer trägt Information (Reihenfolge, Adresse), nie Dekoration. Unter jeder Station eine Haarlinie (Weiß 25 %) mit Pfeil und „Danach: …“.
 
 ### Die Klingel (Signatur)
 Anruf-Knopf am Türschild: Stahlring (5.5rem, `stahl-hell`, Stahl-Rand, Wandschatten) mit oxidrotem Drücker (3.9rem) und Telefon-Symbol, daneben die Nummer bis 4rem. Hover: `oxid-tief`. Active: Drücker sinkt 2px und schrumpft auf 97 %, Schatten verschwindet (90ms). Die einzige Signatur-Interaktion der Seite.
@@ -260,6 +262,9 @@ Emaille-Passepartout (6px) mit 8px Radius, feiner Anthrazit-Rand (20 %) und Wand
 
 ### Platzhalter-Etikett
 Kennzeichnet unbestätigte Inhalte: kleines Emaille-Etikett, gestrichelter `anthrazit-soft`-Rand, 0.75rem halbfett, bewusst neutral (kein Kobalt, kein Rot). Größere Lücken als gestrichelter Kasten in `stahl`. Ein Arbeitsmittel bis zur Kundenfreigabe, kein Gestaltungselement: Es erscheint nur im Review-Stand. Im Launch-Stand (`PUBLIC_STAND=launch`, `src/stand.ts`) entfallen Etiketten und leere Slots komplett.
+
+### Fotoplätze
+Echte Fotos stehen zentral in `src/fotos.mjs` (Porträt, fertiges Bad, Referenzen). Ist ein Eintrag leer, zeigt der Review-Stand einen gestrichelten Platzhalter und der Launch-Stand nichts. Mit Porträt zeigt das Anruf-Schild ein kleines Bild und „Sie sprechen direkt mit Marc Rochlus.“; das Badfoto steht im Emaille-Rahmen unter dem Text der Komplettsanierung. Keine Stock- oder Ersatzfotos.
 
 ### Schichtaufbau (Schema)
 Querschnitt durch einen Badboden: fünf Schichtstreifen (Fliese, Kleber, Heizmatte, Abdichtung, Untergrund) mit eigenen Materialmustern, rechts die Beschriftung mit gestrichelten Trennern. Die Schichtfarben gehören nur diesem Schema und sind keine System-Tokens.
