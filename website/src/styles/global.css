@@ -207,6 +207,12 @@ h3 {
     var(--kopf) right 12px center / 10px 10px no-repeat;
 }
 
+/* Flach an der Wand: reine Beschriftung ohne Wandschatten. Tiefe bekommen
+   nur Schilder, die man drücken kann (Anruf, Klingel, Menü). */
+.schild--flach {
+  box-shadow: none;
+}
+
 /* Kleinformat ohne Schrauben (Header, Etiketten) */
 .schild--mini {
   --rand-abstand: 3px;

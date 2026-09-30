@@ -2,8 +2,8 @@
 /**
  * Schilderwand: Jede der 13 Leistungen des Bestands bekommt ein eigenes
  * Straßenschild, in drei Gruppen an der Wand. Nichts verschwindet im Fließtext.
- * Die Schilder sind reine Beschriftung, keine Links (sie tun nicht so, als
- * wären sie klickbar).
+ * Die Schilder sind reine Beschriftung, keine Links: flach ohne Wandschatten,
+ * damit sie nicht wie die drückbaren Anruf-Schilder aussehen.
  */
 const gruppen = [
   {
@@ -27,7 +27,7 @@ const gruppen = [
 <section id="leistungen" class="scroll-mt-20">
   <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
     <div class="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
-      <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Alle 13 Leistungen, gut ausgeschildert.</h2>
+      <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Unsere Leistungen, gut ausgeschildert.</h2>
       <p class="max-w-sm text-lg leading-relaxed text-anthrazit-soft">
         Ihr Vorhaben steht nicht dabei? Fragen Sie trotzdem. Oft gehört es dazu.
       </p>
@@ -41,7 +41,7 @@ const gruppen = [
             <p class="mt-1 text-base text-anthrazit-soft">{m.text}</p>
             <ul class="mt-6 space-y-3">
                 {m.schilder.map((s, i) => (
-                  <li class={`schild schild--strasse px-9 py-3.5 font-schild text-xl leading-tight font-semibold ${i === 0 && m.titel === 'Verlegen' ? 'schild--kobalt' : ''}`}>
+                  <li class={`schild schild--strasse schild--flach px-9 py-3.5 font-schild text-xl leading-tight font-semibold ${i === 0 && m.titel === 'Verlegen' ? 'schild--kobalt' : ''}`}>
                     {s}
                   </li>
                 ))}
