@@ -17,7 +17,7 @@ import { istReview } from '../stand';
 import { fotos } from '../fotos.mjs';
 ---
 
-<section class="border-y border-linie bg-putz-tief/60">
+<section id="komplettsanierung" class="scroll-mt-20 border-y border-linie bg-putz-tief/60">
   <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
     <div class="lg:col-span-5 lg:pt-6">
       <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Bad ist mehr als die Fliese obendrauf.</h2>
@@ -56,10 +56,10 @@ import { fotos } from '../fotos.mjs';
       <p class="mt-1 text-sm text-anthrazit-soft">Schema, von oben nach unten</p>
 
       <!-- Querschnitt: links die Schicht, rechts ihre Beschriftung -->
-      <ol class="mt-8">
+      <ol class="mt-8" data-bewegung="schichten">
         {
-          schichten.map((s) => (
-            <li class="group grid min-h-16 grid-cols-[3.5rem_1fr] gap-x-5 sm:grid-cols-[6rem_1fr] sm:gap-x-8">
+          schichten.map((s, i) => (
+            <li style={`--i:${i}`} class="group grid min-h-16 grid-cols-[3.5rem_1fr] gap-x-5 sm:grid-cols-[6rem_1fr] sm:gap-x-8">
               <span class={`${s.klasse} border-x border-anthrazit/25 group-first:rounded-t-[3px] group-first:border-t group-last:rounded-b-[3px] group-last:border-b`} aria-hidden="true" />
               <span class="flex flex-col justify-center border-b border-dashed border-linie py-2.5 group-last:border-b-0">
                 <span class="font-schild text-lg leading-tight font-semibold">{s.name}</span>

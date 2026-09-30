@@ -227,6 +227,9 @@ Außerhalb der Schilder: Fotorahmen aus Emaille mit 8px Radius und 6px Passepart
 
 ## Components
 
+### Bewegung
+Ein Motion-System mit fünf Momenten, alle in `global.css` (Abschnitt BEWEGUNG) und von `Base.astro` gesteuert (`html.bewegung`, `data-bewegung` → `data-sichtbar`): **Emaille-Glanz** zieht einmal über die Hero-Schilder (1.3s) und bei Hover über klickbare Schilder; **Schichten** des Badboden-Schnitts bauen sich von unten nach oben auf (je 120ms versetzt); **Treppe**: Stufen steigen nacheinander auf (150ms); **Wegweiser-Tafel** gleitet aus Pfeilrichtung herein (280ms, mobil von oben); **Klingel** klingelt zweimal sichtbar, wenn das Türschild ins Bild kommt. Kurve `cubic-bezier(0.16, 1, 0.3, 1)`. Inhalte sind ohne JS und bei reduzierter Bewegung sofort sichtbar.
+
 Alle Schild-, Klingel-, Link- und Schema-Klassen liegen in `@layer components`, damit Tailwind-Utilities im Markup Vorrang haben.
 
 ### Schild (Grundkomponente)
@@ -288,6 +291,6 @@ Die Logo-Wortmarke (`public/logo/`: „Rochlus“ in Fraunces, „FLIESENFACHBET
 - **Don't** Creme-Editorial mit Serifen und keine dunklen Flächen oder Kapitel; die Welt ist heller Putz.
 - **Don't** Fraunces oder Instrument Sans außerhalb der Logo-Wortmarke.
 - **Don't** Rot für Hinweise, Status, Hervorhebungen oder Dekoration, und nie zwei aktive Anruf-Flächen gleichzeitig im Blick.
-- **Don't** Scroll-Reveals, Laufbänder oder Auftritts-Animationen; Bewegung nur als Druck-, Hover- oder Leisten-Zustand (160ms, 260ms für die Leiste).
+- **Don't** Bewegung als Dekoration: keine generischen Einblendungen pro Section, keine Laufbänder, keine Parallaxe. Jede Animation erklärt etwas aus der Schildwelt (Emaille-Glanz, Schichtaufbau von unten, Treppe in Reihenfolge, Tafel aus Pfeilrichtung, Klingel), läuft einmal und entfällt bei „Bewegung reduzieren“.
 - **Don't** Schilder auf Schilder stapeln oder Schilder schweben lassen; harte Versatzschatten gehören nicht zu dieser Welt.
 - **Don't** reine Beschriftungs-Schilder (Leistungen) wie Buttons aussehen oder reagieren lassen.

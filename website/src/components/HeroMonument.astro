@@ -1,0 +1,36 @@
+---
+/**
+ * Hero-Variante „Monument“: ein Kobalt-Schild über die volle Breite, die
+ * Aussage in einer Zeile. Darunter hängen Hausnummer, Straße und Anruf-Schild
+ * an der Wand, leicht schief wie von Hand angeschraubt.
+ */
+import Telefon from './Telefon.astro';
+import AnrufRueckfall from './AnrufRueckfall.astro';
+---
+
+<section class="mx-auto max-w-6xl px-4 pt-6 pb-20 sm:px-6 sm:pt-10 lg:pt-14 lg:pb-28">
+  <div class="schild schild--kobalt glanz px-8 pt-14 pb-12 sm:px-14 sm:pt-20 sm:pb-16 lg:px-16 lg:pt-24 lg:pb-20">
+    <h1 class="text-[clamp(3.4rem,8.2vw,6rem)] leading-[0.9]">
+      Fliesen, Naturstein,<br class="hidden lg:block" /> ganze Bäder.
+    </h1>
+    <p class="mt-8 max-w-xl text-lg leading-relaxed text-kobalt-soft sm:text-xl">
+      Fliesenfachbetrieb Rochlus aus Köln. Vom ersten Aufmaß bis zur letzten Fuge aus einer Hand, für Köln und Umgebung.
+    </p>
+  </div>
+
+  <!-- Die Schilder darunter: angeschraubt, nicht ausgerichtet -->
+  <div class="mt-6 grid grid-cols-1 items-start gap-5 sm:mt-8 lg:grid-cols-12 lg:gap-8">
+    <div role="img" aria-label="Unsere Adresse: Kranzbinderweg 15, 51067 Köln" class="flex items-center gap-3 sm:gap-4 lg:col-span-5 lg:mt-6 lg:-rotate-2">
+      <span class="schild schild--kobalt grid h-20 w-20 shrink-0 place-items-center font-schild text-5xl leading-none font-bold [--rand-abstand:5px] [--schraube-abstand:11px] max-sm:after:hidden sm:h-24 sm:w-24 sm:text-6xl" aria-hidden="true">15</span>
+      <span class="schild schild--strasse px-9 py-3 font-schild text-lg leading-tight font-semibold sm:text-xl">Kranzbinderweg · Köln</span>
+    </div>
+    <a href="tel:+492219687575" data-hero-anruf style="--glanz-verzoegerung: 700ms" class="schild schild--rot glanz flex flex-wrap items-center justify-between gap-x-8 gap-y-3 px-8 py-8 sm:px-10 lg:col-span-7 lg:rotate-1">
+      <span>
+        <span class="flex items-center gap-2.5 font-schild text-xl font-semibold tracking-wide"><Telefon size={20} /> Anrufen</span>
+        <span class="mt-2 block text-base leading-snug text-white/90">Sie sprechen direkt mit dem Betrieb.</span>
+      </span>
+      <span class="font-schild text-[clamp(2.4rem,5vw,3.4rem)] leading-none font-semibold whitespace-nowrap">0221 968 75 75</span>
+    </a>
+  </div>
+  <AnrufRueckfall class="mt-6 lg:justify-end" />
+</section>

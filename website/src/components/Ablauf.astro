@@ -41,10 +41,10 @@ const stationen = [
       Vier Stufen bis zum fertigen Raum.
     </h2>
 
-    <ol class="mt-14 grid grid-cols-1 lg:mt-0 lg:grid-cols-4">
+    <ol class="mt-14 grid grid-cols-1 lg:mt-0 lg:grid-cols-4" data-bewegung="treppe">
       {
         stationen.map((s, i) => (
-          <li class={`flex flex-col ${['lg:pt-60', 'lg:pt-44', 'lg:pt-28', 'lg:pt-12'][i]}`}>
+          <li style={`--i:${i}`} class={`flex flex-col ${['lg:pt-60', 'lg:pt-44', 'lg:pt-28', 'lg:pt-12'][i]}`}>
             <span class="schild ml-0 flex h-20 w-20 items-center justify-center font-schild text-5xl leading-none font-bold text-kobalt [--rand-abstand:5px] [--schild-rand:var(--kobalt)] [--schraube-abstand:11px] lg:ml-6">
               <span class="sr-only">Stufe </span>
               {i + 1}

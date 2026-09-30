@@ -1,0 +1,53 @@
+---
+/**
+ * Die Startseite als Ganzes. `hero` wählt die Hero-Variante; index.astro nutzt
+ * die gesetzte Variante, /vorschau/hero-* zeigt alle zum Vergleich.
+ */
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Hero from './Hero.astro';
+import HeroWegweiser from './HeroWegweiser.astro';
+import HeroTableau from './HeroTableau.astro';
+import HeroMonument from './HeroMonument.astro';
+import Komplettsanierung from './Komplettsanierung.astro';
+import Leistungen from './Leistungen.astro';
+import Ablauf from './Ablauf.astro';
+import Betrieb from './Betrieb.astro';
+import Referenzen from './Referenzen.astro';
+import Kontakt from './Kontakt.astro';
+import Footer from './Footer.astro';
+import MobileCallBar from './MobileCallBar.astro';
+import { istReview } from '../stand';
+import { fotos } from '../fotos.mjs';
+
+interface Props {
+  hero?: 'schilderwand' | 'wegweiser' | 'tableau' | 'monument';
+}
+const { hero = 'schilderwand' } = Astro.props;
+---
+
+<Base
+  title="Fliesenfachbetrieb Rochlus GmbH — Fliesen, Naturstein & Komplettsanierung in Köln"
+  description="Fliesenfachbetrieb in Köln: Verlegung von Fliesen und Naturstein, Komplettsanierung inkl. Raumgestaltung, Abdichtung und elektrische Fußbodenheizung. Beratung vor Ort."
+>
+  <Header />
+  <slot name="vor-inhalt" />
+  <!-- pb: Platz für die mobile Call-Bar, damit sie keinen Inhalt verdeckt -->
+  <div class="pb-18 md:pb-0">
+    <main id="inhalt">
+      {hero === 'schilderwand' && <Hero />}
+      {hero === 'wegweiser' && <HeroWegweiser />}
+      {hero === 'tableau' && <HeroTableau />}
+      {hero === 'monument' && <HeroMonument />}
+      <Komplettsanierung />
+      <Leistungen />
+      <Ablauf />
+      <Betrieb />
+      {/* Galerie: mit Originalfotos immer, mit Archiv-Platzhaltern nur im Review-Stand */}
+      {(istReview || fotos.referenzen.length > 0) && <Referenzen />}
+      <Kontakt />
+    </main>
+    <Footer />
+  </div>
+  <MobileCallBar />
+</Base>

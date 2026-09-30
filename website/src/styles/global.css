@@ -40,6 +40,7 @@
 
   --dauer: 160ms;
   --kurve: cubic-bezier(0.22, 1, 0.36, 1);
+  --kurve-lang: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -277,6 +278,92 @@ summary {
     filter: drop-shadow(0 1px 1px rgb(24 26 32 / 0.14));
   }
 
+  /* Großer Wegweiser-Pfeil (Hero-Variante „Wegweiser“) */
+  .pfeil--gross {
+    min-height: 0;
+    padding: 1.1rem 4.5rem 1.1rem 2.75rem;
+    clip-path: polygon(0 0, calc(100% - 3rem) 0, 100% 50%, calc(100% - 3rem) 100%, 0 100%);
+  }
+  .pfeil--kobalt {
+    background: var(--kopf) left 14px center / 10px 10px no-repeat, var(--kobalt);
+    color: #fff;
+  }
+  .hero-pfeil {
+    filter: drop-shadow(0 1px 1px rgb(24 26 32 / 0.14)) drop-shadow(0 10px 12px rgb(24 26 32 / 0.18));
+    transition: transform var(--dauer) var(--kurve);
+  }
+  .hero-pfeil:hover {
+    transform: translateX(6px);
+  }
+
+  /* Klingeltableau (Hero-Variante „Tableau“): Stahlplatte mit Namensschildern */
+  .tableau {
+    border-radius: 18px;
+    background-color: #d6d9db;
+    border: 1px solid var(--stahl);
+    padding: 1.5rem;
+    box-shadow:
+      var(--schatten-schild),
+      inset 0 1px 0 rgb(255 255 255 / 0.6),
+      inset 0 -2px 0 rgb(0 0 0 / 0.08);
+  }
+  @media (min-width: 40rem) {
+    .tableau {
+      padding: 2rem;
+    }
+  }
+  .tableau-gitter {
+    width: 7rem;
+    height: 3.5rem;
+    border-radius: 8px;
+    background: radial-gradient(circle, rgb(28 29 31 / 0.55) 0 2px, transparent 2.5px) 0 0 / 10px 10px;
+  }
+  .tableau-zeile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 10px;
+  }
+  .tableau-name {
+    flex: 1;
+    border-radius: 6px;
+    background: var(--emaille);
+    border: 1.5px solid var(--anthrazit);
+    padding: 0.7rem 1rem;
+    font-family: var(--font-schild);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--anthrazit);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.08);
+  }
+  .tableau-name--rochlus {
+    border-color: var(--kobalt);
+    border-width: 2px;
+    padding: 0.9rem 1rem;
+  }
+  .tableau-knopf {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: var(--stahl-hell);
+    border: 1px solid var(--stahl);
+    box-shadow: 0 2px 3px -1px rgb(24 26 32 / 0.4);
+    transition: transform 90ms var(--kurve), box-shadow 90ms var(--kurve);
+  }
+  .tableau-zeile:hover .tableau-knopf {
+    background: #dfe2e3;
+  }
+  .tableau-zeile:active .tableau-knopf,
+  .tableau-zeile--rochlus:active .klingel-knopf {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: none;
+  }
+  .tableau-zeile--rochlus:hover .klingel-knopf {
+    background-color: var(--oxid-tief);
+  }
+
   /* Kleinformat ohne Schrauben (Header, Etiketten) */
   .schild--mini {
     --rand-abstand: 3px;
@@ -394,6 +481,114 @@ html[data-klingel-da] .anrufleiste {
   transform: translateY(110%);
 }
 
+/*
+ * BEWEGUNG — jede Animation erklärt etwas aus der Schildwelt:
+ * Glanz = glasierte Emaille, Schichten = so entsteht ein Boden, Treppe =
+ * Reihenfolge, Tafel = kommt aus Richtung des Pfeils, Klingel = klingelt.
+ * Inhalte sind ohne JS und bei reduzierter Bewegung immer sichtbar; Vorzustände
+ * gelten nur unter html.bewegung (gesetzt in Base.astro).
+ */
+
+/* Emaille-Glanz: ein Lichtreflex zieht einmal über die Glasur */
+@keyframes glanz {
+  from {
+    background-position: 140% 0;
+  }
+  to {
+    background-position: -40% 0;
+  }
+}
+.glanz,
+a.schild {
+  background-image: linear-gradient(105deg, transparent 38%, rgb(255 255 255 / 0.2) 50%, transparent 62%);
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  background-position: 140% 0;
+}
+html.bewegung .glanz {
+  animation: glanz 1300ms var(--kurve-lang) var(--glanz-verzoegerung, 250ms) both;
+}
+html.bewegung a.schild:hover {
+  animation: glanz 900ms var(--kurve-lang) both;
+}
+
+/* Schichtschnitt: der Boden baut sich von unten nach oben auf */
+html.bewegung [data-bewegung="schichten"] > li {
+  opacity: 0;
+  transform: translateY(14px);
+}
+html.bewegung [data-bewegung="schichten"][data-sichtbar] > li {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 450ms var(--kurve-lang),
+    transform 600ms var(--kurve-lang);
+  transition-delay: calc((4 - var(--i, 0)) * 120ms);
+}
+
+/* Treppe: die Stufen steigen nacheinander auf */
+html.bewegung [data-bewegung="treppe"] > li {
+  opacity: 0;
+  transform: translateY(28px);
+}
+html.bewegung [data-bewegung="treppe"][data-sichtbar] > li {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 500ms var(--kurve-lang),
+    transform 700ms var(--kurve-lang);
+  transition-delay: calc(var(--i, 0) * 150ms);
+}
+
+/* Wegweiser: die Tafel kommt aus Richtung des Pfeils */
+@keyframes tafel-ein {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+}
+@keyframes tafel-auf {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+html.bewegung [data-tafel]:not([hidden]) {
+  animation: tafel-auf 280ms var(--kurve-lang);
+}
+@media (min-width: 64rem) {
+  html.bewegung [data-tafel]:not([hidden]) {
+    animation-name: tafel-ein;
+  }
+}
+
+/* Klingel: klingelt einmal sichtbar, wenn das Türschild ins Bild kommt */
+@keyframes klingeln {
+  from {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+.klingel-ring {
+  position: relative;
+}
+.klingel-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 999px;
+  border: 2px solid var(--oxid);
+  opacity: 0;
+  pointer-events: none;
+}
+html.bewegung [data-bewegung="klingel"][data-sichtbar] .klingel-ring::after {
+  animation: klingeln 1100ms var(--kurve-lang) 400ms 2;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -402,5 +597,6 @@ html[data-klingel-da] .anrufleiste {
   *::before,
   *::after {
     transition-duration: 1ms !important;
+    animation: none !important;
   }
 }

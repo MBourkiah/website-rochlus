@@ -1,0 +1,38 @@
+---
+/**
+ * VORSCHAU (nur zur Auswahl, nach der Entscheidung löschen):
+ * /vorschau/hero-a … hero-d zeigen die Startseite mit je einer Hero-Variante.
+ */
+import Startseite from '../../components/Startseite.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { hero: 'hero-a' }, props: { hero: 'schilderwand', name: 'A · Schilderwand (aktuell)' } },
+    { params: { hero: 'hero-b' }, props: { hero: 'wegweiser', name: 'B · Wegweiser' } },
+    { params: { hero: 'hero-c' }, props: { hero: 'tableau', name: 'C · Klingeltableau' } },
+    { params: { hero: 'hero-d' }, props: { hero: 'monument', name: 'D · Monument' } },
+  ];
+}
+const { hero, name } = Astro.props;
+const alle = [
+  ['hero-a', 'A'],
+  ['hero-b', 'B'],
+  ['hero-c', 'C'],
+  ['hero-d', 'D'],
+];
+---
+
+<Startseite hero={hero}>
+  <nav slot="vor-inhalt" aria-label="Hero-Varianten" class="border-b border-linie bg-emaille">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1 px-4 py-1 text-sm sm:px-6">
+      <span class="font-semibold">Vorschau: {name}</span>
+      {
+        alle.map(([pfad, b]) => (
+          <a href={`/vorschau/${pfad}`} class="link ziel px-1" aria-current={pfad === Astro.params.hero ? 'page' : undefined}>
+            Variante {b}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</Startseite>

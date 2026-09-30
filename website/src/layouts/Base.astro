@@ -80,6 +80,23 @@ const ldJson = {
           else wurzel.setAttribute('data-anruf-weg', '');
         }).observe(heroAnruf);
       }
+      // Bewegung nur ohne „Bewegung reduzieren“; Elemente mit data-bewegung
+      // bekommen einmalig data-sichtbar, sobald sie ins Bild kommen.
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        wurzel.classList.add('bewegung');
+        const zuschauer = new IntersectionObserver(
+          (eintraege) => {
+            for (const e of eintraege) {
+              if (e.isIntersecting) {
+                e.target.setAttribute('data-sichtbar', '');
+                zuschauer.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.25 }
+        );
+        document.querySelectorAll('[data-bewegung]').forEach((el) => zuschauer.observe(el));
+      }
       const klingel = document.querySelector('[data-klingel]');
       if (klingel) {
         new IntersectionObserver(([e]) => {
