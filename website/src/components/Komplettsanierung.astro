@@ -12,14 +12,14 @@ const schichten = [
   { klasse: 'schicht-abdichtung', name: 'Abdichtung', leistung: 'Abdichtungsarbeiten' },
   { klasse: 'schicht-untergrund', name: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
 ];
-import PlatzhalterBadge from './PlatzhalterBadge.astro';
-import { istReview } from '../stand';
+import { Image } from 'astro:assets';
+import rautenVerlegebild from '../assets/stimmung/rauten-verlegebild.jpg';
 import { fotos } from '../fotos.mjs';
 ---
 
 <section id="komplettsanierung" class="scroll-mt-20 border-y border-linie bg-putz-tief/60">
   <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
-    <div class="lg:col-span-5 lg:pt-6">
+    <div class="lg:sticky lg:top-28 lg:col-span-5 lg:self-start lg:pt-6">
       <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Bad ist mehr als die Fliese obendrauf.</h2>
       <p class="mt-7 max-w-136 text-lg leading-relaxed text-anthrazit-soft">
         Bei einer Komplettsanierung übernehmen wir jede Schicht rund um die Fliese,
@@ -34,24 +34,10 @@ import { fotos } from '../fotos.mjs';
         <a href="tel:+492219687575" class="link link-anruf ziel font-schild text-2xl font-semibold whitespace-nowrap">0221 968 75 75</a>
       </p>
 
-      <!-- Fertiges Bad: echtes Foto aus src/fotos.mjs, sonst Platzhalter nur im Review-Stand -->
-      {
-        fotos.bad ? (
-          <figure class="mt-10 rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-            <img src={fotos.bad.src} alt={fotos.bad.alt} width={fotos.bad.breite} height={fotos.bad.hoehe} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" />
-          </figure>
-        ) : (
-          istReview && (
-            <div class="mt-10 flex aspect-4/3 max-w-sm flex-col items-center justify-center gap-2 rounded-[8px] border border-dashed border-stahl bg-emaille p-4 text-center">
-              <PlatzhalterBadge text="Foto folgt" />
-              <p class="text-sm text-anthrazit-soft">Hier kommt ein fertig saniertes Bad hin.</p>
-            </div>
-          )
-        )
-      }
     </div>
 
-    <figure class="schild px-6 pt-12 pb-8 sm:px-12 sm:pt-14 sm:pb-10 lg:col-span-7 lg:self-start">
+    <div class="lg:col-span-7">
+    <figure class="schild px-6 pt-12 pb-8 sm:px-12 sm:pt-14 sm:pb-10">
       <figcaption class="font-schild text-xl font-semibold tracking-wide">Schnitt durch einen Badboden</figcaption>
       <p class="mt-1 text-sm text-anthrazit-soft">Schema, von oben nach unten</p>
 
@@ -78,5 +64,19 @@ import { fotos } from '../fotos.mjs';
         </span>
       </p>
     </figure>
+      <!-- Fertiges Bad aus src/fotos.mjs; bis dahin ein Material-Stimmungsbild -->
+      {
+        fotos.bad ? (
+          <figure class="mt-6 rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
+            <img src={fotos.bad.src} alt={fotos.bad.alt} width={fotos.bad.breite} height={fotos.bad.hoehe} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" />
+          </figure>
+        ) : (
+          /* Material-Stimmungsbild (Unsplash, siehe Bild-Metadaten), bis ein echtes Bad vorliegt */
+          <figure class="mt-6 rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
+            <Image src={rautenVerlegebild} alt="Weiße Wandfliesen im Rautenmuster, das wie ein Würfelmuster wirkt" widths={[560, 840, 1120]} sizes="(min-width: 64rem) 40rem, 100vw" class="aspect-[16/8] w-full rounded-[4px] object-cover object-center" />
+          </figure>
+        )
+      }
+    </div>
   </div>
 </section>

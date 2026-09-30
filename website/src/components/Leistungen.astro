@@ -7,7 +7,12 @@
  * Muster: Disclosure-Buttons (aria-expanded/aria-controls), kein Tab-Widget,
  * damit es in beiden Layouts ehrlich bleibt.
  */
+import { Image } from 'astro:assets';
 import Telefon from './Telefon.astro';
+// Material-Stimmungsbilder (Unsplash, Herkunft in den Bild-Metadaten); zeigen keine Rochlus-Projekte
+import marmorVerband from '../assets/stimmung/marmor-verband.jpg';
+import werkzeug from '../assets/stimmung/werkzeug.jpg';
+import materialmuster from '../assets/stimmung/materialmuster.jpg';
 
 const gruppen = [
   {
@@ -15,18 +20,21 @@ const gruppen = [
     titel: 'Verlegen',
     text: 'Das Kernhandwerk, auf Wand und Boden: vom Fliesenspiegel bis zum ganzen Bad.',
     punkte: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
+    bild: { src: marmorVerband, alt: 'Wand aus rosafarbenen Marmorfliesen im Verband', lage: 'object-center' },
   },
   {
     id: 'untergrund',
     titel: 'Unter und neben der Fliese',
     text: 'Damit der Untergrund so gut ist wie die Oberfläche.',
     punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
+    bild: { src: werkzeug, alt: 'Kellen und Werkzeug in einem Eimer auf einer Baustelle', lage: 'object-[center_45%]' },
   },
   {
     id: 'service',
     titel: 'Planung und Service',
     text: 'Was vor, während und nach der Arbeit passiert.',
     punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
+    bild: { src: materialmuster, alt: 'Materialmuster aus Stein, Marmor und Metall nebeneinander', lage: 'object-[center_60%]' },
   },
 ];
 ---
@@ -56,6 +64,7 @@ const gruppen = [
               class="schild px-7 pt-10 pb-8 sm:px-10 lg:col-span-7 lg:col-start-6 lg:row-span-4 lg:row-start-1 lg:self-start lg:px-12 lg:pt-12 lg:pb-10"
               data-tafel
             >
+              <Image src={g.bild.src} alt={g.bild.alt} widths={[560, 840, 1120]} sizes="(min-width: 64rem) 36rem, 100vw" class={`mb-7 aspect-[16/7] w-full rounded-[5px] object-cover ${g.bild.lage}`} loading={i === 0 ? 'eager' : 'lazy'} />
               <p class="max-w-md text-lg leading-snug text-anthrazit-soft">{g.text}</p>
               <ul class="mt-6 grid grid-cols-1 border-t border-anthrazit/15 sm:grid-cols-2 sm:gap-x-8">
                 {g.punkte.map((p) => (
