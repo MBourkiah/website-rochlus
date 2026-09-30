@@ -75,9 +75,21 @@ const nav = [
 </header>
 
 <script is:inline>
-  document.querySelectorAll('details nav a').forEach((a) =>
-    a.addEventListener('click', () => a.closest('details')?.removeAttribute('open'))
-  );
+  // Mobilmenü: schließt nach Linkklick, mit Esc und bei Tipp daneben
+  const menue = document.querySelector('header details');
+  if (menue) {
+    const schliessen = () => menue.removeAttribute('open');
+    menue.querySelectorAll('nav a').forEach((a) => a.addEventListener('click', schliessen));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menue.open) {
+        schliessen();
+        menue.querySelector('summary')?.focus();
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (menue.open && !menue.contains(e.target)) schliessen();
+    });
+  }
 
   const spyLinks = new Map([...document.querySelectorAll('[data-spy]')].map((a) => [a.getAttribute('data-spy'), a]));
   const spy = new IntersectionObserver(
