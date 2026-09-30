@@ -232,6 +232,51 @@ summary {
     box-shadow: none;
   }
 
+  /*
+   * Wegweiser-Pfeil (Leistungen): Pfeilschild mit Spitze nach rechts, ein
+   * Schraubkopf links. Die Form sitzt auf dem inneren Span, damit der
+   * Fokusring am Knopf nicht mit abgeschnitten wird. Tiefe über drop-shadow,
+   * weil clip-path box-shadow abschneiden würde.
+   */
+  .pfeil-knopf {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0 1px 1px rgb(24 26 32 / 0.14)) drop-shadow(0 8px 10px rgb(24 26 32 / 0.16));
+    transition: transform var(--dauer) var(--kurve), filter var(--dauer) var(--kurve);
+  }
+  .pfeil {
+    --kopf: radial-gradient(circle, #eef0f1 0 1.6px, #b7bcbf 2.2px 3.4px, #6f7578 3.9px 4.4px, transparent 4.9px);
+    display: flex;
+    min-height: 5.25rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.15rem;
+    padding: 1rem 3.5rem 1rem 2.75rem;
+    background: var(--kopf) left 14px center / 10px 10px no-repeat, var(--emaille);
+    color: var(--anthrazit);
+    clip-path: polygon(0 0, calc(100% - 2rem) 0, 100% 50%, calc(100% - 2rem) 100%, 0 100%);
+    border-radius: 8px 0 0 8px;
+    transition: background-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
+  }
+  .pfeil-zahl {
+    color: var(--anthrazit-soft);
+  }
+  .pfeil-knopf:hover {
+    transform: translateX(4px);
+  }
+  .pfeil-knopf[aria-expanded="true"] .pfeil {
+    background: var(--kopf) left 14px center / 10px 10px no-repeat, var(--kobalt);
+    color: #fff;
+  }
+  .pfeil-knopf[aria-expanded="true"] .pfeil-zahl {
+    color: var(--kobalt-soft);
+  }
+  .pfeil-knopf:active {
+    transform: translateX(2px) translateY(1px);
+    filter: drop-shadow(0 1px 1px rgb(24 26 32 / 0.14));
+  }
+
   /* Kleinformat ohne Schrauben (Header, Etiketten) */
   .schild--mini {
     --rand-abstand: 3px;
