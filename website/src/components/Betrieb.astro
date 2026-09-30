@@ -3,9 +3,11 @@
  * Der Betrieb: das Firmenschild neben der Tür. Nur belegte Fakten stehen auf
  * dem Schild (GmbH, Marc Rochlus, Adresse). Alles Unbestätigte liegt in EINEM
  * gebündelten Klärungskasten.
+ * Im Launch-Stand entfallen Foto-Platzhalter und Klärungskasten (src/stand.ts).
  * WICHTIG: Meisterbetrieb/Gründungsjahr NICHT setzen, bis der Kunde bestätigt.
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
+import { istReview } from '../stand';
 ---
 
 <section id="betrieb" class="scroll-mt-20 border-y border-linie bg-putz-tief/60">
@@ -19,6 +21,7 @@ import PlatzhalterBadge from './PlatzhalterBadge.astro';
       </p>
 
       <!-- Inhaber-Foto: kompakter Platzhalter unter dem Text, dem Firmenschild untergeordnet -->
+      {istReview && (
       <figure class="mt-10 flex items-center gap-5">
         <div class="flex aspect-4/5 w-32 shrink-0 flex-col items-center justify-center gap-2 rounded-[6px] border border-dashed border-stahl bg-emaille p-2 text-center sm:w-36">
           <PlatzhalterBadge text="Foto folgt" />
@@ -28,6 +31,7 @@ import PlatzhalterBadge from './PlatzhalterBadge.astro';
           Geschäftsführer. Hier kommt ein Foto von ihm oder dem Team hin.
         </figcaption>
       </figure>
+      )}
     </div>
 
     <div class="lg:col-span-6 lg:col-start-7 lg:pt-2">
@@ -50,6 +54,7 @@ import PlatzhalterBadge from './PlatzhalterBadge.astro';
         </dl>
       </div>
 
+      {istReview && (
       <div class="mt-6 max-w-lg rounded-lg border border-dashed border-stahl px-5 py-4">
         <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
         <p class="mt-2 text-sm leading-relaxed text-anthrazit-soft">
@@ -57,6 +62,7 @@ import PlatzhalterBadge from './PlatzhalterBadge.astro';
           ergänzt, sobald der Betrieb sie bestätigt. Hier steht nichts Erfundenes.
         </p>
       </div>
+      )}
     </div>
   </div>
 </section>

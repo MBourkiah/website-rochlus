@@ -13,6 +13,7 @@ Alle Punkte sind im Entwurf sichtbar als „Platzhalter" markiert.
 - [ ] **Gründungsjahr** bzw. seit wann der Betrieb am Markt ist
 - [ ] **Genaues Einzugsgebiet** (nur Köln? Umland bis wohin?)
 - [ ] **Erreichbarkeitszeiten** (wann sind Sie telefonisch am besten erreichbar?)
+- [ ] **Besichtigung unverbindlich?** Dürfen wir schreiben, dass die Besichtigung vor Ort unverbindlich ist (und ggf. kostenlos)?
 - [ ] **Umsatzsteuer-Identifikationsnummer** fürs Impressum (war auf der alten Seite ebenfalls nicht ausgefüllt)
 
 ## Material
@@ -26,3 +27,9 @@ Alle Punkte sind im Entwurf sichtbar als „Platzhalter" markiert.
 - [ ] Freigabe der neu formulierten Texte (alle Leistungen stammen von Ihrer alten Seite, wurden aber neu gruppiert und ergänzt)
 - [ ] Rechtliche Prüfung der reduzierten Datenschutzerklärung (die neue Seite nutzt keine Cookies, keine Analyse-Tools, keine Google-Dienste — die Erklärung wurde entsprechend verschlankt)
 - [ ] Hosting/Domain-Umzug klären (aktuelle Seite läuft auf ungewartetem WordPress 5.5 von 2020)
+
+## Technisch: Review- und Launch-Stand
+
+- Standard-Build (`npm run build`) = **Review-Stand**: alle Platzhalter sichtbar, `noindex` gesetzt.
+- **Launch-Stand**: `PUBLIC_STAND=launch npm run build`. Leere Slots (Galerie ohne Originalfotos, Inhaber-Foto, Erreichbarkeit, Klärungsbox) entfallen, die Seite wird indexierbar.
+- Der Launch-Build bricht ab, solange Pflichtpunkte in `website/src/offene-punkte.mjs` offen sind (USt-IdNr., rechtliche Prüfung Datenschutz). Erledigte Punkte dort löschen.

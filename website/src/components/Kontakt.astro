@@ -2,10 +2,11 @@
 /**
  * Kontakt als Türschild mit Klingel: Die Klingel ist der Anruf — Signatur-
  * Interaktion der Seite (echter Druckzustand, siehe .klingel in global.css).
- * Alle Kontaktdaten aus dem Bestand (belegt). Erreichbarkeitszeiten: Platzhalter.
+ * Alle Kontaktdaten aus dem Bestand (belegt). Erreichbarkeitszeiten: Platzhalter, im Launch-Stand ausgeblendet.
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import Telefon from './Telefon.astro';
+import { istReview } from '../stand';
 ---
 
 <section id="kontakt" class="scroll-mt-20 border-t border-linie">
@@ -43,10 +44,12 @@ import Telefon from './Telefon.astro';
           <p class="font-schild text-xl font-semibold">E-Mail</p>
           <a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link text-lg">mrochlus@web.de</a>
         </div>
+        {istReview && (
         <div>
           <p class="font-schild text-xl font-semibold">Erreichbarkeit</p>
           <p class="mt-1"><PlatzhalterBadge text="Zeiten folgen vom Betrieb" /></p>
         </div>
+        )}
         <div>
           <p class="font-schild text-xl font-semibold">Einsatzgebiet</p>
           <p class="text-lg text-anthrazit-soft">Köln und Umgebung</p>

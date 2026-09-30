@@ -9,15 +9,18 @@
  * Der Abschnitt "Hosting/Server-Logfiles" muss an den finalen Hoster angepasst werden.
  */
 import Rechtsseite from '../layouts/Rechtsseite.astro';
+import { istReview } from '../stand';
 ---
 
 <Rechtsseite title="Datenschutz — Fliesenfachbetrieb Rochlus GmbH" ueberschrift="Datenschutzerklärung">
+  {istReview && (
   <div class="rounded-lg border border-dashed border-anthrazit-soft px-4 py-3 text-anthrazit">
     <strong>Entwurfsfassung.</strong> Diese Datenschutzerklärung wurde gegenüber der Bestandsseite
     auf den tatsächlichen Funktionsumfang der neuen Website reduziert (keine Cookies, keine
     Analyse-Tools, keine Drittanbieter-Einbindungen, selbst gehostete Schriften). Vor dem Livegang
     rechtlich prüfen lassen und den Hosting-Abschnitt an den finalen Anbieter anpassen.
   </div>
+  )}
 
   <h2>1. Datenschutz auf einen Blick</h2>
   <p>

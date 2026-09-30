@@ -3,14 +3,19 @@
  * Kennzeichnet Inhalte, die noch vom Kunden kommen müssen: kleines Etikett,
  * gestrichelter Rand, bewusst neutral (kein Kobalt, kein Rot), lesbar auf
  * Putz, Emaille und Fotos.
+ * Im Launch-Stand (src/stand.ts) rendert es nichts.
  * Jede Verwendung entspricht einem Punkt auf der Kunden-Checkliste (siehe konzept/).
  */
+import { istReview } from '../stand';
+
 interface Props {
   text?: string;
 }
 const { text = 'Platzhalter' } = Astro.props;
 ---
 
+{istReview && (
 <span class="inline-flex items-center rounded border border-dashed border-anthrazit-soft bg-emaille px-2 py-0.5 text-xs font-semibold tracking-wide text-anthrazit-soft">
   {text}
 </span>
+)}

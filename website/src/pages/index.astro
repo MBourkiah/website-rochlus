@@ -10,6 +10,7 @@ import Referenzen from '../components/Referenzen.astro';
 import Kontakt from '../components/Kontakt.astro';
 import Footer from '../components/Footer.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
+import { istReview } from '../stand';
 ---
 
 <Base
@@ -25,7 +26,8 @@ import MobileCallBar from '../components/MobileCallBar.astro';
       <Leistungen />
       <Ablauf />
       <Betrieb />
-      <Referenzen />
+      {/* Galerie nur mit Platzhalterfotos: im Launch-Stand aus, bis Originale da sind */}
+      {istReview && <Referenzen />}
       <Kontakt />
     </main>
     <Footer />
