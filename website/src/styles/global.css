@@ -97,7 +97,8 @@ summary {
 }
 /* Auf Kobalt liegt der Ring innen auf der Fläche, daher weiß. Rote Schilder
    selbst sitzen auf hellem Putz: Ring außen in Anthrazit (13:1 zum Putz). */
-.schild--kobalt :focus-visible {
+.schild--kobalt :focus-visible,
+#ablauf :focus-visible {
   outline-color: #fff;
 }
 .schild--rot:focus-visible {

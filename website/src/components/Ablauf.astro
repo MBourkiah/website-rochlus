@@ -5,6 +5,8 @@
  * nächsten Schritt, damit niemand rätseln muss, was danach passiert.
  * Inhalte aus den Bestandsleistungen: Besichtigung, Planung, Materialanlieferung,
  * Überwachung, Reparaturen.
+ * Als einzige Kobalt-Fläche über die volle Breite setzt der Ablauf den
+ * Rhythmuswechsel zwischen den hellen Sections; Hausnummern hier invertiert.
  */
 const stationen = [
   {
@@ -30,7 +32,7 @@ const stationen = [
 ];
 ---
 
-<section id="ablauf" class="scroll-mt-20 border-t border-linie">
+<section id="ablauf" class="scroll-mt-20 bg-kobalt text-white">
   <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
     <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Vier Stationen bis zum fertigen Raum.</h2>
 
@@ -38,14 +40,14 @@ const stationen = [
       {
         stationen.map((s, i) => (
           <li class="flex flex-col">
-            <span class="schild schild--kobalt flex h-24 w-24 items-center justify-center font-schild text-6xl leading-none font-bold [--rand-abstand:6px] [--schraube-abstand:13px]">
+            <span class="schild flex h-24 w-24 text-kobalt [--schild-rand:var(--kobalt)] items-center justify-center font-schild text-6xl leading-none font-bold [--rand-abstand:6px] [--schraube-abstand:13px]">
               <span class="sr-only">Station </span>
               {i + 1}
             </span>
             <h3 class="mt-6 text-2xl leading-tight">{s.titel}</h3>
-            <p class="mt-2 text-base leading-relaxed text-anthrazit-soft">{s.text}</p>
-            <p class="mt-auto flex items-center gap-2 border-t border-linie pt-3 text-base">
-              <svg class="mt-px shrink-0 text-kobalt" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <p class="mt-2 text-base leading-relaxed text-kobalt-soft">{s.text}</p>
+            <p class="mt-auto flex items-center gap-2 border-t border-white/25 pt-3 text-base">
+              <svg class="mt-px shrink-0 text-kobalt-soft" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
               <span>
@@ -59,7 +61,7 @@ const stationen = [
 
     <p class="mt-16 text-lg">
       Station 1 beginnt mit einem Anruf:{' '}
-      <a href="tel:+492219687575" class="link link-anruf ziel font-schild text-2xl font-semibold whitespace-nowrap">0221 968 75 75</a>
+      <a href="tel:+492219687575" class="link ziel font-schild text-white [text-decoration-color:rgb(255_255_255/0.6)] hover:[text-decoration-color:#fff] text-2xl font-semibold whitespace-nowrap">0221 968 75 75</a>
     </p>
   </div>
 </section>
