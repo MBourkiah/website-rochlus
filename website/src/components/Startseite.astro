@@ -1,14 +1,12 @@
 ---
 /**
- * Die Startseite als Ganzes. `hero` wählt die Hero-Variante; index.astro nutzt
- * die gesetzte Variante, /vorschau/hero-* zeigt alle zum Vergleich.
+ * Die Startseite als Ganzes (von index.astro gerendert).
+ * Frühere Hero-Varianten (Wegweiser, Klingeltableau, Monument) liegen in der
+ * Git-Historie (Commit 1f0a846).
  */
 import Base from '../layouts/Base.astro';
 import Header from './Header.astro';
 import Hero from './Hero.astro';
-import HeroWegweiser from './HeroWegweiser.astro';
-import HeroTableau from './HeroTableau.astro';
-import HeroMonument from './HeroMonument.astro';
 import Komplettsanierung from './Komplettsanierung.astro';
 import Leistungen from './Leistungen.astro';
 import Ablauf from './Ablauf.astro';
@@ -20,10 +18,6 @@ import MobileCallBar from './MobileCallBar.astro';
 import { istReview } from '../stand';
 import { fotos } from '../fotos.mjs';
 
-interface Props {
-  hero?: 'schilderwand' | 'wegweiser' | 'tableau' | 'monument';
-}
-const { hero = 'schilderwand' } = Astro.props;
 ---
 
 <Base
@@ -31,14 +25,10 @@ const { hero = 'schilderwand' } = Astro.props;
   description="Fliesenfachbetrieb in Köln: Verlegung von Fliesen und Naturstein, Komplettsanierung inkl. Raumgestaltung, Abdichtung und elektrische Fußbodenheizung. Beratung vor Ort."
 >
   <Header />
-  <slot name="vor-inhalt" />
   <!-- pb: Platz für die mobile Call-Bar, damit sie keinen Inhalt verdeckt -->
   <div class="pb-18 md:pb-0">
     <main id="inhalt">
-      {hero === 'schilderwand' && <Hero />}
-      {hero === 'wegweiser' && <HeroWegweiser />}
-      {hero === 'tableau' && <HeroTableau />}
-      {hero === 'monument' && <HeroMonument />}
+      <Hero />
       <Komplettsanierung />
       <Leistungen />
       <Ablauf />
