@@ -17,7 +17,6 @@
   /* Emaille */
   --emaille: #fbfbf7;
   --kobalt: #1f3c88;
-  --kobalt-tief: #183171;
   --kobalt-soft: #c7d1ea; /* Nebentext auf Kobalt (≥ 7:1) */
 
   /* Oxidrot: nur für „Anrufen“ */
@@ -49,7 +48,6 @@
   --color-linie: var(--linie);
   --color-emaille: var(--emaille);
   --color-kobalt: var(--kobalt);
-  --color-kobalt-tief: var(--kobalt-tief);
   --color-kobalt-soft: var(--kobalt-soft);
   --color-oxid: var(--oxid);
   --color-oxid-tief: var(--oxid-tief);
@@ -114,14 +112,16 @@ h3 {
   text-wrap: balance;
 }
 
-.link {
+.link,
+.rechtstext a {
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 0.3em;
   text-decoration-color: var(--stahl);
   transition: text-decoration-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
 }
-.link:hover {
+.link:hover,
+.rechtstext a:hover {
   text-decoration-color: currentColor;
 }
 /* Tippziel ≥ 44px für freistehende Links (nicht für Links im Fließtext) */
@@ -303,6 +303,7 @@ a.schild:active {
   background-image: repeating-linear-gradient(135deg, transparent 0 7px, rgb(0 0 0 / 0.08) 7px 9px);
 }
 .schicht-heizung {
+  background-color: #b9b8b1;
   background-image: repeating-linear-gradient(to right, var(--anthrazit-soft) 0 14px, transparent 14px 22px);
 }
 .schicht-abdichtung {

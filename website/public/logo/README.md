@@ -1,6 +1,6 @@
 # Rochlus — Logo & Favicon Paket
 
-Abgeleitet aus dem Light-Editorial-Design-Konzept der Website (Fraunces/Instrument Sans, Fugen-Grid/Verband-Motiv, Terrakotta-Akzent).
+Entstanden im früheren Light-Editorial-Konzept (Fraunces/Instrument Sans, Fugen-Grid/Verband-Motiv, Terrakotta-Akzent). Seit dem Neuaufbau „Emaille-Schild“ bleibt das Logo verbindlich; die Website lädt Fraunces und Instrument Sans nur noch für diese Wortmarke (siehe DESIGN.md).
 
 ## Dateien
 - favicon.svg — Fugen-Grid-Icon (4 Fliesen), fuer website/public/favicon.svg

@@ -151,8 +151,8 @@ Die Welt verweigert zwei Nachbarn ausdrücklich: das Vollbild-Badfoto mit Icon-K
 Zwei Emaille-Farben auf neutralem Putz, ein Signalrot für genau eine Handlung.
 
 ### Primary
-- **Emaille-Kobalt** (`kobalt`): Grund der Aussage-Schilder – Hero-Schild, Hausnummern, das erste (führende) Leistungs-Straßenschild. Außerdem Fokusring, Textauswahl, aktiver Nav-Eintrag und Pfeil-Akzente. Weiße Schrift und weißer Rand darauf.
-- **Kobalt-Nebentext** (`kobalt-soft`): Fließtext auf Kobalt-Schildern (Kontrast ≥ 7:1), damit die weiße Headline führt.
+- **Emaille-Kobalt** (`kobalt`): Grund der Aussage-Schilder – Hero-Schild, Hausnummer der Adresse, das erste (führende) Leistungs-Straßenschild – und des einzigen vollflächigen Bands: Ablauf. Außerdem Fokusring, Textauswahl, aktiver Nav-Eintrag und Pfeil-Akzente. Weiße Schrift und weißer Rand darauf.
+- **Kobalt-Nebentext** (`kobalt-soft`): Fließtext auf Kobalt-Schildern und im Kobalt-Band des Ablaufs (Kontrast ≥ 6.5:1), damit die weiße Headline führt.
 
 ### Secondary
 - **Oxidrot** (`oxid`): die Terrakotta aus dem Logo, als Emaille gebrannt. Ausschließlich für Anruf-Flächen: rotes Telefonschild im Hero, Klingelknopf, mobile Anrufleiste, Header-Telefon (erst wenn das Hero-Schild aus dem Blick ist), Unterstreichung der Telefon-Links im Text.
@@ -200,7 +200,7 @@ Zwei Emaille-Farben auf neutralem Putz, ein Signalrot für genau eine Handlung.
 
 Ein zentrierter Container von 72rem (`max-w-6xl`) mit Seitenrand 1rem, ab sm 1.5rem. Ab lg ein 12-Spalten-Raster mit 1.5rem Abstand (Hero, Komplettsanierung, Betrieb, Kontakt); darunter einspaltig, Leistungen ab md dreispaltig, Ablauf sm zwei-, lg vierspaltig, Arbeiten zwei-/vierspaltig mit versetzter zweiter und vierter Kachel (3rem).
 
-Vertikaler Rhythmus: Sections mit 5rem Innenabstand, ab lg 7rem; Kontakt als Schluss ab lg 8rem. Headline zu Inhalt 3.5rem. Sections trennen sich über Haarlinien in `linie` und über den Wechsel zu `putz-tief`, nicht über Farbflächen oder Bilder.
+Vertikaler Rhythmus: Sections mit 5rem Innenabstand, ab lg 7rem; Kontakt als Schluss ab lg 8rem. Headline zu Inhalt 3.5rem. Sections trennen sich über Haarlinien in `linie` und über den Wechsel zu `putz-tief`. Genau eine Section, der Ablauf, liegt als Kobalt-Band über die volle Breite und setzt den Rhythmuswechsel zwischen den hellen Wandabschnitten; weitere Farbflächen gibt es nicht.
 
 Header: sticky, 4.5rem hoch, `putz` mit 95 % Deckkraft und leichtem Blur, Haarlinie unten. Unter md übernimmt die mobile Anrufleiste (fixiert unten, Safe-Area-beachtend, Seite reserviert 4.5rem Platz) das Telefon; die Nav klappt unter lg in ein Menü-Schild. Scroll-Padding 5.5rem, damit Anker nicht unter dem Header landen.
 
@@ -211,6 +211,7 @@ Die Welt ist flach wie eine Wand, auf der Schilder ein paar Millimeter vorstehen
 ### Shadow Vocabulary
 - **Wandschatten** (`--schatten-schild`: `0 1px 1px rgb(24 26 32 / 0.12), 0 12px 24px -14px rgb(24 26 32 / 0.45)`): jedes Schild, Fotorahmen, Klingelring.
 - **Glasurkanten** (`inset 0 1px 0 rgb(255 255 255 / 0.22), inset 0 -2px 0 rgb(0 0 0 / 0.1)`): zusätzlich auf jedem Schild.
+- **Flach** (`schild--flach`): kein Wandschatten. Für reine Beschriftung (Leistungs-Straßenschilder, Firmenschild), damit sie nicht wie drückbare Schilder wirken. Große plastische Schilder sind Hero, Schichtschnitt, Türschild und alles Klickbare.
 - **Gedrückt** (`--schatten-schild-gedrueckt`: `0 1px 1px rgb(24 26 32 / 0.14), 0 4px 10px -8px rgb(24 26 32 / 0.4)`): klickbares Schild im Active-Zustand, zusammen mit 2px Versatz nach unten.
 
 ### Named Rules
@@ -230,35 +231,35 @@ Außerhalb der Schilder: Fotorahmen aus Emaille mit 8px Radius und 6px Passepart
 Das Emaille-Schild ist der einzige Container der Welt. Varianten: **Emaille** (weiß, Anthrazit-Rand), **Kobalt** (weiße Schrift, weißer Rand), **Rot** (nur Anruf, Rand weiß 90 %). Innenabstand großzügig (Hero 4rem seitlich, Türschild 3.5rem, Firmenschild 2.5–3rem), damit die Schrauben nie Text berühren.
 
 ### Anruf-Schild (Primäraktion)
-- **Form:** rotes Schild, volles Format mit Schrauben; oben „Anrufen“ mit Telefon-Symbol, unten die Nummer in `nummer` und ein Satz in Weiß 90 %.
+- **Form:** rotes Schild, volles Format mit Schrauben; „Anrufen“ mit Telefon-Symbol, darunter die Nummer in `nummer` und ein Satz in Weiß 90 %, ab lg vertikal mittig gruppiert. Direkt darunter auf dem Putz die Rückfall-Zeilen „Niemand erreicht? Mobil: …“ und „Lieber schreiben? …“.
 - **Hover:** Grund wechselt zu `oxid-tief`.
 - **Active:** sinkt 2px an die Wand, Schatten wird zu „Gedrückt“ (160ms, `cubic-bezier(0.22, 1, 0.36, 1)`).
-- **Fokus:** weißer 2px-Ring statt Kobalt.
+- **Fokus:** 2px-Ring außen in `anthrazit` (das Schild sitzt auf hellem Putz; ein weißer Ring wäre unsichtbar).
 
 ### Header-Telefon und Anrufleiste
 - **Header-Telefon:** Mini-Schild, 2.75rem hoch, Nummer ab sm, sonst „Anrufen“. Neutral (Emaille), ab md rot, sobald das Hero-Anrufschild nicht sichtbar ist und die Klingel auch nicht.
-- **Anrufleiste (mobil):** fixiert unten, rotes Mini-Schild mit Nummer plus Emaille-Mini-Schild „Schreiben“; fährt (260ms) erst ein, wenn das Hero-Schild aus dem Blick ist, und an der Klingel wieder aus. Ohne JavaScript immer sichtbar.
+- **Anrufleiste (mobil):** fixiert unten, rotes Mini-Schild mit Nummer plus Emaille-Mini-Schild „E-Mail“ im Abstand von 1rem; fährt (260ms) erst ein, wenn das Hero-Schild aus dem Blick ist, und an der Klingel wieder aus. Ohne JavaScript immer sichtbar.
 
 ### Straßenschilder (Leistungen)
-Jede Leistung ist ein flaches Straßenschild in `schild`-Typo, in Gruppen gestapelt (0.75rem Abstand). Reine Beschriftung, keine Links, kein Hover. Das erste Schild der führenden Gruppe ist Kobalt.
+Jede Leistung ist ein flaches Straßenschild (`schild--flach`, ohne Wandschatten) in `schild`-Typo, in Gruppen gestapelt (0.75rem Abstand). Reine Beschriftung, keine Links, kein Hover. Das erste Schild der führenden Gruppe ist Kobalt.
 
 ### Hausnummern (Ablauf, Adresse)
-Quadratisches Kobalt-Schild (6rem) mit Ziffer in Barlow Condensed 700. Die Nummer trägt Information (Reihenfolge, Adresse), nie Dekoration. Unter jeder Station eine Haarlinie mit Kobalt-Pfeil und „Danach: …“.
+Quadratisches Schild (6rem) mit Ziffer in Barlow Condensed 700. Adresse im Hero: Kobalt mit weißer Ziffer, Straße auf eigenem Straßenschild darunter, für Screenreader als eine Adresse gelesen. Ablauf-Stationen im Kobalt-Band invertiert: Emaille-Weiß mit Kobalt-Ziffer und Kobalt-Rand. Die Nummer trägt Information (Reihenfolge, Adresse), nie Dekoration. Unter jeder Station eine Haarlinie (Weiß 25 %) mit Pfeil und „Danach: …“.
 
 ### Die Klingel (Signatur)
 Anruf-Knopf am Türschild: Stahlring (5.5rem, `stahl-hell`, Stahl-Rand, Wandschatten) mit oxidrotem Drücker (3.9rem) und Telefon-Symbol, daneben die Nummer bis 4rem. Hover: `oxid-tief`. Active: Drücker sinkt 2px und schrumpft auf 97 %, Schatten verschwindet (90ms). Die einzige Signatur-Interaktion der Seite.
 
 ### Links
-Text-Links sind unterstrichen (1.5px, Abstand 0.3em) in `stahl`, beim Hover in Schriftfarbe. Telefon-Links im Fließtext tragen die Unterstreichung in `oxid` und die Nummer in Barlow Condensed 1.5rem.
+Text-Links sind unterstrichen (1.5px, Abstand 0.3em) in `stahl`, beim Hover in Schriftfarbe. Telefon-Links im Fließtext tragen die Unterstreichung in `oxid` und die Nummer in Barlow Condensed 1.5rem (im Kobalt-Band weiß). Freistehende Links bekommen mit `.ziel` eine Tippfläche von mindestens 2.75rem; Links im Fließtext der Rechtsseiten nutzen denselben Stil über `.rechtstext`.
 
 ### Navigation
-Barlow Condensed 1.125rem, Gewicht 500, leicht gesperrt, `anthrazit-soft`; Hover `anthrazit`, aktiver Abschnitt (Scrollspy) `kobalt`. Unter lg: Mini-Schild mit drei Strichen öffnet ein Emaille-Schild mit Einträgen in 1.25rem, getrennt durch Fugenlinien.
+Barlow Condensed 1.125rem, Gewicht 500, leicht gesperrt, `anthrazit-soft`; Hover `anthrazit`, aktiver Abschnitt (Scrollspy) `kobalt`. Unter lg: Mini-Schild mit drei Strichen öffnet ein Emaille-Schild mit Einträgen in 1.25rem, getrennt durch Fugenlinien; schließt nach Linkklick, mit Esc (Fokus zurück aufs Menü-Schild) und bei Tipp daneben.
 
 ### Fotorahmen
 Emaille-Passepartout (6px) mit 8px Radius, feiner Anthrazit-Rand (20 %) und Wandschatten; darunter ein Mini-Schild als Etikett.
 
 ### Platzhalter-Etikett
-Kennzeichnet unbestätigte Inhalte: kleines Emaille-Etikett, gestrichelter `anthrazit-soft`-Rand, 0.75rem halbfett, bewusst neutral (kein Kobalt, kein Rot). Größere Lücken als gestrichelter Kasten in `stahl`. Ein Arbeitsmittel bis zur Kundenfreigabe, kein Gestaltungselement.
+Kennzeichnet unbestätigte Inhalte: kleines Emaille-Etikett, gestrichelter `anthrazit-soft`-Rand, 0.75rem halbfett, bewusst neutral (kein Kobalt, kein Rot). Größere Lücken als gestrichelter Kasten in `stahl`. Ein Arbeitsmittel bis zur Kundenfreigabe, kein Gestaltungselement: Es erscheint nur im Review-Stand. Im Launch-Stand (`PUBLIC_STAND=launch`, `src/stand.ts`) entfallen Etiketten und leere Slots komplett.
 
 ### Schichtaufbau (Schema)
 Querschnitt durch einen Badboden: fünf Schichtstreifen (Fliese, Kleber, Heizmatte, Abdichtung, Untergrund) mit eigenen Materialmustern, rechts die Beschriftung mit gestrichelten Trennern. Die Schichtfarben gehören nur diesem Schema und sind keine System-Tokens.

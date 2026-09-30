@@ -10,6 +10,7 @@ target_fingerprint: "sha256:3f72a9ca980de2664b4dd60380d87870cbbda33f2aa1aeadd5a4
 target_path: /Users/mauricebourkiah/MB-Solutions/Fliesenfachbetrieb Rochlus/Website Rochlus/website/src/pages/index.astro
 timestamp: 2026-09-30T17-27-26Z
 slug: website-src-pages-index-astro
+closed: true
 ---
 Method: dual-agent (A: Design-Review · B: Detektor/Browser)
 
