@@ -41,11 +41,14 @@ import Telefon from './Telefon.astro';
     </span>
   </a>
 
-  <p class="text-base text-anthrazit-soft lg:col-span-12 lg:mt-2">
-    Niemand erreicht? Mobil unter{' '}
-    <a href="tel:+491722770674" class="link font-medium whitespace-nowrap text-anthrazit">0172 277 06 74</a>.
-    Lieber schreiben?{' '}
-    <a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link font-medium text-anthrazit">Kurze Anfrage per E-Mail</a>:
-    was ansteht und wo, das reicht.
-  </p>
+  <div class="flex flex-col gap-x-8 text-base text-anthrazit-soft sm:flex-row sm:flex-wrap lg:col-span-12">
+    <p>
+      Niemand erreicht? Mobil:{' '}
+      <a href="tel:+491722770674" class="link ziel font-medium whitespace-nowrap text-anthrazit">0172 277 06 74</a>
+    </p>
+    <p>
+      Lieber schreiben?{' '}
+      <a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link ziel font-medium text-anthrazit">Kurze Anfrage per E-Mail</a>
+    </p>
+  </div>
 </section>

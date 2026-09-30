@@ -123,6 +123,13 @@ h3 {
 .link:hover {
   text-decoration-color: currentColor;
 }
+/* Tippziel ≥ 44px für freistehende Links (nicht für Links im Fließtext) */
+.ziel {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
 .link-anruf {
   text-decoration-color: var(--oxid);
 }
