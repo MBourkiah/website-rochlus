@@ -20,7 +20,6 @@
   --graphit-soft: #55554f; /* Nebentext auf Putz (≥ 6:1) */
   --kraft: #c9a77a;
   --kraft-hell: #ddc39d;
-  --kraft-tief: #a9875a;
   --zink: #9a9fa3;
   --zink-hell: #c8cbcd;
 
@@ -47,7 +46,6 @@
   --color-graphit-soft: var(--graphit-soft);
   --color-kraft: var(--kraft);
   --color-kraft-hell: var(--kraft-hell);
-  --color-kraft-tief: var(--kraft-tief);
   --color-zink: var(--zink);
   --color-zink-hell: var(--zink-hell);
   --color-kreide: var(--kreide);
@@ -112,14 +110,6 @@ summary {
   .schmal {
     font-stretch: 82%;
   }
-  /* Kleine Versalien-Kennzeichnung, wie mit Bleistift auf Karton */
-  .kennung {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
   .link,
   .rechtstext a {
     text-decoration: underline;
@@ -351,13 +341,6 @@ summary {
     object-fit: cover;
   }
 
-  /* Werkstattliste: Zeilen mit Bleistift-Haarlinie */
-  .liste > li {
-    border-bottom: 1px solid var(--linie);
-  }
-  .liste > li:first-child {
-    border-top: 1px solid var(--graphit);
-  }
 }
 
 /* Header-Anruf: wird Kreiderot, sobald das Hero-Anrufschild aus dem Blick ist (ab md; darunter gehört Rot der Anrufleiste) */
