@@ -137,7 +137,7 @@ components:
 
 **Creative North Star: "Die Werkbank-Wand"**
 
-Die Seite ist die Wand in der Werkstatt des Betriebs. Heller Kalkputz ist der Grund; darauf hängen echte Bäder als Fotos mit schmalem Papierrand, von einer Zinkzwinge gehalten und ein wenig schief geklemmt. Bleistift-Notizen (Punkt, Linie, Kraftpapier-Etikett) zeigen auf das, was man auf dem Foto sieht. Daneben hängen Materialproben, eine linierte Werkstattliste und ein Kraftpapier-Zettel mit den Fakten. Der Anruf ist ein Kraftpapier-Anhänger mit Ösenring und rotem Stempel.
+Die Seite ist die Wand in der Werkstatt des Betriebs. Heller Kalkputz ist der Grund; darauf hängen echte Bäder als Fotos mit schmalem Papierrand, von einer Zinkzwinge gehalten und ein wenig schief geklemmt. Bleistift-Notizen (Punkt, Linie, Kraftpapier-Etikett) zeigen auf das, was man auf dem Foto sieht. Daneben hängen Nahaufnahmen aus denselben Fotos, eine linierte Werkstattliste und ein Kraftpapier-Zettel mit den Fakten. Der Anruf ist ein Kraftpapier-Anhänger mit Ösenring und rotem Stempel.
 
 Die Haltung ist handwerklich, hell und ruhig: großzügige Putzflächen, wenige Dinge, die jeweils sichtbar „vor der Wand hängen“. Graphit schreibt und zieht Linien, Kraftpapier beschriftet, Zink hält fest, Kreiderot gehört allein der Handlung „Anrufen“. Fotos führen; Typografie und Material ordnen sich ihnen unter. Bestätigte Absagen: keine Stock-Badfotos mit Icon-Kacheln, keine Schilder- oder Editorial-Kulisse (die frühere Welt „Emaille-Schild“ ist verworfen), nichts Dunkles, Verspieltes oder Abgehobenes.
 
