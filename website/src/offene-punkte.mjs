@@ -9,6 +9,7 @@ export const offenePunkte = [
   { punkt: 'Datenschutzerklärung rechtlich prüfen, Hosting-Abschnitt an den finalen Hoster anpassen', blockiert: true },
   { punkt: 'Impressum rechtlich prüfen: „§ 5 TMG“ ist seit Mai 2024 „§ 5 DDG“; der Hinweis auf die EU-OS-Plattform ist seit deren Abschaltung (Juli 2025) überholt', blockiert: true },
   { punkt: 'Einverständnis der Kunden zu den 3 veröffentlichten Bad-Fotos bestätigen lassen (src/assets/projekte/)', blockiert: true },
+  { punkt: 'Foto der Abdichtung (Dichtschlämme/Dichtband an Dusche oder Ecke) aus eigener Baustelle für die Schichtfolge', blockiert: false },
   { punkt: 'Weitere Fotos: Porträt Marc Rochlus, mehr Projekte, möglichst in Originalauflösung (bis dahin Porträt-Platz im Launch ausgeblendet)', blockiert: false },
   { punkt: 'Umfang „ganze Bäder“ klären: koordiniert Rochlus Sanitär/Elektro? Sonst Hauptaussage enger fassen', blockiert: false },
   { punkt: 'Erreichbarkeitszeiten (bis dahin im Launch ausgeblendet)', blockiert: false },

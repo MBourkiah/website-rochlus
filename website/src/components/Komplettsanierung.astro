@@ -6,13 +6,18 @@
  * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
 import { Image } from 'astro:assets';
+import estrich from '../assets/stimmung/estrich-untergrund.jpg';
+import kleber from '../assets/stimmung/kleber-gekaemmt.jpg';
 import rauten from '../assets/stimmung/rauten-verlegebild.jpg';
 
+// Materialproben wachsen von roh (klein) zu fertig (groß). Die Abdichtung hat
+// kein eigenes Foto (kein freies Material-Foto ohne Personen) und steht als
+// Zeile auf dem Strich, statt nachgemalt zu werden.
 const schritte = [
-  { probe: 'probe-untergrund', titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
-  { probe: 'probe-abdichtung', titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
-  { probe: 'probe-kleber', titel: 'Kleber, auf Wunsch mit Heizmatte', leistung: 'Verlegung im Dünnbett, elektrische Fußbodenheizung' },
-  { probe: 'fertig', titel: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien, elastische Fugen' },
+  { bild: estrich, alt: 'Grauer Estrich mit feinen Rissen, Nahaufnahme', groesse: 'w-24 sm:w-28', titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
+  { bild: null, groesse: '', titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
+  { bild: kleber, alt: 'Mit der Zahnkelle gekämmter Fliesenkleber an einer Wand', groesse: 'w-32 sm:w-36', titel: 'Kleber, auf Wunsch mit Heizmatte', leistung: 'Verlegung im Dünnbett, elektrische Fußbodenheizung' },
+  { bild: rauten, alt: 'Weiße Wandfliesen im Rautenmuster', groesse: 'w-40 sm:w-48', titel: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien, elastische Fugen' },
 ];
 ---
 
@@ -34,28 +39,30 @@ const schritte = [
       </p>
     </div>
 
-    <!-- Von roh (oben) zu fertig (unten): Proben, durch einen Bleistiftstrich verbunden -->
+    <!-- Von roh (oben) zu fertig (unten): Proben auf einer Mittelachse, durch einen Bleistiftstrich verbunden -->
     <div class="relative lg:col-span-7" data-bewegung="strich">
-    <span class="bleistiftstrich senkrecht absolute top-14 bottom-14 left-13 w-[1.5px] bg-graphit sm:left-16" aria-hidden="true"></span>
-    <ol class="relative" aria-label="Schichten eines Badbodens, von roh zu fertig">
-      {
-        schritte.map((s) => (
-          <li class="relative flex items-center gap-6 py-4 sm:gap-8">
-            <span class="probe relative z-10 w-26 shrink-0 sm:w-32">
-              {s.probe === 'fertig' ? (
-                <Image src={rauten} alt="" widths={[240, 360]} sizes="8rem" class="aspect-square object-cover" />
-              ) : (
-                <span class={`${s.probe} block aspect-square`} aria-hidden="true" />
-              )}
-            </span>
-            <span class="min-w-0">
-              <span class="schmal block text-2xl leading-tight font-bold">{s.titel}</span>
-              <span class="mt-1 block text-base leading-snug text-graphit-soft">{s.leistung}</span>
-            </span>
-          </li>
-        ))
-      }
-    </ol>
+      <span class="bleistiftstrich senkrecht absolute top-12 bottom-24 left-18 w-[1.5px] bg-graphit sm:left-24" aria-hidden="true"></span>
+      <ol class="relative" aria-label="Schichten eines Badbodens, von roh zu fertig">
+        {
+          schritte.map((s) => (
+            <li class="relative flex items-center gap-5 py-4 sm:gap-8">
+              <span class="flex w-36 shrink-0 justify-center sm:w-48">
+                {s.bild ? (
+                  <span class={`probe relative z-10 ${s.groesse}`}>
+                    <Image src={s.bild} alt={s.alt} widths={[240, 400]} sizes="12rem" class="aspect-square object-cover" />
+                  </span>
+                ) : (
+                  <span class="relative z-10 my-3 h-3.5 w-3.5 rounded-full bg-graphit ring-4 ring-putz-tief" aria-hidden="true" />
+                )}
+              </span>
+              <span class="min-w-0">
+                <span class="schmal block text-2xl leading-tight font-bold">{s.titel}</span>
+                <span class="mt-1 block text-base leading-snug text-graphit-soft">{s.leistung}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </div>
 </section>

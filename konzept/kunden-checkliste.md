@@ -5,7 +5,7 @@ Alle Punkte sind im Entwurf sichtbar als „Platzhalter" markiert.
 
 ## Wichtigster Punkt: Fotos
 
-- [ ] **Fotoshooting** (oder vorhandene Originale): 2–3 fertige Bäder, gern als Vorher/Nachher-Paare, und ein Porträt von Marc Rochlus. Ohne Fotos zeigt die Live-Seite kein einziges Bild; Plätze dafür sind vorbereitet (Anruf-Schild, Komplettsanierung, Der Betrieb, Arbeiten). Eintragen in `website/src/fotos.mjs`. Bis dahin zeigt die Seite lizenzfreie Material-Nahaufnahmen (keine fremden Bäder, keine Personen), die durch eigene Detailfotos ersetzt werden können (`website/src/assets/stimmung/`).
+- [ ] **Fotoshooting** (oder vorhandene Originale): 2–3 fertige Bäder, gern als Vorher/Nachher-Paare, und ein Porträt von Marc Rochlus. Ohne Fotos zeigt die Live-Seite kein einziges Bild; Plätze dafür sind vorbereitet (Anruf-Schild, Komplettsanierung, Der Betrieb, Arbeiten). Eintragen in `website/src/fotos.mjs`. Besonders gesucht: eine Nahaufnahme der Abdichtung (Dichtschlämme, Dichtband in einer Duschecke) von einer eigenen Baustelle. Bis dahin zeigt die Seite lizenzfreie Material-Nahaufnahmen (keine fremden Bäder, keine Personen), die durch eigene Detailfotos ersetzt werden können (`website/src/assets/stimmung/`).
 
 ## Entscheidungen
 

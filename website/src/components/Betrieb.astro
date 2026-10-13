@@ -7,6 +7,7 @@
  */
 import { Image } from 'astro:assets';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
+import Zwinge from './Zwinge.astro';
 import { istReview } from '../stand';
 import { fotos } from '../fotos.mjs';
 ---
@@ -47,10 +48,10 @@ import { fotos } from '../fotos.mjs';
       }
     </div>
 
-    <!-- Werkstattzettel: Kraftpapier, mit einem Streifen Klebeband an der Wand -->
-    <div class="lg:col-span-5 lg:col-start-8 lg:pt-2">
+    <!-- Werkstattzettel: Kraftpapier, mit der Zwinge an die Wand geklemmt -->
+    <div class="lg:col-span-5 lg:col-start-8 lg:pt-8">
       <div class="relative rotate-[0.8deg] bg-kraft px-8 pt-10 pb-8 shadow-[var(--schatten-haengend)] sm:px-10">
-        <span class="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-2 bg-papier/70 shadow-sm" aria-hidden="true"></span>
+        <Zwinge class="absolute -top-[2.35rem] left-1/2 z-10 w-[4.25rem] -translate-x-1/2 text-zink drop-shadow-[0_2px_2px_rgb(30_28_24/0.3)]" />
         <p class="schmal text-3xl leading-none font-bold">Fliesenfachbetrieb Rochlus GmbH</p>
         <dl class="mt-6 space-y-3 border-t border-graphit/25 pt-5 text-base">
           <div class="flex flex-wrap justify-between gap-x-6">

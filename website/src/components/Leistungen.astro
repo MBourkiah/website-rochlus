@@ -1,69 +1,66 @@
 ---
 /**
- * Leistungen als Werkstattliste: drei Gruppen, jede mit einer Materialprobe
- * oben und den Leistungen als liniertem Verzeichnis darunter, wie die Liste
- * an der Werkstattwand. Alle 13 Punkte des Bestands bleiben erhalten.
- * Materialbilder: Unsplash (Herkunft in den Bild-Metadaten), keine Projekte.
+ * Leistungen als Werkstattliste: eine durchgehende, linierte Liste mit drei
+ * Gruppen; daneben hängen zwei Materialfotos in verschiedenen Größen, mit
+ * Zwingen geklemmt. Alle 13 Punkte des Bestands bleiben erhalten.
+ * Materialbilder: Unsplash (Quellen in src/assets/QUELLEN.md), keine Projekte.
  */
-import { Image } from 'astro:assets';
-import marmorVerband from '../assets/stimmung/marmor-verband.jpg';
-import werkzeug from '../assets/stimmung/werkzeug.jpg';
-import materialmuster from '../assets/stimmung/materialmuster.jpg';
+import KlemmFoto from './KlemmFoto.astro';
+import naturstein from '../assets/stimmung/naturstein-grau.jpg';
+import werkzeugMoertel from '../assets/stimmung/werkzeug-moertel.jpg';
 
 const gruppen = [
   {
     titel: 'Verlegen',
     text: 'Das Kernhandwerk, auf Wand und Boden.',
     punkte: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
-    bild: marmorVerband,
-    alt: 'Marmorfliesen im Verband, Nahaufnahme',
-    neigung: '-1.2deg',
   },
   {
     titel: 'Unter und neben der Fliese',
     text: 'Damit der Untergrund so gut ist wie die Oberfläche.',
     punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
-    bild: werkzeug,
-    alt: 'Kellen und Werkzeug in einem Eimer auf einer Baustelle',
-    neigung: '0.8deg',
   },
   {
     titel: 'Planung und Service',
     text: 'Was vor, während und nach der Arbeit passiert.',
     punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
-    bild: materialmuster,
-    alt: 'Materialmuster aus Stein, Marmor und Metall nebeneinander',
-    neigung: '-0.6deg',
   },
 ];
 ---
 
 <section id="leistungen" class="scroll-mt-20">
-  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-    <h2 class="max-w-3xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Was wir machen, und was dazugehört.</h2>
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-x-12 gap-y-16 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:py-28">
+    <div class="lg:col-span-7">
+      <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Was wir machen, und was dazugehört.</h2>
 
-    <div class="mt-14 grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-3">
-      {
-        gruppen.map((g) => (
-          <div>
-            <figure class="probe w-[70%] max-w-64" style={`transform: rotate(${g.neigung})`}>
-              <Image src={g.bild} alt={g.alt} widths={[320, 480, 640]} sizes="(min-width: 48rem) 16rem, 70vw" />
-            </figure>
-            <h3 class="mt-8 text-[1.9rem] leading-tight">{g.titel}</h3>
-            <p class="mt-1 text-base text-graphit-soft">{g.text}</p>
-            <ul class="liste mt-5">
-              {g.punkte.map((p) => (
-                <li class="schmal py-2.5 text-xl leading-tight font-semibold">{p}</li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
+      <div class="mt-12 border-t-2 border-graphit">
+        {
+          gruppen.map((g) => (
+            <div class="grid grid-cols-1 gap-x-8 border-b border-linie py-7 sm:grid-cols-[13rem_1fr]">
+              <div>
+                <h3 class="text-[1.75rem] leading-tight">{g.titel}</h3>
+                <p class="mt-1 text-base leading-snug text-graphit-soft">{g.text}</p>
+              </div>
+              <ul class="mt-4 sm:mt-1">
+                {g.punkte.map((p) => (
+                  <li class="schmal border-b border-dashed border-linie py-2 text-xl leading-tight font-semibold last:border-b-0">{p}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 text-lg text-graphit-soft">
+        Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu:{' '}
+        <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap text-graphit">0221 968 75 75</a>
+      </p>
     </div>
 
-    <p class="mt-14 text-lg text-graphit-soft">
-      Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu:{' '}
-      <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap text-graphit">0221 968 75 75</a>
-    </p>
+    <!-- Material an der Wand: zwei Fotos, verschieden groß, geklemmt -->
+    <div class="grid grid-cols-2 items-start gap-6 sm:gap-10 lg:col-span-5 lg:block lg:pt-24">
+      <KlemmFoto bild={naturstein} alt="Grauer Naturstein mit hellen Adern, Nahaufnahme" neigung="-1.2deg" sizes="(min-width: 64rem) 26rem, 46vw" bildKlasse="aspect-4/5 object-cover" class="lg:w-full" />
+      <KlemmFoto bild={werkzeugMoertel} alt="Kellen, Fugbrett und angerührter Mörtel auf einem Fliesenboden" neigung="1.4deg" sizes="(min-width: 64rem) 18rem, 46vw" bildKlasse="aspect-square object-cover" class="mt-16 lg:mt-14 lg:ml-auto lg:w-[66%]" />
+    </div>
   </div>
 </section>
