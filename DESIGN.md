@@ -157,7 +157,7 @@ Eine helle Werkstattpalette aus Putz, Graphit, Kraftpapier und Zink mit genau ei
 
 ### Primary
 - **Kreiderot** (kreide): der einzige Handlungston. Füllung des Anruf-Knopfs (Header ab md, sobald der Hero-Anhänger aus dem Blick ist; mobile Anrufleiste), Rand und Schrift des „Anrufen“-Stempels, Unterstrich der Telefon-Textlinks (`link-anruf`), Textcursor.
-- **Kreiderot tief** (kreide-tief): Hover des Anruf-Knopfs und Stempelschrift (kräftiger auf Kraftpapier).
+- **Kreiderot tief** (kreide-tief): Hover des Anruf-Knopfs. Der Stempel „Anrufen“ auf dem Anhänger steht in noch dunklerem #8a2c1c (≥ 4,5:1 auf Kraftpapier), 0,95rem, um −7° gedreht in der oberen rechten Ecke.
 
 ### Secondary
 - **Kraftpapier** (kraft): Anhänger und Werkstattzettel, also die Flächen, auf denen der Betrieb sich selbst beschriftet.
@@ -169,7 +169,7 @@ Eine helle Werkstattpalette aus Putz, Graphit, Kraftpapier und Zink mit genau ei
 
 ### Neutral
 - **Kalkputz** (putz): Seitengrund, Header und Anrufleiste (95 % deckend mit Weichzeichner).
-- **Putz tief** (putz-tief): abgesetzte Wandabschnitte (Komplettsanierung, Arbeiten, Kontakt) mit 70 % Deckkraft, jeweils zwischen Haarlinien.
+- **Putz tief** (putz-tief): abgesetzte Wandabschnitte (Arbeiten, Leistungen, Kontakt) mit 70 % Deckkraft, jeweils zwischen Haarlinien.
 - **Bleistiftlinie** (linie): Haarlinien zwischen Abschnitten, Listenzeilen, Header-Unterkante.
 - **Papier** (papier): Fotorahmen, Probenrahmen, Mobilmenü, Platzhalter-Grund, Schrift auf Graphit.
 - **Graphit** (graphit): Schrift, Bleistiftstriche, Notizpunkte, Fokusring, neutrale Knopfkontur, Textauswahl-Grund.
@@ -211,13 +211,13 @@ Eine helle Werkstattpalette aus Putz, Graphit, Kraftpapier und Zink mit genau ei
 
 Ein Container von 72rem (max-w-6xl) mit 1rem Rand, ab sm 1,5rem. Ab lg (64rem) ein 12-Spalten-Raster mit 3rem Spaltenabstand; Text belegt 5–7 Spalten, Fotos und Material die Gegenseite. Sections atmen mit 5rem vertikalem Innenabstand, ab lg 7rem (Kontakt 8rem). Abschnitte wechseln zwischen nacktem Putz und „Putz tief“, getrennt durch Haarlinien, nie durch Karten.
 
-Asymmetrie ist gewollt: Fotos in verschiedenen Größen, in Zweierrastern versetzt (zweites Bild 4rem tiefer), Materialproben wachsen in der Größe von roh zu fertig. Mobil stapelt alles einspaltig, Fotos bleiben schmaler als die Spalte (88–92 %), damit Neigung und Zwinge lesbar bleiben; Notizen am Foto entfallen unter sm und erscheinen als Zeile unter dem Bild (im Hero ganz weggelassen). Der sticky Header ist 4,5rem hoch; Anker landen mit 5,5rem Abstand. Unter md reserviert die Seite unten Platz für die Anrufleiste.
+Asymmetrie ist gewollt: Fotos in verschiedenen Größen, in Zweierrastern versetzt (zweites Bild 4rem tiefer),  Mobil stapelt alles einspaltig, Fotos bleiben schmaler als die Spalte (88–92 %), damit Neigung und Zwinge lesbar bleiben; Notizen am Foto entfallen unter sm und erscheinen als Zeile unter dem Bild (im Hero ganz weggelassen). Der sticky Header ist 4,5rem hoch; Anker landen mit 5,5rem Abstand. Unter md reserviert die Seite unten Platz für die Anrufleiste.
 
 Breakpoints: sm 40rem, md 48rem (Anrufleiste ↔ roter Header-Knopf), lg 64rem (Raster, Desktop-Navigation).
 
 ## Elevation & Depth
 
-Die Wand ist flach; Tiefe bekommt nur, was an ihr hängt. Fotorahmen, Materialproben, Werkstattzettel und das Mobilmenü tragen denselben „hängenden“ Schatten: ein enger Kontaktschatten plus ein weicher, nach unten versetzter Fallschatten, als stünde das Papier wenige Millimeter vor dem Putz. Der Anhänger nutzt dieselbe Logik als drop-shadow, weil seine Form beschnitten ist. Zwingen werfen einen kleinen eigenen Schatten; Notiz-Etiketten einen hauchdünnen.
+Die Wand ist flach; Tiefe bekommt nur, was an ihr hängt. Fotorahmen, Nahaufnahmen, Werkstattzettel und das Mobilmenü tragen denselben „hängenden“ Schatten: ein enger Kontaktschatten plus ein weicher, nach unten versetzter Fallschatten, als stünde das Papier wenige Millimeter vor dem Putz. Der Anhänger nutzt dieselbe Logik als drop-shadow, weil seine Form beschnitten ist. Zwingen werfen einen kleinen eigenen Schatten; Notiz-Etiketten einen hauchdünnen.
 
 ### Shadow Vocabulary
 - **Hängend** (`--schatten-haengend: 0 1px 1px rgb(30 28 24 / 0.12), 0 14px 26px -16px rgb(30 28 24 / 0.5)`): Fotos, Proben, Zettel, Mobilmenü.
@@ -248,8 +248,11 @@ Der Anruf als Kraftpapier-Anhänger: abgeschrägte linke Ecken, Ösenring in Put
 ### Das geklemmte Foto (Signatur)
 Echtes Foto in 0,5rem Papierrand (2px Radius, hängender Schatten), über `--neigung` gedreht, Zinkzwinge mittig oben (4,25rem breit, ragt 2,35rem über den Rand). Notizen sitzen in Prozent-Koordinaten des Fotos: Graphit-Punkt mit Papierhof, 2rem Bleistiftlinie, Etikett aus hellem Kraftpapier; Etikett links oder rechts vom Punkt. Bildunterschrift schmal und fett darunter. Bewegung: setzt sich aus 12px tiefer und gerader Lage in die Neigung (800ms), danach zeichnen sich Linien (450ms) und Etiketten (gestaffelt um 220ms) ein.
 
-### Materialprobe
-Quadratisches Materialfoto in 0,35rem Papierrand mit hängendem Schatten. Proben wachsen in Folgen von roh (klein) zu fertig (groß) und sitzen auf einem senkrechten Bleistiftstrich. Eine Stufe ohne Foto steht als Graphit-Punkt (14px, Putz-Ring) auf dem Strich, statt nachgemalt zu werden.
+### Nahaufnahme
+Ausschnitt aus demselben Projektfoto (Fuge, Kante, Bordüre) im kleinen Papierrahmen (`probe`), neben der Beschriftung „Nahaufnahme“ und einem Satz zu dem, was zu sehen ist. Steht unter jedem Referenzfoto und als oberste Schicht im Schichtaufbau (fertige Oberfläche).
+
+### Schichtaufbau
+Senkrechter Bleistiftstrich mit Punkten, von unten (Untergrund) nach oben (Fliese oder Naturstein); nur die oberste, fertige Schicht trägt ein Foto (echte Nahaufnahme), die übrigen sind Punkte. Keine gezeichneten Materialien.
 
 ### Werkstattliste
 Leistungen als linierte Liste: 2px Graphit-Oberkante, Gruppen getrennt durch Haarlinien, Einträge durch gestrichelte Haarlinien; Gruppentitel links (13rem), Einträge schmal-fett rechts. Keine Icons, keine Kacheln.
@@ -273,7 +276,7 @@ Die Wortmarke aus `website/public/logo/` ist verbindlich: Verband-Bildmarke (Gra
 
 ### Do:
 - **Do** zuerst echte Rochlus-Fotos zeigen (`src/fotos.mjs`); sie führen jeden Abschnitt, in dem sie vorkommen.
-- **Do** Stockfotos nur als Material-Nahaufnahmen verwenden (Material, Werkzeug, Oberflächen), jede Quelle in `src/assets/QUELLEN.md` eintragen und sie nie als Rochlus-Arbeit beschriften.
+- **Do** nur echte Fotos des Betriebs zeigen (Projektfotos und Nahaufnahmen daraus, `src/fotos.mjs`), jede Quelle in `src/assets/QUELLEN.md`. Zwinge und Papierrahmen markieren ausschließlich echte Rochlus-Arbeit.
 - **Do** Notizen nur zu dem schreiben, was auf dem Foto sichtbar ist, ohne erfundene Maße oder Materialien.
 - **Do** Fehlendes im Review-Stand sichtbar und neutral markieren (`PlatzhalterBadge`, gestrichelte Flächen) und im Launch-Stand (`PUBLIC_STAND=launch`) den ganzen Slot entfallen lassen: kein leerer Rahmen, keine Klärungsbox, keine Galerie ohne Originalfotos.
 - **Do** jede Section mit einem Weg zum Telefon schließen; die Nummer ist ein `tel:`-Link in Tabellenziffern ohne Umbruch.
@@ -281,7 +284,7 @@ Die Wortmarke aus `website/public/logo/` ist verbindlich: Verband-Bildmarke (Gra
 
 ### Don't:
 - **Don't** Kreiderot für etwas anderes als Anrufen verwenden, und nie zwei rote Anruf-Elemente gleichzeitig zeigen.
-- **Don't** Stockfotos von fertigen Räumen oder Personen verwenden.
+- **Don't** Stockfotos jeglicher Art (auch keine Material-Nahaufnahmen) und keine nachgemalten Materialproben in CSS.
 - **Don't** Leistungen als Icon-Kacheln oder Karten setzen; sie stehen in der Werkstattliste.
 - **Don't** eine zweite Seitenschrift einführen oder die Logo-Schriften außerhalb der Wortmarke nutzen.
 - **Don't** Schilder-, Emaille- oder Editorial-Kulisse zurückholen; die Welt ist die Werkbank-Wand.

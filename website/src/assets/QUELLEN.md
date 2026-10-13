@@ -12,18 +12,13 @@ Fotos von Bädern des Fliesenfachbetriebs Rochlus, geliefert im Oktober 2026 von
 | `fliesenfachbetrieb-rochlus-bad-walk-in-dusche-grossformat-fliesen-betonoptik.jpg` | Großformat in Betonoptik, Walk-in-Dusche |
 | `fliesenfachbetrieb-rochlus-bad-badewanne-weisse-wandfliesen-mosaikborduere.jpg` | Wanne mit Mosaikbordüre, vor der Endmontage |
 
-## Material-Stimmungsbilder (`stimmung/`)
+## Nahaufnahmen (`projekte/…-detail-…`)
 
-Lizenzfreie Fotos von Unsplash, [Unsplash-Lizenz](https://unsplash.com/license): kommerzielle Nutzung erlaubt, Namensnennung nicht erforderlich. Regel: nur Material, Werkzeug und Oberflächen, keine fertigen Räume, keine Personen, nie als Rochlus-Arbeit beschriftet. Durch eigene Detailfotos ersetzbar.
+Ausschnitte aus denselben Projektfotos (mit sips beschnitten): Ablagenische (Betonoptik), Mosaikbordüre, Bodenfliesen in Holzoptik.
 
-| Datei | Quelle | Fotograf | Einsatz |
-|---|---|---|---|
-| `estrich-untergrund.jpg` | https://unsplash.com/photos/KCvF6uN0KAA | (Unsplash) | Schicht Untergrund |
-| `kleber-gekaemmt.jpg` | https://unsplash.com/photos/Q7EL_i57yoY | (Unsplash) | Schicht Kleber |
-| `rauten-verlegebild.jpg` | https://unsplash.com/photos/q9ZiOzsMAhE | Mitchell Luo | Schicht Fliese |
-| `naturstein-grau.jpg` | https://unsplash.com/photos/Nsodu_dxIZ8 | (Unsplash) | Leistungen: Verlegen |
-| `werkzeug-moertel.jpg` | https://unsplash.com/photos/_sCavvK5Gbg | (Unsplash) | Leistungen: Unter und neben der Fliese |
-| `materialmuster.jpg` | https://unsplash.com/photos/658TyhDubS4 | (Unsplash) | Leistungen: Planung und Service |
+## Stockbilder
+
+Keine. Die Seite zeigt nur echte Fotos des Betriebs (Entscheidung Oktober 2026).
 
 ## Archiv (`public/bilder/`)
 

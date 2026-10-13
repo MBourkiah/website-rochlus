@@ -2,17 +2,17 @@
 /**
  * Erster Blick (Werkbank): links die Aussage und der Anhänger (Anruf),
  * rechts ein echtes Bad, an die Wand geklemmt, mit Notizen zu dem, was man
- * sieht. Fotos führen; ohne Projektfoto springt ein Materialbild ein.
+ * sieht. Fotos führen; es werden nur echte Rochlus-Fotos gezeigt.
  */
 import KlemmFoto from './KlemmFoto.astro';
 import Anhaenger from './Anhaenger.astro';
 import { fotos } from '../fotos.mjs';
-import rauten from '../assets/stimmung/rauten-verlegebild.jpg';
-
-const foto = fotos.bad ?? { bild: rauten, alt: 'Weiße Wandfliesen im Rautenmuster', notizen: [] };
+// Nur echte Fotos: ohne Hero-Bad springt das erste Referenzfoto ein
+const foto = fotos.bad ?? fotos.referenzen[0];
 ---
 
 <section class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-x-12 gap-y-7 px-4 pt-12 pb-20 sm:gap-y-10 sm:px-6 sm:pt-14 lg:grid-cols-12 lg:pt-16 lg:pb-28">
+  {foto && (
   <KlemmFoto
     bild={foto.bild}
     alt={foto.alt}
@@ -24,6 +24,7 @@ const foto = fotos.bad ?? { bild: rauten, alt: 'Weiße Wandfliesen im Rautenmust
     bildKlasse="aspect-4/3 object-cover object-[center_62%] sm:aspect-auto"
     class="mx-auto w-[92%] sm:w-[62%] lg:order-2 lg:col-span-7 lg:col-start-6 lg:w-[88%]"
   />
+  )}
 
   <div class="lg:order-1 lg:col-span-5 lg:row-start-1">
     <h1 class="text-[clamp(2.75rem,7.4vw,5.25rem)] leading-[0.9]">

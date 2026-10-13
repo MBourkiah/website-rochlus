@@ -1,14 +1,13 @@
 ---
 /**
  * Ablauf in vier Schritten, verbunden durch einen Bleistiftstrich, der sich
- * einmal durchzieht. Die Nummern tragen Information (Reihenfolge). Jeder
- * Schritt nennt schon den nächsten. Inhalte aus den Bestandsleistungen.
+ * einmal durchzieht. Die Nummern tragen Information (Reihenfolge). Inhalte aus den Bestandsleistungen.
  */
 const schritte = [
-  { titel: 'Besichtigung vor Ort', text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.', danach: 'Wir planen mit Ihnen.' },
-  { titel: 'Planung', text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden.', danach: 'Wir legen los.' },
-  { titel: 'Ausführung', text: 'Wir liefern das Material an, führen die Arbeiten aus und überwachen jeden Schritt selbst.', danach: 'Gemeinsame Abnahme.' },
-  { titel: 'Übergabe', text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch später.', danach: 'Ihr Raum ist fertig.' },
+  { titel: 'Besichtigung vor Ort', text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.' },
+  { titel: 'Planung', text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden.' },
+  { titel: 'Ausführung', text: 'Wir liefern das Material an, führen die Arbeiten aus und überwachen jeden Schritt selbst.' },
+  { titel: 'Übergabe', text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch später.' },
 ];
 ---
 
@@ -32,9 +31,6 @@ const schritte = [
                 {s.titel}
               </h3>
               <p class="mt-2 text-base leading-relaxed text-graphit-soft">{s.text}</p>
-              <p class="mt-4 text-base">
-                <span class="font-semibold">Danach:</span> {s.danach}
-              </p>
             </li>
           ))
         }

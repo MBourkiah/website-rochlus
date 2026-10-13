@@ -19,8 +19,8 @@ const logoLockup = readFileSync(join(process.cwd(), 'public/logo/logo-lockup-lig
 ).replace('viewBox="0 0 640 140"', 'viewBox="18 40 440 96"');
 
 const nav = [
+  { href: '#arbeiten', label: 'Unsere Bäder', nurReview: true },
   { href: '#leistungen', label: 'Leistungen' },
-  { href: '#arbeiten', label: 'Arbeiten', nurReview: true },
   { href: '#ablauf', label: 'Ablauf' },
   { href: '#betrieb', label: 'Der Betrieb' },
   { href: '#kontakt', label: 'Kontakt' },
@@ -29,7 +29,7 @@ const nav = [
 
 <header class="sticky top-0 z-40 border-b border-linie bg-putz/95 backdrop-blur-sm">
   <div class="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-    <a href="/" class="flex h-11 shrink-0 items-center [&_svg]:h-8 [&_svg]:w-auto sm:[&_svg]:h-11" aria-label="Fliesenfachbetrieb Rochlus GmbH, zur Startseite">
+    <a href="/" class="flex h-11 shrink-0 items-center [&_svg]:h-7 min-[22rem]:[&_svg]:h-8 [&_svg]:w-auto sm:[&_svg]:h-11" aria-label="Fliesenfachbetrieb Rochlus GmbH, zur Startseite">
       <Fragment set:html={logoLockup} />
     </a>
 
@@ -48,10 +48,10 @@ const nav = [
     </nav>
 
     <div class="flex items-center gap-2.5">
-      <a href="tel:+492219687575" class="kopf-anruf knopf-neutral text-lg">
+      <a href="tel:+492219687575" class="kopf-anruf knopf-neutral text-lg max-[22rem]:px-3">
         <Telefon size={16} />
         <span class="hidden sm:inline">0221&nbsp;968&nbsp;75&nbsp;75</span>
-        <span class="sm:hidden">Anrufen</span>
+        <span class="max-[22rem]:sr-only sm:hidden">Anrufen</span>
       </a>
       <details class="relative lg:hidden">
         <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded border-[1.5px] border-graphit [&::-webkit-details-marker]:hidden" aria-label="Menü">

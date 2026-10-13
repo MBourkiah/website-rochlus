@@ -1,10 +1,12 @@
 ---
 /**
  * Arbeiten: echte Bäder, an die Wand geklemmt, mit Notizen zu dem, was man
- * sieht. Ohne Einträge in src/fotos.mjs zeigt der Review-Stand die
- * Archivbilder der alten Seite als markierte Platzhalter (Launch: ausgeblendet).
+ * sieht, und je einer Nahaufnahme aus demselben Foto (die Fuge, die Kante).
+ * Nur echte Rochlus-Fotos tragen Zwinge und Rahmen. Steht direkt nach dem
+ * Hero. Ohne Einträge in src/fotos.mjs: Archiv-Platzhalter nur im Review-Stand.
  * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
+import { Image } from 'astro:assets';
 import KlemmFoto from './KlemmFoto.astro';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { fotos } from '../fotos.mjs';
@@ -17,28 +19,48 @@ const archiv = [
   { src: '/bilder/platzhalter-wandarbeiten.jpg', alt: 'Vorbereitete Wandfläche mit Richtschnur' },
 ];
 const neigungen = ['-1deg', '0.8deg', '-0.5deg'];
+const zwingen = [30, 50, 50];
 ---
 
 <section id="arbeiten" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
   <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-    <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
-    <p class="mt-6 max-w-xl text-lg leading-relaxed text-graphit-soft">
-      Bäder, die wir gefliest haben. Die Notizen zeigen, worauf es ankommt.
-    </p>
+    <div class="grid grid-cols-1 gap-x-12 gap-y-6 lg:grid-cols-12 lg:items-end">
+      <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95] lg:col-span-6">Gute Arbeit erkennt man an der Fuge.</h2>
+      <p class="max-w-md text-lg leading-relaxed text-graphit-soft lg:col-span-5 lg:col-start-8">
+        Bäder, die wir gefliest haben, und daneben die Nahaufnahme. Da sieht
+        man, ob Kanten und Fugen stimmen.
+      </p>
+    </div>
 
     {
       echt ? (
-        <div class={`mt-16 grid grid-cols-1 gap-x-12 gap-y-16 ${fotos.referenzen.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+        <div class={`mt-16 grid grid-cols-1 gap-x-12 gap-y-20 ${fotos.referenzen.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
           {fotos.referenzen.map((f, i) => (
-            <KlemmFoto
-              bild={f.bild}
-              alt={f.alt}
-              notizen={f.notizen}
-              unterschrift={f.etikett}
-              neigung={neigungen[i % neigungen.length]}
-              sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, 92vw"
-              class={`mx-auto w-[88%] sm:w-full ${i % 2 ? 'sm:mt-16' : ''}`}
-            />
+            <div class={i % 2 ? 'sm:mt-20' : ''}>
+              <KlemmFoto
+                bild={f.bild}
+                alt={f.alt}
+                notizen={f.notizen}
+                neigung={neigungen[i % neigungen.length]}
+                zwingeX={zwingen[i % zwingen.length]}
+                bildKlasse={f.ausschnitt ?? ''}
+                ohneListe
+                sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, 88vw"
+                class="mx-auto w-[88%] sm:w-full"
+              />
+              <p class="schmal mt-5 text-xl leading-tight font-bold">{f.etikett}</p>
+              {f.detail && (
+                <figure class="mt-5 flex items-center gap-5">
+                  <span class="probe w-32 shrink-0 sm:w-36">
+                    <Image src={f.detail.bild} alt={f.detail.alt} widths={[240, 360]} sizes="9rem" class="aspect-square object-cover" />
+                  </span>
+                  <figcaption class="text-base leading-snug text-graphit-soft">
+                    <span class="block font-semibold text-graphit">Nahaufnahme</span>
+                    {f.detail.text}
+                  </figcaption>
+                </figure>
+              )}
+            </div>
           ))}
         </div>
       ) : (
@@ -53,7 +75,7 @@ const neigungen = ['-1deg', '0.8deg', '-0.5deg'];
       )
     }
 
-    <p class="mt-16 text-lg text-graphit-soft">
+    <p class="mt-20 text-lg text-graphit-soft">
       So etwas soll bei Ihnen entstehen?{' '}
       <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap text-graphit">0221 968 75 75</a>
     </p>

@@ -411,7 +411,7 @@
     ],
     "dos": [
       "**Do** zuerst echte Rochlus-Fotos zeigen (`src/fotos.mjs`); sie führen jeden Abschnitt, in dem sie vorkommen.",
-      "**Do** Stockfotos nur als Material-Nahaufnahmen verwenden (Material, Werkzeug, Oberflächen), jede Quelle in `src/assets/QUELLEN.md` eintragen und sie nie als Rochlus-Arbeit beschriften.",
+      "**Do** nur echte Fotos des Betriebs zeigen (Material, Werkzeug, Oberflächen), jede Quelle in `src/assets/QUELLEN.md` eintragen und sie nie als Rochlus-Arbeit beschriften.",
       "**Do** Notizen nur zu dem schreiben, was auf dem Foto sichtbar ist, ohne erfundene Maße oder Materialien.",
       "**Do** Fehlendes im Review-Stand sichtbar und neutral markieren (`PlatzhalterBadge`, gestrichelte Flächen) und im Launch-Stand (`PUBLIC_STAND=launch`) den ganzen Slot entfallen lassen: kein leerer Rahmen, keine Klärungsbox, keine Galerie ohne Originalfotos.",
       "**Do** jede Section mit einem Weg zum Telefon schließen; die Nummer ist ein `tel:`-Link in Tabellenziffern ohne Umbruch.",

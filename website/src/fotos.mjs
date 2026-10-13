@@ -1,59 +1,76 @@
 /**
- * Echte Fotos vom Betrieb. Bilder liegen in src/assets/projekte/ und werden
- * importiert, damit Astro sie als WebP in passenden Größen ausliefert
- * (ohne Metadaten). Dateinamen beschreiben das Motiv (SEO), Alt-Texte
- * beschreiben, was zu sehen ist – ohne Ort oder Kunden zu nennen.
+ * Echte Fotos vom Betrieb (nur diese; keine Stockbilder). Bilder liegen in
+ * src/assets/projekte/ und werden importiert, damit Astro sie als WebP in
+ * passenden Größen ausliefert (ohne Metadaten). Dateinamen beschreiben das
+ * Motiv (SEO), Alt-Texte beschreiben, was zu sehen ist – ohne Ort oder Kunden.
  *
  * Solange ein Eintrag leer ist, zeigt der Review-Stand an dieser Stelle einen
- * markierten Platzhalter (bzw. ein Material-Stimmungsbild) und der
- * Launch-Stand nichts. Eingetragene Fotos erscheinen in beiden Ständen.
+ * markierten Platzhalter und der Launch-Stand nichts.
  *
- * Form eines Eintrags: { bild: <Import>, alt: 'Was zu sehen ist' }
- * Referenzen zusätzlich mit `etikett` (kurze Bildunterschrift).
- * `notizen`: Punkt-Notizen am Foto (x/y in Prozent des ganzen Fotos). Nur
- * Sichtbares beschreiben, keine Maße oder Materialien erfinden.
+ * Eintrag: { bild, alt, etikett?, notizen?, ausschnitt?, detail? }
+ * - notizen: Punkt-Notizen am Foto (x/y in Prozent des ganzen Fotos). Nur
+ *   Sichtbares beschreiben, keine Maße oder Materialien erfinden.
+ * - ausschnitt: Tailwind-Klassen für den Bildausschnitt (z. B. um Rohbau-Reste
+ *   am Rand wegzuschneiden).
+ * - detail: Nahaufnahme aus demselben Foto ({ bild, alt, text }).
  */
 import badBetonoptik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-walk-in-dusche-grossformat-fliesen-betonoptik.jpg';
 import badHolzoptik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-fliesen-holzoptik-walk-in-dusche.jpg';
 import badWanneMosaik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-badewanne-weisse-wandfliesen-mosaikborduere.jpg';
-
-const holzoptik = {
-  bild: badHolzoptik,
-  alt: 'Fertiges Bad mit Bodenfliesen in Holzoptik, bodengleicher Dusche mit Glaswand, Aufsatzwaschbecken und Wand-WC',
-  etikett: 'Bad in Holzoptik, bodengleiche Dusche',
-  notizen: [
-    { text: 'Wandfliesen in Holzoptik', x: 77, y: 21, seite: 'links' },
-    { text: 'Bodengleiche Dusche', x: 62, y: 63, seite: 'links' },
-    { text: 'Boden in Holzoptik', x: 48, y: 86, seite: 'rechts' },
-  ],
-};
+import detailNische from './assets/projekte/fliesenfachbetrieb-rochlus-bad-detail-ablagenische-betonoptik.jpg';
+import detailMosaik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-detail-mosaikborduere.jpg';
+import detailHolzFuge from './assets/projekte/fliesenfachbetrieb-rochlus-bad-detail-bodenfliesen-holzoptik-fuge.jpg';
 
 export const fotos = {
   /** Porträt Marc Rochlus (oder Team): Betrieb-Section und kleines Bild am Anruf-Schild. */
   inhaber: null,
-  /** Ein fertiges Bad aus einer Komplettsanierung, neben dem Schichtschnitt. */
-  bad: holzoptik,
-  /** Originalfotos abgeschlossener Projekte (ohne das Bad oben, damit kein Foto doppelt steht). */
+  /** Das Hero-Bad: ein fertiges Bad aus einer Komplettsanierung. */
+  bad: {
+    bild: badHolzoptik,
+    alt: 'Fertiges Bad mit Bodenfliesen in Holzoptik, bodengleicher Dusche mit Glaswand, Aufsatzwaschbecken und Wand-WC',
+    etikett: 'Bad in Holzoptik, bodengleiche Dusche',
+    notizen: [
+      { text: 'Wandfliesen in Holzoptik', x: 77, y: 21, seite: 'links' },
+      { text: 'Bodengleiche Dusche', x: 62, y: 63, seite: 'links' },
+      { text: 'Boden in Holzoptik', x: 48, y: 86, seite: 'rechts' },
+    ],
+    detail: {
+      bild: detailHolzFuge,
+      alt: 'Nahaufnahme: Bodenfliesen in Holzoptik mit schmalen Fugen, im Verband verlegt',
+      text: 'Bodenfliesen in Holzoptik, im Verband verlegt',
+    },
+  },
+  /** Weitere abgeschlossene Projekte (ohne das Hero-Bad, damit kein Foto doppelt steht). */
   referenzen: [
     {
       bild: badBetonoptik,
       alt: 'Bad mit großformatigen Fliesen in Betonoptik, Walk-in-Dusche mit schwarzen Armaturen und Waschbecken aus Naturstein',
       etikett: 'Großformat in Betonoptik, Walk-in-Dusche',
+      ausschnitt: 'aspect-2/3 object-cover object-[60%_50%]',
       notizen: [
         { text: 'Großformat in Betonoptik', x: 62, y: 27, seite: 'links' },
-        { text: 'Geflieste Ablagenische', x: 85, y: 38, seite: 'links' },
-        { text: 'Boden im selben Format', x: 52, y: 88, seite: 'rechts' },
+        { text: 'Boden im selben Format', x: 55, y: 88, seite: 'rechts' },
       ],
+      detail: {
+        bild: detailNische,
+        alt: 'Nahaufnahme: geflieste Ablagenische in der Duschwand',
+        text: 'Geflieste Ablagenische in der Duschwand',
+      },
     },
     {
       bild: badWanneMosaik,
       alt: 'Bad mit weißen Wandfliesen, Mosaikbordüre und anthrazitfarbenem Boden, eingeflieste Badewanne vor dem Fenster, vor der Endmontage',
       etikett: 'Wanne mit Mosaikbordüre, vor der Endmontage',
+      ausschnitt: 'aspect-2/3 object-cover object-[30%_50%]',
       notizen: [
-        { text: 'Mosaikbordüre', x: 82, y: 16, seite: 'links' },
-        { text: 'Wanne eingefliest', x: 38, y: 56, seite: 'rechts' },
+        { text: 'Wanne eingefliest', x: 40, y: 56, seite: 'rechts' },
         { text: 'Boden in Anthrazit', x: 40, y: 84, seite: 'rechts' },
       ],
+      detail: {
+        bild: detailMosaik,
+        alt: 'Nahaufnahme: Mosaikbordüre zwischen weißen Wandfliesen, über die Ecke weitergeführt',
+        text: 'Mosaikbordüre, über die Ecke weitergeführt',
+      },
     },
   ],
 };

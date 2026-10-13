@@ -1,29 +1,26 @@
 ---
 /**
- * Komplettsanierung „von roh zu fertig“: vier Materialproben, vom Untergrund
- * bis zur fertigen Fliese, verbunden durch einen Bleistiftstrich. Jede Probe
- * ist eine Leistung des Bestands. Weiß ist dem fertigen Zustand vorbehalten.
+ * Komplettsanierung „von roh zu fertig“: die Schichten eines Badbodens auf
+ * einem Bleistiftstrich, von unten (roh) nach oben (fertig). Nur die oberste
+ * Schicht zeigt ein Foto, und zwar ein echtes (Nahaufnahme aus dem Hero-Bad);
+ * die übrigen Schichten sind Punkte auf dem Strich, keine nachgemalten Proben.
  * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
 import { Image } from 'astro:assets';
-import estrich from '../assets/stimmung/estrich-untergrund.jpg';
-import kleber from '../assets/stimmung/kleber-gekaemmt.jpg';
-import rauten from '../assets/stimmung/rauten-verlegebild.jpg';
+import { fotos } from '../fotos.mjs';
 
-// Materialproben wachsen von roh (klein) zu fertig (groß). Die Abdichtung hat
-// kein eigenes Foto (kein freies Material-Foto ohne Personen) und steht als
-// Zeile auf dem Strich, statt nachgemalt zu werden.
+const fertig = fotos.bad?.detail;
 const schritte = [
-  { bild: estrich, alt: 'Grauer Estrich mit feinen Rissen, Nahaufnahme', groesse: 'w-24 sm:w-28', titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
-  { bild: null, groesse: '', titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
-  { bild: kleber, alt: 'Mit der Zahnkelle gekämmter Fliesenkleber an einer Wand', groesse: 'w-32 sm:w-36', titel: 'Kleber, auf Wunsch mit Heizmatte', leistung: 'Verlegung im Dünnbett, elektrische Fußbodenheizung' },
-  { bild: rauten, alt: 'Weiße Wandfliesen im Rautenmuster', groesse: 'w-40 sm:w-48', titel: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien, elastische Fugen' },
+  { titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
+  { titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
+  { titel: 'Kleber, auf Wunsch mit Heizmatte', leistung: 'Verlegung im Dünnbett, elektrische Fußbodenheizung' },
+  { titel: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien, elastische Fugen', fertig: true },
 ];
 ---
 
-<section id="komplettsanierung" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
+<section id="komplettsanierung" class="scroll-mt-20">
   <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
-    <div class="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+    <div class="lg:col-span-5">
       <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Bad ist mehr als die Fliese obendrauf.</h2>
       <p class="mt-7 max-w-md text-lg leading-relaxed text-graphit-soft">
         Bei einer Komplettsanierung übernehmen wir jede Schicht rund um die
@@ -33,31 +30,24 @@ const schritte = [
       <p class="mt-5 max-w-md text-lg leading-relaxed text-graphit-soft">
         Sie haben einen Ansprechpartner, der das ganze Bad im Blick hat.
       </p>
-      <p class="mt-8 text-lg">
-        Sanierung besprechen:{' '}
-        <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap">0221 968 75 75</a>
-      </p>
     </div>
 
-    <!-- Von roh (oben) zu fertig (unten): Proben auf einer Mittelachse, durch einen Bleistiftstrich verbunden -->
-    <div class="relative lg:col-span-7" data-bewegung="strich">
-      <span class="bleistiftstrich senkrecht absolute top-12 bottom-24 left-18 w-[1.5px] bg-graphit sm:left-24" aria-hidden="true"></span>
-      <ol class="relative" aria-label="Schichten eines Badbodens, von roh zu fertig">
+    <!-- Schichten: Bleistiftstrich mit Punkten, oben das fertige Ergebnis -->
+    <div class="relative lg:col-span-6 lg:col-start-7" data-bewegung="strich">
+      <span class="bleistiftstrich senkrecht absolute top-6 bottom-6 left-[0.7rem] w-[1.5px] bg-graphit" aria-hidden="true"></span>
+      <ol class="relative flex flex-col-reverse" aria-label="Schichten eines Badbodens, von unten nach oben">
         {
           schritte.map((s) => (
-            <li class="relative flex items-center gap-5 py-4 sm:gap-8">
-              <span class="flex w-36 shrink-0 justify-center sm:w-48">
-                {s.bild ? (
-                  <span class={`probe relative z-10 ${s.groesse}`}>
-                    <Image src={s.bild} alt={s.alt} widths={[240, 400]} sizes="12rem" class="aspect-square object-cover" />
-                  </span>
-                ) : (
-                  <span class="relative z-10 my-3 h-3.5 w-3.5 rounded-full bg-graphit ring-4 ring-putz-tief" aria-hidden="true" />
-                )}
-              </span>
+            <li class="relative flex items-start gap-6 py-5">
+              <span class={`relative z-10 mt-1.5 shrink-0 rounded-full bg-graphit ring-4 ring-putz ${s.fertig ? 'h-6 w-6 -ml-[0.1rem]' : 'h-3.5 w-3.5 ml-[0.2rem]'}`} aria-hidden="true" />
               <span class="min-w-0">
                 <span class="schmal block text-2xl leading-tight font-bold">{s.titel}</span>
                 <span class="mt-1 block text-base leading-snug text-graphit-soft">{s.leistung}</span>
+                {s.fertig && fertig && (
+                  <span class="probe mt-5 block w-48 sm:w-56">
+                    <Image src={fertig.bild} alt={fertig.alt} widths={[320, 480]} sizes="14rem" class="aspect-4/3 object-cover" />
+                  </span>
+                )}
               </span>
             </li>
           ))
