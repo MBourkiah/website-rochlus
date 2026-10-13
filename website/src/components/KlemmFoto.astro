@@ -29,12 +29,14 @@ interface Props {
   bildKlasse?: string;
   /** Horizontale Position der Zwinge in Prozent (Standard 50) */
   zwingeX?: number;
+  /** Bewegungsart: 'foto' (beim Scrollen anhängen) oder 'schwingen' (beim Laden an der Zwinge einschwingen) */
+  bewegung?: string;
   class?: string;
 }
-const { bild, alt, notizen = [], neigung = '-0.8deg', sizes, vorne = false, unterschrift, ohneListe = false, bildKlasse = '', zwingeX = 50, class: klasse = '' } = Astro.props;
+const { bild, alt, notizen = [], neigung = '-0.8deg', sizes, vorne = false, unterschrift, ohneListe = false, bildKlasse = '', zwingeX = 50, bewegung = 'foto', class: klasse = '' } = Astro.props;
 ---
 
-<figure class={`klemmfoto ${klasse}`} style={`--neigung:${neigung}`} data-bewegung="foto">
+<figure class={`klemmfoto ${klasse}`} style={`--neigung:${neigung}`} data-bewegung={bewegung}>
   <Zwinge class="klemmfoto-zwinge" style={`left:${zwingeX}%`} />
   <div class="klemmfoto-rahmen">
     <Image src={bild} alt={alt} widths={[480, 720, 960, 1200]} sizes={sizes} loading={vorne ? 'eager' : 'lazy'} fetchpriority={vorne ? 'high' : 'auto'} class={bildKlasse} />

@@ -272,6 +272,14 @@ Kleines Etikett mit gestricheltem Rand in Graphit weich auf Papier, 0,75rem, hal
 ### Logo
 Die Wortmarke aus `website/public/logo/` ist verbindlich: Verband-Bildmarke (Graphit- und Terrakotta-Fliese), „Rochlus“ in Fraunces, „FLIESENFACHBETRIEB“ in Instrument Sans. Im Header inline eingebunden (damit die self-hosted Schriften greifen), im Footer die Bildmarke `icon-verband.svg` mit 20px. Das Logo wird nicht nachgezeichnet, umgefärbt oder in der Seitenschrift gesetzt.
 
+
+### Bewegung (kräftig)
+- **Einschwingen (Hero, beim Laden):** Das Foto schwingt an der Zwinge ein (1,4 s, gedämpft), danach zeichnen sich die Notizen; der Anhänger pendelt am Ösenring aus.
+- **Lupe (Unsere Bäder, Signatur):** Die Section ist 240vh hoch, die Bühne klebt; beim Scrollen fährt das Foto auf 2,2× an die Nische heran (Fixpunkt `lupe` in `fotos.mjs`), der Text „Nahaufnahme“ blendet ein. CSS-Scroll-Timeline (`view-timeline`); ohne Unterstützung oder bei „Bewegung reduzieren“ normale Höhe ohne Zoom.
+- **Mitwachsen:** Bleistiftstriche in Komplettsanierung und Ablauf wachsen mit dem Scrollen; Verzeichniszeilen, Schichten und Schritte schieben sich herein.
+- Scroll-Animationen immer als Longhands schreiben (`animation-name` usw. plus `animation-timeline`), weil der Minifier ein Shorthand mit Timeline ungültig zusammenzieht.
+- **Graphit-Abschnitt:** Der Ablauf liegt als einziger Abschnitt auf Graphit, Ziffern als Kraftpapier-Kontur.
+
 ## Do's and Don'ts
 
 ### Do:

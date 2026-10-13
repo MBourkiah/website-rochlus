@@ -441,6 +441,147 @@ html.bewegung [data-bewegung="strich"][data-sichtbar] .bleistiftstrich {
   transition: transform 1200ms var(--kurve-lang) 200ms;
 }
 
+/*
+ * KRÄFTIG: Einschwingen beim Laden, Lupe und Striche beim Scrollen.
+ */
+
+/* Hero: Foto schwingt an der Zwinge ein, Anhänger pendelt am Ösenring aus */
+@keyframes einschwingen {
+  0% { transform: rotate(-9deg) translateY(-18px); opacity: 0.001; }
+  35% { opacity: 1; }
+  55% { transform: rotate(3.2deg); }
+  75% { transform: rotate(0deg); }
+  100% { transform: rotate(var(--neigung)); }
+}
+@keyframes auspendeln {
+  0% { transform: rotate(14deg); }
+  30% { transform: rotate(-7deg); }
+  55% { transform: rotate(3.5deg); }
+  78% { transform: rotate(-1.2deg); }
+  100% { transform: rotate(0deg); }
+}
+html.bewegung [data-bewegung="schwingen"] .klemmfoto-rahmen {
+  transform-origin: 50% -1.5rem;
+  animation: einschwingen 1400ms var(--kurve-lang) 150ms both;
+}
+html.bewegung [data-bewegung="schwingen"] .notiz-linie {
+  transform: scaleX(0);
+  animation: notiz-zeichnen 450ms var(--kurve-lang) both;
+  animation-delay: calc(1300ms + var(--i, 0) * 200ms);
+}
+html.bewegung [data-bewegung="schwingen"] .notiz-punkt,
+html.bewegung [data-bewegung="schwingen"] .notiz-text {
+  animation: notiz-zeigen 300ms var(--kurve-lang) both;
+  animation-delay: calc(1250ms + var(--i, 0) * 200ms);
+}
+html.bewegung [data-bewegung="schwingen"] .notiz-text {
+  animation-delay: calc(1550ms + var(--i, 0) * 200ms);
+}
+@keyframes notiz-zeichnen {
+  to { transform: scaleX(1); }
+}
+@keyframes notiz-zeigen {
+  from { opacity: 0; }
+}
+html.bewegung .pendel .anhaenger {
+  animation: auspendeln 1600ms var(--kurve-lang) 900ms both;
+}
+
+/* Lupe (Unsere Bäder): ohne Scroll-Animation liegt alles normal untereinander */
+.lupe-bild {
+  transform-origin: var(--lupe-x) var(--lupe-y);
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .lupe {
+      height: 240vh;
+      view-timeline-name: --lupe;
+    }
+    .lupe-buehne {
+      position: sticky;
+      top: 4.5rem;
+      min-height: calc(100vh - 4.5rem);
+    }
+    .lupe .klemmfoto-rahmen img {
+      max-height: calc(100vh - 11rem);
+      width: auto;
+      margin-inline: auto;
+    }
+    .lupe-bild {
+      animation-name: lupe-zoom;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --lupe;
+      animation-range: contain 15% contain 80%;
+    }
+    .lupe-text {
+      animation-name: lupe-text;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --lupe;
+      animation-range: contain 55% contain 80%;
+    }
+  }
+}
+@keyframes lupe-zoom {
+  to { transform: scale(2.2); }
+}
+@keyframes lupe-text {
+  from { opacity: 0; transform: translateY(10px); }
+}
+
+/* Striche wachsen mit dem Scrollen (wo unterstützt), sonst einmalig per Klasse */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .schicht-strich,
+    .ablauf-strich {
+      animation-name: strich-wachsen;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 60%;
+    }
+    .schicht-strich.senkrecht { transform-origin: center bottom; }
+    .verzeichnis-zeile,
+    .schritt,
+    .schicht {
+      animation-name: hereinschieben;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+}
+@keyframes strich-wachsen {
+  from { transform: scale(var(--strich-x, 0), var(--strich-y, 1)); }
+}
+.senkrecht.schicht-strich,
+.senkrecht.ablauf-strich {
+  --strich-x: 1;
+  --strich-y: 0;
+}
+@keyframes hereinschieben {
+  from { opacity: 0; transform: translateX(-28px); }
+}
+
+/* Verzeichnis: Hover rückt die Zeile ein */
+.verzeichnis-zeile h3 {
+  transition: transform 300ms var(--kurve);
+}
+.verzeichnis-zeile:hover h3 {
+  transform: translateX(10px);
+}
+
+/* Dunkler Abschnitt: Fokus hell, Ziffern als Kontur */
+.dunkel :focus-visible {
+  outline-color: var(--papier);
+}
+.dunkel .ziffer {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--kraft);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -451,7 +592,8 @@ html.bewegung [data-bewegung="strich"][data-sichtbar] .bleistiftstrich {
     transition-duration: 1ms !important;
     animation: none !important;
   }
-  a.anhaenger:hover {
+  a.anhaenger:hover,
+  .verzeichnis-zeile:hover h3 {
     transform: none;
   }
 }

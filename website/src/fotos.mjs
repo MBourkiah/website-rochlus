@@ -53,6 +53,8 @@ export const fotos = {
       alt: 'Bad mit großformatigen Fliesen in Betonoptik, Walk-in-Dusche mit schwarzen Armaturen und Waschbecken aus Naturstein',
       etikett: 'Großformat in Betonoptik, Walk-in-Dusche',
       ausschnitt: 'aspect-3/5 object-cover object-[50%_50%]',
+      // Fixpunkt der Lupe (transform-origin) in Prozent des Ausschnitts; die Nische liegt am rechten Rand, 100% hält sie im Bild
+      lupe: { x: 100, y: 40 },
       notizen: [
         { text: 'Großformat in Betonoptik', x: 62, y: 27, seite: 'links' },
         { text: 'Boden im selben Format', x: 55, y: 88, seite: 'rechts' },

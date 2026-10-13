@@ -1,7 +1,8 @@
 ---
 /**
- * Ablauf in vier Schritten, verbunden durch einen Bleistiftstrich, der sich
- * einmal durchzieht. Die Nummern tragen Information (Reihenfolge). Inhalte aus den Bestandsleistungen.
+ * Ablauf auf Graphit (einziger dunkler Abschnitt, Rhythmuswechsel): riesige
+ * Ziffern, ein Strich zieht sich beim Scrollen mit. Die Nummern tragen
+ * Information (Reihenfolge). Inhalte aus den Bestandsleistungen.
  */
 const schritte = [
   { titel: 'Besichtigung vor Ort', text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.' },
@@ -11,30 +12,29 @@ const schritte = [
 ];
 ---
 
-<section id="ablauf" class="scroll-mt-20">
-  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+<section id="ablauf" class="dunkel scroll-mt-20 bg-graphit text-papier">
+  <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:py-32">
     <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">In vier Schritten zum fertigen Bad.</h2>
 
-    <div class="relative mt-14 lg:mt-20" data-bewegung="strich">
-      <!-- Bleistiftstrich: waagerecht ab lg, senkrecht darunter -->
-      <span class="bleistiftstrich absolute top-[2.1rem] right-0 left-0 hidden h-[1.5px] bg-graphit lg:block" aria-hidden="true"></span>
-      <span class="bleistiftstrich senkrecht absolute top-4 bottom-4 left-[1.05rem] w-[1.5px] bg-graphit lg:hidden" aria-hidden="true"></span>
-      <ol class="relative grid grid-cols-1 gap-12 lg:grid-cols-4 lg:gap-8">
+    <div class="relative mt-16" data-bewegung="strich">
+      <span class="bleistiftstrich ablauf-strich absolute top-[3.9rem] right-0 left-0 hidden h-[2px] bg-kraft lg:block" aria-hidden="true"></span>
+      <span class="bleistiftstrich senkrecht ablauf-strich absolute top-6 bottom-6 left-[1.4rem] w-[2px] bg-kraft lg:hidden" aria-hidden="true"></span>
+      <ol class="relative grid grid-cols-1 gap-14 lg:grid-cols-4 lg:gap-8">
         {
           schritte.map((s, i) => (
-            <li class="relative pl-14 lg:pl-0">
-              <span class="schmal absolute top-0 left-0 grid h-9 w-9 place-items-center rounded-full bg-graphit text-lg font-bold text-papier lg:relative lg:top-auto lg:h-auto lg:w-auto lg:place-items-start lg:rounded-none lg:bg-transparent lg:text-graphit" aria-hidden="true">
-                <span class="lg:inline-block lg:bg-putz lg:pr-3 lg:text-[3.5rem] lg:leading-none">{i + 1}</span>
+            <li class="schritt relative pl-16 lg:pl-0" style={`--i:${i}`}>
+              <span class="ziffer schmal absolute top-0 left-0 block text-[3rem] leading-none font-extrabold lg:relative lg:text-[7.5rem] lg:leading-[0.75]" aria-hidden="true">
+                <span class="bg-graphit pr-3">{i + 1}</span>
               </span>
-              <h3 class="text-2xl leading-tight lg:mt-6">
+              <h3 class="text-[1.7rem] leading-tight lg:mt-8">
                 <span class="sr-only">Schritt {i + 1}: </span>
                 {s.titel}
               </h3>
-              <p class="mt-2 text-base leading-relaxed text-graphit-soft">{s.text}</p>
+              <p class="mt-2 text-base leading-relaxed text-papier/75">{s.text}</p>
               {i === 0 && (
-                <p class="mt-3 text-base">
+                <p class="mt-4 text-base">
                   Erst mal ansehen lassen?{' '}
-                  <a href="tel:+492219687575" class="link link-anruf ziel schmal text-xl font-bold whitespace-nowrap">0221 968 75 75</a>
+                  <a href="tel:+492219687575" class="link ziel schmal text-xl font-bold whitespace-nowrap text-papier [text-decoration-color:var(--kreide)]">0221 968 75 75</a>
                 </p>
               )}
             </li>

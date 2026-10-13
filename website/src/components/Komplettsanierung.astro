@@ -1,34 +1,31 @@
 ---
 /**
- * Komplettsanierung „von roh zu fertig“: die Schichten eines Badbodens auf
- * einem Bleistiftstrich, von unten (roh) nach oben (fertig). Nur die oberste
- * Schicht zeigt ein Foto, und zwar ein echtes (Nahaufnahme aus dem Hero-Bad);
- * die übrigen Schichten sind Punkte auf dem Strich, keine nachgemalten Proben.
+ * Komplettsanierung als Schichtung in großer Schrift: von unten (roh) nach
+ * oben (fertig) übereinander, ein Bleistiftstrich wächst beim Scrollen mit.
+ * Oben die echte Nahaufnahme einer fertigen Rochlus-Oberfläche.
  * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
 import { Image } from 'astro:assets';
 import { fotos } from '../fotos.mjs';
 
 const fertig = fotos.bad?.detail;
-const schritte = [
-  { titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
-  { titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
-  { titel: 'Kleber, auf Wunsch mit Heizmatte', leistung: 'Verlegung im Dünnbett, elektrische Fußbodenheizung' },
+// Reihenfolge von oben (fertig) nach unten (roh), wie man auf einen Boden schaut
+const schichten = [
   { titel: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien, elastische Fugen', fertig: true },
+  { titel: 'Kleber und Heizmatte', leistung: 'Verlegung im Dünnbett, auf Wunsch elektrische Fußbodenheizung' },
+  { titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
+  { titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
 ];
 ---
 
 <section id="komplettsanierung" class="scroll-mt-20">
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
-    <div class="lg:col-span-5">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-32">
+    <div class="lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
       <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Bad ist mehr als die Fliese obendrauf.</h2>
       <p class="mt-7 max-w-md text-lg leading-relaxed text-graphit-soft">
         Bei einer Komplettsanierung übernehmen wir jede Schicht rund um die
-        Fliese, vom Untergrund bis zur elastischen Fuge. Dazu die
-        Raumgestaltung: Material, Format und Verlegebild planen wir mit Ihnen.
-      </p>
-      <p class="mt-5 max-w-md text-lg leading-relaxed text-graphit-soft">
-        Sie haben einen Ansprechpartner, der das ganze Bad im Blick hat.
+        Fliese, dazu die Raumgestaltung: Material, Format und Verlegebild
+        planen wir mit Ihnen. Ein Ansprechpartner für das ganze Bad.
       </p>
       <p class="mt-8 text-lg">
         Sanierung besprechen:{' '}
@@ -36,30 +33,25 @@ const schritte = [
       </p>
     </div>
 
-    <!-- Schichten: Bleistiftstrich mit Punkten, oben das fertige Ergebnis -->
-    <div class="lg:col-span-6 lg:col-start-7">
-    <p class="text-base font-semibold text-graphit-soft">Oben fertig, unten roh: so ist ein Badboden aufgebaut.</p>
-    <div class="relative mt-4" data-bewegung="strich">
-      <span class="bleistiftstrich senkrecht absolute top-6 bottom-6 left-[0.7rem] w-[1.5px] bg-graphit" aria-hidden="true"></span>
-      <ol class="relative flex flex-col-reverse" aria-label="Schichten eines Badbodens, von unten nach oben">
+    <div class="schichtung relative lg:col-span-7 lg:col-start-6" data-bewegung="strich">
+      <span class="bleistiftstrich senkrecht schicht-strich absolute top-4 bottom-4 left-0 w-[2px] bg-graphit" aria-hidden="true"></span>
+      <ol class="relative pl-8 sm:pl-12" aria-label="Schichten eines Badbodens, von oben (fertig) nach unten (roh)">
         {
-          schritte.map((s) => (
-            <li class="relative flex items-start gap-6 py-5">
-              <span class={`relative z-10 mt-1.5 shrink-0 rounded-full bg-graphit ring-4 ring-putz ${s.fertig ? 'h-6 w-6 -ml-[0.1rem]' : 'h-3.5 w-3.5 ml-[0.2rem]'}`} aria-hidden="true" />
-              <span class="min-w-0">
-                <span class="schmal block text-2xl leading-tight font-bold">{s.titel}</span>
-                <span class="mt-1 block text-base leading-snug text-graphit-soft">{s.leistung}</span>
-                {s.fertig && fertig && (
-                  <span class="probe mt-5 block w-48 sm:w-56">
-                    <Image src={fertig.bild} alt={fertig.alt} widths={[320, 480]} sizes="14rem" class="aspect-4/3 object-cover" />
-                  </span>
-                )}
-              </span>
+          schichten.map((s, i) => (
+            <li class="schicht relative border-b border-linie py-7 last:border-b-0" style={`--i:${i}`}>
+              <span class="absolute top-[2.35rem] -left-8 h-3 w-3 -translate-x-[5px] rounded-full bg-graphit ring-4 ring-putz sm:-left-12" aria-hidden="true" />
+              <span class="kennzahl schmal block text-sm font-bold tracking-[0.12em] text-graphit-soft uppercase">{s.fertig ? 'Fertig' : i === schichten.length - 1 ? 'Roh' : ' '}</span>
+              <span class="schmal block text-[clamp(2rem,4.6vw,3.5rem)] leading-[0.95] font-bold tracking-[-0.02em]">{s.titel}</span>
+              <span class="mt-2 block max-w-lg text-base leading-snug text-graphit-soft">{s.leistung}</span>
+              {s.fertig && fertig && (
+                <span class="probe mt-6 block w-56 sm:absolute sm:top-6 sm:right-0 sm:mt-0 sm:w-44 sm:rotate-2">
+                  <Image src={fertig.bild} alt={fertig.alt} widths={[320, 480]} sizes="14rem" class="aspect-4/3 object-cover" />
+                </span>
+              )}
             </li>
           ))
         }
       </ol>
-    </div>
     </div>
   </div>
 </section>
