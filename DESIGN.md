@@ -157,7 +157,7 @@ Eine helle Werkstattpalette aus Putz, Graphit, Kraftpapier und Zink mit genau ei
 
 ### Primary
 - **Kreiderot** (kreide): der einzige Handlungston. Füllung des Anruf-Knopfs (Header ab md, sobald der Hero-Anhänger aus dem Blick ist; mobile Anrufleiste), Rand und Schrift des „Anrufen“-Stempels, Unterstrich der Telefon-Textlinks (`link-anruf`), Textcursor.
-- **Kreiderot tief** (kreide-tief): Hover des Anruf-Knopfs. Der Stempel „Anrufen“ auf dem Anhänger steht in noch dunklerem #8a2c1c (≥ 4,5:1 auf Kraftpapier), 0,95rem, um −7° gedreht in der oberen rechten Ecke.
+- **Kreiderot tief** (kreide-tief): Hover des Anruf-Knopfs. Der Stempel „Anrufen“ auf dem Anhänger steht in #6e2214 (4,9:1 auf Kraftpapier), 0,95rem, um −7° gedreht in einer eigenen Kopfzone oben rechts, nie über der Nummer.
 
 ### Secondary
 - **Kraftpapier** (kraft): Anhänger und Werkstattzettel, also die Flächen, auf denen der Betrieb sich selbst beschriftet.

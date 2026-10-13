@@ -34,9 +34,9 @@ const zwingen = [30, 50, 50];
 
     {
       echt ? (
-        <div class={`mt-16 grid grid-cols-1 gap-x-12 gap-y-20 ${fotos.referenzen.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+        <div class={`mt-16 grid grid-cols-1 gap-x-12 gap-y-20 ${fotos.referenzen.length === 1 ? 'lg:grid-cols-2' : fotos.referenzen.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
           {fotos.referenzen.map((f, i) => (
-            <div class={i % 2 ? 'sm:mt-20' : ''}>
+            <div class={`${i % 2 ? 'sm:mt-20' : ''} ${fotos.referenzen.length === 1 ? 'grid grid-cols-1 items-center gap-x-12 gap-y-6 sm:grid-cols-2 lg:col-span-2' : ''}`}>
               <KlemmFoto
                 bild={f.bild}
                 alt={f.alt}
@@ -48,11 +48,12 @@ const zwingen = [30, 50, 50];
                 sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, 88vw"
                 class="mx-auto w-[88%] sm:w-full"
               />
-              <p class="schmal mt-5 text-xl leading-tight font-bold">{f.etikett}</p>
+              <div>
+              <p class="schmal mt-5 text-xl leading-tight font-bold sm:mt-0 sm:text-2xl">{f.etikett}</p>
               {f.detail && (
                 <figure class="mt-5 flex items-center gap-5">
-                  <span class="probe w-32 shrink-0 sm:w-36">
-                    <Image src={f.detail.bild} alt={f.detail.alt} widths={[240, 360]} sizes="9rem" class="aspect-square object-cover" />
+                  <span class={`probe shrink-0 ${fotos.referenzen.length === 1 ? 'w-40 sm:w-56' : 'w-32 sm:w-36'}`}>
+                    <Image src={f.detail.bild} alt={f.detail.alt} widths={[240, 360, 480]} sizes="14rem" class="aspect-square object-cover" />
                   </span>
                   <figcaption class="text-base leading-snug text-graphit-soft">
                     <span class="block font-semibold text-graphit">Nahaufnahme</span>
@@ -60,6 +61,7 @@ const zwingen = [30, 50, 50];
                   </figcaption>
                 </figure>
               )}
+              </div>
             </div>
           ))}
         </div>

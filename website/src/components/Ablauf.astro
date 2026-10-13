@@ -31,6 +31,12 @@ const schritte = [
                 {s.titel}
               </h3>
               <p class="mt-2 text-base leading-relaxed text-graphit-soft">{s.text}</p>
+              {i === 0 && (
+                <p class="mt-3 text-base">
+                  Erst mal ansehen lassen?{' '}
+                  <a href="tel:+492219687575" class="link link-anruf ziel schmal text-xl font-bold whitespace-nowrap">0221 968 75 75</a>
+                </p>
+              )}
             </li>
           ))
         }

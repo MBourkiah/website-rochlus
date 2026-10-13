@@ -1,14 +1,15 @@
 ---
 /**
  * Leistungen als Werkstattliste: drei Gruppen nebeneinander, jede mit Titel,
- * Satz und linierten Zeilen. Keine Bilder (Stockbilder sind raus). Alle 13
- * Punkte des Bestands bleiben erhalten.
+ * Satz und linierten Zeilen. Beim Kernhandwerk eine echte Nahaufnahme
+ * (Mosaikbordüre aus einem Rochlus-Bad). Alle 13 Punkte bleiben erhalten.
  */
 const gruppen = [
   {
     titel: 'Verlegen',
     text: 'Das Kernhandwerk, auf Wand und Boden.',
     punkte: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
+    nahaufnahme: true,
   },
   {
     titel: 'Unter und neben der Fliese',
@@ -21,6 +22,8 @@ const gruppen = [
     punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
   },
 ];
+import { Image } from 'astro:assets';
+import { detailMosaikborduere as mosaik } from '../fotos.mjs';
 ---
 
 <section id="leistungen" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
@@ -33,6 +36,14 @@ const gruppen = [
           <div>
             <h3 class="text-[1.75rem] leading-tight">{g.titel}</h3>
             <p class="mt-1 text-base leading-snug text-graphit-soft">{g.text}</p>
+            {g.nahaufnahme && (
+              <figure class="mt-5 flex items-center gap-4">
+                <span class="probe w-28 shrink-0">
+                  <Image src={mosaik.bild} alt={mosaik.alt} widths={[240, 360]} sizes="7rem" class="aspect-4/3 object-cover" />
+                </span>
+                <figcaption class="text-sm leading-snug text-graphit-soft">{mosaik.text}</figcaption>
+              </figure>
+            )}
             <ul class="mt-5 border-t border-linie">
               {g.punkte.map((p) => (
                 <li class="schmal border-b border-linie py-2.5 text-xl leading-tight font-semibold">{p}</li>

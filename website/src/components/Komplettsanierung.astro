@@ -30,10 +30,16 @@ const schritte = [
       <p class="mt-5 max-w-md text-lg leading-relaxed text-graphit-soft">
         Sie haben einen Ansprechpartner, der das ganze Bad im Blick hat.
       </p>
+      <p class="mt-8 text-lg">
+        Sanierung besprechen:{' '}
+        <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap">0221 968 75 75</a>
+      </p>
     </div>
 
     <!-- Schichten: Bleistiftstrich mit Punkten, oben das fertige Ergebnis -->
-    <div class="relative lg:col-span-6 lg:col-start-7" data-bewegung="strich">
+    <div class="lg:col-span-6 lg:col-start-7">
+    <p class="text-base font-semibold text-graphit-soft">Oben fertig, unten roh: so ist ein Badboden aufgebaut.</p>
+    <div class="relative mt-4" data-bewegung="strich">
       <span class="bleistiftstrich senkrecht absolute top-6 bottom-6 left-[0.7rem] w-[1.5px] bg-graphit" aria-hidden="true"></span>
       <ol class="relative flex flex-col-reverse" aria-label="Schichten eines Badbodens, von unten nach oben">
         {
@@ -53,6 +59,7 @@ const schritte = [
           ))
         }
       </ol>
+    </div>
     </div>
   </div>
 </section>

@@ -16,10 +16,16 @@
  */
 import badBetonoptik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-walk-in-dusche-grossformat-fliesen-betonoptik.jpg';
 import badHolzoptik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-fliesen-holzoptik-walk-in-dusche.jpg';
-import badWanneMosaik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-badewanne-weisse-wandfliesen-mosaikborduere.jpg';
 import detailNische from './assets/projekte/fliesenfachbetrieb-rochlus-bad-detail-ablagenische-betonoptik.jpg';
 import detailMosaik from './assets/projekte/fliesenfachbetrieb-rochlus-bad-detail-mosaikborduere.jpg';
 import detailHolzFuge from './assets/projekte/fliesenfachbetrieb-rochlus-bad-detail-bodenfliesen-holzoptik-fuge.jpg';
+
+/** Nahaufnahme aus dem Bad mit Wanne (das Gesamtfoto ist vor der Endmontage entstanden und wird nicht gezeigt). */
+export const detailMosaikborduere = {
+  bild: detailMosaik,
+  alt: 'Nahaufnahme: Mosaikbordüre zwischen weißen Wandfliesen, über die Ecke weitergeführt',
+  text: 'Mosaikbordüre, über die Ecke weitergeführt',
+};
 
 export const fotos = {
   /** Porträt Marc Rochlus (oder Team): Betrieb-Section und kleines Bild am Anruf-Schild. */
@@ -46,7 +52,7 @@ export const fotos = {
       bild: badBetonoptik,
       alt: 'Bad mit großformatigen Fliesen in Betonoptik, Walk-in-Dusche mit schwarzen Armaturen und Waschbecken aus Naturstein',
       etikett: 'Großformat in Betonoptik, Walk-in-Dusche',
-      ausschnitt: 'aspect-2/3 object-cover object-[60%_50%]',
+      ausschnitt: 'aspect-3/5 object-cover object-[50%_50%]',
       notizen: [
         { text: 'Großformat in Betonoptik', x: 62, y: 27, seite: 'links' },
         { text: 'Boden im selben Format', x: 55, y: 88, seite: 'rechts' },
@@ -55,21 +61,6 @@ export const fotos = {
         bild: detailNische,
         alt: 'Nahaufnahme: geflieste Ablagenische in der Duschwand',
         text: 'Geflieste Ablagenische in der Duschwand',
-      },
-    },
-    {
-      bild: badWanneMosaik,
-      alt: 'Bad mit weißen Wandfliesen, Mosaikbordüre und anthrazitfarbenem Boden, eingeflieste Badewanne vor dem Fenster, vor der Endmontage',
-      etikett: 'Wanne mit Mosaikbordüre, vor der Endmontage',
-      ausschnitt: 'aspect-2/3 object-cover object-[30%_50%]',
-      notizen: [
-        { text: 'Wanne eingefliest', x: 40, y: 56, seite: 'rechts' },
-        { text: 'Boden in Anthrazit', x: 40, y: 84, seite: 'rechts' },
-      ],
-      detail: {
-        bild: detailMosaik,
-        alt: 'Nahaufnahme: Mosaikbordüre zwischen weißen Wandfliesen, über die Ecke weitergeführt',
-        text: 'Mosaikbordüre, über die Ecke weitergeführt',
       },
     },
   ],

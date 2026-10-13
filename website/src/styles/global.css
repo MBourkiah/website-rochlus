@@ -240,7 +240,7 @@ summary {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    padding: 2.4rem 1.8rem 1.1rem 3.4rem;
+    padding: 2.9rem 1.8rem 1.1rem 3.4rem;
     max-width: 100%;
     background: var(--kraft);
     color: var(--graphit);
@@ -270,13 +270,13 @@ summary {
   }
   .stempel {
     position: absolute;
-    top: 0.7rem;
+    top: 0.55rem;
     right: 0.9rem;
     display: inline-block;
-    border: 2px solid #8a2c1c;
+    border: 2px solid #6e2214;
     border-radius: 3px;
     padding: 0.05rem 0.5rem;
-    color: #8a2c1c;
+    color: #6e2214;
     font-size: 0.95rem;
     font-weight: 750;
     font-stretch: 82%;
@@ -370,11 +370,18 @@ summary {
 
 /* Mobile Anrufleiste: fährt erst ein, wenn das Hero-Anrufschild weg ist (ohne JS: immer da) */
 .anrufleiste {
-  transition: transform 260ms var(--kurve);
+  transition:
+    transform 260ms var(--kurve),
+    visibility 0s linear 0s;
 }
+/* Eingefahren auch unsichtbar für Tastatur und Screenreader */
 html.js:not([data-anruf-weg]) .anrufleiste,
 html[data-klingel-da] .anrufleiste {
   transform: translateY(110%);
+  visibility: hidden;
+  transition:
+    transform 260ms var(--kurve),
+    visibility 0s linear 260ms;
 }
 
 /*

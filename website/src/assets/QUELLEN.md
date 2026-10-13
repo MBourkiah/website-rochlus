@@ -10,7 +10,7 @@ Fotos von Bädern des Fliesenfachbetriebs Rochlus, geliefert im Oktober 2026 von
 |---|---|
 | `fliesenfachbetrieb-rochlus-bad-fliesen-holzoptik-walk-in-dusche.jpg` | Bad in Holzoptik, bodengleiche Dusche |
 | `fliesenfachbetrieb-rochlus-bad-walk-in-dusche-grossformat-fliesen-betonoptik.jpg` | Großformat in Betonoptik, Walk-in-Dusche |
-| `fliesenfachbetrieb-rochlus-bad-badewanne-weisse-wandfliesen-mosaikborduere.jpg` | Wanne mit Mosaikbordüre, vor der Endmontage |
+| `fliesenfachbetrieb-rochlus-bad-badewanne-weisse-wandfliesen-mosaikborduere.jpg` | Wanne mit Mosaikbordüre, vor der Endmontage (nicht gezeigt; nur die Nahaufnahme der Bordüre) |
 
 ## Nahaufnahmen (`projekte/…-detail-…`)
 
