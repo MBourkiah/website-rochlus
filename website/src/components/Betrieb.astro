@@ -8,6 +8,7 @@
  */
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { istReview } from '../stand';
+import { Image } from 'astro:assets';
 import { fotos } from '../fotos.mjs';
 ---
 
@@ -24,7 +25,7 @@ import { fotos } from '../fotos.mjs';
       <!-- Inhaber-Foto: kompakter Platzhalter unter dem Text, dem Firmenschild untergeordnet -->
       {fotos.inhaber ? (
       <figure class="mt-10 flex items-center gap-5">
-        <img src={fotos.inhaber.src} alt={fotos.inhaber.alt} width={fotos.inhaber.breite} height={fotos.inhaber.hoehe} class="aspect-4/5 w-32 shrink-0 rounded-[6px] object-cover shadow-(--schatten-schild) sm:w-40" loading="lazy" />
+        <Image src={fotos.inhaber.bild} alt={fotos.inhaber.alt} widths={[256, 384, 512]} sizes="10rem" class="aspect-4/5 w-32 shrink-0 rounded-[6px] object-cover shadow-(--schatten-schild) sm:w-40" loading="lazy" />
         <figcaption class="text-sm leading-relaxed text-anthrazit-soft">
           <span class="block font-schild text-lg font-semibold text-anthrazit">Marc Rochlus</span>
           Geschäftsführer

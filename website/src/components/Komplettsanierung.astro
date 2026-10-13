@@ -64,11 +64,11 @@ import { fotos } from '../fotos.mjs';
         </span>
       </p>
     </figure>
-      <!-- Fertiges Bad aus src/fotos.mjs; bis dahin ein Material-Stimmungsbild -->
+      <!-- Fertiges Bad aus src/fotos.mjs (Projektfoto); ohne Eintrag ein Material-Stimmungsbild -->
       {
         fotos.bad ? (
           <figure class="mt-6 rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-            <img src={fotos.bad.src} alt={fotos.bad.alt} width={fotos.bad.breite} height={fotos.bad.hoehe} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" />
+            <Image src={fotos.bad.bild} alt={fotos.bad.alt} widths={[560, 840, 1120]} sizes="(min-width: 64rem) 40rem, 100vw" class="aspect-4/3 w-full rounded-[4px] object-cover object-[center_58%]" />
           </figure>
         ) : (
           /* Material-Stimmungsbild (Unsplash, siehe Bild-Metadaten), bis ein echtes Bad vorliegt */

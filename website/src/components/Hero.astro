@@ -6,6 +6,7 @@
  * steht, zeigt das Anruf-Schild, mit wem man spricht.
  */
 import Telefon from './Telefon.astro';
+import { Image } from 'astro:assets';
 import { fotos } from '../fotos.mjs';
 ---
 
@@ -42,7 +43,7 @@ import { fotos } from '../fotos.mjs';
       {
         fotos.inhaber ? (
           <span class="mt-4 flex items-center gap-3 text-base leading-snug text-white/90">
-            <img src={fotos.inhaber.src} alt="" width={fotos.inhaber.breite} height={fotos.inhaber.hoehe} class="h-12 w-12 shrink-0 rounded-md object-cover ring-2 ring-white/80" />
+            <Image src={fotos.inhaber.bild} alt="" widths={[96, 144]} sizes="3rem" class="h-12 w-12 shrink-0 rounded-md object-cover ring-2 ring-white/80" />
             Sie sprechen direkt mit Marc Rochlus.
           </span>
         ) : (

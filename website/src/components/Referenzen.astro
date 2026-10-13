@@ -2,11 +2,13 @@
 /**
  * Arbeiten: Fotos im Stahlrahmen, jedes mit kleinem Emaille-Etikett.
  *
- * PLATZHALTER: Die vier Motive sind Ausschnitte aus der collage.jpg der
+ * Mit Einträgen in src/fotos.mjs zeigt die Galerie die echten Projektfotos
+ * (Hochformat, dreispaltig). Ohne sie: PLATZHALTER. Die vier Motive sind Ausschnitte aus der collage.jpg der
  * Bestandsseite (Original nur 600×420px). Sie werden 1:1 durch Originalfotos
  * ersetzt, sobald der Kunde sie liefert; Vorher/Nachher-Paare passen ins Raster.
  * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
+import { Image } from 'astro:assets';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { fotos } from '../fotos.mjs';
 
@@ -19,23 +21,35 @@ const archiv = [
   { src: '/bilder/platzhalter-wandarbeiten.jpg', alt: 'Vorbereitete Wandfläche mit Richtschnur', etikett: 'Wandarbeiten nach Richtschnur', klasse: 'lg:mt-12' },
 ];
 const motive = echt
-  ? fotos.referenzen.map((f, i) => ({ ...f, klasse: i % 2 ? 'lg:mt-12' : '' }))
+  ? fotos.referenzen.map((f, i) => ({ ...f, klasse: i % 2 ? 'sm:mt-12' : '' }))
   : archiv.map((m) => ({ ...m, breite: 210, hoehe: 158 }));
 ---
 
 <section id="arbeiten" class="scroll-mt-20">
-  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-    <div class="flex flex-wrap items-end justify-between gap-6">
+  <div class={`mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28 ${echt ? 'lg:grid lg:grid-cols-12 lg:gap-x-10' : ''}`}>
+    <div class={echt ? 'lg:sticky lg:top-28 lg:col-span-4 lg:self-start' : 'flex flex-wrap items-end justify-between gap-6'}>
       <h2 class="max-w-xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
       {!echt && <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />}
+      {
+        echt && (
+          <p class="mt-6 text-lg leading-relaxed text-anthrazit-soft">
+            So etwas soll bei Ihnen entstehen?{' '}
+            <a href="tel:+492219687575" class="link link-anruf ziel font-schild text-2xl font-semibold whitespace-nowrap text-anthrazit">0221 968 75 75</a>
+          </p>
+        )
+      }
     </div>
 
-    <div class="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-x-6">
+    <div class={`mt-14 grid gap-x-4 gap-y-8 lg:gap-x-6 ${echt ? `grid-cols-1 lg:col-span-8 lg:mt-0 ${motive.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}` : 'grid-cols-2 lg:grid-cols-4'}`}>
       {
         motive.map((m) => (
           <figure class={m.klasse}>
             <div class="relative rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-              <img src={m.src} alt={m.alt} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" width={m.breite} height={m.hoehe} />
+              {m.bild ? (
+                <Image src={m.bild} alt={m.alt} widths={[400, 600, 800]} sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 50vw, 100vw" class="aspect-3/4 w-full rounded-[4px] object-cover" />
+              ) : (
+                <img src={m.src} alt={m.alt} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" width={m.breite} height={m.hoehe} />
+              )}
               {!echt && (
                 <span class="absolute bottom-4 left-4">
                   <PlatzhalterBadge text="Platzhalter" />
