@@ -1,72 +1,61 @@
 ---
 /**
- * Arbeiten: Fotos im Stahlrahmen, jedes mit kleinem Emaille-Etikett.
- *
- * Mit Einträgen in src/fotos.mjs zeigt die Galerie die echten Projektfotos
- * (Hochformat, dreispaltig). Ohne sie: PLATZHALTER. Die vier Motive sind Ausschnitte aus der collage.jpg der
- * Bestandsseite (Original nur 600×420px). Sie werden 1:1 durch Originalfotos
- * ersetzt, sobald der Kunde sie liefert; Vorher/Nachher-Paare passen ins Raster.
+ * Arbeiten: echte Bäder, an die Wand geklemmt, mit Notizen zu dem, was man
+ * sieht. Ohne Einträge in src/fotos.mjs zeigt der Review-Stand die
+ * Archivbilder der alten Seite als markierte Platzhalter (Launch: ausgeblendet).
  * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
-import { Image } from 'astro:assets';
+import KlemmFoto from './KlemmFoto.astro';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { fotos } from '../fotos.mjs';
 
-// Echte Projektfotos aus src/fotos.mjs haben Vorrang vor den Archiv-Platzhaltern.
 const echt = fotos.referenzen.length > 0;
 const archiv = [
-  { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen', etikett: 'Bodenverlegung, Großformat', klasse: '' },
-  { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle', etikett: 'Klebebett im Dünnbett', klasse: 'lg:mt-12' },
-  { src: '/bilder/platzhalter-ausrichtung.jpg', alt: 'Ausrichten einer Bodenfliese mit der Wasserwaage', etikett: 'Ausrichten mit der Wasserwaage', klasse: '' },
-  { src: '/bilder/platzhalter-wandarbeiten.jpg', alt: 'Vorbereitete Wandfläche mit Richtschnur', etikett: 'Wandarbeiten nach Richtschnur', klasse: 'lg:mt-12' },
+  { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen' },
+  { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle' },
+  { src: '/bilder/platzhalter-ausrichtung.jpg', alt: 'Ausrichten einer Bodenfliese mit der Wasserwaage' },
+  { src: '/bilder/platzhalter-wandarbeiten.jpg', alt: 'Vorbereitete Wandfläche mit Richtschnur' },
 ];
-const motive = echt
-  ? fotos.referenzen.map((f, i) => ({ ...f, klasse: i % 2 ? 'sm:mt-12' : '' }))
-  : archiv.map((m) => ({ ...m, breite: 210, hoehe: 158 }));
+const neigungen = ['-1deg', '0.8deg', '-0.5deg'];
 ---
 
-<section id="arbeiten" class="scroll-mt-20">
-  <div class={`mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28 ${echt ? 'lg:grid lg:grid-cols-12 lg:gap-x-10' : ''}`}>
-    <div class={echt ? 'lg:sticky lg:top-28 lg:col-span-4 lg:self-start' : 'flex flex-wrap items-end justify-between gap-6'}>
-      <h2 class="max-w-xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
-      {!echt && <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />}
-      {
-        echt && (
-          <p class="mt-6 text-lg leading-relaxed text-anthrazit-soft">
-            So etwas soll bei Ihnen entstehen?{' '}
-            <a href="tel:+492219687575" class="link link-anruf ziel font-schild text-2xl font-semibold whitespace-nowrap text-anthrazit">0221 968 75 75</a>
-          </p>
-        )
-      }
-    </div>
+<section id="arbeiten" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
+  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+    <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-graphit-soft">
+      Bäder, die wir gefliest haben. Die Notizen zeigen, worauf es ankommt.
+    </p>
 
-    <div class={`mt-14 grid gap-x-4 gap-y-8 lg:gap-x-6 ${echt ? `grid-cols-1 lg:col-span-8 lg:mt-0 ${motive.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}` : 'grid-cols-2 lg:grid-cols-4'}`}>
-      {
-        motive.map((m) => (
-          <figure class={m.klasse}>
-            <div class="relative rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-              {m.bild ? (
-                <Image src={m.bild} alt={m.alt} widths={[400, 600, 800]} sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 50vw, 100vw" class="aspect-3/4 w-full rounded-[4px] object-cover" />
-              ) : (
-                <img src={m.src} alt={m.alt} class="aspect-4/3 w-full rounded-[4px] object-cover" loading="lazy" width={m.breite} height={m.hoehe} />
-              )}
-              {!echt && (
-                <span class="absolute bottom-4 left-4">
-                  <PlatzhalterBadge text="Platzhalter" />
-                </span>
-              )}
-            </div>
-            <figcaption class="schild schild--mini mt-3 inline-block px-3.5 py-1.5 font-schild text-base leading-tight font-medium sm:text-lg">{m.etikett}</figcaption>
-          </figure>
-        ))
-      }
-    </div>
+    {
+      echt ? (
+        <div class={`mt-16 grid grid-cols-1 gap-x-12 gap-y-16 ${fotos.referenzen.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+          {fotos.referenzen.map((f, i) => (
+            <KlemmFoto
+              bild={f.bild}
+              alt={f.alt}
+              notizen={f.notizen}
+              unterschrift={f.etikett}
+              neigung={neigungen[i % neigungen.length]}
+              sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, 92vw"
+              class={`mx-auto w-[88%] sm:w-full ${i % 2 ? 'sm:mt-16' : ''}`}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="mt-14">
+          <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />
+          <div class="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {archiv.map((a) => (
+              <img src={a.src} alt={a.alt} width="210" height="158" loading="lazy" class="aspect-4/3 w-full rounded-sm object-cover" />
+            ))}
+          </div>
+        </div>
+      )
+    }
 
-    {!echt && (
-      <p class="mt-10 max-w-xl text-base leading-relaxed text-anthrazit-soft">
-        Hier entsteht die Galerie abgeschlossener Projekte, gern als Vorher/Nachher-Paare.
-        Das Raster steht, die Originalfotos kommen vom Betrieb.
-      </p>
-    )}
+    <p class="mt-16 text-lg text-graphit-soft">
+      So etwas soll bei Ihnen entstehen?{' '}
+      <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap text-graphit">0221 968 75 75</a>
+    </p>
   </div>
 </section>

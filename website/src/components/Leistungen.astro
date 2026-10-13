@@ -1,113 +1,69 @@
 ---
 /**
- * Leistungen als Wegweiser: links drei Pfeilschilder (eine pro Gruppe), rechts
- * die Tafel der gewählten Gruppe mit allen Leistungen und dem Anruf dazu.
- * Mobil wird daraus ein Aufklapp-Wegweiser (Tafel direkt unter ihrem Pfeil).
- * Ohne JavaScript sind alle Tafeln offen. Alle 13 Punkte des Bestands bleiben.
- * Muster: Disclosure-Buttons (aria-expanded/aria-controls), kein Tab-Widget,
- * damit es in beiden Layouts ehrlich bleibt.
+ * Leistungen als Werkstattliste: drei Gruppen, jede mit einer Materialprobe
+ * oben und den Leistungen als liniertem Verzeichnis darunter, wie die Liste
+ * an der Werkstattwand. Alle 13 Punkte des Bestands bleiben erhalten.
+ * Materialbilder: Unsplash (Herkunft in den Bild-Metadaten), keine Projekte.
  */
 import { Image } from 'astro:assets';
-import Telefon from './Telefon.astro';
-// Material-Stimmungsbilder (Unsplash, Herkunft in den Bild-Metadaten); zeigen keine Rochlus-Projekte
 import marmorVerband from '../assets/stimmung/marmor-verband.jpg';
 import werkzeug from '../assets/stimmung/werkzeug.jpg';
 import materialmuster from '../assets/stimmung/materialmuster.jpg';
 
 const gruppen = [
   {
-    id: 'verlegen',
     titel: 'Verlegen',
-    text: 'Das Kernhandwerk, auf Wand und Boden: vom Fliesenspiegel bis zum ganzen Bad.',
+    text: 'Das Kernhandwerk, auf Wand und Boden.',
     punkte: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
-    bild: { src: marmorVerband, alt: 'Wand aus rosafarbenen Marmorfliesen im Verband', lage: 'object-center' },
+    bild: marmorVerband,
+    alt: 'Marmorfliesen im Verband, Nahaufnahme',
+    neigung: '-1.2deg',
   },
   {
-    id: 'untergrund',
     titel: 'Unter und neben der Fliese',
     text: 'Damit der Untergrund so gut ist wie die Oberfläche.',
     punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
-    bild: { src: werkzeug, alt: 'Kellen und Werkzeug in einem Eimer auf einer Baustelle', lage: 'object-[center_45%]' },
+    bild: werkzeug,
+    alt: 'Kellen und Werkzeug in einem Eimer auf einer Baustelle',
+    neigung: '0.8deg',
   },
   {
-    id: 'service',
     titel: 'Planung und Service',
     text: 'Was vor, während und nach der Arbeit passiert.',
     punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
-    bild: { src: materialmuster, alt: 'Materialmuster aus Stein, Marmor und Metall nebeneinander', lage: 'object-[center_60%]' },
+    bild: materialmuster,
+    alt: 'Materialmuster aus Stein, Marmor und Metall nebeneinander',
+    neigung: '-0.6deg',
   },
 ];
 ---
 
 <section id="leistungen" class="scroll-mt-20">
   <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-    <h2 class="max-w-3xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Unsere Leistungen, gut ausgeschildert.</h2>
+    <h2 class="max-w-3xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Was wir machen, und was dazugehört.</h2>
 
-    <div class="wegweiser mt-12 grid grid-cols-1 gap-3 lg:mt-16 lg:grid-cols-12 lg:grid-rows-[auto_auto_auto_1fr] lg:gap-x-10 lg:gap-y-4" data-wegweiser>
+    <div class="mt-14 grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-3">
       {
-        gruppen.map((g, i) => (
-          <Fragment>
-            <button
-              type="button"
-              class={`pfeil-knopf group text-left lg:col-span-5 lg:col-start-1 ${['lg:row-start-1', 'lg:row-start-2', 'lg:row-start-3'][i]}`}
-              aria-expanded={i === 0 ? 'true' : 'false'}
-              aria-controls={`tafel-${g.id}`}
-              data-pfeil
-            >
-              <span class="pfeil">
-                <span class="font-schild text-2xl leading-tight font-semibold sm:text-[1.7rem]">{g.titel}</span>
-                <span class="pfeil-zahl font-schild text-base font-medium">{g.punkte.length} Leistungen</span>
-              </span>
-            </button>
-            <div
-              id={`tafel-${g.id}`}
-              class="schild px-7 pt-10 pb-8 sm:px-10 lg:col-span-7 lg:col-start-6 lg:row-span-4 lg:row-start-1 lg:self-start lg:px-12 lg:pt-12 lg:pb-10"
-              data-tafel
-            >
-              <Image src={g.bild.src} alt={g.bild.alt} widths={[560, 840, 1120]} sizes="(min-width: 64rem) 36rem, 100vw" class={`mb-7 aspect-[16/7] w-full rounded-[5px] object-cover ${g.bild.lage}`} loading={i === 0 ? 'eager' : 'lazy'} />
-              <p class="max-w-md text-lg leading-snug text-anthrazit-soft">{g.text}</p>
-              <ul class="mt-6 grid grid-cols-1 border-t border-anthrazit/15 sm:grid-cols-2 sm:gap-x-8">
-                {g.punkte.map((p) => (
-                  <li class="border-b border-anthrazit/15 py-3 font-schild text-[1.35rem] leading-tight font-semibold">{p}</li>
-                ))}
-              </ul>
-              <p class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-anthrazit-soft">
-                <span>Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu.</span>
-                <a href="tel:+492219687575" class="link link-anruf ziel gap-2 font-schild text-xl font-semibold whitespace-nowrap text-anthrazit">
-                  <Telefon size={16} /> 0221 968 75 75
-                </a>
-              </p>
-            </div>
-          </Fragment>
+        gruppen.map((g) => (
+          <div>
+            <figure class="probe w-[70%] max-w-64" style={`transform: rotate(${g.neigung})`}>
+              <Image src={g.bild} alt={g.alt} widths={[320, 480, 640]} sizes="(min-width: 48rem) 16rem, 70vw" />
+            </figure>
+            <h3 class="mt-8 text-[1.9rem] leading-tight">{g.titel}</h3>
+            <p class="mt-1 text-base text-graphit-soft">{g.text}</p>
+            <ul class="liste mt-5">
+              {g.punkte.map((p) => (
+                <li class="schmal py-2.5 text-xl leading-tight font-semibold">{p}</li>
+              ))}
+            </ul>
+          </div>
         ))
       }
     </div>
+
+    <p class="mt-14 text-lg text-graphit-soft">
+      Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu:{' '}
+      <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap text-graphit">0221 968 75 75</a>
+    </p>
   </div>
 </section>
-
-<script is:inline>
-  // Wegweiser: ein Pfeil zeigt auf genau eine Tafel. Desktop: Auswahl.
-  // Mobil: Aufklappen/Zuklappen direkt unter dem Pfeil. Ohne JS bleibt alles offen.
-  document.querySelectorAll('[data-wegweiser]').forEach((w) => {
-    const pfeile = [...w.querySelectorAll('[data-pfeil]')];
-    const breit = window.matchMedia('(min-width: 64rem)');
-    const zeigen = (aktiv, schliessbar) => {
-      pfeile.forEach((p) => {
-        const tafel = document.getElementById(p.getAttribute('aria-controls'));
-        const offen = p === aktiv && !(schliessbar && p.getAttribute('aria-expanded') === 'true');
-        p.setAttribute('aria-expanded', String(offen));
-        tafel.hidden = !offen;
-      });
-    };
-    const start = pfeile.find((p) => p.getAttribute('aria-expanded') === 'true') || pfeile[0];
-    pfeile.forEach((p) => {
-      const tafel = document.getElementById(p.getAttribute('aria-controls'));
-      tafel.hidden = p !== start;
-      p.addEventListener('click', () => zeigen(p, !breit.matches));
-    });
-    // Beim Wechsel auf Desktop muss immer eine Tafel offen sein
-    breit.addEventListener('change', (e) => {
-      if (e.matches && !pfeile.some((p) => p.getAttribute('aria-expanded') === 'true')) zeigen(pfeile[0], false);
-    });
-  });
-</script>

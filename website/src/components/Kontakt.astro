@@ -1,61 +1,51 @@
 ---
 /**
- * Kontakt als Türschild mit Klingel: Die Klingel ist der Anruf — Signatur-
- * Interaktion der Seite (echter Druckzustand, siehe .klingel in global.css).
- * Alle Kontaktdaten aus dem Bestand (belegt). Erreichbarkeitszeiten: Platzhalter, im Launch-Stand ausgeblendet.
+ * Kontakt: der große Anhänger als Anruf (Signatur), daneben die Nebenkanäle.
+ * Alle Kontaktdaten aus dem Bestand (belegt). Erreichbarkeitszeiten:
+ * Platzhalter, im Launch-Stand ausgeblendet.
  */
+import Anhaenger from './Anhaenger.astro';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
-import Telefon from './Telefon.astro';
 import { istReview } from '../stand';
 ---
 
-<section id="kontakt" class="scroll-mt-20 border-t border-linie">
-  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-32">
-    <h2 class="max-w-2xl text-[clamp(2.8rem,6vw,4.75rem)] leading-[0.92]">Einfach klingeln.</h2>
-    <p class="mt-6 max-w-xl text-lg leading-relaxed text-anthrazit-soft">
-      Ein Anruf genügt, dann kommen wir zur Besichtigung. Oder Sie schreiben kurz,
-      was ansteht und wo (die Postleitzahl reicht), und wir melden uns.
-    </p>
-
-    <div class="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
-      <!-- Das Türschild -->
-      <div class="schild px-8 pt-12 pb-10 sm:px-14 sm:pt-14 sm:pb-12 lg:col-span-8" data-bewegung="klingel">
-        <p class="font-schild text-5xl leading-none font-semibold sm:text-6xl">Rochlus</p>
-        <p class="mt-2 font-schild text-xl font-medium tracking-wide text-anthrazit-soft">Fliesenfachbetrieb GmbH · Kranzbinderweg 15 · 51067 Köln</p>
-
-        <a href="tel:+492219687575" data-klingel class="klingel group mt-10 flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-anthrazit/15 pt-8" aria-label="Anrufen: 0221 968 75 75">
-          <span class="klingel-ring">
-            <span class="klingel-knopf"><Telefon size={24} /></span>
-          </span>
-          <span>
-            <span class="block font-schild text-[clamp(2.6rem,6vw,4rem)] leading-none font-semibold whitespace-nowrap">0221 968 75 75</span>
-            <span class="mt-2 block text-base text-anthrazit-soft">Ein Druck auf die Klingel, und bei uns klingelt das Telefon.</span>
-          </span>
-        </a>
-      </div>
-
-      <!-- Nebenkanäle und Fakten -->
-      <div class="flex flex-col gap-7 text-base lg:col-span-4 lg:pt-4">
-        <div>
-          <p class="font-schild text-xl font-semibold">Mobil</p>
-          <a href="tel:+491722770674" class="link ziel text-lg">0172 277 06 74</a>
-          <p class="mt-1 text-base text-anthrazit-soft">Wenn unter der Festnetznummer niemand abnimmt.</p>
-        </div>
-        <div>
-          <p class="font-schild text-xl font-semibold">E-Mail</p>
-          <a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link ziel text-lg">mrochlus@web.de</a>
-        </div>
-        {istReview && (
-        <div>
-          <p class="font-schild text-xl font-semibold">Erreichbarkeit</p>
-          <p class="mt-1"><PlatzhalterBadge text="Zeiten folgen vom Betrieb" /></p>
-        </div>
-        )}
-        <div>
-          <p class="font-schild text-xl font-semibold">Einsatzgebiet</p>
-          <p class="text-lg text-anthrazit-soft">Köln und Umgebung</p>
-        </div>
+<section id="kontakt" class="scroll-mt-20 border-t border-linie bg-putz-tief/70">
+  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-14 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-32">
+    <div class="lg:col-span-7">
+      <h2 class="text-[clamp(2.8rem,6vw,4.75rem)] leading-[0.92]">Einfach anrufen.</h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-graphit-soft">
+        Ein Anruf genügt, dann kommen wir zur Besichtigung. Oder Sie schreiben kurz,
+        was ansteht und wo (die Postleitzahl reicht), und wir melden uns.
+      </p>
+      <div class="mt-10">
+        <Anhaenger kontakt gross zusatz="Fliesenfachbetrieb Rochlus GmbH · Kranzbinderweg 15 · 51067 Köln" />
       </div>
     </div>
+
+    <dl class="grid content-start gap-7 text-base lg:col-span-4 lg:col-start-9 lg:pt-4">
+      <div>
+        <dt class="schmal text-xl font-bold">Mobil</dt>
+        <dd>
+          <a href="tel:+491722770674" class="link ziel text-lg">0172 277 06 74</a>
+          <span class="block text-graphit-soft">Wenn unter der Festnetznummer niemand abnimmt.</span>
+        </dd>
+      </div>
+      <div>
+        <dt class="schmal text-xl font-bold">E-Mail</dt>
+        <dd><a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link ziel text-lg">mrochlus@web.de</a></dd>
+      </div>
+      {
+        istReview && (
+          <div>
+            <dt class="schmal text-xl font-bold">Erreichbarkeit</dt>
+            <dd class="mt-1"><PlatzhalterBadge text="Zeiten folgen vom Betrieb" /></dd>
+          </div>
+        )
+      }
+      <div>
+        <dt class="schmal text-xl font-bold">Einsatzgebiet</dt>
+        <dd class="text-lg text-graphit-soft">Köln und Umgebung</dd>
+      </div>
+    </dl>
   </div>
 </section>

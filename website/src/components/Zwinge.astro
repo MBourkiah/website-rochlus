@@ -1,0 +1,16 @@
+---
+/** Schraubzwinge aus Zink, hält Fotos an der Wand (rein visuell). */
+interface Props {
+  class?: string;
+}
+const { class: klasse } = Astro.props;
+---
+
+<svg class={klasse} viewBox="0 0 52 30" fill="none" aria-hidden="true">
+  <rect x="4" y="2" width="44" height="7" rx="1.5" fill="currentColor" />
+  <rect x="4" y="2" width="44" height="2" rx="1" fill="#fff" fill-opacity="0.35" />
+  <rect x="6" y="9" width="9" height="17" rx="1.5" fill="currentColor" />
+  <rect x="37" y="9" width="9" height="12" rx="1.5" fill="currentColor" />
+  <rect x="39.5" y="21" width="4" height="7" rx="1" fill="#6f7578" />
+  <rect x="35" y="27" width="13" height="3" rx="1.5" fill="#6f7578" />
+</svg>

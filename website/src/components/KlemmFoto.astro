@@ -1,0 +1,55 @@
+---
+/**
+ * Ein echtes Foto, mit einer Zwinge an die Wand geklemmt, leicht schief.
+ * Notizen (Punkt, Bleistiftlinie, Kraftpapier-Etikett) beschreiben nur, was
+ * auf dem Foto zu sehen ist. Ab sm stehen sie am Foto, darunter als Liste.
+ * Koordinaten in Prozent des (ungeschnittenen) Fotos.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Zwinge from './Zwinge.astro';
+
+interface Notiz {
+  text: string;
+  x: number;
+  y: number;
+  seite?: string; // 'links' oder 'rechts' (Seite des Etiketts)
+}
+interface Props {
+  bild: ImageMetadata;
+  alt: string;
+  notizen?: Notiz[];
+  neigung?: string;
+  sizes: string;
+  vorne?: boolean;
+  unterschrift?: string;
+  /** Notizliste unter dem Foto auf kleinen Bildschirmen weglassen (z. B. im Hero) */
+  ohneListe?: boolean;
+  class?: string;
+}
+const { bild, alt, notizen = [], neigung = '-0.8deg', sizes, vorne = false, unterschrift, ohneListe = false, class: klasse = '' } = Astro.props;
+---
+
+<figure class={`klemmfoto ${klasse}`} style={`--neigung:${neigung}`} data-bewegung="foto">
+  <Zwinge class="klemmfoto-zwinge" />
+  <div class="klemmfoto-rahmen">
+    <Image src={bild} alt={alt} widths={[480, 720, 960, 1200]} sizes={sizes} loading={vorne ? 'eager' : 'lazy'} fetchpriority={vorne ? 'high' : 'auto'} />
+    {
+      notizen.map((n, i) => (
+        <span class={`notiz hidden sm:flex ${n.seite === 'links' ? 'notiz--links' : ''}`} style={`--x:${n.x}%;--y:${n.y}%;--i:${i}`} aria-hidden="true">
+          <span class="notiz-punkt" />
+          <span class="notiz-linie" />
+          <span class="notiz-text">{n.text}</span>
+        </span>
+      ))
+    }
+  </div>
+  {
+    ((notizen.length > 0 && !ohneListe) || unterschrift) && (
+      <figcaption class="mt-4 text-base leading-snug text-graphit-soft">
+        {unterschrift && <span class="schmal block text-lg font-semibold text-graphit">{unterschrift}</span>}
+        {notizen.length > 0 && !ohneListe && <span class="block sm:sr-only">{notizen.map((n) => n.text).join(' · ')}</span>}
+      </figcaption>
+    )
+  }
+</figure>

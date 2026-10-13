@@ -1,75 +1,44 @@
 ---
 /**
- * Ablauf als vier feste Stationen, jede mit einem Hausnummern-Schild.
- * Die Nummer trägt Information (Reihenfolge). Jede Station nennt schon den
- * nächsten Schritt, damit niemand rätseln muss, was danach passiert.
- * Inhalte aus den Bestandsleistungen: Besichtigung, Planung, Materialanlieferung,
- * Überwachung, Reparaturen.
- * Als einzige Kobalt-Fläche über die volle Breite setzt der Ablauf den
- * Rhythmuswechsel zwischen den hellen Sections; Hausnummern hier invertiert.
- * Komposition: eine Treppe. Die Stationen steigen ab lg von links unten nach
- * rechts oben; jede Hausnummer steht auf ihrer Stufe, die Überschrift sitzt im
- * freien Raum über den unteren Stufen. Mobil eine senkrechte Linie.
+ * Ablauf in vier Schritten, verbunden durch einen Bleistiftstrich, der sich
+ * einmal durchzieht. Die Nummern tragen Information (Reihenfolge). Jeder
+ * Schritt nennt schon den nächsten. Inhalte aus den Bestandsleistungen.
  */
-const stationen = [
-  {
-    titel: 'Besichtigung vor Ort',
-    text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.',
-    danach: 'Wir planen mit Ihnen.',
-  },
-  {
-    titel: 'Planung',
-    text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden.',
-    danach: 'Wir legen los.',
-  },
-  {
-    titel: 'Ausführung',
-    text: 'Wir liefern das Material an, führen die Arbeiten aus und überwachen jeden Schritt selbst.',
-    danach: 'Gemeinsame Abnahme.',
-  },
-  {
-    titel: 'Übergabe',
-    text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch später.',
-    danach: 'Ihr Raum ist fertig.',
-  },
+const schritte = [
+  { titel: 'Besichtigung vor Ort', text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.', danach: 'Wir planen mit Ihnen.' },
+  { titel: 'Planung', text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden.', danach: 'Wir legen los.' },
+  { titel: 'Ausführung', text: 'Wir liefern das Material an, führen die Arbeiten aus und überwachen jeden Schritt selbst.', danach: 'Gemeinsame Abnahme.' },
+  { titel: 'Übergabe', text: 'Wir nehmen gemeinsam ab, bis zur letzten Fuge. Kleine Reparaturen übernehmen wir auch später.', danach: 'Ihr Raum ist fertig.' },
 ];
 ---
 
-<section id="ablauf" class="scroll-mt-20 bg-kobalt text-white">
-  <div class="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-    <h2 class="max-w-xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95] lg:absolute lg:top-28 lg:left-6 lg:max-w-[calc(50%-2rem)]">
-      Vier Stufen bis zum fertigen Raum.
-    </h2>
+<section id="ablauf" class="scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+    <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">In vier Schritten zum fertigen Bad.</h2>
 
-    <ol class="mt-14 grid grid-cols-1 lg:mt-0 lg:grid-cols-4" data-bewegung="treppe">
-      {
-        stationen.map((s, i) => (
-          <li style={`--i:${i}`} class={`flex flex-col ${['lg:pt-60', 'lg:pt-44', 'lg:pt-28', 'lg:pt-12'][i]}`}>
-            <span class="schild ml-0 flex h-20 w-20 items-center justify-center font-schild text-5xl leading-none font-bold text-kobalt [--rand-abstand:5px] [--schild-rand:var(--kobalt)] [--schraube-abstand:11px] lg:ml-6">
-              <span class="sr-only">Stufe </span>
-              {i + 1}
-            </span>
-            <!-- Stufe: Trittkante oben (ab lg), Linie links als Setzstufe bzw. mobile Zeitleiste -->
-            <div class="mt-4 flex flex-1 flex-col border-l-2 border-white/30 pt-2 pb-10 pl-6 lg:mt-5 lg:border-t-2 lg:pt-6 lg:pr-5 lg:pb-0">
-              <h3 class="text-2xl leading-tight">{s.titel}</h3>
-              <p class="mt-2 text-base leading-relaxed text-kobalt-soft">{s.text}</p>
-              <p class="mt-4 flex items-center gap-2 text-base">
-                <svg class="shrink-0 text-kobalt-soft" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-                <span>
-                  <span class="font-semibold">Danach:</span> {s.danach}
-                </span>
+    <div class="relative mt-14 lg:mt-20" data-bewegung="strich">
+      <!-- Bleistiftstrich: waagerecht ab lg, senkrecht darunter -->
+      <span class="bleistiftstrich absolute top-[2.1rem] right-0 left-0 hidden h-[1.5px] bg-graphit lg:block" aria-hidden="true"></span>
+      <span class="bleistiftstrich senkrecht absolute top-4 bottom-4 left-[1.05rem] w-[1.5px] bg-graphit lg:hidden" aria-hidden="true"></span>
+      <ol class="relative grid grid-cols-1 gap-12 lg:grid-cols-4 lg:gap-8">
+        {
+          schritte.map((s, i) => (
+            <li class="relative pl-14 lg:pl-0">
+              <span class="schmal absolute top-0 left-0 grid h-9 w-9 place-items-center rounded-full bg-graphit text-lg font-bold text-papier lg:relative lg:top-auto lg:h-auto lg:w-auto lg:place-items-start lg:rounded-none lg:bg-transparent lg:text-graphit" aria-hidden="true">
+                <span class="lg:inline-block lg:bg-putz lg:pr-3 lg:text-[3.5rem] lg:leading-none">{i + 1}</span>
+              </span>
+              <h3 class="text-2xl leading-tight lg:mt-6">
+                <span class="sr-only">Schritt {i + 1}: </span>
+                {s.titel}
+              </h3>
+              <p class="mt-2 text-base leading-relaxed text-graphit-soft">{s.text}</p>
+              <p class="mt-4 text-base">
+                <span class="font-semibold">Danach:</span> {s.danach}
               </p>
-            </div>
-          </li>
-        ))
-      }
-    </ol>
-
-    <p class="mt-6 text-lg lg:mt-12">
-      Stufe 1 beginnt mit einem Anruf:{' '}
-      <a href="tel:+492219687575" class="link ziel font-schild text-2xl font-semibold whitespace-nowrap text-white [text-decoration-color:rgb(255_255_255/0.6)] hover:[text-decoration-color:#fff]">0221 968 75 75</a>
-    </p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
   </div>
 </section>

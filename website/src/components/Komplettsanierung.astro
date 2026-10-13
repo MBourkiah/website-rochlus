@@ -1,82 +1,61 @@
 ---
 /**
- * Komplettsanierung als Schichtaufbau: Ein Bad besteht aus Schichten, und
- * jede Schicht ist eine Leistung des Bestands. Der Schnitt ist ein schlichtes
- * Schema (Aufbau von oben nach unten), keine Abbildung eines echten Projekts.
+ * Komplettsanierung „von roh zu fertig“: vier Materialproben, vom Untergrund
+ * bis zur fertigen Fliese, verbunden durch einen Bleistiftstrich. Jede Probe
+ * ist eine Leistung des Bestands. Weiß ist dem fertigen Zustand vorbehalten.
  * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
-const schichten = [
-  { klasse: 'schicht-fliese', name: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien' },
-  { klasse: 'schicht-kleber', name: 'Fliesenkleber im Dünnbett', leistung: 'Verlegung' },
-  { klasse: 'schicht-heizung', name: 'Heizmatte, wenn gewünscht', leistung: 'Elektrische Fußbodenheizung' },
-  { klasse: 'schicht-abdichtung', name: 'Abdichtung', leistung: 'Abdichtungsarbeiten' },
-  { klasse: 'schicht-untergrund', name: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
-];
 import { Image } from 'astro:assets';
-import rautenVerlegebild from '../assets/stimmung/rauten-verlegebild.jpg';
-import { fotos } from '../fotos.mjs';
+import rauten from '../assets/stimmung/rauten-verlegebild.jpg';
+
+const schritte = [
+  { probe: 'probe-untergrund', titel: 'Untergrund', leistung: 'Trockenausbau, Reparaturarbeiten' },
+  { probe: 'probe-abdichtung', titel: 'Abdichtung', leistung: 'Abdichtungsarbeiten, damit nichts durchfeuchtet' },
+  { probe: 'probe-kleber', titel: 'Kleber, auf Wunsch mit Heizmatte', leistung: 'Verlegung im Dünnbett, elektrische Fußbodenheizung' },
+  { probe: 'fertig', titel: 'Fliese oder Naturstein', leistung: 'Wand- und Bodenfliesen, Naturstein, edle Materialien, elastische Fugen' },
+];
 ---
 
-<section id="komplettsanierung" class="scroll-mt-20 border-y border-linie bg-putz-tief/60">
+<section id="komplettsanierung" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
   <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
-    <div class="lg:sticky lg:top-28 lg:col-span-5 lg:self-start lg:pt-6">
+    <div class="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
       <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Bad ist mehr als die Fliese obendrauf.</h2>
-      <p class="mt-7 max-w-136 text-lg leading-relaxed text-anthrazit-soft">
-        Bei einer Komplettsanierung übernehmen wir jede Schicht rund um die Fliese,
-        vom Untergrund bis zur elastischen Fuge am Wandanschluss. Dazu die
+      <p class="mt-7 max-w-md text-lg leading-relaxed text-graphit-soft">
+        Bei einer Komplettsanierung übernehmen wir jede Schicht rund um die
+        Fliese, vom Untergrund bis zur elastischen Fuge. Dazu die
         Raumgestaltung: Material, Format und Verlegebild planen wir mit Ihnen.
       </p>
-      <p class="mt-5 max-w-136 text-lg leading-relaxed text-anthrazit-soft">
-        Sie haben dabei einen Ansprechpartner, der das ganze Bad im Blick hat.
+      <p class="mt-5 max-w-md text-lg leading-relaxed text-graphit-soft">
+        Sie haben einen Ansprechpartner, der das ganze Bad im Blick hat.
       </p>
-      <p class="mt-9 text-lg">
+      <p class="mt-8 text-lg">
         Sanierung besprechen:{' '}
-        <a href="tel:+492219687575" class="link link-anruf ziel font-schild text-2xl font-semibold whitespace-nowrap">0221 968 75 75</a>
+        <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap">0221 968 75 75</a>
       </p>
-
     </div>
 
-    <div class="lg:col-span-7">
-    <figure class="schild px-6 pt-12 pb-8 sm:px-12 sm:pt-14 sm:pb-10">
-      <figcaption class="font-schild text-xl font-semibold tracking-wide">Schnitt durch einen Badboden</figcaption>
-      <p class="mt-1 text-sm text-anthrazit-soft">Schema, von oben nach unten</p>
-
-      <!-- Querschnitt: links die Schicht, rechts ihre Beschriftung -->
-      <ol class="mt-8" data-bewegung="schichten">
-        {
-          schichten.map((s, i) => (
-            <li style={`--i:${i}`} class="group grid min-h-16 grid-cols-[3.5rem_1fr] gap-x-5 sm:grid-cols-[6rem_1fr] sm:gap-x-8">
-              <span class={`${s.klasse} border-x border-anthrazit/25 group-first:rounded-t-[3px] group-first:border-t group-last:rounded-b-[3px] group-last:border-b`} aria-hidden="true" />
-              <span class="flex flex-col justify-center border-b border-dashed border-linie py-2.5 group-last:border-b-0">
-                <span class="font-schild text-lg leading-tight font-semibold">{s.name}</span>
-                <span class="text-sm leading-snug text-anthrazit-soft">{s.leistung}</span>
-              </span>
-            </li>
-          ))
-        }
-      </ol>
-
-      <p class="mt-8 flex items-start gap-3 border-t border-linie pt-5 text-base">
-        <span class="mt-2 block h-3 w-1.5 shrink-0 rounded-sm bg-stahl" aria-hidden="true"></span>
-        <span>
-          <span class="font-schild text-lg font-semibold">Am Wandanschluss:</span>{' '}
-          <span class="text-anthrazit-soft">elastische Fuge statt Zementfuge, damit nichts reißt.</span>
-        </span>
-      </p>
-    </figure>
-      <!-- Fertiges Bad aus src/fotos.mjs (Projektfoto); ohne Eintrag ein Material-Stimmungsbild -->
+    <!-- Von roh (oben) zu fertig (unten): Proben, durch einen Bleistiftstrich verbunden -->
+    <div class="relative lg:col-span-7" data-bewegung="strich">
+    <span class="bleistiftstrich senkrecht absolute top-14 bottom-14 left-13 w-[1.5px] bg-graphit sm:left-16" aria-hidden="true"></span>
+    <ol class="relative" aria-label="Schichten eines Badbodens, von roh zu fertig">
       {
-        fotos.bad ? (
-          <figure class="mt-6 rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-            <Image src={fotos.bad.bild} alt={fotos.bad.alt} widths={[560, 840, 1120]} sizes="(min-width: 64rem) 40rem, 100vw" class="aspect-4/3 w-full rounded-[4px] object-cover object-[center_58%]" />
-          </figure>
-        ) : (
-          /* Material-Stimmungsbild (Unsplash, siehe Bild-Metadaten), bis ein echtes Bad vorliegt */
-          <figure class="mt-6 rounded-[8px] border border-anthrazit/20 bg-emaille p-1.5 shadow-(--schatten-schild)">
-            <Image src={rautenVerlegebild} alt="Weiße Wandfliesen im Rautenmuster, das wie ein Würfelmuster wirkt" widths={[560, 840, 1120]} sizes="(min-width: 64rem) 40rem, 100vw" class="aspect-[16/8] w-full rounded-[4px] object-cover object-center" />
-          </figure>
-        )
+        schritte.map((s) => (
+          <li class="relative flex items-center gap-6 py-4 sm:gap-8">
+            <span class="probe relative z-10 w-26 shrink-0 sm:w-32">
+              {s.probe === 'fertig' ? (
+                <Image src={rauten} alt="" widths={[240, 360]} sizes="8rem" class="aspect-square object-cover" />
+              ) : (
+                <span class={`${s.probe} block aspect-square`} aria-hidden="true" />
+              )}
+            </span>
+            <span class="min-w-0">
+              <span class="schmal block text-2xl leading-tight font-bold">{s.titel}</span>
+              <span class="mt-1 block text-base leading-snug text-graphit-soft">{s.leistung}</span>
+            </span>
+          </li>
+        ))
       }
+    </ol>
     </div>
   </div>
 </section>
