@@ -21,7 +21,6 @@
   --gruen: #173f35;
   --gruen-tief: #10302a;
   --gruen-soft: #bcd2c7; /* Nebentext auf Grün (≥ 7:1) */
-  --gruen-hell: #dde9e2;
 
   /* Terrakotta (Logo): nur für Anrufen */
   --akzent: #b0512c;
@@ -41,7 +40,6 @@
   --color-gruen: var(--gruen);
   --color-gruen-tief: var(--gruen-tief);
   --color-gruen-soft: var(--gruen-soft);
-  --color-gruen-hell: var(--gruen-hell);
   --color-akzent: var(--akzent);
   --color-akzent-tief: var(--akzent-tief);
 

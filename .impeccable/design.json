@@ -1,273 +1,265 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-13T17:10:49Z",
+  "generatedAt": "2026-10-14T18:28:27+00:00",
   "title": "Design System: Fliesenfachbetrieb Rochlus",
   "extensions": {
     "colorMeta": {
-      "kreide": {
+      "akzent": {
         "role": "primary",
-        "displayName": "Kreiderot",
-        "canonical": "#c4452e",
+        "displayName": "Logo-Terrakotta",
+        "canonical": "#b0512c",
         "tonalRamp": [
-          "#210000",
-          "#490500",
-          "#781200",
-          "#a72811",
-          "#cd4d36",
-          "#f47158",
-          "#feac9b",
-          "#ffe9e4"
+          "#3d1c0f",
+          "#662f1a",
+          "#8f4224",
+          "#c45a31",
+          "#d67e5c",
+          "#e2a58d",
+          "#efcbbe",
+          "#faefeb"
         ]
       },
-      "kreide-tief": {
+      "akzent-tief": {
         "role": "primary",
-        "displayName": "Kreiderot tief",
-        "canonical": "#a83a26",
+        "displayName": "Gebranntes Terrakotta",
+        "canonical": "#93421f",
         "tonalRamp": [
-          "#210000",
-          "#490500",
-          "#781200",
-          "#a0331f",
-          "#c65540",
-          "#ec7761",
-          "#feac9b",
-          "#ffe9e4"
+          "#3f1c0d",
+          "#692f16",
+          "#93421f",
+          "#ca5b2b",
+          "#db7f57",
+          "#e6a589",
+          "#f1ccbc",
+          "#fbefea"
         ]
       },
-      "kraft": {
+      "gruen": {
         "role": "secondary",
-        "displayName": "Kraftpapier",
-        "canonical": "#c9a77a",
+        "displayName": "Flaschengrün",
+        "canonical": "#173f35",
         "tonalRamp": [
-          "#140800",
-          "#341f00",
-          "#563909",
-          "#76572c",
-          "#97774b",
-          "#ba986c",
-          "#e1be90",
-          "#feebd3"
+          "#14382f",
+          "#225d4f",
+          "#30836e",
+          "#41b397",
+          "#6ac8b1",
+          "#96d9c8",
+          "#c3e9e0",
+          "#ecf8f5"
         ]
       },
-      "kraft-hell": {
+      "gruen-tief": {
         "role": "secondary",
-        "displayName": "Kraftpapier hell",
-        "canonical": "#ddc39d",
+        "displayName": "Tiefes Flaschengrün",
+        "canonical": "#10302a",
         "tonalRamp": [
-          "#140800",
-          "#332000",
-          "#513b18",
-          "#705937",
-          "#917955",
-          "#b39a75",
-          "#dac09a",
-          "#ffeccf"
+          "#133932",
+          "#206054",
+          "#2d8675",
+          "#3db8a1",
+          "#66ccb9",
+          "#94dbce",
+          "#c2ebe3",
+          "#ecf9f6"
         ]
       },
-      "zink": {
-        "role": "tertiary",
-        "displayName": "Zink",
-        "canonical": "#9a9fa3",
+      "gruen-soft": {
+        "role": "secondary",
+        "displayName": "Salbei",
+        "canonical": "#bcd2c7",
         "tonalRamp": [
-          "#080c0e",
-          "#212528",
-          "#3c4044",
-          "#5a5e62",
-          "#797e82",
-          "#9a9fa3",
-          "#c0c5c9",
-          "#eaeff4"
+          "#1f2e26",
+          "#334c40",
+          "#486b59",
+          "#62927a",
+          "#85ad99",
+          "#aac6b8",
+          "#ceded6",
+          "#f0f5f2"
         ]
       },
-      "zink-hell": {
-        "role": "tertiary",
-        "displayName": "Zink hell",
-        "canonical": "#c8cbcd",
-        "tonalRamp": [
-          "#090b0d",
-          "#222426",
-          "#3e4042",
-          "#5b5e60",
-          "#7b7e7f",
-          "#9c9fa1",
-          "#c1c4c6",
-          "#eceff1"
-        ]
-      },
-      "putz": {
+      "grund": {
         "role": "neutral",
-        "displayName": "Kalkputz",
-        "canonical": "#eeece7",
+        "displayName": "Grund",
+        "canonical": "#f6f6f3",
         "tonalRamp": [
-          "#0c0b08",
-          "#252420",
-          "#41403c",
-          "#5f5d59",
-          "#7f7d79",
-          "#a09e9a",
-          "#c6c4bf",
-          "#f0eee9"
+          "#2c2c21",
+          "#494937",
+          "#66664c",
+          "#8c8c69",
+          "#a8a88a",
+          "#c2c2ad",
+          "#dcdcd0",
+          "#f4f4f0"
         ]
       },
-      "putz-tief": {
+      "flaeche": {
         "role": "neutral",
-        "displayName": "Putz tief",
-        "canonical": "#e4e1da",
+        "displayName": "Fläche",
+        "canonical": "#ecebe6",
         "tonalRamp": [
-          "#0d0b07",
-          "#26241f",
-          "#423f3a",
-          "#605d57",
-          "#807d77",
-          "#a19e98",
-          "#c7c4bd",
-          "#f1eee7"
+          "#2b2a21",
+          "#484637",
+          "#65614d",
+          "#8b866a",
+          "#a7a28b",
+          "#c1beae",
+          "#dcdad1",
+          "#f4f3f1"
         ]
       },
       "linie": {
         "role": "neutral",
-        "displayName": "Bleistiftlinie",
-        "canonical": "#d3cfc6",
+        "displayName": "Linie",
+        "canonical": "#dad8d2",
         "tonalRamp": [
-          "#0e0b06",
-          "#27241d",
-          "#433f38",
-          "#615d55",
-          "#817d75",
-          "#a29e95",
-          "#c8c4bb",
-          "#f2eee5"
+          "#2a2823",
+          "#46433a",
+          "#625e51",
+          "#86806e",
+          "#a39e8f",
+          "#bfbbb1",
+          "#dad8d2",
+          "#f3f3f1"
         ]
       },
-      "papier": {
+      "weiss": {
         "role": "neutral",
-        "displayName": "Papier",
-        "canonical": "#faf9f6",
+        "displayName": "Weiß",
+        "canonical": "#ffffff",
         "tonalRamp": [
-          "#0c0b09",
-          "#252422",
-          "#40403d",
-          "#5e5d5b",
-          "#7e7d7a",
-          "#9f9e9b",
-          "#c5c4c1",
-          "#efeeeb"
+          "#262626",
+          "#404040",
+          "#595959",
+          "#7a7a7a",
+          "#999999",
+          "#b8b8b8",
+          "#d6d6d6",
+          "#f2f2f2"
         ]
       },
-      "graphit": {
+      "tinte": {
         "role": "neutral",
-        "displayName": "Graphit",
-        "canonical": "#2b2b29",
+        "displayName": "Tinte",
+        "canonical": "#121212",
         "tonalRamp": [
-          "#0b0b0a",
-          "#242422",
-          "#40403e",
-          "#5e5e5b",
-          "#7d7d7b",
-          "#9e9e9c",
-          "#c4c4c2",
-          "#efefec"
+          "#262626",
+          "#404040",
+          "#595959",
+          "#7a7a7a",
+          "#999999",
+          "#b8b8b8",
+          "#d6d6d6",
+          "#f2f2f2"
         ]
       },
-      "graphit-soft": {
+      "tinte-soft": {
         "role": "neutral",
-        "displayName": "Graphit weich",
-        "canonical": "#55554f",
+        "displayName": "Tinte weich",
+        "canonical": "#4a4a46",
         "tonalRamp": [
-          "#0c0b07",
-          "#24241f",
-          "#40403a",
-          "#5e5e58",
+          "#272725",
+          "#42423e",
+          "#5c5c57",
           "#7e7e77",
-          "#9f9f98",
-          "#c5c5be",
-          "#efefe8"
+          "#9c9c96",
+          "#babab6",
+          "#d7d7d5",
+          "#f3f3f2"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Nur die Hero-Aussage."
+        "purpose": "Nur die H1 im Hero; breit (118 %), 800, darf trennen."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section-Überschriften."
-      },
-      "nummer": {
-        "displayName": "Nummer",
-        "purpose": "Telefonnummer im Anhänger (groß im Kontakt: clamp(2.4rem, 7vw, 4.2rem))."
+        "purpose": "Abschnittsüberschriften; Abschluss-Aussage bis 5rem."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Ablaufschritte, Schichten, Leistungsgruppen (1.5–1.75rem)."
-      },
-      "liste": {
-        "displayName": "Liste",
-        "purpose": "Werkstattliste, Navigation, Bildunterschriften."
-      },
-      "lead": {
-        "displayName": "Lead",
-        "purpose": "Einleitung unter Headlines, graphit-soft."
+        "purpose": "Kachel- und Kartenüberschriften."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Grundtext, Tabellenziffern."
+        "purpose": "Fließtext in normaler Breite, ca. 36rem Zeilenbreite."
       },
-      "notiz": {
-        "displayName": "Notiz",
-        "purpose": "Kraftpapier-Etiketten an Fotos."
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Einleitungssätze unter Überschriften, in tinte-soft bzw. gruen-soft."
       },
-      "logo": {
-        "displayName": "Logo-Wortmarke",
-        "purpose": "Fraunces Variable (Rochlus) und Instrument Sans Variable (FLIESENFACHBETRIEB), self-hosted, nur innerhalb der verbindlichen Wortmarke aus website/public/logo/."
+      "label": {
+        "displayName": "Label",
+        "purpose": "Begriffe in Faktenlisten, Foto-Etiketten; kein Versal-Sperrsatz."
       }
     },
     "shadows": [
       {
-        "name": "schatten-haengend",
-        "value": "0 1px 1px rgb(30 28 24 / 0.12), 0 14px 26px -16px rgb(30 28 24 / 0.5)",
-        "purpose": "Fotos, Proben, Werkstattzettel, Mobilmenü: hängt wenige Millimeter vor der Wand."
-      },
-      {
-        "name": "anhaenger",
-        "value": "drop-shadow(0 1px 1px rgb(30 28 24 / 0.18)) drop-shadow(0 10px 12px rgb(30 28 24 / 0.2))",
-        "purpose": "filter am Anhänger (beschnittene Form)."
-      },
-      {
-        "name": "zwinge",
-        "value": "drop-shadow(0 2px 2px rgb(30 28 24 / 0.3))",
-        "purpose": "filter an Zinkzwingen."
-      },
-      {
-        "name": "etikett",
-        "value": "0 1px 2px rgb(30 28 24 / 0.25)",
-        "purpose": "Notiz-Etiketten."
+        "name": "menue-schweben",
+        "value": "0 20px 40px -20px rgb(0 0 0 / 0.35)",
+        "purpose": "Nur das aufgeklappte Mobilmenü; sonst flach."
       }
     ],
     "motion": [
       {
-        "name": "dauer",
-        "value": "160ms",
-        "purpose": "Farbwechsel an Links und Knöpfen."
-      },
-      {
         "name": "kurve",
         "value": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Zustandswechsel, Anrufleiste (260ms)."
+        "purpose": "Easing aller Übergänge und Animationen (--kurve)."
       },
       {
-        "name": "kurve-lang",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Foto setzt sich in die Neigung (800ms), Notizlinien (450ms, gestaffelt 220ms), Bleistiftstrich (1200ms), Anhänger-Hover (400ms)."
+        "name": "zustand",
+        "value": "160ms",
+        "purpose": "Farb- und Druckwechsel von Knöpfen und Links."
       },
       {
-        "name": "einmalig",
-        "value": "IntersectionObserver threshold 0.25, data-bewegung → data-sichtbar",
-        "purpose": "Jede Bewegung läuft genau einmal; bei prefers-reduced-motion und ohne JS aus."
+        "name": "pfeil",
+        "value": "200ms translateX(3px)",
+        "purpose": "Pfeil im Knopf rückt bei Hover vor."
+      },
+      {
+        "name": "anrufleiste",
+        "value": "260ms translateY(110%)",
+        "purpose": "Mobile Anrufleiste ein-/ausfahren."
+      },
+      {
+        "name": "foto-zoom",
+        "value": "700ms scale(1.04)",
+        "purpose": "Foto-Kachel bei Hover."
+      },
+      {
+        "name": "hero-auftauchen",
+        "value": "auftauchen 800ms, Staffel 110ms je --i",
+        "purpose": "Gestaffelter Hero-Aufbau beim Laden (opacity 0, translateY 24px)."
+      },
+      {
+        "name": "hero-foto-auf",
+        "value": "foto-auf 1200ms, 150ms Verzögerung",
+        "purpose": "Hero-Foto öffnet sich aus clip-path inset(8%) bei scale 1.06."
+      },
+      {
+        "name": "scroll-auftauchen",
+        "value": "animation-name: auftauchen; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: view(); animation-range: entry 0% entry 55%",
+        "purpose": "Inhalte tauchen beim Scrollen auf. Nur als Longhands: der Minifier bricht Kurzschreibweise plus Timeline."
+      },
+      {
+        "name": "hero-parallaxe",
+        "value": "parallaxe, animation-range: exit 0% exit 100%, bis translateY(8%) scale(1.05)",
+        "purpose": "Leichte Parallaxe am Hero-Foto beim Herausscrollen; ebenfalls Longhands."
+      },
+      {
+        "name": "reduziert",
+        "value": "animation: none; transition-duration: 1ms",
+        "purpose": "Bei prefers-reduced-motion: reduce ist alles sofort sichtbar."
       }
     ],
     "breakpoints": [
+      {
+        "name": "min",
+        "value": "22rem"
+      },
       {
         "name": "sm",
         "value": "40rem"
@@ -279,6 +271,10 @@
       {
         "name": "lg",
         "value": "64rem"
+      },
+      {
+        "name": "container",
+        "value": "80rem"
       }
     ]
   },
@@ -287,145 +283,125 @@
       "name": "Anruf-Knopf",
       "kind": "button",
       "refersTo": "knopf-anruf",
-      "description": "Kreiderot, nur für Anrufen: Header nach dem Hero (ab md) und mobile Anrufleiste.",
-      "html": "<a href=\"#\" class=\"ds-knopf-anruf\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> 0221 968 75 75</a>",
-      "css": ".ds-knopf-anruf { display:inline-flex; align-items:center; gap:0.6rem; min-height:2.75rem; padding:0.55rem 1.1rem; border-radius:4px; background:var(--kreide, #c4452e); color:#fff; font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); font-size:1.125rem; font-weight:650; font-stretch:85%; text-decoration:none; transition:background-color 160ms cubic-bezier(0.22,1,0.36,1), transform 90ms cubic-bezier(0.22,1,0.36,1); } .ds-knopf-anruf:hover { background:var(--kreide-tief, #a83a26); } .ds-knopf-anruf:active { transform:translateY(1px); } .ds-knopf-anruf:focus-visible { outline:2px solid var(--graphit, #2b2b29); outline-offset:3px; }"
+      "description": "Terrakotta-Pille, einzige Aktion in Akzentfarbe: Anrufen.",
+      "html": "<a class=\"ds-knopf ds-knopf-anruf\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> 0221 968 75 75</a>",
+      "css": ".ds-knopf{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;font-family:'Archivo Variable',system-ui,sans-serif;font-weight:700;line-height:1.1;white-space:nowrap;text-decoration:none;transition:background-color 160ms cubic-bezier(.22,1,.36,1),color 160ms cubic-bezier(.22,1,.36,1),border-color 160ms cubic-bezier(.22,1,.36,1),transform 160ms cubic-bezier(.22,1,.36,1)}.ds-knopf:active{transform:translateY(1px) scale(.99)}.ds-knopf:focus-visible{outline:2px solid var(--tinte,#121212);outline-offset:3px}.ds-knopf-anruf{background:var(--akzent,#b0512c);color:var(--weiss,#fff)}.ds-knopf-anruf:hover{background:var(--akzent-tief,#93421f)}"
     },
     {
-      "name": "Neutraler Knopf",
+      "name": "Kontur-Knopf",
       "kind": "button",
-      "refersTo": "knopf-neutral",
-      "description": "Graphit-Kontur: Header-Anruf solange der Hero-Anhänger sichtbar ist, E-Mail in der Anrufleiste.",
-      "html": "<a href=\"#\" class=\"ds-knopf-neutral\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> 0221 968 75 75</a>",
-      "css": ".ds-knopf-neutral { display:inline-flex; align-items:center; gap:0.6rem; min-height:2.75rem; padding:0.55rem 1.1rem; border-radius:4px; border:1.5px solid var(--graphit, #2b2b29); background:transparent; color:var(--graphit, #2b2b29); font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); font-size:1.125rem; font-weight:650; font-stretch:85%; text-decoration:none; transition:background-color 160ms cubic-bezier(0.22,1,0.36,1), color 160ms cubic-bezier(0.22,1,0.36,1); } .ds-knopf-neutral:hover { background:var(--graphit, #2b2b29); color:var(--papier, #faf9f6); } .ds-knopf-neutral:focus-visible { outline:2px solid var(--graphit, #2b2b29); outline-offset:3px; }"
+      "refersTo": "knopf-zweit",
+      "description": "Neutrale Pille mit 1.5px Rand für Nebenaktionen; füllt sich bei Hover mit Tinte.",
+      "html": "<a class=\"ds-knopf ds-knopf-zweit\" href=\"#\">Unsere Bäder ansehen <svg class=\"ds-pfeil\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-knopf{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;font-family:'Archivo Variable',system-ui,sans-serif;font-weight:700;line-height:1.1;white-space:nowrap;text-decoration:none;transition:background-color 160ms cubic-bezier(.22,1,.36,1),color 160ms cubic-bezier(.22,1,.36,1),border-color 160ms cubic-bezier(.22,1,.36,1),transform 160ms cubic-bezier(.22,1,.36,1)}.ds-knopf:active{transform:translateY(1px) scale(.99)}.ds-knopf:focus-visible{outline:2px solid var(--tinte,#121212);outline-offset:3px}.ds-knopf-zweit{border:1.5px solid currentColor;color:var(--tinte,#121212);background:transparent}.ds-knopf-zweit:hover{background:var(--tinte,#121212);border-color:var(--tinte,#121212);color:var(--weiss,#fff)}.ds-pfeil{transition:transform 200ms cubic-bezier(.22,1,.36,1)}.ds-knopf:hover .ds-pfeil{transform:translateX(3px)}"
     },
     {
-      "name": "Anhänger (Anruf)",
-      "kind": "custom",
-      "refersTo": "anhaenger",
-      "description": "Signatur: Kraftpapier-Anhänger mit Ösenring und rotem Stempel; der ganze Anhänger ist der tel:-Link.",
-      "html": "<a href=\"#\" class=\"ds-anhaenger\" aria-label=\"Anrufen: 0221 968 75 75\"><span class=\"ds-anhaenger-form\"><span class=\"ds-stempel\" aria-hidden=\"true\">Anrufen</span><span class=\"ds-anhaenger-text\"><span class=\"ds-anhaenger-nummer\">0221 968 75 75</span><span class=\"ds-anhaenger-zusatz\">Sie sprechen direkt mit dem Betrieb.</span></span></span></a>",
-      "css": ".ds-anhaenger { display:inline-block; text-decoration:none; filter:drop-shadow(0 1px 1px rgb(30 28 24 / 0.18)) drop-shadow(0 10px 12px rgb(30 28 24 / 0.2)); transform-origin:1.6rem 50%; transition:transform 400ms cubic-bezier(0.16,1,0.3,1); font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); } .ds-anhaenger:hover { transform:rotate(-1.2deg); } .ds-anhaenger:active { transform:rotate(-0.4deg) translateY(1px); } .ds-anhaenger:focus-visible { outline:2px solid var(--graphit, #2b2b29); outline-offset:3px; border-radius:6px; } .ds-anhaenger-form { position:relative; display:flex; align-items:center; padding:2.4rem 1.8rem 1.1rem 3.4rem; background:var(--kraft, #c9a77a); color:var(--graphit, #2b2b29); clip-path:polygon(1.4rem 0,100% 0,100% 100%,1.4rem 100%,0 calc(100% - 1.4rem),0 1.4rem); } .ds-anhaenger-form::before { content:''; position:absolute; left:1.15rem; top:50%; width:1.1rem; height:1.1rem; border-radius:999px; transform:translateY(-50%); background:var(--putz, #eeece7); box-shadow:0 0 0 3px var(--zink-hell, #c8cbcd), inset 0 1px 2px rgb(0 0 0 / 0.25); } .ds-stempel { position:absolute; top:0.7rem; right:0.9rem; border:2px solid var(--kreide, #c4452e); border-radius:3px; padding:0.05rem 0.45rem; color:var(--kreide-tief, #a83a26); font-size:0.875rem; font-weight:750; font-stretch:82%; letter-spacing:0.06em; text-transform:uppercase; transform:rotate(-7deg); mix-blend-mode:multiply; } .ds-anhaenger-text { display:flex; flex-direction:column; gap:0.375rem; } .ds-anhaenger-nummer { font-size:clamp(2rem,5vw,2.6rem); font-weight:700; font-stretch:82%; line-height:1; white-space:nowrap; font-variant-numeric:tabular-nums; } .ds-anhaenger-zusatz { font-size:0.95rem; line-height:1.375; } @media (prefers-reduced-motion: reduce) { .ds-anhaenger:hover { transform:none; } }"
+      "name": "Kontur-Knopf auf Grün",
+      "kind": "button",
+      "refersTo": "knopf-zweit",
+      "description": "Kontur-Knopf in grüner Fläche: weißer Rand, Hover weiß gefüllt mit grüner Schrift.",
+      "html": "<div class=\"ds-gruen-flaeche\"><a class=\"ds-knopf ds-knopf-zweit-gruen\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> Besichtigung anfragen</a></div>",
+      "css": ".ds-knopf{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;font-family:'Archivo Variable',system-ui,sans-serif;font-weight:700;line-height:1.1;white-space:nowrap;text-decoration:none;transition:background-color 160ms cubic-bezier(.22,1,.36,1),color 160ms cubic-bezier(.22,1,.36,1),border-color 160ms cubic-bezier(.22,1,.36,1),transform 160ms cubic-bezier(.22,1,.36,1)}.ds-knopf:active{transform:translateY(1px) scale(.99)}.ds-knopf:focus-visible{outline:2px solid var(--tinte,#121212);outline-offset:3px}.ds-gruen-flaeche{background:var(--gruen,#173f35);padding:1.5rem;border-radius:1.5rem}.ds-knopf-zweit-gruen{border:1.5px solid currentColor;color:var(--weiss,#fff)}.ds-knopf-zweit-gruen:hover{background:var(--weiss,#fff);border-color:var(--weiss,#fff);color:var(--gruen,#173f35)}.ds-knopf-zweit-gruen:focus-visible{outline-color:var(--weiss,#fff)}"
     },
     {
-      "name": "Geklemmtes Foto mit Notiz",
-      "kind": "card",
-      "refersTo": "klemmfoto-rahmen",
-      "description": "Signatur: echtes Foto im Papierrand, schief geklemmt, Zinkzwinge oben, Punkt-Linie-Etikett zu einem sichtbaren Detail.",
-      "html": "<figure class=\"ds-klemmfoto\"><svg class=\"ds-zwinge\" viewBox=\"0 0 64 54\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 4h40a3 3 0 0 1 3 3v6H14v20H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z\" fill=\"currentColor\"/><path d=\"M8 4h40a3 3 0 0 1 3 3v1.5H5V7a3 3 0 0 1 3-3Z\" fill=\"#fff\" fill-opacity=\"0.35\"/><rect x=\"40.5\" y=\"13\" width=\"5\" height=\"22\" fill=\"#7d8386\"/><path d=\"M40.5 16h5M40.5 19h5M40.5 22h5M40.5 25h5M40.5 28h5M40.5 31h5\" stroke=\"#5f6568\" stroke-width=\"1\"/><rect x=\"35\" y=\"33\" width=\"16\" height=\"4\" rx=\"1.5\" fill=\"currentColor\"/><rect x=\"39\" y=\"38\" width=\"8\" height=\"14\" rx=\"3\" fill=\"#a8774a\"/></svg><div class=\"ds-klemmfoto-rahmen\"><div class=\"ds-foto\"></div><span class=\"ds-notiz\" style=\"--x:62%;--y:55%\"><span class=\"ds-notiz-punkt\"></span><span class=\"ds-notiz-linie\"></span><span class=\"ds-notiz-text\">Bodengleiche Dusche</span></span></div></figure>",
-      "css": ".ds-klemmfoto { position:relative; width:18rem; margin:2.5rem 1rem 1rem; --neigung:-0.8deg; font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); } .ds-zwinge { position:absolute; top:-2.35rem; left:50%; z-index:2; width:4.25rem; transform:translateX(-50%) rotate(var(--neigung)); color:var(--zink, #9a9fa3); filter:drop-shadow(0 2px 2px rgb(30 28 24 / 0.3)); } .ds-klemmfoto-rahmen { position:relative; background:var(--papier, #faf9f6); padding:0.5rem; border-radius:2px; box-shadow:var(--schatten-haengend, 0 1px 1px rgb(30 28 24 / 0.12), 0 14px 26px -16px rgb(30 28 24 / 0.5)); transform:rotate(var(--neigung)); } .ds-foto { aspect-ratio:4/3; border-radius:1px; background:linear-gradient(160deg,#cbb79a,#8a7258 60%,#5b4a39); } .ds-notiz { position:absolute; left:var(--x); top:var(--y); display:flex; align-items:center; } .ds-notiz-punkt { width:0.75rem; height:0.75rem; flex-shrink:0; border-radius:999px; background:var(--graphit, #2b2b29); box-shadow:0 0 0 3px var(--papier, #faf9f6); transform:translateX(-50%); } .ds-notiz-linie { width:2rem; height:1.5px; background:var(--graphit, #2b2b29); } .ds-notiz-text { white-space:nowrap; background:var(--kraft-hell, #ddc39d); color:var(--graphit, #2b2b29); padding:0.2rem 0.55rem; border-radius:2px; font-size:0.875rem; font-weight:650; font-stretch:82%; box-shadow:0 1px 2px rgb(30 28 24 / 0.25); }"
-    },
-    {
-      "name": "Werkstattliste",
-      "kind": "custom",
-      "refersTo": "",
-      "description": "Leistungen als linierte Liste mit Gruppen, statt Kacheln.",
-      "html": "<div class=\"ds-liste\"><div class=\"ds-gruppe\"><div><h3 class=\"ds-gruppe-titel\">Verlegen</h3><p class=\"ds-gruppe-text\">Das Kernhandwerk, auf Wand und Boden.</p></div><ul><li>Wand- und Bodenfliesen</li><li>Naturstein</li><li>Elastische Fugen</li></ul></div></div>",
-      "css": ".ds-liste { border-top:2px solid var(--graphit, #2b2b29); font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); color:var(--graphit, #2b2b29); max-width:36rem; } .ds-gruppe { display:grid; grid-template-columns:13rem 1fr; gap:0 2rem; padding:1.75rem 0; border-bottom:1px solid var(--linie, #d3cfc6); } .ds-gruppe-titel { margin:0; font-size:1.75rem; line-height:1.25; font-weight:700; font-stretch:82%; letter-spacing:-0.015em; } .ds-gruppe-text { margin:0.25rem 0 0; font-size:1rem; line-height:1.375; color:var(--graphit-soft, #55554f); } .ds-gruppe ul { list-style:none; margin:0.25rem 0 0; padding:0; } .ds-gruppe li { padding:0.5rem 0; border-bottom:1px dashed var(--linie, #d3cfc6); font-size:1.25rem; line-height:1.25; font-weight:600; font-stretch:82%; } .ds-gruppe li:last-child { border-bottom:0; }"
-    },
-    {
-      "name": "Werkstattzettel",
-      "kind": "card",
-      "refersTo": "werkstattzettel",
-      "description": "Kraftpapier-Zettel mit Zwinge für belegte Betriebsfakten.",
-      "html": "<div class=\"ds-zettel\"><svg class=\"ds-zwinge\" viewBox=\"0 0 64 54\" fill=\"none\" aria-hidden=\"true\"><path d=\"M8 4h40a3 3 0 0 1 3 3v6H14v20H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z\" fill=\"currentColor\"/><path d=\"M8 4h40a3 3 0 0 1 3 3v1.5H5V7a3 3 0 0 1 3-3Z\" fill=\"#fff\" fill-opacity=\"0.35\"/><rect x=\"40.5\" y=\"13\" width=\"5\" height=\"22\" fill=\"#7d8386\"/><path d=\"M40.5 16h5M40.5 19h5M40.5 22h5M40.5 25h5M40.5 28h5M40.5 31h5\" stroke=\"#5f6568\" stroke-width=\"1\"/><rect x=\"35\" y=\"33\" width=\"16\" height=\"4\" rx=\"1.5\" fill=\"currentColor\"/><rect x=\"39\" y=\"38\" width=\"8\" height=\"14\" rx=\"3\" fill=\"#a8774a\"/></svg><p class=\"ds-zettel-titel\">Fliesenfachbetrieb Rochlus GmbH</p><dl><div><dt>Sitz</dt><dd>Kranzbinderweg 15, 51067 Köln</dd></div><div><dt>Einsatz</dt><dd>Köln und Umgebung</dd></div></dl></div>",
-      "css": ".ds-zettel { position:relative; max-width:26rem; margin-top:2.5rem; padding:2.5rem 2.5rem 2rem; background:var(--kraft, #c9a77a); color:var(--graphit, #2b2b29); box-shadow:var(--schatten-haengend, 0 1px 1px rgb(30 28 24 / 0.12), 0 14px 26px -16px rgb(30 28 24 / 0.5)); transform:rotate(0.8deg); font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); } .ds-zettel .ds-zwinge { position:absolute; top:-2.35rem; left:50%; width:4.25rem; transform:translateX(-50%); color:var(--zink, #9a9fa3); filter:drop-shadow(0 2px 2px rgb(30 28 24 / 0.3)); } .ds-zettel-titel { margin:0; font-size:1.875rem; line-height:1; font-weight:700; font-stretch:82%; } .ds-zettel dl { margin:1.5rem 0 0; padding-top:1.25rem; border-top:1px solid rgb(43 43 41 / 0.25); } .ds-zettel dl div { display:flex; flex-wrap:wrap; justify-content:space-between; gap:0 1.5rem; margin-top:0.75rem; } .ds-zettel dd { margin:0; font-weight:600; }"
-    },
-    {
-      "name": "Navigation",
+      "name": "Hauptnavigation",
       "kind": "nav",
-      "refersTo": "",
-      "description": "Sticky Header auf Putz: Anker schmal-fett, aktiver Abschnitt mit 2px Unterstrich.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"true\">Leistungen</a><a href=\"#\">Arbeiten</a><a href=\"#\">Ablauf</a><a href=\"#\">Der Betrieb</a><a href=\"#\">Kontakt</a></nav>",
-      "css": ".ds-nav { display:flex; align-items:center; border-bottom:1px solid var(--linie, #d3cfc6); background:rgb(238 236 231 / 0.95); font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); } .ds-nav a { padding:0.75rem 0.875rem; font-size:1.125rem; font-weight:600; font-stretch:82%; color:var(--graphit-soft, #55554f); text-decoration:none; transition:color 150ms; } .ds-nav a:hover, .ds-nav a[aria-current] { color:var(--graphit, #2b2b29); } .ds-nav a[aria-current] { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:8px; } .ds-nav a:focus-visible { outline:2px solid var(--graphit, #2b2b29); outline-offset:3px; border-radius:3px; }"
+      "refersTo": "nav-link",
+      "description": "Pillen-Links; Hover und aktueller Abschnitt auf Fläche.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link\">Leistungen</a><a href=\"#\" class=\"ds-nav-link\" aria-current=\"true\">Unsere Bäder</a><a href=\"#\" class=\"ds-nav-link\">Ablauf</a><a href=\"#\" class=\"ds-nav-link\">Kontakt</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;background:var(--grund,#f6f6f3);padding:.5rem;font-family:'Archivo Variable',system-ui,sans-serif}.ds-nav-link{border-radius:999px;padding:.625rem 1rem;font-size:.95rem;font-weight:600;color:var(--tinte-soft,#4a4a46);text-decoration:none;transition:background-color 150ms,color 150ms}.ds-nav-link:hover,.ds-nav-link[aria-current]{background:var(--flaeche,#ecebe6);color:var(--tinte,#121212)}.ds-nav-link:focus-visible{outline:2px solid var(--tinte,#121212);outline-offset:3px}"
     },
     {
-      "name": "Textlink und Anruf-Link",
+      "name": "Leistungs-Kachel",
+      "kind": "card",
+      "refersTo": "kachel-weiss",
+      "description": "Weiße Bento-Kachel mit breitem Titel und grünen Listenpunkten.",
+      "html": "<div class=\"ds-kachel\"><h3 class=\"ds-kachel-titel\">Verlegen</h3><ul class=\"ds-liste\"><li>Wand- und Bodenfliesen</li><li>Naturstein</li><li>Elastische Fugen</li></ul></div>",
+      "css": ".ds-kachel{background:var(--weiss,#fff);border-radius:1.5rem;padding:1.75rem;color:var(--tinte,#121212);font-family:'Archivo Variable',system-ui,sans-serif;max-width:22rem}.ds-kachel-titel{font-family:'Archivo Variable',system-ui,sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.015em;font-size:1.5rem;line-height:1.25;margin:0}.ds-liste{list-style:none;padding:0;margin:1.25rem 0 0;display:grid;gap:.625rem;font-weight:500}.ds-liste li{display:flex;gap:.75rem;align-items:baseline}.ds-liste li::before{content:'';width:.375rem;height:.375rem;border-radius:999px;background:var(--gruen,#173f35);flex-shrink:0;transform:translateY(-.15em)}"
+    },
+    {
+      "name": "Kernangebots-Kachel",
+      "kind": "card",
+      "refersTo": "kachel-gruen",
+      "description": "Grüne Tragfläche mit Schrittleiste in tiefem Grün.",
+      "html": "<div class=\"ds-gruen\"><h3 class=\"ds-gruen-titel\">Komplettsanierung inkl. Raumgestaltung</h3><p class=\"ds-gruen-text\">Ein Ansprechpartner für das ganze Bad.</p><ol class=\"ds-schritte\"><li><span>01</span>Untergrund</li><li><span>02</span>Abdichtung</li><li><span>03</span>Verlegung</li><li><span>04</span>Fugen</li></ol></div>",
+      "css": ".ds-gruen{background:var(--gruen,#173f35);color:var(--weiss,#fff);border-radius:1.5rem;padding:3rem;font-family:'Archivo Variable',system-ui,sans-serif}.ds-gruen-titel{font-family:'Archivo Variable',system-ui,sans-serif;font-stretch:118%;font-weight:800;letter-spacing:-.015em;letter-spacing:-.03em;font-size:2.4rem;line-height:.95;margin:0}.ds-gruen-text{color:var(--gruen-soft,#bcd2c7);font-size:1.125rem;margin:1.25rem 0 0}.ds-schritte{list-style:none;padding:0;margin:2.5rem 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgb(255 255 255/.15);border-radius:1rem;overflow:hidden}.ds-schritte li{background:var(--gruen-tief,#10302a);padding:1rem;font-weight:700}.ds-schritte span{display:block;font-stretch:118%;font-size:.875rem;color:var(--gruen-soft,#bcd2c7)}"
+    },
+    {
+      "name": "Foto-Kachel mit Etikett",
       "kind": "custom",
-      "refersTo": "",
-      "description": "Unterstrich in Zink, Hover in Textfarbe; Telefon-Links mit kreideroten Unterstrich.",
-      "html": "<p class=\"ds-text\">Mobil: <a href=\"#\" class=\"ds-link\">0172 277 06 74</a> · Sanierung besprechen: <a href=\"#\" class=\"ds-link ds-link-anruf\">0221 968 75 75</a></p>",
-      "css": ".ds-text { font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); font-size:1.125rem; color:var(--graphit-soft, #55554f); } .ds-link { color:var(--graphit, #2b2b29); font-weight:600; text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:0.3em; text-decoration-color:var(--zink, #9a9fa3); transition:text-decoration-color 160ms cubic-bezier(0.22,1,0.36,1); } .ds-link:hover { text-decoration-color:currentColor; } .ds-link-anruf { text-decoration-color:var(--kreide, #c4452e); font-weight:700; font-stretch:82%; font-size:1.5rem; white-space:nowrap; } .ds-link:focus-visible { outline:2px solid var(--graphit, #2b2b29); outline-offset:3px; border-radius:3px; }"
+      "refersTo": "foto-etikett",
+      "description": "Echtes Foto in der Kachel beschnitten, weiße Etikett-Pille unten links, Zoom bei Hover. Bild hier als Flächen-Platzhalter.",
+      "html": "<figure class=\"ds-foto\"><div class=\"ds-foto-bild\"></div><figcaption class=\"ds-etikett\">Detail: Mosaikbordüre</figcaption></figure>",
+      "css": ".ds-foto{position:relative;margin:0;border-radius:1.5rem;overflow:hidden;background:var(--flaeche,#ecebe6);min-height:14rem;max-width:22rem}.ds-foto-bild{position:absolute;inset:0;background:linear-gradient(135deg,#d9d4ca,#bfb7a8);transition:transform 700ms cubic-bezier(.22,1,.36,1)}.ds-foto:hover .ds-foto-bild{transform:scale(1.04)}.ds-etikett{position:absolute;left:1rem;bottom:1rem;background:rgb(255 255 255/.9);backdrop-filter:blur(4px);border-radius:999px;padding:.375rem .875rem;font-family:'Archivo Variable',system-ui,sans-serif;font-size:.875rem;font-weight:600;color:var(--tinte,#121212)}"
     },
     {
       "name": "Platzhalter-Badge",
       "kind": "chip",
-      "refersTo": "platzhalter-badge",
-      "description": "Neutrale, gestrichelte Markierung fehlender Kundeninhalte; nur im Review-Stand.",
-      "html": "<span class=\"ds-platzhalter\">Zeiten folgen vom Betrieb</span>",
-      "css": ".ds-platzhalter { display:inline-flex; align-items:center; padding:0.125rem 0.5rem; border:1px dashed var(--graphit-soft, #55554f); border-radius:4px; background:var(--papier, #faf9f6); color:var(--graphit-soft, #55554f); font-family:var(--font-werk, 'Bricolage Grotesque Variable', 'Arial Narrow', system-ui, sans-serif); font-size:0.75rem; font-weight:600; letter-spacing:0.025em; }"
+      "description": "Nur im Review-Stand: kennzeichnet fehlende Kundeninhalte, neutral, gestrichelt.",
+      "html": "<span class=\"ds-platzhalter\">Porträt folgt</span>",
+      "css": ".ds-platzhalter{display:inline-flex;align-items:center;border:1px dashed var(--tinte-soft,#4a4a46);border-radius:999px;background:var(--weiss,#fff);padding:.125rem .625rem;font-family:'Archivo Variable',system-ui,sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.025em;color:var(--tinte-soft,#4a4a46)}"
     }
   ],
   "narrative": {
-    "northStar": "Die Werkbank-Wand",
-    "overview": "Die Seite ist die Wand in der Werkstatt des Betriebs. Heller Kalkputz ist der Grund; darauf hängen echte Bäder als Fotos mit schmalem Papierrand, von einer Zinkzwinge gehalten und ein wenig schief geklemmt. Bleistift-Notizen (Punkt, Linie, Kraftpapier-Etikett) zeigen auf das, was man auf dem Foto sieht. Daneben hängen Materialproben, eine linierte Werkstattliste und ein Kraftpapier-Zettel mit den Fakten. Der Anruf ist ein Kraftpapier-Anhänger mit Ösenring und rotem Stempel.\n\nDie Haltung ist handwerklich, hell und ruhig: großzügige Putzflächen, wenige Dinge, die jeweils sichtbar „vor der Wand hängen“. Graphit schreibt und zieht Linien, Kraftpapier beschriftet, Zink hält fest, Kreiderot gehört allein der Handlung „Anrufen“. Fotos führen; Typografie und Material ordnen sich ihnen unter. Bestätigte Absagen: keine Stock-Badfotos mit Icon-Kacheln, keine Schilder- oder Editorial-Kulisse (die frühere Welt „Emaille-Schild“ ist verworfen), nichts Dunkles, Verspieltes oder Abgehobenes.\n\nBewegung ist einmalig und still: Fotos setzen sich beim ersten Sichtkontakt in ihre Neigung, Notizlinien zeichnen sich zum Detail, Bleistiftstriche ziehen einmal durch, der Anhänger pendelt beim Hover kaum merklich. Ohne JavaScript und bei „Bewegung reduzieren“ ist alles sofort sichtbar.",
+    "northStar": "Modern & markant",
+    "overview": "**Creative North Star: \"Modern & markant\"**\n\nEine moderne Handwerker-Website ohne Kostüm. Ordnung, Maßstab und Präzision tragen die Seite, nicht Metaphern oder Dekoration. Die Fläche ist ein klares Bento-Raster aus abgerundeten Kacheln auf hellem Grund; die echten Bäder des Betriebs stehen darin groß, als Foto-Kacheln auf Augenhöhe mit dem Text. Eine Schrift, Archivo, macht beides: breit und schwer für Aussagen, normal für Text.\n\nFarbe arbeitet als Fläche, nicht als Verzierung. Tiefes Flaschengrün trägt die gewichtigen Kacheln und Abschnitte (Kernangebot, Ablauf, Kontakt); Terrakotta aus dem Logo bedeutet ausschließlich „Anrufen“. Alles andere bleibt hell und neutral, damit Fotos und Überschriften wirken.\n\nBewegung ist ruhig und kurz: Der Hero baut sich beim Laden gestaffelt auf, das Hero-Foto öffnet sich aus der Kachel, Inhalte tauchen beim Scrollen auf, Fotos zoomen bei Hover leicht heran. Bei „Bewegung reduzieren“ ist alles sofort da.",
     "keyCharacteristics": [
-      "Heller Kalkputz-Grund mit feiner, statischer Rauschstruktur (8 % Deckkraft).",
-      "Echte Fotos im Papierrahmen, mit Zwinge geklemmt, ±0,5–1,4° geneigt.",
-      "Punkt-und-Linie-Notizen auf Kraftpapier-Etiketten, nur zu Sichtbarem.",
-      "Eine Schriftfamilie (Bricolage Grotesque): Display schmal (82 % Breite), Text normal, Ziffern tabellarisch.",
-      "Kreiderot ausschließlich für Anrufen, ein Rot pro Blick.",
-      "Tiefe nur für Dinge, die an der Wand hängen."
+      "Bento-Raster aus Kacheln mit 1.5rem-Radius, 1.5rem Abstand (mobil 1rem).",
+      "Überschriften Archivo 800 mit 118 % Breite und engem Spurabstand.",
+      "Eine tragende Fläche (Flaschengrün), ein Signal (Terrakotta = Anruf).",
+      "Große echte Fotos des Betriebs, keine Stockbilder, keine Icon-Kacheln.",
+      "Pillen-Knöpfe, groß und eindeutig."
     ],
     "rules": [
       {
-        "name": "Die Ein-Rot-Regel",
-        "body": "Kreiderot bedeutet „Anrufen“ und sonst nichts. Pro Blick ist genau ein rotes Anruf-Element aktiv: Solange der Hero-Anhänger sichtbar ist, bleibt der Header-Knopf neutral (Graphit-Kontur) und die mobile Anrufleiste eingefahren; erst danach wird der Header rot (ab md) bzw. fährt die Leiste ein; am Kontakt-Anhänger treten beide wieder zurück. Seiten ohne Hero-Anhänger zeigen beide sofort.",
+        "name": "The Ein-Rot-pro-Blick Rule",
+        "body": "Terrakotta erscheint nur für Anrufen und höchstens einmal im Blickfeld. Solange der Hero-Anruf sichtbar ist, bleibt der Header-Anruf eine neutrale Kontur und die mobile Anrufleiste eingefahren; erst danach übernehmen sie das Terrakotta. Am Kontakt-Anruf treten beide wieder zurück. Geregelt in Base.astro per IntersectionObserver (`data-anruf-weg`, `data-klingel-da`).",
         "section": "colors"
       },
       {
-        "name": "Die Logo-Ausnahme",
-        "body": "Die Terrakotta-Fliese und die Unterzeile der verbindlichen Wortmarke gehören zum Logo, nicht zur Palette. Ihre Werte werden nie in die Oberfläche übernommen und zählen nicht als Anruf-Rot.",
+        "name": "The Eine-Fläche Rule",
+        "body": "Grün ist die einzige farbige Fläche. Keine weiteren Farbkacheln, keine Verläufe, keine zweite Akzentfarbe.",
         "section": "colors"
       },
       {
-        "name": "Die Neutral-markiert-Regel",
-        "body": "Platzhalter sind nie rot: gestrichelt, Graphit weich auf Papier.",
-        "section": "colors"
-      },
-      {
-        "name": "Die Eine-Familie-Regel",
-        "body": "Die Seite spricht nur Bricolage Grotesque. Fraunces und Instrument Sans werden nur geladen, damit die Wortmarke korrekt rendert; sie erscheinen nie in Überschriften oder Text.",
+        "name": "The Breite-Auszeichnung Rule",
+        "body": "Die breite Lage (`.breit`, 118 %) gehört Überschriften, Telefonnummern als Großzeile und Ziffern. Fließtext bleibt in normaler Breite.",
         "section": "typography"
       },
       {
-        "name": "Die Schmal-schreibt-Regel",
-        "body": "Schmal (82–85 %) ist Werkstatt-Auszeichnung: Überschriften, Nummern, Listen, Notizen, Navigation, Knöpfe. Fließtext bleibt in normaler Breite.",
+        "name": "The Logo-Schriften Rule",
+        "body": "Fraunces und Instrument Sans werden nur für die Logo-Wortmarke geladen. Nie für Überschriften, Text oder Bedienelemente verwenden.",
         "section": "typography"
       },
       {
-        "name": "Die Ziffern-stehen-Regel",
-        "body": "Telefonnummern und Schrittnummern stehen in Tabellenziffern und werden nicht umbrochen.",
-        "section": "typography"
+        "name": "The Bento Rule",
+        "body": "Neue Inhalte kommen als Kachel ins Raster, nicht als freischwebender Block. Text-Kacheln und Foto-Kacheln sind gleichrangig und teilen Radius und Abstand.",
+        "section": "layout"
       },
       {
-        "name": "Die Millimeter-vor-der-Wand-Regel",
-        "body": "Schatten sind weich, warmgrau und kurz. Text, Listen, Knöpfe und Abschnitte bekommen keinen Schatten; Zustände werden über Farbe und Neigung gezeigt, nicht über Anheben.",
+        "name": "The Flach-bleibt-flach Rule",
+        "body": "Kacheln, Karten und Knöpfe haben keinen Schatten. Hierarchie kommt aus Farbe, Größe und Position.",
         "section": "elevation"
-      },
-      {
-        "name": "Die Schief-geklemmt-Regel",
-        "body": "Nur Hängendes neigt sich (Fotos ±0,5–1,4°, Zettel 0,8°, Stempel −7°). Text, Raster und Knöpfe stehen gerade.",
-        "section": "shapes"
       }
     ],
     "dos": [
-      "**Do** zuerst echte Rochlus-Fotos zeigen (`src/fotos.mjs`); sie führen jeden Abschnitt, in dem sie vorkommen.",
-      "**Do** nur echte Fotos des Betriebs zeigen (Material, Werkzeug, Oberflächen), jede Quelle in `src/assets/QUELLEN.md` eintragen und sie nie als Rochlus-Arbeit beschriften.",
-      "**Do** Notizen nur zu dem schreiben, was auf dem Foto sichtbar ist, ohne erfundene Maße oder Materialien.",
-      "**Do** Fehlendes im Review-Stand sichtbar und neutral markieren (`PlatzhalterBadge`, gestrichelte Flächen) und im Launch-Stand (`PUBLIC_STAND=launch`) den ganzen Slot entfallen lassen: kein leerer Rahmen, keine Klärungsbox, keine Galerie ohne Originalfotos.",
-      "**Do** jede Section mit einem Weg zum Telefon schließen; die Nummer ist ein `tel:`-Link in Tabellenziffern ohne Umbruch.",
-      "**Do** Bewegung einmalig an `data-bewegung` binden und bei „Bewegung reduzieren“ sowie ohne JS alle Inhalte sofort zeigen."
+      "**Do** nur echte Fotos des Betriebs und daraus beschnittene Nahaufnahmen verwenden; jede Datei mit Herkunft in `website/src/assets/QUELLEN.md` eintragen und über `src/fotos.mjs` einbinden.",
+      "**Do** Terrakotta ausschließlich für Anrufen einsetzen und die Ein-Rot-pro-Blick-Logik respektieren.",
+      "**Do** Neues als Kachel ins Bento-Raster setzen (1.5rem Radius, 1rem/1.5rem Abstand).",
+      "**Do** Überschriften in Archivo 800 mit 118 % Breite und Fließtext in normaler Breite setzen.",
+      "**Do** fehlende Kundeninhalte im Review-Stand mit dem Platzhalter-Badge kennzeichnen und im Launch-Stand (`PUBLIC_STAND=launch`) ganz entfallen lassen: kein leerer Fotorahmen, keine Klärungsbox, keine Galerie ohne Originalfotos.",
+      "**Do** Scroll-Animationen als Longhands schreiben und hinter `@supports (animation-timeline: view())` und `prefers-reduced-motion: no-preference` stellen.",
+      "**Do** Tippziele ab 44px halten (`.ziel`, Knöpfe ab 3rem)."
     ],
     "donts": [
-      "**Don't** Kreiderot für etwas anderes als Anrufen verwenden, und nie zwei rote Anruf-Elemente gleichzeitig zeigen.",
-      "**Don't** Stockfotos von fertigen Räumen oder Personen verwenden.",
-      "**Don't** Leistungen als Icon-Kacheln oder Karten setzen; sie stehen in der Werkstattliste.",
-      "**Don't** eine zweite Seitenschrift einführen oder die Logo-Schriften außerhalb der Wortmarke nutzen.",
-      "**Don't** Schilder-, Emaille- oder Editorial-Kulisse zurückholen; die Welt ist die Werkbank-Wand.",
-      "**Don't** harte Versatzschatten, dunkle Flächen oder Schatten auf Text und Knöpfe setzen.",
-      "**Don't** Versalien-Kennzeilen über Überschriften setzen; Versalien gibt es nur im Stempel (und in der Logo-Unterzeile).",
-      "**Don't** Unbelegtes zeigen (Bewertungen, Zertifikate, Meistertitel, Gründungsjahr, Zahlen)."
+      "**Don't** Stockbilder, KI-Bilder oder fremde Referenzfotos verwenden.",
+      "**Don't** Metaphern oder Kulissen bauen (Schilder, Werkstatt-Requisiten, Papier-Anmutung); die Welt ist Raster, Maßstab und Fläche.",
+      "**Don't** Icon-Kacheln mit Glyphen als Leistungsdarstellung; Symbole nur funktional (Telefon, Pfeil, Häkchen) in einer Strichstärke.",
+      "**Don't** eine zweite Akzentfarbe, Verläufe oder Schatten auf Kacheln einführen.",
+      "**Don't** Fraunces oder Instrument Sans außerhalb der Logo-Wortmarke verwenden; das Logo nicht nachsetzen oder umfärben.",
+      "**Don't** Kicker oder Eyebrow-Zeilen über Überschriften setzen.",
+      "**Don't** `animation`-Kurzschreibweise zusammen mit `animation-timeline` verwenden."
     ]
   }
 }

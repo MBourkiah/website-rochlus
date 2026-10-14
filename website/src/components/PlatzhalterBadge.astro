@@ -1,8 +1,8 @@
 ---
 /**
  * Kennzeichnet Inhalte, die noch vom Kunden kommen müssen: kleines Etikett,
- * gestrichelter Rand, bewusst neutral (kein Rot), lesbar auf Putz, Papier
- * und Fotos.
+ * gestrichelter Rand, bewusst neutral (kein Rot), lesbar auf hellem Grund,
+ * weißen Kacheln und Fotos.
  * Im Launch-Stand (src/stand.ts) rendert es nichts.
  * Jede Verwendung entspricht einem Punkt auf der Kunden-Checkliste (siehe konzept/).
  */
@@ -15,7 +15,7 @@ const { text = 'Platzhalter' } = Astro.props;
 ---
 
 {istReview && (
-<span class="inline-flex items-center rounded border border-dashed rounded-full border-tinte-soft bg-weiss px-2.5 py-0.5 text-xs font-semibold tracking-wide text-tinte-soft">
+<span class="inline-flex items-center border border-dashed rounded-full border-tinte-soft bg-weiss px-2.5 py-0.5 text-xs font-semibold tracking-wide text-tinte-soft">
   {text}
 </span>
 )}

@@ -1,6 +1,6 @@
 # Rochlus — Logo & Favicon Paket
 
-Entstanden im früheren Light-Editorial-Konzept (Fraunces/Instrument Sans, Fugen-Grid/Verband-Motiv, Terrakotta-Akzent). Das Logo bleibt verbindlich (aktuelle Website-Welt: „Werkbank“); die Website lädt Fraunces und Instrument Sans nur noch für diese Wortmarke (siehe DESIGN.md).
+Entstanden im früheren Light-Editorial-Konzept (Fraunces/Instrument Sans, Fugen-Grid/Verband-Motiv, Terrakotta-Akzent). Das Logo bleibt verbindlich (aktuelle Website-Optik: „Modern & markant“); die Website lädt Fraunces und Instrument Sans nur noch für diese Wortmarke (siehe DESIGN.md).
 
 ## Dateien
 - favicon.svg — Fugen-Grid-Icon (4 Fliesen), fuer website/public/favicon.svg
