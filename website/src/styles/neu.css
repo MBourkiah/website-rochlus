@@ -1,0 +1,173 @@
+/*
+ * /neu – Redesign nach taste-skill (redesign-skill): eine warme Graufamilie,
+ * ein Akzent (Terrakotta, nur Anrufen), Geist mit Zwischengewichten, getönte
+ * Schatten, feine Körnung, Tiefe durch Überlappung, Druck-Rückmeldung.
+ * Wird nur auf /neu geladen; die Startseite bleibt unverändert.
+ */
+.neu {
+  --n-grund: #f6f4f0;
+  --n-flaeche: #ece8e1;
+  --n-tief: #e2dcd2;
+  --n-linie: #d9d2c6;
+  --n-tinte: #1f1b16;
+  --n-soft: #5d554b; /* ≥ 6.5:1 auf allen drei Flächen */
+  --n-akzent: #a9532f;
+  --n-akzent-tief: #8c4325;
+  --n-schatten: 0 1px 2px rgb(60 42 24 / 0.08), 0 18px 40px -20px rgb(60 42 24 / 0.35);
+  --n-kurve: cubic-bezier(0.22, 1, 0.36, 1);
+
+  font-family: "Geist Variable", system-ui, sans-serif;
+  background: var(--n-grund);
+  color: var(--n-tinte);
+  font-feature-settings: "ss01";
+}
+.neu h1,
+.neu h2,
+.neu h3 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.neu p {
+  text-wrap: pretty;
+}
+.neu ::selection {
+  background: var(--n-tinte);
+  color: var(--n-grund);
+}
+.neu :focus-visible {
+  outline: 2px solid var(--n-tinte);
+  outline-offset: 3px;
+}
+
+/* Körnung: feste, nicht klickbare Rauschschicht */
+.neu-korn {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23k)'/%3E%3C/svg%3E");
+}
+
+/* Knöpfe: ein gefüllter, Rest als Textlink */
+.neu-knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 10px;
+  background: var(--n-akzent);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgb(140 67 37 / 0.6);
+  transition:
+    background-color 220ms var(--n-kurve),
+    transform 220ms var(--n-kurve),
+    box-shadow 220ms var(--n-kurve);
+}
+.neu-knopf:hover {
+  background: var(--n-akzent-tief);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px -12px rgb(140 67 37 / 0.65);
+}
+.neu-knopf:active {
+  transform: scale(0.98);
+}
+.neu-textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+  transition: text-decoration-color 220ms var(--n-kurve);
+}
+.neu-textlink:hover {
+  text-decoration-color: currentColor;
+}
+.neu-textlink .pfeil {
+  transition: transform 220ms var(--n-kurve);
+}
+.neu-textlink:hover .pfeil {
+  transform: translateX(3px);
+}
+
+/* Fotos: Radius außen weicher, getönter Schatten */
+.neu-foto {
+  border-radius: 18px;
+  box-shadow: var(--n-schatten);
+  overflow: hidden;
+}
+.neu-foto-klein {
+  border-radius: 12px;
+  box-shadow: var(--n-schatten);
+  overflow: hidden;
+}
+
+/* Formular */
+.neu-feld {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--n-linie);
+  background: var(--n-grund);
+  color: var(--n-tinte);
+  font: inherit;
+  transition: border-color 200ms var(--n-kurve), box-shadow 200ms var(--n-kurve);
+}
+.neu-feld:focus {
+  outline: none;
+  border-color: var(--n-tinte);
+  box-shadow: 0 0 0 3px rgb(31 27 22 / 0.12);
+}
+.neu-feld[aria-invalid="true"] {
+  border-color: #a12a1c;
+}
+
+/* Header-Anruf: neutral, solange der Hero-Anruf sichtbar ist */
+@media (min-width: 48rem) {
+  html[data-anruf-weg]:not([data-klingel-da]) .neu .kopf-anruf {
+    background: var(--n-akzent);
+    color: #fff;
+  }
+}
+
+/* Gestaffeltes Einblenden beim Scrollen */
+@keyframes neu-auf {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .neu .auf {
+      animation-name: neu-auf;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+    }
+    .neu .auf-2 {
+      animation-range: entry 8% entry 60%;
+    }
+    .neu .auf-3 {
+      animation-range: entry 16% entry 70%;
+    }
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html.js .neu .start {
+    animation: neu-auf 900ms var(--n-kurve) both;
+    animation-delay: calc(var(--i, 0) * 90ms);
+  }
+}

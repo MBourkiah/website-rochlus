@@ -1,0 +1,34 @@
+---
+/**
+ * /neu – Redesign-Vorschlag nach taste-skill (redesign-skill), parallel zur
+ * Startseite. Nicht indexiert (Review-Stand-Base setzt noindex; zusätzlich
+ * eigenes robots-meta). Inhalte und Fakten wie auf der Startseite.
+ */
+import '@fontsource-variable/geist';
+import '../styles/neu.css';
+import Base from '../layouts/Base.astro';
+import Kopf from '../components/neu/Kopf.astro';
+import Hero from '../components/neu/Hero.astro';
+import Bad from '../components/neu/Bad.astro';
+import Leistungen from '../components/neu/Leistungen.astro';
+import Ablauf from '../components/neu/Ablauf.astro';
+import Kontakt from '../components/neu/Kontakt.astro';
+import Fuss from '../components/neu/Fuss.astro';
+import Leiste from '../components/neu/Leiste.astro';
+---
+
+<Base title="Fliesenfachbetrieb Rochlus — Fliesen, Naturstein und Bäder in Köln (Entwurf)" description="Redesign-Entwurf der Website des Fliesenfachbetriebs Rochlus.">
+  <div class="neu min-h-dvh">
+    <div class="neu-korn" aria-hidden="true"></div>
+    <Kopf />
+    <main id="inhalt" class="pb-20 md:pb-0">
+      <Hero />
+      <Bad />
+      <Leistungen />
+      <Ablauf />
+      <Kontakt />
+    </main>
+    <Fuss />
+    <Leiste />
+  </div>
+</Base>

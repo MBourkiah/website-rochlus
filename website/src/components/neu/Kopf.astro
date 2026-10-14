@@ -1,0 +1,47 @@
+---
+/** Header für /neu: Wortmarke, Navigation mit aktivem Abschnitt, Anruf. */
+import Telefon from './Telefon.astro';
+const nav = [
+  ['#bad', 'Bäder'],
+  ['#leistungen', 'Leistungen'],
+  ['#ablauf', 'Ablauf'],
+  ['#kontakt', 'Kontakt'],
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-(--n-linie) bg-(--n-grund)/85 backdrop-blur-md">
+  <div class="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    <a href="/neu" class="flex min-h-11 items-baseline gap-2.5" aria-label="Fliesenfachbetrieb Rochlus GmbH, zur Startseite">
+      <span class="text-[1.45rem] font-semibold tracking-[-0.04em]">Rochlus</span>
+      <span class="hidden text-sm text-(--n-soft) sm:inline">Fliesenfachbetrieb in Köln</span>
+    </a>
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Hauptnavigation">
+      {nav.map(([h, l]) => (
+        <a href={h} data-spy={h.slice(1)} class="rounded-lg px-3.5 py-2.5 text-[0.95rem] font-medium text-(--n-soft) transition-colors duration-200 hover:bg-(--n-flaeche) hover:text-(--n-tinte) aria-[current]:bg-(--n-flaeche) aria-[current]:text-(--n-tinte)">{l}</a>
+      ))}
+    </nav>
+    <details class="relative md:hidden">
+      <summary class="flex h-11 cursor-pointer list-none items-center rounded-[10px] bg-(--n-flaeche) px-4 text-[0.95rem] font-semibold [&::-webkit-details-marker]:hidden">Menü</summary>
+      <nav class="absolute right-0 mt-2 flex w-56 flex-col rounded-xl bg-(--n-grund) p-2 shadow-(--n-schatten)" aria-label="Mobile Navigation">
+        {nav.map(([h, l]) => <a href={h} class="rounded-lg px-4 py-3 font-medium hover:bg-(--n-flaeche)">{l}</a>)}
+      </nav>
+    </details>
+    <a href="tel:+492219687575" class="kopf-anruf hidden min-h-11 items-center gap-2 rounded-[10px] bg-(--n-flaeche) px-4 text-[0.95rem] font-semibold transition-colors duration-200 hover:bg-(--n-tief) md:inline-flex">
+      <Telefon size={16} /> 0221 968 75 75
+    </a>
+  </div>
+</header>
+
+<script is:inline>
+  const m = document.querySelector('header details');
+  m?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => m.removeAttribute('open')));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') m?.removeAttribute('open'); });
+  const links = new Map([...document.querySelectorAll('[data-spy]')].map((a) => [a.getAttribute('data-spy'), a]));
+  const beob = new IntersectionObserver((es) => {
+    for (const e of es) {
+      const l = links.get(e.target.id);
+      if (l && e.isIntersecting) { links.forEach((x) => x.removeAttribute('aria-current')); l.setAttribute('aria-current', 'true'); }
+    }
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  links.forEach((_, id) => { const z = document.getElementById(id); if (z) beob.observe(z); });
+</script>

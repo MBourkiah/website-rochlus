@@ -1,0 +1,45 @@
+---
+/**
+ * Hero /neu: asymmetrisch. Text links, das Bad rechts groß, eine Nahaufnahme
+ * überlappt das Foto unten links (Tiefe statt flacher Kacheln).
+ */
+import { Image } from 'astro:assets';
+import Telefon from './Telefon.astro';
+import Pfeil from './Pfeil.astro';
+import { fotos } from '../../fotos.mjs';
+const foto = fotos.bad;
+const detail = fotos.bad?.detail;
+---
+
+<section class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-x-16 gap-y-14 px-4 pt-14 pb-24 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pt-20 lg:pb-32">
+  <div class="lg:col-span-6">
+    <h1 class="start text-[clamp(2.5rem,5.6vw,4.6rem)] leading-[1.02]" style="--i:0">Fliesen, Naturstein und ganze Bäder, gemacht in Köln.</h1>
+    <p class="start mt-7 max-w-[34rem] text-lg leading-relaxed text-(--n-soft) sm:text-[1.2rem]" style="--i:1">
+      Vom ersten Aufmaß bis zur letzten Fuge aus einer Hand. Sie sprechen direkt
+      mit Marc Rochlus, nicht mit einem Vermittlungsportal.
+    </p>
+    <div class="start mt-10 flex flex-wrap items-center gap-x-7 gap-y-3" style="--i:2">
+      <a href="tel:+492219687575" data-hero-anruf class="neu-knopf text-lg"><Telefon size={18} /> 0221 968 75 75</a>
+      <a href="#bad" class="neu-textlink">Ein Bad im Detail ansehen <Pfeil /></a>
+    </div>
+    <p class="start mt-12 max-w-md border-t border-(--n-linie) pt-6 text-[0.95rem] text-(--n-soft)" style="--i:3">
+      Inhabergeführte GmbH · Kranzbinderweg 15, 51067 Köln · Einsatz in Köln und Umgebung
+    </p>
+  </div>
+
+  {foto && (
+    <div class="relative lg:col-span-6">
+      <div class="start neu-foto ml-auto w-[88%] lg:w-[92%]" style="--i:1">
+        <Image src={foto.bild} alt={foto.alt} widths={[480, 720, 960, 1200]} sizes="(min-width: 64rem) 34rem, 88vw" loading="eager" fetchpriority="high" class="aspect-4/5 w-full object-cover object-[center_55%]" />
+      </div>
+      {detail && (
+        <figure class="start absolute -bottom-10 left-0 w-[42%] max-w-56" style="--i:3">
+          <div class="neu-foto-klein border-4 border-(--n-grund)">
+            <Image src={detail.bild} alt={detail.alt} widths={[240, 400]} sizes="14rem" class="aspect-square w-full object-cover" />
+          </div>
+          <figcaption class="mt-2 text-[0.85rem] leading-snug text-(--n-soft)">{detail.text}</figcaption>
+        </figure>
+      )}
+    </div>
+  )}
+</section>

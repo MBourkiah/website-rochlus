@@ -1,0 +1,14 @@
+---
+/** Footer /neu: schlicht, gleiche Fläche wie Kontakt. */
+const jahr = new Date().getFullYear();
+---
+
+<footer class="bg-(--n-tief)">
+  <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 border-t border-(--n-linie) px-4 py-8 text-[0.95rem] text-(--n-soft) sm:px-6 lg:px-8">
+    <p>© {jahr} Fliesenfachbetrieb Rochlus GmbH, Köln</p>
+    <nav class="flex gap-6" aria-label="Rechtliches">
+      <a href="/impressum" class="neu-textlink font-medium">Impressum</a>
+      <a href="/datenschutz" class="neu-textlink font-medium">Datenschutz</a>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+---
+/** Mobile Anrufleiste /neu (gleiche Ein-Rot-Logik wie die Startseite). */
+import Telefon from './Telefon.astro';
+---
+
+<div class="anrufleiste fixed inset-x-0 bottom-0 z-40 border-t border-(--n-linie) bg-(--n-grund)/95 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden">
+  <a href="tel:+492219687575" class="neu-knopf w-full text-lg"><Telefon size={18} /> 0221 968 75 75</a>
+</div>

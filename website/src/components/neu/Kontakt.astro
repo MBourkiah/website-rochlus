@@ -1,0 +1,74 @@
+---
+/**
+ * Kontakt /neu: gleiche Farbfamilie (dunklerer Ton statt Schwarz), Anruf plus
+ * Anfrageformular ohne Server: Prüfen im Browser, dann öffnet sich eine fertig
+ * ausgefüllte E-Mail an den Betrieb (keine Datenübertragung an Dritte).
+ */
+import Telefon from './Telefon.astro';
+import PlatzhalterBadge from '../PlatzhalterBadge.astro';
+import { istReview } from '../../stand';
+const anliegen = ['Komplettsanierung', 'Fliesen oder Naturstein verlegen', 'Abdichtung oder Untergrund', 'Reparatur', 'Etwas anderes'];
+---
+
+<section id="kontakt" class="scroll-mt-20 bg-(--n-tief)">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-16 gap-y-14 px-4 pt-24 pb-28 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pt-32 lg:pb-36">
+    <div class="lg:col-span-5">
+      <h2 class="auf text-[clamp(2.2rem,4.4vw,3.6rem)] leading-[1.02]">Erzählen Sie uns von Ihrem Bad.</h2>
+      <p class="auf auf-2 mt-6 max-w-[30rem] text-lg leading-relaxed text-(--n-soft)">
+        Am schnellsten per Anruf, dann kommen wir zur Besichtigung. Wenn niemand
+        abnimmt, erreichen Sie uns mobil.
+      </p>
+      <a href="tel:+492219687575" data-klingel class="auf auf-2 neu-knopf mt-9 text-lg"><Telefon size={18} /> 0221 968 75 75</a>
+      <dl class="auf auf-3 mt-10 space-y-4 text-[1rem]">
+        <div><dt class="text-(--n-soft)">Mobil</dt><dd><a class="neu-textlink" href="tel:+491722770674">0172 277 06 74</a></dd></div>
+        <div><dt class="text-(--n-soft)">E-Mail</dt><dd><a class="neu-textlink" href="mailto:mrochlus@web.de">mrochlus@web.de</a></dd></div>
+        <div><dt class="text-(--n-soft)">Adresse</dt><dd class="font-medium">Kranzbinderweg 15, 51067 Köln</dd></div>
+        {istReview && <div><dt class="text-(--n-soft)">Erreichbarkeit</dt><dd class="mt-1"><PlatzhalterBadge text="Zeiten folgen vom Betrieb" /></dd></div>}
+      </dl>
+    </div>
+
+    <form id="anfrage" class="auf neu-foto grid grid-cols-1 gap-5 bg-(--n-grund) p-6 sm:grid-cols-2 sm:p-9 lg:col-span-7" novalidate>
+      <h3 class="text-[1.35rem] sm:col-span-2">Oder schreiben Sie uns kurz</h3>
+      <label class="grid gap-1.5 text-[0.95rem] font-medium">Name
+        <input class="neu-feld" name="name" autocomplete="name" required aria-describedby="f-name" />
+        <span id="f-name" class="fehler hidden text-sm text-[#a12a1c]">Bitte geben Sie Ihren Namen an.</span>
+      </label>
+      <label class="grid gap-1.5 text-[0.95rem] font-medium">Telefon
+        <input class="neu-feld" name="telefon" type="tel" autocomplete="tel" required aria-describedby="f-tel" />
+        <span id="f-tel" class="fehler hidden text-sm text-[#a12a1c]">Bitte eine Telefonnummer, damit wir zurückrufen können.</span>
+      </label>
+      <label class="grid gap-1.5 text-[0.95rem] font-medium">Postleitzahl
+        <input class="neu-feld" name="plz" inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" required aria-describedby="f-plz" />
+        <span id="f-plz" class="fehler hidden text-sm text-[#a12a1c]">Bitte eine fünfstellige Postleitzahl.</span>
+      </label>
+      <label class="grid gap-1.5 text-[0.95rem] font-medium">Worum geht es?
+        <select class="neu-feld" name="anliegen">{anliegen.map((a) => <option>{a}</option>)}</select>
+      </label>
+      <label class="grid gap-1.5 text-[0.95rem] font-medium sm:col-span-2">Kurze Beschreibung (optional)
+        <textarea class="neu-feld min-h-28" name="nachricht" rows="4"></textarea>
+      </label>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 sm:col-span-2">
+        <button type="submit" class="neu-knopf max-sm:w-full max-sm:whitespace-normal">Anfrage per E-Mail vorbereiten</button>
+        <p class="text-sm text-(--n-soft)">Es öffnet sich Ihr E-Mail-Programm mit allen Angaben. Wir speichern nichts.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script is:inline>
+  const form = document.getElementById('anfrage');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let ok = true;
+    for (const feld of form.querySelectorAll('input[required]')) {
+      const gueltig = feld.checkValidity() && feld.value.trim() !== '';
+      feld.setAttribute('aria-invalid', String(!gueltig));
+      document.getElementById(feld.getAttribute('aria-describedby'))?.classList.toggle('hidden', gueltig);
+      if (!gueltig && ok) { feld.focus(); ok = false; }
+    }
+    if (!ok) return;
+    const d = new FormData(form);
+    const text = `Name: ${d.get('name')}\nTelefon: ${d.get('telefon')}\nPLZ: ${d.get('plz')}\nAnliegen: ${d.get('anliegen')}\n\n${d.get('nachricht') || ''}`;
+    location.href = `mailto:mrochlus@web.de?subject=${encodeURIComponent('Anfrage: ' + d.get('anliegen'))}&body=${encodeURIComponent(text)}`;
+  });
+</script>

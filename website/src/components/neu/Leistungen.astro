@@ -1,0 +1,36 @@
+---
+/**
+ * Leistungen /neu: Komplettsanierung als großer Satz links, übrige Leistungen
+ * rechts als zweispaltige, ungleich gewichtete Liste. Alle 13 Punkte.
+ */
+import Telefon from './Telefon.astro';
+const gruppen = [
+  ['Verlegen', ['Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen']],
+  ['Untergrund und Technik', ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten']],
+  ['Planung und Service', ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen']],
+];
+---
+
+<section id="leistungen" class="scroll-mt-20">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-16 gap-y-14 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:px-8 lg:pt-32 lg:pb-36">
+    <div class="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
+      <h2 class="auf text-[clamp(2rem,3.8vw,3.1rem)] leading-[1.05]">Komplettsanierung inklusive Raumgestaltung.</h2>
+      <p class="auf auf-2 mt-6 max-w-[30rem] text-lg leading-relaxed text-(--n-soft)">
+        Wir übernehmen jede Schicht rund um die Fliese, vom Untergrund bis zur Fuge.
+        Material, Format und Verlegebild planen wir mit Ihnen, bevor die erste Fliese liegt.
+      </p>
+      <a href="tel:+492219687575" class="auf auf-3 neu-knopf mt-9"><Telefon size={17} /> Sanierung besprechen</a>
+    </div>
+    <div class="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:col-span-6 lg:col-start-7 lg:pt-3">
+      {gruppen.map(([t, punkte], i) => (
+        <div class={`auf ${i === 2 ? 'sm:col-span-2 sm:max-w-[calc(50%-1.25rem)]' : ''}`}>
+          <h3 class="text-[1.15rem]">{t}</h3>
+          <ul class="mt-4 space-y-2.5 text-[1.02rem] text-(--n-soft)">
+            {punkte.map((p) => <li>{p}</li>)}
+          </ul>
+        </div>
+      ))}
+      <p class="auf text-[1.02rem] text-(--n-soft) sm:col-span-2">Ihr Vorhaben steht nicht dabei? Fragen Sie trotzdem, oft gehört es dazu.</p>
+    </div>
+  </div>
+</section>
