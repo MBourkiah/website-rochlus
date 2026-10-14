@@ -171,3 +171,12 @@
     animation-delay: calc(var(--i, 0) * 90ms);
   }
 }
+
+/* Formular-Knopf auf kleinen Bildschirmen umbrechen lassen */
+@media (max-width: 40rem) {
+  #anfrage .neu-knopf {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
