@@ -1,8 +1,7 @@
 ---
 /**
- * Der Betrieb: Aussage links, Faktenkarte rechts. Porträt aus src/fotos.mjs,
- * sonst nur im Review-Stand ein Platzhalter. Unbestätigtes (Meister,
- * Gründungsjahr, Einzugsgebiet) nur im Review-Stand als Klärungshinweis.
+ * Über uns: Text links, Faktenliste rechts. Porträt aus src/fotos.mjs,
+ * sonst nur im Review-Stand ein Platzhalter. Unbestätigtes nur im Review-Stand.
  */
 import { Image } from 'astro:assets';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
@@ -13,53 +12,48 @@ const fakten = [
   ['Ansprechpartner', 'Marc Rochlus, Geschäftsführer'],
   ['Sitz', 'Kranzbinderweg 15, 51067 Köln'],
   ['Einsatzgebiet', 'Köln und Umgebung'],
-  ['Rechtsform', 'Inhabergeführte GmbH'],
+  ['Unternehmen', 'Inhabergeführte GmbH'],
 ];
 ---
 
-<section id="betrieb" class="scroll-mt-20">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-6 lg:px-8 lg:py-24">
-    <div class="auftauchen lg:col-span-6 lg:pr-8">
-      <h2 class="text-[clamp(2rem,3.8vw,3.4rem)] leading-[0.95]">Ein Kölner Betrieb. Kein Vermittlungs&shy;portal.</h2>
-      <p class="mt-6 max-w-lg text-lg leading-relaxed text-tinte-soft">
-        Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln und
-        wird vom Inhaber geführt. Wer anruft, spricht direkt mit dem Betrieb. Wer
-        beauftragt, bekommt die Arbeit vom Fachbetrieb, nicht von wechselnden Kolonnen.
+<section id="betrieb" class="scroll-mt-20 bg-weiss">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+    <div class="einblenden">
+      <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">Über uns</h2>
+      <p class="mt-5 text-lg leading-relaxed text-tinte-soft">
+        Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln und wird
+        vom Inhaber geführt. Wer anruft, spricht direkt mit dem Betrieb, nicht mit einem
+        Vermittlungsportal. Wer beauftragt, bekommt die Arbeit vom Fachbetrieb, nicht von
+        wechselnden Kolonnen.
       </p>
       {
-        istReview && (
-          <div class="mt-8 max-w-lg rounded-2xl border border-dashed border-tinte-soft/50 px-5 py-4">
-            <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
-            <p class="mt-2 text-sm leading-relaxed text-tinte-soft">
-              Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet werden ergänzt, sobald der Betrieb sie bestätigt.
-            </p>
-          </div>
-        )
-      }
-    </div>
-
-    <div class="auftauchen kachel grid grid-cols-1 bg-weiss sm:grid-cols-[auto_1fr] lg:col-span-6">
-      {
         fotos.inhaber ? (
-          <Image src={fotos.inhaber.bild} alt={fotos.inhaber.alt} widths={[320, 480]} sizes="16rem" class="h-full max-h-96 w-full object-cover sm:w-56" />
+          <figure class="mt-8 flex items-center gap-4">
+            <Image src={fotos.inhaber.bild} alt={fotos.inhaber.alt} widths={[160, 240]} sizes="5rem" class="h-20 w-20 rounded-full object-cover" />
+            <figcaption>
+              <span class="block font-bold">Marc Rochlus</span>
+              <span class="text-tinte-soft">Geschäftsführer</span>
+            </figcaption>
+          </figure>
         ) : (
           istReview && (
-            <div class="grid min-h-48 place-items-center bg-flaeche p-6 sm:w-56">
-              <PlatzhalterBadge text="Porträt folgt" />
+            <div class="mt-8 rounded-lg border border-dashed border-tinte-soft/40 p-5">
+              <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
+              <p class="mt-2 text-sm text-tinte-soft">Porträt, Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet folgen, sobald der Betrieb sie bestätigt.</p>
             </div>
           )
         )
       }
-      <dl class="divide-y divide-linie p-7 lg:p-9">
-        {
-          fakten.map(([k, v]) => (
-            <div class="flex flex-col gap-0.5 py-3.5 first:pt-0 last:pb-0">
-              <dt class="text-sm font-semibold text-tinte-soft">{k}</dt>
-              <dd class="text-lg font-bold">{v}</dd>
-            </div>
-          ))
-        }
-      </dl>
     </div>
+    <dl class="einblenden karte divide-y divide-linie self-start">
+      {
+        fakten.map(([k, v]) => (
+          <div class="grid grid-cols-1 gap-1 px-6 py-5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+            <dt class="text-tinte-soft">{k}</dt>
+            <dd class="font-semibold">{v}</dd>
+          </div>
+        ))
+      }
+    </dl>
   </div>
 </section>

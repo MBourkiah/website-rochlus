@@ -13,14 +13,14 @@ Vom Nutzer festgelegt: „Modern & markant“ (große Typo, kräftige Farbfläch
 
 ## Direction contract
 
-THESIS: Eine moderne, markante Handwerker-Website ohne Kostüm: klares Bento-Raster aus abgerundeten Kacheln, große echte Bäder, breite schwere Überschriften, eine tragende Farbfläche. Verweigert Metaphern (Schilder, Werkbank) und das 08/15-Template mit Stockfoto und Icon-Kacheln.
+THESIS: Professioneller Handwerker-Standard, sauber umgesetzt (vom Nutzer gewählt nach Vorbildrecherche: Richtung C, Vorbilder Klug Fliesen/Fliesenwerk im Aufbau). Bekannte Form, die Kunden sofort lesen, ohne billige Details.
 
-OWN-WORLD: Heller Grund #f6f6f3 mit weißen Kacheln, tiefes Flaschengrün #173f35 als tragende Fläche (Kernangebot, Ablauf, Kontakt), Terrakotta #b0512c aus dem Logo nur für Anrufen. Archivo variabel, Überschriften 118 % Breite/800, Text normal. Radien 1.5rem, Pillen-Knöpfe.
+OWN-WORLD: Weiß und Hellgrau (#f5f5f3), Anthrazit #1d2125 für Text und dunkle Abschnitte, Terrakotta #b0512c nur für Anrufen. Figtree, eine Schrift. Radien 6–8px, feine Linien, Karten mit Bild.
 
-STORY: verstehen (Aussage + echtes Bad), überblicken (Bento: Komplettsanierung, Leistungsgruppen, Details), sehen (Bäder groß), vertrauen (Ablauf, Betrieb), anrufen.
+STORY: Foto-Hero mit klarer Aussage und Anruf, Vertrauensleiste, Leistungen (Karten + Komplettsanierung), Unsere Bäder (Bildraster), Ablauf (4 Schritte), Über uns (Fakten), dunkler Kontaktbereich.
 
-FIRST VIEWPORT: Links weiße Kachel mit H1 bis 5.5rem, Satz, zwei Knöpfe (Terrakotta-Anruf, Kontur „Unsere Bäder ansehen“); rechts das Holzoptik-Bad als hohe Foto-Kachel; darunter drei Faktenzeilen mit Haken.
+FIRST VIEWPORT: Kontaktleiste oben (ab md), Header mit Wortmarke „Rochlus / Fliesenfachbetrieb“, Navigation, Anruf-Knopf; Hero mit echtem Badfoto, links abgedunkelt, H1, Satz, Knöpfe „0221 968 75 75“ und „Leistungen ansehen“; darunter vier Vertrauenspunkte.
 
-FORM: vom Nutzer festgelegt (kein Wurf). Bewegung: Hero baut sich gestaffelt auf, Foto öffnet sich aus der Kachel; Inhalte tauchen beim Scrollen auf; leichte Parallaxe am Hero-Foto; Foto-Zoom bei Hover. Alles aus bei reduzierter Bewegung.
+FORM: vom Nutzer gewählt (Canon, sauber). Bewegung nur dezentes Einblenden beim Scrollen. Logo-Paket ausgesetzt bis zum neuen Logo.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

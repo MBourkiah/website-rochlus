@@ -1,69 +1,60 @@
 @import "tailwindcss";
 
 /*
- * MODERN & MARKANT
+ * HANDWERKER-STANDARD, SAUBER
  *
- * Klare, helle Grundfläche; tiefes Flaschengrün als tragende Farbfläche
- * (Kacheln, Ablauf, Kontakt); Terrakotta aus dem Logo ausschließlich für
- * Anrufen. Eine Schrift: Archivo, breit und schwer für Überschriften, normal
- * für Text. Bento-Raster aus abgerundeten Kacheln, große echte Fotos.
- * Keine Metaphern, keine Deko: Ordnung, Maßstab und Präzision tragen.
+ * Bekannter, vertrauenswürdiger Aufbau einer Handwerker-Website, ruhig und
+ * präzise umgesetzt: weiße und hellgraue Flächen, dunkles Anthrazit für
+ * Text und den Abschlussbalken, Terrakotta aus dem Logo nur für Anrufen.
+ * Eine Schrift (Figtree), klare Größenstufen, moderate Radien.
  */
 :root {
-  --grund: #f6f6f3;
-  --flaeche: #ecebe6;
-  --linie: #dad8d2;
   --weiss: #ffffff;
+  --hell: #f5f5f3;
+  --linie: #e4e3df;
 
-  --tinte: #121212;
-  --tinte-soft: #4a4a46; /* ≥ 8:1 auf Grund */
-
-  --gruen: #173f35;
-  --gruen-tief: #10302a;
-  --gruen-soft: #bcd2c7; /* Nebentext auf Grün (≥ 7:1) */
+  --tinte: #1d2125;
+  --tinte-soft: #575c61; /* ≥ 6.5:1 auf Weiß und Hell */
+  --dunkel: #1d2125;
+  --dunkel-soft: #b6bbc0; /* Nebentext auf Dunkel (≥ 8:1) */
 
   /* Terrakotta (Logo): nur für Anrufen */
   --akzent: #b0512c;
   --akzent-tief: #93421f;
 
-  --radius-kachel: 1.5rem;
   --kurve: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
-  --color-grund: var(--grund);
-  --color-flaeche: var(--flaeche);
-  --color-linie: var(--linie);
   --color-weiss: var(--weiss);
+  --color-hell: var(--hell);
+  --color-linie: var(--linie);
   --color-tinte: var(--tinte);
   --color-tinte-soft: var(--tinte-soft);
-  --color-gruen: var(--gruen);
-  --color-gruen-tief: var(--gruen-tief);
-  --color-gruen-soft: var(--gruen-soft);
+  --color-dunkel: var(--dunkel);
+  --color-dunkel-soft: var(--dunkel-soft);
   --color-akzent: var(--akzent);
   --color-akzent-tief: var(--akzent-tief);
 
-  --font-sans: "Archivo Variable", system-ui, sans-serif;
+  --font-sans: "Figtree Variable", system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  scrollbar-color: var(--tinte-soft) var(--grund);
 }
 
 body {
-  background-color: var(--grund);
+  background-color: var(--weiss);
   color: var(--tinte);
   font-family: var(--font-sans);
   font-size: 1.0625rem;
-  line-height: 1.6;
-  caret-color: var(--akzent);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: var(--gruen);
+  background-color: var(--tinte);
   color: var(--weiss);
 }
 
@@ -77,9 +68,10 @@ summary {
 :focus-visible {
   outline: 2px solid var(--tinte);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
-.auf-gruen :focus-visible {
+.auf-dunkel :focus-visible,
+.auf-foto :focus-visible {
   outline-color: var(--weiss);
 }
 
@@ -87,63 +79,46 @@ summary {
   h1,
   h2,
   h3 {
-    font-family: var(--font-sans);
-    font-stretch: 118%;
-    font-weight: 800;
-    hyphens: manual;
-    letter-spacing: -0.03em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-wrap: balance;
-  }
-  h3 {
-    letter-spacing: -0.015em;
   }
 }
 
 @layer components {
-  /* Breite Auszeichnung (Zahlen, kurze Labels) */
-  .breit {
-    font-stretch: 118%;
-  }
-
   .link,
   .rechtstext a {
     text-decoration: underline;
-    text-decoration-thickness: 1.5px;
+    text-decoration-thickness: 1px;
     text-underline-offset: 0.25em;
-    text-decoration-color: color-mix(in oklab, currentColor 40%, transparent);
+    text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
     transition: text-decoration-color 160ms var(--kurve);
   }
   .link:hover,
   .rechtstext a:hover {
     text-decoration-color: currentColor;
   }
-  /* Tippziel ≥ 44px für freistehende Links */
   .ziel {
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
   }
 
-  /* Knöpfe: Pille, klar, groß */
   .knopf {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
     min-height: 3rem;
-    padding: 0.7rem 1.4rem;
-    border-radius: 999px;
-    font-weight: 700;
+    padding: 0.75rem 1.4rem;
+    border-radius: 6px;
+    font-weight: 650;
     line-height: 1.1;
     white-space: nowrap;
     transition:
       background-color 160ms var(--kurve),
       color 160ms var(--kurve),
-      border-color 160ms var(--kurve),
-      transform 160ms var(--kurve);
-  }
-  .knopf:active {
-    transform: translateY(1px) scale(0.99);
+      border-color 160ms var(--kurve);
   }
   .knopf-anruf {
     background: var(--akzent);
@@ -153,44 +128,29 @@ summary {
     background: var(--akzent-tief);
   }
   .knopf-zweit {
-    border: 1.5px solid currentColor;
+    border: 1px solid currentColor;
   }
   .knopf-zweit:hover {
     background: var(--tinte);
     border-color: var(--tinte);
     color: var(--weiss);
   }
-  .auf-gruen .knopf-zweit:hover {
+  .auf-dunkel .knopf-zweit:hover,
+  .auf-foto .knopf-zweit:hover {
     background: var(--weiss);
     border-color: var(--weiss);
-    color: var(--gruen);
-  }
-  .knopf .pfeil {
-    transition: transform 200ms var(--kurve);
-  }
-  .knopf:hover .pfeil {
-    transform: translateX(3px);
+    color: var(--tinte);
   }
 
-  /* Kachel */
-  .kachel {
-    border-radius: var(--radius-kachel);
+  .karte {
+    border-radius: 8px;
+    border: 1px solid var(--linie);
+    background: var(--weiss);
     overflow: hidden;
-  }
-
-  /* Foto in Kachel: weiches Heranzoomen bei Hover */
-  .foto-zoom img {
-    transition: transform 700ms var(--kurve);
-  }
-  .foto-zoom:hover img {
-    transform: scale(1.04);
   }
 }
 
 /* Header-Anruf: neutral, solange der Hero-Anruf sichtbar ist; danach Terrakotta (ab md) */
-.kopf-anruf {
-  transition: background-color 160ms var(--kurve), color 160ms var(--kurve), border-color 160ms var(--kurve);
-}
 @media (min-width: 48rem) {
   html[data-anruf-weg]:not([data-klingel-da]) .kopf-anruf {
     background: var(--akzent);
@@ -218,57 +178,22 @@ html[data-klingel-da] .anrufleiste {
     visibility 0s linear 260ms;
 }
 
-/*
- * BEWEGUNG: Hero baut sich beim Laden gestaffelt auf; Inhalte tauchen beim
- * Scrollen auf (CSS-Scroll-Timeline, Longhands wegen Minifier). Ohne
- * Unterstützung oder bei „Bewegung reduzieren“: alles sofort sichtbar.
- */
-@keyframes auftauchen {
+/* Bewegung: Inhalte blenden beim Scrollen dezent ein (Longhands wegen Minifier) */
+@keyframes einblenden {
   from {
     opacity: 0;
-    transform: translateY(24px);
-  }
-}
-@keyframes foto-auf {
-  from {
-    opacity: 0;
-    transform: scale(1.06);
-    clip-path: inset(8% 8% 8% 8% round 1.5rem);
-  }
-  to {
-    clip-path: inset(0 0 0 0 round 1.5rem);
-  }
-}
-@media (prefers-reduced-motion: no-preference) {
-  html.bewegung .hero-teil {
-    animation: auftauchen 800ms var(--kurve) both;
-    animation-delay: calc(var(--i, 0) * 110ms);
-  }
-  html.bewegung .hero-foto {
-    animation: foto-auf 1200ms var(--kurve) 150ms both;
+    transform: translateY(16px);
   }
 }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .auftauchen {
-      animation-name: auftauchen;
+    .einblenden {
+      animation-name: einblenden;
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: view();
-      animation-range: entry 0% entry 55%;
+      animation-range: entry 0% entry 45%;
     }
-    .hero-parallaxe img {
-      animation-name: parallaxe;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: view();
-      animation-range: exit 0% exit 100%;
-    }
-  }
-}
-@keyframes parallaxe {
-  to {
-    transform: translateY(8%) scale(1.05);
   }
 }
 

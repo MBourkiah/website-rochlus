@@ -1,87 +1,87 @@
 ---
 /**
- * Leistungen als Bento-Raster: die Komplettsanierung als große grüne Kachel,
- * ein echtes Foto, die drei Leistungsgruppen als Listen-Kacheln, eine echte
- * Nahaufnahme und eine Anruf-Kachel. Alle 13 Punkte des Bestands.
+ * Leistungen: drei Karten mit Bild, Titel und Liste (alle 13 Punkte des
+ * Bestands), darunter ein hervorgehobener Block zur Komplettsanierung.
  * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
 import { Image } from 'astro:assets';
 import Telefon from './Telefon.astro';
 import { fotos, detailMosaikborduere as mosaik } from '../fotos.mjs';
 
-// Nahaufnahme aus dem Hero-Bad, damit kein ganzes Foto doppelt erscheint
-const foto = fotos.bad?.detail;
-const gruppen = [
-  { titel: 'Verlegen', punkte: ['Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'] },
-  { titel: 'Unter und neben der Fliese', punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'] },
-  { titel: 'Planung und Service', punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'] },
+const karten = [
+  {
+    titel: 'Fliesen & Naturstein verlegen',
+    bild: fotos.bad?.detail,
+    punkte: ['Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
+  },
+  {
+    titel: 'Untergrund & Abdichtung',
+    bild: fotos.referenzen[0]?.detail,
+    punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
+  },
+  {
+    titel: 'Planung & Service',
+    bild: mosaik,
+    punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
+  },
 ];
+const sanierung = fotos.referenzen[0];
 ---
 
-<section id="leistungen" class="scroll-mt-20">
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="auftauchen flex flex-wrap items-end justify-between gap-6">
-      <h2 class="max-w-3xl text-[clamp(2.2rem,4.8vw,4rem)] leading-[0.95]">Was wir machen, und was dazugehört.</h2>
-      <p class="max-w-sm text-lg text-tinte-soft">Ein Betrieb für das ganze Bad, vom Untergrund bis zur Fuge.</p>
+<section id="leistungen" class="scroll-mt-20 bg-hell">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <div class="einblenden max-w-2xl">
+      <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">Unsere Leistungen</h2>
+      <p class="mt-4 text-lg text-tinte-soft">Alles rund um die Fliese, vom Untergrund bis zur letzten Fuge.</p>
     </div>
 
-    <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
-      <!-- Kernangebot -->
-      <div class="auftauchen auf-gruen kachel flex flex-col justify-between bg-gruen p-8 text-weiss sm:col-span-2 lg:col-span-7 lg:row-span-2 lg:p-12">
-        <div>
-          <h3 class="text-[clamp(1.75rem,4vw,3.25rem)] leading-[0.95]">Komplett&shy;sanierung inkl. Raum&shy;gestaltung</h3>
-          <p class="mt-5 max-w-lg text-lg leading-relaxed text-gruen-soft">
-            Wir übernehmen jede Schicht rund um die Fliese: Untergrund, Abdichtung,
-            Verlegung, Fugen. Material, Format und Verlegebild planen wir mit Ihnen.
-            Ein Ansprechpartner für das ganze Bad.
-          </p>
-        </div>
-        <ol class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/15 max-[22rem]:grid-cols-1 sm:grid-cols-4">
-          {['Untergrund', 'Abdichtung', 'Verlegung', 'Fugen'].map((s, i) => (
-            <li class="bg-gruen-tief px-4 py-4">
-              <span class="breit block text-sm font-bold text-gruen-soft">0{i + 1}</span>
-              <span class="mt-1 block font-bold">{s}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
-
+    <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
       {
-        foto && (
-          <div class="auftauchen foto-zoom kachel relative min-h-72 bg-flaeche sm:col-span-1 lg:col-span-5 lg:row-span-2">
-            <Image src={foto.bild} alt={foto.alt} widths={[400, 640, 960]} sizes="(min-width: 64rem) 30rem, (min-width: 40rem) 50vw, 100vw" class="absolute inset-0 h-full w-full object-cover" />
-            <span class="absolute bottom-4 left-4 rounded-full bg-weiss/90 px-3.5 py-1.5 text-sm font-semibold backdrop-blur-sm">Detail: {foto.text}</span>
-          </div>
-        )
-      }
-
-      {
-        gruppen.map((g) => (
-          <div class="auftauchen kachel bg-weiss p-7 lg:col-span-4 lg:p-8">
-            <h3 class="text-2xl leading-tight">{g.titel}</h3>
-            <ul class="mt-5 space-y-2.5">
-              {g.punkte.map((p) => (
-                <li class="flex items-start gap-3 text-base font-medium">
-                  <span class="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-gruen" aria-hidden="true" />
-                  {p}
-                </li>
-              ))}
-            </ul>
-          </div>
+        karten.map((k) => (
+          <article class="einblenden karte flex flex-col">
+            {k.bild && <Image src={k.bild.bild} alt={k.bild.alt} widths={[400, 600]} sizes="(min-width: 48rem) 30vw, 100vw" class="aspect-16/10 w-full object-cover" />}
+            <div class="flex flex-1 flex-col p-6 lg:p-7">
+              <h3 class="text-xl">{k.titel}</h3>
+              <ul class="mt-4 space-y-2.5">
+                {k.punkte.map((p) => (
+                  <li class="flex items-start gap-3 text-[0.98rem]">
+                    <svg class="mt-1 shrink-0 text-akzent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
         ))
       }
+    </div>
 
-      <div class="auftauchen foto-zoom kachel relative min-h-56 bg-flaeche lg:col-span-5">
-        <Image src={mosaik.bild} alt={mosaik.alt} widths={[400, 640]} sizes="(min-width: 64rem) 30rem, 100vw" class="absolute inset-0 h-full w-full object-cover" />
-        <span class="absolute bottom-4 left-4 rounded-full bg-weiss/90 px-3.5 py-1.5 text-sm font-semibold backdrop-blur-sm">Detail: {mosaik.text}</span>
+    <!-- Komplettsanierung hervorgehoben -->
+    <div id="komplettsanierung" class="einblenden karte mt-6 grid grid-cols-1 lg:grid-cols-2">
+      {sanierung && <Image src={sanierung.bild} alt={sanierung.alt} widths={[480, 720, 960]} sizes="(min-width: 64rem) 40rem, 100vw" class="h-72 w-full object-cover object-[50%_45%] lg:h-full" />}
+      <div class="p-7 sm:p-10 lg:p-12">
+        <h3 class="text-[clamp(1.6rem,2.6vw,2.2rem)] leading-tight">Komplettsanierung inkl. Raumgestaltung</h3>
+        <p class="mt-4 text-lg leading-relaxed text-tinte-soft">
+          Wir übernehmen jede Schicht rund um die Fliese: Untergrund, Abdichtung,
+          Verlegung und Fugen. Material, Format und Verlegebild planen wir mit Ihnen.
+          Sie haben einen Ansprechpartner für das ganze Bad.
+        </p>
+        <ul class="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {['Besichtigung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Ausführung und Überwachung'].map((p) => (
+            <li class="flex items-center gap-3 font-semibold">
+              <svg class="shrink-0 text-akzent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {p}
+            </li>
+          ))}
+        </ul>
+        <a href="tel:+492219687575" class="knopf knopf-anruf mt-8">
+          <Telefon size={18} /> Sanierung besprechen
+        </a>
       </div>
-
-      <a href="tel:+492219687575" class="auftauchen kachel group flex flex-col justify-between gap-8 bg-akzent p-7 text-weiss transition-colors duration-200 hover:bg-akzent-tief sm:col-span-1 lg:col-span-7 lg:flex-row lg:items-end lg:p-10">
-        <span class="max-w-sm text-2xl leading-snug font-bold">Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu.</span>
-        <span class="breit inline-flex items-center gap-3 text-[clamp(1.35rem,3vw,2.2rem)] leading-none font-extrabold whitespace-nowrap">
-          <Telefon size={26} /> 0221 968 75 75
-        </span>
-      </a>
     </div>
   </div>
 </section>

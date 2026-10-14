@@ -1,10 +1,7 @@
 ---
 /**
- * Ablauf auf Grün: vier große Karten mit Ziffer. Die Ziffern tragen
- * Information (Reihenfolge). Inhalte aus den Bestandsleistungen.
+ * Ablauf in vier nummerierten Schritten (die Nummer trägt die Reihenfolge).
  */
-import Telefon from './Telefon.astro';
-
 const schritte = [
   { titel: 'Besichtigung vor Ort', text: 'Wir kommen zu Ihnen, sehen uns Raum und Untergrund an und sagen offen, was geht.' },
   { titel: 'Planung', text: 'Material, Format, Verlegebild und Budget legen wir gemeinsam fest. Sie entscheiden.' },
@@ -13,25 +10,22 @@ const schritte = [
 ];
 ---
 
-<section id="ablauf" class="auf-gruen scroll-mt-20 bg-gruen text-weiss">
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="auftauchen flex flex-wrap items-end justify-between gap-6">
-      <h2 class="max-w-2xl text-[clamp(2.2rem,4.8vw,4rem)] leading-[0.95]">In vier Schritten zum fertigen Bad.</h2>
-      <a href="tel:+492219687575" class="knopf knopf-zweit">
-        <Telefon size={18} /> Besichtigung anfragen
-      </a>
+<section id="ablauf" class="scroll-mt-20 bg-hell">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <div class="einblenden max-w-2xl">
+      <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">So läuft Ihr Projekt ab</h2>
+      <p class="mt-4 text-lg text-tinte-soft">In vier Schritten vom ersten Anruf zum fertigen Bad.</p>
     </div>
-
-    <ol class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+    <ol class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {
         schritte.map((s, i) => (
-          <li class="auftauchen kachel flex flex-col bg-gruen-tief p-7 lg:p-8">
-            <span class="breit text-[4.5rem] leading-none font-extrabold text-gruen-soft/50" aria-hidden="true">{i + 1}</span>
-            <h3 class="mt-8 text-2xl leading-tight">
+          <li class="einblenden karte p-7">
+            <span class="grid h-11 w-11 place-items-center rounded-full bg-tinte text-lg font-bold text-weiss" aria-hidden="true">{i + 1}</span>
+            <h3 class="mt-5 text-xl">
               <span class="sr-only">Schritt {i + 1}: </span>
               {s.titel}
             </h3>
-            <p class="mt-3 text-base leading-relaxed text-gruen-soft">{s.text}</p>
+            <p class="mt-2 text-[0.98rem] leading-relaxed text-tinte-soft">{s.text}</p>
           </li>
         ))
       }

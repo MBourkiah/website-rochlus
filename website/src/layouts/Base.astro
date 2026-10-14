@@ -1,13 +1,11 @@
 ---
 /**
  * Basis-Layout: Fonts (self-hosted via Fontsource), Meta/SEO.
- * Archivo (variabel, mit Breitenachse) trägt die Seite; Fraunces und Instrument Sans
- * werden nur für die Logo-Wortmarke geladen (Logo ist verbindlich).
+ * Figtree trägt die Seite. Das Logo-Paket (public/logo/) ist bis zum neuen
+ * Logo ausgesetzt; im Header steht eine schlichte Wortmarke.
  * noindex nur im Review-Stand; der Launch-Stand (PUBLIC_STAND=launch) ist indexierbar.
  */
-import '@fontsource-variable/archivo/wdth.css';
-import '@fontsource-variable/fraunces/opsz.css';
-import '@fontsource-variable/instrument-sans';
+import '@fontsource-variable/figtree';
 import '../styles/global.css';
 import { istReview } from '../stand';
 
@@ -42,7 +40,7 @@ const ldJson = {
     <title>{title}</title>
     <meta name="description" content={description} />
     {istReview && <meta name="robots" content="noindex, nofollow" />}
-    <meta name="theme-color" content="#f6f6f3" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -55,7 +53,7 @@ const ldJson = {
   <body>
     <a
       href="#inhalt"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-tinte focus:px-4 focus:py-2 focus:text-weiss"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-tinte focus:px-4 focus:py-2 focus:text-weiss"
     >
       Zum Inhalt springen
     </a>

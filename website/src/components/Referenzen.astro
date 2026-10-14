@@ -1,14 +1,18 @@
 ---
 /**
- * Unsere Bäder: echte Projekte als große Foto-Kacheln mit Detail daneben.
+ * Referenzen: echte Bäder im Bildraster mit kurzer Beschriftung.
  * Ohne Projektfotos in src/fotos.mjs: Archiv-Platzhalter nur im Review-Stand.
  * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
 import { Image } from 'astro:assets';
-import Telefon from './Telefon.astro';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
-import { fotos } from '../fotos.mjs';
+import { fotos, detailMosaikborduere as mosaik } from '../fotos.mjs';
 
+const bilder = [
+  fotos.bad && { bild: fotos.bad.bild, alt: fotos.bad.alt, text: fotos.bad.etikett, gross: true },
+  ...fotos.referenzen.map((f) => ({ bild: f.bild, alt: f.alt, text: f.etikett, gross: true })),
+  ...[fotos.bad?.detail, ...fotos.referenzen.map((f) => f.detail), mosaik].filter(Boolean).map((d) => ({ bild: d.bild, alt: d.alt, text: d.text, gross: false })),
+].filter(Boolean);
 const archiv = [
   { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen' },
   { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle' },
@@ -18,37 +22,24 @@ const archiv = [
 ---
 
 <section id="arbeiten" class="scroll-mt-20 bg-weiss">
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="auftauchen flex flex-wrap items-end justify-between gap-6">
-      <h2 class="max-w-3xl text-[clamp(2.2rem,4.8vw,4rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
-      <a href="tel:+492219687575" class="knopf knopf-zweit">
-        <Telefon size={18} /> So ein Bad anfragen
-      </a>
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <div class="einblenden flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-2xl">
+        <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">Unsere Bäder</h2>
+        <p class="mt-4 text-lg text-tinte-soft">Ein Auszug aus unseren Arbeiten, mit Blick auf die Details.</p>
+      </div>
     </div>
 
     {
       fotos.referenzen.length > 0 ? (
-        <div class="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
-          {fotos.referenzen.map((f) => (
-            <Fragment>
-              <figure class="auftauchen foto-zoom kachel relative min-h-[28rem] bg-flaeche lg:col-span-7 lg:min-h-[40rem]">
-                <Image src={f.bild} alt={f.alt} widths={[480, 720, 960, 1200]} sizes="(min-width: 64rem) 44rem, 100vw" class="absolute inset-0 h-full w-full object-cover object-[50%_45%]" />
-              </figure>
-              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1 lg:gap-6">
-                <div class="auftauchen kachel flex flex-col justify-end bg-flaeche p-7 lg:p-9">
-                  <h3 class="text-[clamp(1.6rem,2.6vw,2.2rem)] leading-tight">{f.etikett}</h3>
-                  <ul class="mt-4 space-y-1.5 text-base text-tinte-soft">
-                    {(f.notizen ?? []).map((n) => <li>{n.text}</li>)}
-                  </ul>
-                </div>
-                {f.detail && (
-                  <figure class="auftauchen foto-zoom kachel relative min-h-64 bg-flaeche">
-                    <Image src={f.detail.bild} alt={f.detail.alt} widths={[320, 480]} sizes="(min-width: 64rem) 28rem, 50vw" class="absolute inset-0 h-full w-full object-cover" />
-                    <figcaption class="absolute bottom-4 left-4 rounded-full bg-weiss/90 px-3.5 py-1.5 text-sm font-semibold backdrop-blur-sm">Detail: {f.detail.text}</figcaption>
-                  </figure>
-                )}
+        <div class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+          {bilder.map((b) => (
+            <figure class={`einblenden ${b.gross ? 'col-span-2 row-span-2' : ''}`}>
+              <div class="overflow-hidden rounded-lg bg-hell">
+                <Image src={b.bild} alt={b.alt} widths={b.gross ? [480, 720, 960] : [320, 480]} sizes={b.gross ? '(min-width: 64rem) 36rem, 100vw' : '(min-width: 64rem) 18rem, 50vw'} class={`w-full object-cover transition-transform duration-500 hover:scale-[1.03] ${b.gross ? 'aspect-4/5' : 'aspect-square'}`} />
               </div>
-            </Fragment>
+              <figcaption class="mt-3 text-[0.95rem] font-semibold">{b.text}</figcaption>
+            </figure>
           ))}
         </div>
       ) : (
@@ -56,7 +47,7 @@ const archiv = [
           <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />
           <div class="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {archiv.map((a) => (
-              <img src={a.src} alt={a.alt} width="210" height="158" loading="lazy" class="kachel aspect-4/3 w-full object-cover" />
+              <img src={a.src} alt={a.alt} width="210" height="158" loading="lazy" class="aspect-4/3 w-full rounded-lg object-cover" />
             ))}
           </div>
         </div>
