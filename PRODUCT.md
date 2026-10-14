@@ -42,7 +42,7 @@ Alle vier Punkte gelten gemeinsam, keiner allein:
 ## Brand Commitments
 
 - **Name:** Fliesenfachbetrieb Rochlus GmbH; Kurzform „Rochlus“.
-- **Logo:** Das neue Logopaket (Wortmarke „Rochlus“ + Fugen-Grid-/Verband-Icon, `website/public/logo/`) ist verbindliche Arbeitsgrundlage und löst das alte Mosaik-Logo ab. Die finale Freigabe durch den Kunden steht noch aus.
+- **Logo:** Ein neues Logo ist in Arbeit (Claude Design); bis dahin steht auf der Website eine schlichte Wortmarke „Rochlus / Fliesenfachbetrieb“. Das bisherige Logopaket (`website/public/logo/`) ist ausgesetzt. Die finale Freigabe des neuen Logos durch den Kunden steht aus.
 - **Ansprache:** Siezen, direkt, handwerklich-ehrlich, ohne Werbesprech; kurze Sätze, konkrete Aussagen („Wer anruft, spricht direkt mit dem Betrieb“).
 
 ## Evidence on Hand

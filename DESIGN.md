@@ -1,254 +1,239 @@
 ---
 name: Fliesenfachbetrieb Rochlus
-description: Modern & markant – ein klares Bento-Raster aus abgerundeten Kacheln, große echte Bäder, breite schwere Überschriften, eine tragende Farbfläche.
+description: Handwerker-Standard, sauber – bekannter Aufbau einer Handwerker-Website, ruhig und präzise umgesetzt, mit echten Bädern und Terrakotta nur fürs Anrufen.
 colors:
   akzent: "#b0512c"
   akzent-tief: "#93421f"
-  gruen: "#173f35"
-  gruen-tief: "#10302a"
-  gruen-soft: "#bcd2c7"
-  grund: "#f6f6f3"
-  flaeche: "#ecebe6"
-  linie: "#dad8d2"
   weiss: "#ffffff"
-  tinte: "#121212"
-  tinte-soft: "#4a4a46"
+  hell: "#f5f5f3"
+  linie: "#e4e3df"
+  tinte: "#1d2125"
+  tinte-soft: "#575c61"
+  dunkel: "#1d2125"
+  dunkel-soft: "#b6bbc0"
 typography:
   display:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
-    fontSize: "clamp(2.35rem, 6.6vw, 5.5rem)"
-    fontWeight: 800
-    lineHeight: 0.92
-    letterSpacing: "-0.03em"
-    fontVariation: "'wdth' 118"
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "clamp(2.4rem, 5.4vw, 4.25rem)"
+    fontWeight: 700
+    lineHeight: 1.05
+    letterSpacing: "-0.02em"
   headline:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
-    fontSize: "clamp(2.2rem, 4.8vw, 4rem)"
-    fontWeight: 800
-    lineHeight: 0.95
-    letterSpacing: "-0.03em"
-    fontVariation: "'wdth' 118"
-  title:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 800
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "clamp(2rem, 3.6vw, 2.75rem)"
+    fontWeight: 700
     lineHeight: 1.25
-    letterSpacing: "-0.015em"
-    fontVariation: "'wdth' 118"
-  body:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
-    fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.6
+    letterSpacing: "-0.02em"
+  title:
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 700
+    lineHeight: 1.4
+    letterSpacing: "-0.02em"
   lead:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.625
+  body:
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.65
   label:
-    fontFamily: "Archivo Variable, system-ui, sans-serif"
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
     fontSize: "0.875rem"
-    fontWeight: 600
-    lineHeight: 1.4
+    fontWeight: 400
+    lineHeight: 1.45
+  wortmarke:
+    fontFamily: "Figtree Variable, system-ui, sans-serif"
+    fontSize: "1.6rem"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.03em"
 rounded:
-  kachel: "1.5rem"
-  karte: "1rem"
-  pille: "999px"
+  knopf: "6px"
+  karte: "8px"
+  rund: "9999px"
 spacing:
-  raster-mobil: "1rem"
+  rand-mobil: "1rem"
+  rand: "1.5rem"
+  rand-breit: "2rem"
   raster: "1.5rem"
-  kachel-innen: "1.75rem"
-  kachel-innen-gross: "3rem"
-  section: "4rem"
-  section-gross: "6rem"
+  karte-innen: "1.75rem"
+  abschnitt: "5rem"
+  abschnitt-breit: "7rem"
 components:
   knopf-anruf:
     backgroundColor: "{colors.akzent}"
     textColor: "{colors.weiss}"
-    rounded: "{rounded.pille}"
-    padding: "0.7rem 1.4rem"
+    rounded: "{rounded.knopf}"
+    padding: "0.75rem 1.4rem"
     height: "3rem"
   knopf-anruf-hover:
     backgroundColor: "{colors.akzent-tief}"
     textColor: "{colors.weiss}"
   knopf-zweit:
+    backgroundColor: "transparent"
     textColor: "{colors.tinte}"
-    rounded: "{rounded.pille}"
-    padding: "0.7rem 1.4rem"
+    rounded: "{rounded.knopf}"
+    padding: "0.75rem 1.4rem"
     height: "3rem"
   knopf-zweit-hover:
     backgroundColor: "{colors.tinte}"
     textColor: "{colors.weiss}"
-  kachel-weiss:
+  karte:
     backgroundColor: "{colors.weiss}"
-    textColor: "{colors.tinte}"
-    rounded: "{rounded.kachel}"
+    rounded: "{rounded.karte}"
     padding: "1.75rem"
-  kachel-gruen:
-    backgroundColor: "{colors.gruen}"
+  schritt-nummer:
+    backgroundColor: "{colors.tinte}"
     textColor: "{colors.weiss}"
-    rounded: "{rounded.kachel}"
-    padding: "3rem"
-  karte-gruen-tief:
-    backgroundColor: "{colors.gruen-tief}"
-    textColor: "{colors.weiss}"
-    rounded: "{rounded.kachel}"
-    padding: "1.75rem"
-  foto-etikett:
+    rounded: "{rounded.rund}"
+    size: "2.75rem"
+  platzhalter-badge:
     backgroundColor: "{colors.weiss}"
-    textColor: "{colors.tinte}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pille}"
-    padding: "0.375rem 0.875rem"
-  nav-link:
     textColor: "{colors.tinte-soft}"
-    rounded: "{rounded.pille}"
-    padding: "0.625rem 1rem"
-  nav-link-aktiv:
-    backgroundColor: "{colors.flaeche}"
-    textColor: "{colors.tinte}"
+    rounded: "4px"
+    padding: "0.125rem 0.625rem"
 ---
 
 # Design System: Fliesenfachbetrieb Rochlus
 
 ## Overview
 
-**Creative North Star: "Modern & markant"**
+**Creative North Star: "Handwerker-Standard, sauber"**
 
-Eine moderne Handwerker-Website ohne Kostüm. Ordnung, Maßstab und Präzision tragen die Seite, nicht Metaphern oder Dekoration. Die Fläche ist ein klares Bento-Raster aus abgerundeten Kacheln auf hellem Grund; die echten Bäder des Betriebs stehen darin groß, als Foto-Kacheln auf Augenhöhe mit dem Text. Eine Schrift, Archivo, macht beides: breit und schwer für Aussagen, normal für Text.
+Die Seite folgt bewusst dem Aufbau, den Kunden von Handwerker-Websites kennen: Kontaktleiste, Header mit Anruf-Knopf, Foto-Hero mit klarer Aussage, Vertrauensleiste, Leistungskarten, Bildraster, Ablauf in Schritten, Fakten zum Betrieb, dunkler Kontaktbereich. Die Form ist vertraut; die Qualität liegt in der Ausführung: ruhige weiße und hellgraue Flächen, feine Linien, eine Schrift, klare Größenstufen, moderate Radien und keine billigen Details.
 
-Farbe arbeitet als Fläche, nicht als Verzierung. Tiefes Flaschengrün trägt die gewichtigen Kacheln und Abschnitte (Kernangebot, Ablauf, Kontakt); Terrakotta aus dem Logo bedeutet ausschließlich „Anrufen“. Alles andere bleibt hell und neutral, damit Fotos und Überschriften wirken.
+Getragen wird die Seite von echten Fotos der Bäder des Betriebs. Farbe tritt fast nur über diese Fotos auf; die Oberfläche selbst bleibt neutral (Weiß, Hellgrau, Anthrazit). Terrakotta aus dem Firmenlogo ist dem Anrufen vorbehalten, und pro Blick ist nur ein Anruf-Element terrakotta. Bewegung ist auf ein dezentes Einblenden beim Scrollen beschränkt.
 
-Bewegung ist ruhig und kurz: Der Hero baut sich beim Laden gestaffelt auf, das Hero-Foto öffnet sich aus der Kachel, Inhalte tauchen beim Scrollen auf, Fotos zoomen bei Hover leicht heran. Bei „Bewegung reduzieren“ ist alles sofort da.
+Das Logo-Paket (`website/public/logo/`) ist ausgesetzt, bis das neue Logo kommt. Bis dahin steht im Header eine schlichte Text-Wortmarke in der Seitenschrift.
 
 **Key Characteristics:**
-- Bento-Raster aus Kacheln mit 1.5rem-Radius, 1.5rem Abstand (mobil 1rem).
-- Überschriften Archivo 800 mit 118 % Breite und engem Spurabstand.
-- Eine tragende Fläche (Flaschengrün), ein Signal (Terrakotta = Anruf).
-- Große echte Fotos des Betriebs, keine Stockbilder, keine Icon-Kacheln.
-- Pillen-Knöpfe, groß und eindeutig.
+- Bekannte Handwerker-Gliederung, sauber und präzise ausgeführt
+- Weiß und Hellgrau im Wechsel, Anthrazit für Text, Kontakt und Footer
+- Terrakotta nur für Anrufen, ein Anruf-Akzent pro Blick
+- Eine Schrift (Figtree), fett in Überschriften, ruhig im Text
+- Radien 6–8px, 1px-Linien, Karten mit Bild
+- Nur echte Rochlus-Fotos; Lücken als Platzhalter nur im Review-Stand
 
 ## Colors
 
-Heller, neutraler Grund mit einer tiefgrünen Tragfläche und einem einzigen warmen Signal.
+Neutrale, helle Palette mit einem warmen Akzent, der ausschließlich zum Telefon führt.
 
 ### Primary
-- **Logo-Terrakotta** (akzent): ausschließlich für Anrufen: Anruf-Knopf, Anruf-Kachel, aktivierter Header-Anruf, mobile Anrufleiste, Schreibmarke. Identisch mit dem Terrakotta der Logo-Wortmarke.
-- **Gebranntes Terrakotta** (akzent-tief): Hover-Zustand jeder Anruf-Fläche.
-
-### Secondary
-- **Flaschengrün** (gruen): die tragende Farbfläche: Kernangebots-Kachel, Ablauf-Abschnitt, Kontakt-Kachel, Textauswahl, Häkchen und Listenpunkte auf hellem Grund.
-- **Tiefes Flaschengrün** (gruen-tief): Karten und Unterteilungen innerhalb grüner Flächen (Ablauf-Karten, Schrittleiste der Komplettsanierung).
-- **Salbei** (gruen-soft): Nebentext und Ziffern auf Grün (Kontrast ≥ 7:1 auf gruen).
+- **Logo-Terrakotta** (`akzent`): Füllung des Anruf-Knopfs (Hero, Komplettsanierung, Kontakt, mobile Anrufleiste) und des Header-Anrufs, sobald der Hero-Anruf aus dem Blick ist. Sonst nirgends.
+- **Gebrannte Terrakotta** (`akzent-tief`): Hover-Zustand des Anruf-Knopfs.
 
 ### Neutral
-- **Grund** (grund): Seitenhintergrund, Header (90 % deckend mit Blur), mobile Anrufleiste.
-- **Weiß** (weiss): Inhalts-Kacheln, Referenzen-Abschnitt, Foto-Etiketten, Text auf Grün und Terrakotta.
-- **Fläche** (flaeche): Platzhalter hinter Fotos, Text-Kacheln neben Fotos, Hover und aktiver Zustand der Navigation, Menü-Knopf.
-- **Linie** (linie): Haarlinien (Header-Unterkante, Footer, Faktenzeilen im Hero, Trennlinien in Faktenlisten).
-- **Tinte** (tinte): Text, Fokusrahmen, Hover-Fläche des Kontur-Knopfs.
-- **Tinte weich** (tinte-soft): Nebentext, Labels, Navigation im Ruhezustand (≥ 8:1 auf Grund).
+- **Weiß** (`weiss`): Seitengrund, Karten, Header (95 % deckend mit Weichzeichner), mobile Anrufleiste.
+- **Kalkgrau** (`hell`): Wechselgrund der Abschnitte Leistungen und Ablauf, Kontaktleiste oben, Bildgrund, Hover im Mobilmenü.
+- **Fugenlinie** (`linie`): alle 1px-Linien – Kartenrand, Header- und Leistenunterkante, Trenner in Vertrauensleiste und Faktenliste.
+- **Anthrazit** (`tinte` / `dunkel`, derselbe Wert): Fließtext, Überschriften, Fokusring, Schritt-Nummern, Hover-Füllung des Zweitknopfs; als `dunkel` der Grund von Hero-Abdunklung, Kontaktbereich und Footer.
+- **Schiefergrau** (`tinte-soft`): Nebentext, Einleitungen, Navigation im Ruhezustand, Platzhalter-Etikett (≥ 6.5:1 auf Weiß und Kalkgrau).
+- **Helles Schiefergrau** (`dunkel-soft`): Nebentext auf Anthrazit (≥ 8:1).
 
 ### Named Rules
-**The Ein-Rot-pro-Blick Rule.** Terrakotta erscheint nur für Anrufen und höchstens einmal im Blickfeld. Solange der Hero-Anruf sichtbar ist, bleibt der Header-Anruf eine neutrale Kontur und die mobile Anrufleiste eingefahren; erst danach übernehmen sie das Terrakotta. Am Kontakt-Anruf treten beide wieder zurück. Geregelt in Base.astro per IntersectionObserver (`data-anruf-weg`, `data-klingel-da`).
+**The Anruf-Only Rule.** Terrakotta bedeutet „hier anrufen“ und nichts anderes. Keine terrakottafarbenen Flächen, Linien, Überschriften, Häkchen oder Symbole ohne Telefonfunktion.
 
-**The Eine-Fläche Rule.** Grün ist die einzige farbige Fläche. Keine weiteren Farbkacheln, keine Verläufe, keine zweite Akzentfarbe.
+**The Ein-Rot-pro-Blick Rule.** Gleichzeitig ist höchstens ein Anruf-Element terrakotta. Solange der Hero-Anruf sichtbar ist, bleibt der Header-Anruf neutral (Umrandung) und die mobile Anrufleiste eingefahren; erreicht der Besucher den Kontaktbereich, treten beide wieder zurück. Seiten ohne Hero (Rechtsseiten) zeigen beide sofort.
 
 ## Typography
 
-**Display Font:** Archivo Variable mit Breitenachse (Fallback system-ui, sans-serif)
-**Body Font:** Archivo Variable (dieselbe Familie, normale Breite)
-**Logo-Schriften:** Fraunces und Instrument Sans, nur innerhalb der Logo-Wortmarke
+**Display Font:** Figtree Variable (mit system-ui, sans-serif)
+**Body Font:** Figtree Variable (mit system-ui, sans-serif)
 
-**Character:** Eine Familie in zwei Haltungen. Breit (118 %) und schwer (800) wirkt sie bestimmt und baulich; normal gesetzt bleibt sie ruhig und gut lesbar.
+**Character:** Eine freundliche, klare Groteske für alles. Hierarchie entsteht über Größe und Gewicht (Text 400, Knöpfe 650, Überschriften 700, Wortmarke 800), nicht über eine zweite Schrift. Überschriften laufen mit leicht engerer Laufweite (-0.02em) und ausbalancierten Zeilen.
 
 ### Hierarchy
-- **Display** (800, clamp(2.35rem, 6.6vw, 5.5rem), 0.92, 118 % Breite): nur die H1 im Hero; darf automatisch trennen.
-- **Headline** (800, clamp(2.2rem, 4.8vw, 4rem), 0.95, 118 % Breite): Abschnittsüberschriften. Abschluss-Aussage „Einfach anrufen.“ darf bis 5rem gehen.
-- **Title** (800, 1.5rem, eng, -0.015em): Kachel- und Kartenüberschriften; die Kernangebots-Kachel skaliert bis 3.25rem.
-- **Body** (400, 1.0625rem, 1.6): Fließtext, max. ca. 36rem Zeilenbreite (max-w-lg / max-w-xl).
-- **Lead** (400, 1.125–1.25rem, 1.625): Einleitungssätze unter Überschriften, in tinte-soft bzw. gruen-soft.
-- **Label** (600, 0.875rem): Begriffe in Faktenlisten, Foto-Etiketten. Kein Versal-Sperrsatz.
+- **Display**: nur die H1 im Hero, weiß auf abgedunkeltem Foto, max. ~42rem breit.
+- **Headline**: Abschnittsüberschriften (H2). Der Kontaktbereich darf größer werden (bis `clamp(2rem, 4vw, 3.25rem)`).
+- **Title**: Karten- und Schrittüberschriften (H3); der Komplettsanierungs-Block nutzt eine größere Stufe (`clamp(1.6rem, 2.6vw, 2.2rem)`).
+- **Lead**: Einleitungssatz unter jeder H2 und im Hero, in Schiefergrau, max. ~36–42rem breit.
+- **Body**: Fließtext und Listen; Listenpunkte in Karten bei 0.98rem.
+- **Label**: Kontaktleiste, `dt`-Beschriftungen im Kontakt, Nebenzeilen.
+- **Wortmarke**: „Rochlus“ im Header; darunter „Fliesenfachbetrieb“ in 0.7rem, 600, Versalien, 0.14em Laufweite, Schiefergrau. Das ist Teil der Wortmarke, kein Stilmittel für andere Stellen.
 
 ### Named Rules
-**The Breite-Auszeichnung Rule.** Die breite Lage (`.breit`, 118 %) gehört Überschriften, Telefonnummern als Großzeile und Ziffern. Fließtext bleibt in normaler Breite.
+**The Eine-Schrift Rule.** Figtree trägt die ganze Seite, self-hosted über Fontsource. Keine zweite Familie, keine Systemschrift als Display-Ersatz.
 
-**The Logo-Schriften Rule.** Fraunces und Instrument Sans werden nur für die Logo-Wortmarke geladen. Nie für Überschriften, Text oder Bedienelemente verwenden.
+**The Keine-Dachzeile Rule.** Überschriften stehen ohne Dachzeilen, Eyebrows oder Versal-Kicker darüber. Die H2 sagt selbst, worum es geht.
 
 ## Layout
 
-Zentrierter Container (max. 80rem, Seitenrand 1rem / 1.5rem / 2rem) mit 12-Spalten-Raster ab lg. Abschnitte atmen mit 4rem vertikal, ab lg 6rem. Kacheln stehen im Bento: ungleich breite Spalten (7/5, 4/4/4, 7/5), teils über zwei Zeilen; Abstand 1rem mobil, 1.5rem ab lg. Innenabstand der Kacheln 1.75rem bis 3.5rem je nach Gewicht.
+Ein zentrierter Container (max. 80rem) mit Seitenrand 1rem / 1.5rem (sm) / 2rem (lg). Abschnitte sind volle Breite mit Grundwechsel Weiß – Kalkgrau – Weiß – Kalkgrau – Weiß – Anthrazit und vertikal 5rem, ab lg 7rem Innenabstand. Raster haben 1.5rem Abstand (Bildraster 1rem, ab lg 1.5rem).
 
-Abschnitte wechseln die Grundfläche (grund → weiß → grün → grund), statt Trennlinien zu setzen. Der Kontakt ist selbst eine große grüne Kachel innerhalb des Containers. Mobil stapelt alles einspaltig; Knöpfe werden volle Breite. Unten reserviert die Seite Platz für die mobile Anrufleiste (unter md). Sprungziele berücksichtigen den Sticky-Header (scroll-padding 5.5rem).
+Gliederung: Kontaktleiste (ab md, 2.5rem hoch, Kalkgrau) → Sticky-Header (4.5rem) → Foto-Hero → Vertrauensleiste (4 Punkte, 1/2/4 Spalten mit Trennlinien) → Leistungen (3 Karten, darunter ein breiter Komplettsanierungs-Block Bild/Text) → Unsere Bäder (2/4-Spalten-Bildraster, große Bilder über 2×2) → Ablauf (4 Karten, 1/2/4 Spalten) → Über uns (Text links, Faktenkarte rechts) → Kontakt (7/12 Text, 4/12 Kontaktdaten) → Footer.
 
-**The Bento Rule.** Neue Inhalte kommen als Kachel ins Raster, nicht als freischwebender Block. Text-Kacheln und Foto-Kacheln sind gleichrangig und teilen Radius und Abstand.
+Mobil reserviert die Seite unten 4.5rem für die Anrufleiste. Ankerziele haben 5.5rem Scroll-Padding wegen des Sticky-Headers.
+
+### Named Rules
+**The Bekannte-Form Rule.** Die Reihenfolge und die Bausteine einer Handwerker-Seite bleiben lesbar. Neue Flächen ordnen sich in diese Gliederung ein, statt eigene Inszenierungen zu erfinden.
 
 ## Elevation & Depth
 
-Flach. Tiefe entsteht durch Flächenwechsel (Grund, Weiß, Fläche, Grün, tiefes Grün) und Haarlinien, nicht durch Schatten. Einzige Ausnahme ist das aufgeklappte Mobilmenü, das über dem Inhalt schwebt; der Header nutzt halbtransparenten Grund mit Hintergrund-Blur.
+Flach. Tiefe entsteht durch den Grundwechsel Weiß/Kalkgrau, 1px-Linien und das abgedunkelte Hero-Foto (Verlauf von links, Anthrazit 95 % → 75 % → 20 %). Karten haben keinen Schatten, nur eine Linie.
 
 ### Shadow Vocabulary
-- **Menü-Schweben** (`box-shadow: 0 20px 40px -20px rgb(0 0 0 / 0.35)`): nur das aufgeklappte Mobilmenü.
+- **Menü-Schatten** (`0 16px 32px -16px rgb(0 0 0 / 0.3)`): nur das aufgeklappte Mobilmenü, weil es über Inhalt liegt.
 
-**The Flach-bleibt-flach Rule.** Kacheln, Karten und Knöpfe haben keinen Schatten. Hierarchie kommt aus Farbe, Größe und Position.
+### Named Rules
+**The Linie-statt-Schatten Rule.** Flächen grenzen sich über die Fugenlinie ab. Schatten gibt es nur für schwebende Ebenen (Mobilmenü).
 
 ## Shapes
 
-Weich abgerundete Rechtecke und Pillen, sonst keine Formen. Kacheln, Foto-Kacheln und das Mobilmenü tragen 1.5rem; kleinere Karten (Faktenzeilen, Klärungshinweis, Schrittleiste) 1rem; Knöpfe, Navigations-Links, Foto-Etiketten und Badges sind Pillen. Fotos werden immer von ihrer Kachel beschnitten (overflow hidden), nie freigestellt. Ränder sind Haarlinien (1px linie) oder bei Kontur-Knöpfen 1.5px in der Textfarbe; gestrichelt nur für Platzhalter.
+Moderate, gleichmäßige Radien: Knöpfe und kleine Bedienelemente 6px, Karten, Bilder und Menü 8px. Kreise nur für Schritt-Nummern und das Inhaber-Porträt. Linien immer 1px; gestrichelt nur für Platzhalter. Bilder in Karten laufen randlos bis an die Kartenkante (16:10, Bildraster 4:5 und 1:1).
 
 ## Components
 
 ### Buttons
-- **Shape:** Pille (999px), mind. 3rem hoch, im Hero 3.5rem, im Kontakt 4rem.
-- **Anruf (knopf-anruf):** Terrakotta mit weißer Schrift, 700, Telefon-Symbol vor der Nummer. Hover: gebranntes Terrakotta.
-- **Kontur (knopf-zweit):** 1.5px Rand in currentColor, transparent. Hover: Tinte gefüllt mit weißer Schrift; auf Grün umgekehrt (weiß gefüllt, grüne Schrift).
-- **Hover / Focus / Active:** Farbwechsel 160ms; Pfeil rückt 3px nach rechts; beim Drücken 1px nach unten und 99 %. Fokus: 2px Tinte, 3px Abstand; auf Grün weiß.
+Klar, groß, eindeutig: der Knopf sagt, was passiert.
+- **Shape:** sanft gerundet (6px), mind. 3rem hoch; in Hero, Kontakt und Anrufleiste 3.25–3.5rem bei größerem Text.
+- **Anruf (`knopf-anruf`):** Terrakotta, weiße Schrift 650, Telefon-Symbol (Feather „phone“, Strich 2) vor der Nummer. Beschriftung ist die Nummer selbst oder eine Handlung („Sanierung besprechen“).
+- **Zweitknopf (`knopf-zweit`):** 1px-Rand in Textfarbe, transparent; Hover füllt Anthrazit mit weißer Schrift, auf Dunkel/Foto umgekehrt (weiß mit Anthrazit).
+- **Header-Anruf:** startet als Zweitknopf und wird terrakotta, sobald der Hero-Anruf aus dem Blick ist (ab md).
+- **Hover / Focus:** Farbwechsel 160ms mit `--kurve`; Fokus als 2px-Anthrazit-Ring, 3px Abstand (auf Dunkel/Foto weiß).
 
 ### Cards / Containers
-- **Kachel:** 1.5rem Radius, overflow hidden, Weiß, Fläche oder Grün; ohne Schatten, ohne Rand.
-- **Karte auf Grün:** tiefes Grün, Ziffer groß in Salbei (50 %), Titel weiß, Text Salbei.
-- **Faktenzeile:** 1rem Radius, Haarlinie, grünes Häkchen, 600.
+- **Corner Style:** 8px.
+- **Background:** Weiß, auch auf Kalkgrau-Abschnitten.
+- **Shadow Strategy:** keiner, siehe Elevation.
+- **Border:** 1px Fugenlinie.
+- **Internal Padding:** 1.5rem, ab lg 1.75rem; Komplettsanierungs-Block bis 3rem.
 
 ### Navigation
-- **Desktop (ab lg):** Pillen-Links in tinte-soft, 600, 0.95rem; Hover und aktueller Abschnitt (Scroll-Spy, aria-current) auf Fläche mit Tinte.
-- **Mobil:** runder Menü-Knopf auf Fläche, Menü als weiße 1.5rem-Kachel mit großen Zeilen; schließt bei Linkklick, Esc und Tipp daneben.
-- **Header:** sticky, grund 90 % mit Blur, Haarlinie unten, Logo links, Header-Anruf rechts (siehe Ein-Rot-pro-Blick).
-
-### Logo-Wortmarke (verbindlich)
-Das Logo aus `public/logo/` ist verbindlich und wird nicht nachgebaut oder umgefärbt. Im Header wird `logo-lockup-light.svg` inline eingebunden (damit Fraunces und Instrument Sans greifen), die Papier-Hintergrundfläche entfernt und der viewBox auf die Marke beschnitten. Der Footer nutzt die Bildmarke `icon-verband.svg`. Das Terrakotta der Wortmarke ist die Anruf-Farbe der Seite.
-
-### Foto-Kachel
-Echtes Foto, object-cover in einer Kachel auf Fläche; Etikett als weiße Pille (90 %, Blur) unten links mit sachlichem Motivtext („Detail: …“). Hover: Foto zoomt in 700ms auf 104 %.
-
-### Platzhalter-Badge
-Kleine Pille mit gestricheltem Rand in tinte-soft auf Weiß, 0.75rem, 600; bewusst neutral, kein Terrakotta. Nur im Review-Stand.
+- **Header:** Sticky, Weiß 95 % mit Weichzeichner, Unterkante 1px. Links Wortmarke, Mitte Ankernavigation (ab lg), rechts Anruf.
+- **Links:** 0.95rem, 600, Schiefergrau; Hover und aktiver Abschnitt (Scroll-Spy, `aria-current`) in Anthrazit.
+- **Mobil:** Menü-Knopf 2.75rem mit Linienrand; Menü als 16rem-Karte mit Menü-Schatten, Links 1.125rem, schließt bei Klick, Esc und Tipp daneben.
 
 ### Mobile Anrufleiste
-Unter md fest am unteren Rand: Anruf-Knopf plus Kontur-Knopf „E-Mail“ auf grund 95 % mit Blur, Safe-Area beachtet. Fährt (260ms) erst ein, wenn der Hero-Anruf aus dem Blick ist; eingefahren nicht fokussierbar; ohne JS immer sichtbar.
+Unten fest, Weiß 95 % mit Weichzeichner, Linie oben, Safe-Area beachtet: Anruf-Knopf mit Nummer plus Zweitknopf „E-Mail“. Fährt in 260ms ein, sobald der Hero-Anruf weg ist; eingefahren nicht fokussierbar; ohne JS immer sichtbar.
 
-### Bewegung
-- **Kurve:** `--kurve` cubic-bezier(0.22, 1, 0.36, 1) für alle Übergänge.
-- **Hero-Aufbau:** Teile tauchen gestaffelt auf (800ms, 110ms je `--i`), das Foto öffnet sich aus einem eingerückten Ausschnitt (1200ms).
-- **Scroll-Auftauchen:** `.auftauchen` über CSS-Scroll-Timeline (`view()`, entry 0–55 %); leichte Parallaxe am Hero-Foto. Nur mit `@supports (animation-timeline: view())`.
-- **Longhands-Pflicht:** Scroll-getriebene Animationen werden als Longhands geschrieben (`animation-name`, `-timing-function`, `-fill-mode`, `-timeline`, `-range`). Der Minifier zerlegt die Kurzschreibweise zusammen mit `animation-timeline` falsch und setzt die Timeline zurück.
-- **Reduzierte Bewegung:** alle Animationen aus, Übergänge 1ms, kein Smooth-Scroll.
+### Schritt-Nummer
+Anthrazit-Kreis (2.75rem) mit weißer Ziffer 1.125rem/700 über der Schrittüberschrift; die Nummer trägt die Reihenfolge, für Screenreader steht „Schritt n:“ in der H3.
+
+### Platzhalter-Badge
+Kleines Etikett (0.75rem, 600), gestrichelter Rand in Schiefergrau, weißer Grund, bewusst ohne Akzentfarbe. Erscheint nur im Review-Stand; im Launch-Stand rendert es nichts. Fehlende Inhalte als gestrichelte Box (8px, Schiefergrau 40 %) mit Badge und kurzer Erklärung.
+
+### Text-Link
+Unterstrichen, 1px, 0.25em Abstand, Unterstreichung in 45 % der Textfarbe, beim Hover volle Farbe. Kontaktdaten-Links mind. 2.75rem hoch.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** nur echte Fotos des Betriebs und daraus beschnittene Nahaufnahmen verwenden; jede Datei mit Herkunft in `website/src/assets/QUELLEN.md` eintragen und über `src/fotos.mjs` einbinden.
-- **Do** Terrakotta ausschließlich für Anrufen einsetzen und die Ein-Rot-pro-Blick-Logik respektieren.
-- **Do** Neues als Kachel ins Bento-Raster setzen (1.5rem Radius, 1rem/1.5rem Abstand).
-- **Do** Überschriften in Archivo 800 mit 118 % Breite und Fließtext in normaler Breite setzen.
-- **Do** fehlende Kundeninhalte im Review-Stand mit dem Platzhalter-Badge kennzeichnen und im Launch-Stand (`PUBLIC_STAND=launch`) ganz entfallen lassen: kein leerer Fotorahmen, keine Klärungsbox, keine Galerie ohne Originalfotos.
-- **Do** Scroll-Animationen als Longhands schreiben und hinter `@supports (animation-timeline: view())` und `prefers-reduced-motion: no-preference` stellen.
-- **Do** Tippziele ab 44px halten (`.ziel`, Knöpfe ab 3rem).
+- **Do** Terrakotta (`akzent`) ausschließlich für Anruf-Knöpfe nutzen und pro Blick nur einen davon zeigen (Logik in `Base.astro`).
+- **Do** ausschließlich echte Fotos von Rochlus-Bädern zeigen; jede Datei steht mit Herkunft in `website/src/assets/QUELLEN.md` und wird über `website/src/fotos.mjs` eingebunden.
+- **Do** fehlende Inhalte im Review-Stand mit dem Platzhalter-Badge kennzeichnen und im Launch-Stand (`PUBLIC_STAND=launch`) ganz weglassen – kein leerer Rahmen, keine Klärungsbox.
+- **Do** im Header die Text-Wortmarke „Rochlus / Fliesenfachbetrieb“ verwenden, bis das neue Logo freigegeben ist.
+- **Do** Scroll-Animationen als Longhands schreiben (`animation-name`, `animation-timing-function`, `animation-fill-mode`, `animation-timeline`, `animation-range`), weil der Minifier die Kurzform mit `animation-timeline` zerlegt; immer hinter `@supports (animation-timeline: view())` und `prefers-reduced-motion: no-preference`.
+- **Do** Bewegung auf das Einblenden (`einblenden`: 16px hoch, Deckkraft 0 → 1, Bereich `entry 0% entry 45%`) und kurze Zustandswechsel (160ms, Anrufleiste 260ms, `--kurve`) begrenzen.
+- **Do** Abschnitte im Wechsel Weiß/Kalkgrau setzen und mit dem dunklen Kontaktbereich abschließen.
 
 ### Don't:
-- **Don't** Stockbilder, KI-Bilder oder fremde Referenzfotos verwenden.
-- **Don't** Metaphern oder Kulissen bauen (Schilder, Werkstatt-Requisiten, Papier-Anmutung); die Welt ist Raster, Maßstab und Fläche.
-- **Don't** Icon-Kacheln mit Glyphen als Leistungsdarstellung; Symbole nur funktional (Telefon, Pfeil, Häkchen) in einer Strichstärke.
-- **Don't** eine zweite Akzentfarbe, Verläufe oder Schatten auf Kacheln einführen.
-- **Don't** Fraunces oder Instrument Sans außerhalb der Logo-Wortmarke verwenden; das Logo nicht nachsetzen oder umfärben.
-- **Don't** Kicker oder Eyebrow-Zeilen über Überschriften setzen.
-- **Don't** `animation`-Kurzschreibweise zusammen mit `animation-timeline` verwenden.
+- **Don't** das Logo-Paket aus `website/public/logo/` einbinden, solange es ausgesetzt ist.
+- **Don't** Stockbilder, KI-Bilder oder fremde Referenzfotos zeigen.
+- **Don't** Terrakotta für Häkchen, Symbole, Linien, Überschriften oder Flächen ohne Anruffunktion einsetzen.
+- **Don't** Dachzeilen/Eyebrows über Überschriften, Pillen-Etiketten oder eine zweite Schriftfamilie einführen.
+- **Don't** Karten mit Schatten absetzen; Abgrenzung läuft über die 1px-Linie.
+- **Don't** Radien über 8px (außer Kreisen) oder Kachel-/Bento-Raster einführen.
