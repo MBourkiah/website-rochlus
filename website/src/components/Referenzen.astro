@@ -1,19 +1,14 @@
 ---
 /**
- * Unsere Bäder (Signatur): ein echtes Bad, an die Wand geklemmt. Beim Scrollen
- * fährt der Blick ins Foto, bis die Nische groß zu sehen ist: „Gute Arbeit
- * erkennt man an der Fuge“, wörtlich. Scroll-gebundene Animation nur, wenn der
- * Browser sie kann und keine reduzierte Bewegung gewünscht ist; sonst Foto
- * plus Nahaufnahme nebeneinander. Weitere Bäder darunter als geklemmte Fotos.
- * Nur echte Rochlus-Fotos. KEINE erfundenen Projektnamen oder Kundenzitate.
+ * Unsere Bäder: echte Projekte als große Foto-Kacheln mit Detail daneben.
+ * Ohne Projektfotos in src/fotos.mjs: Archiv-Platzhalter nur im Review-Stand.
+ * KEINE erfundenen Projektnamen oder Kundenzitate.
  */
 import { Image } from 'astro:assets';
-import KlemmFoto from './KlemmFoto.astro';
+import Telefon from './Telefon.astro';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
-import Zwinge from './Zwinge.astro';
 import { fotos } from '../fotos.mjs';
 
-const [haupt, ...weitere] = fotos.referenzen;
 const archiv = [
   { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen' },
   { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle' },
@@ -22,59 +17,50 @@ const archiv = [
 ];
 ---
 
-<section id="arbeiten" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
-  {
-    haupt ? (
-      <div class="lupe" style={`--lupe-x:${haupt.lupe?.x ?? 50}%;--lupe-y:${haupt.lupe?.y ?? 50}%`}>
-        <div class="lupe-buehne mx-auto grid max-w-6xl grid-cols-1 items-center gap-x-12 gap-y-8 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:py-0">
-          <div class="lg:col-span-5">
-            <h2 class="text-[clamp(2.6rem,6vw,4.75rem)] leading-[0.9] tracking-[-0.02em]">Gute Arbeit erkennt man an der Fuge.</h2>
-            <p class="mt-6 max-w-md text-lg leading-relaxed text-graphit-soft">
-              Ein Bad, das wir gefliest haben: {haupt.etikett}. Scrollen Sie
-              weiter, dann gehen wir näher ran.
-            </p>
-            <p class="lupe-text mt-6 text-lg">
-              <span class="schmal block text-2xl font-bold">Nahaufnahme</span>
-              <span class="text-graphit-soft">{haupt.detail?.text}</span>
-            </p>
-            <p class="mt-8 text-lg text-graphit-soft">
-              So etwas soll bei Ihnen entstehen?{' '}
-              <a href="tel:+492219687575" class="link link-anruf ziel schmal text-2xl font-bold whitespace-nowrap text-graphit">0221 968 75 75</a>
-            </p>
-          </div>
+<section id="arbeiten" class="scroll-mt-20 bg-weiss">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <div class="auftauchen flex flex-wrap items-end justify-between gap-6">
+      <h2 class="max-w-3xl text-[clamp(2.2rem,4.8vw,4rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
+      <a href="tel:+492219687575" class="knopf knopf-zweit">
+        <Telefon size={18} /> So ein Bad anfragen
+      </a>
+    </div>
 
-          <figure class="klemmfoto relative mx-auto w-[86%] max-w-md lg:col-span-6 lg:col-start-7 lg:w-full" style="--neigung:-0.8deg">
-            <Zwinge class="klemmfoto-zwinge" style="left:30%" />
-            <div class="klemmfoto-rahmen">
-              <div class="lupe-fenster overflow-hidden">
-                <Image src={haupt.bild} alt={haupt.alt} widths={[480, 720, 960, 1200]} sizes="(min-width: 64rem) 28rem, 86vw" class={`lupe-bild w-full ${haupt.ausschnitt ?? ''}`} />
+    {
+      fotos.referenzen.length > 0 ? (
+        <div class="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
+          {fotos.referenzen.map((f) => (
+            <Fragment>
+              <figure class="auftauchen foto-zoom kachel relative min-h-[28rem] bg-flaeche lg:col-span-7 lg:min-h-[40rem]">
+                <Image src={f.bild} alt={f.alt} widths={[480, 720, 960, 1200]} sizes="(min-width: 64rem) 44rem, 100vw" class="absolute inset-0 h-full w-full object-cover object-[50%_45%]" />
+              </figure>
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1 lg:gap-6">
+                <div class="auftauchen kachel flex flex-col justify-end bg-flaeche p-7 lg:p-9">
+                  <h3 class="text-[clamp(1.6rem,2.6vw,2.2rem)] leading-tight">{f.etikett}</h3>
+                  <ul class="mt-4 space-y-1.5 text-base text-tinte-soft">
+                    {(f.notizen ?? []).map((n) => <li>{n.text}</li>)}
+                  </ul>
+                </div>
+                {f.detail && (
+                  <figure class="auftauchen foto-zoom kachel relative min-h-64 bg-flaeche">
+                    <Image src={f.detail.bild} alt={f.detail.alt} widths={[320, 480]} sizes="(min-width: 64rem) 28rem, 50vw" class="absolute inset-0 h-full w-full object-cover" />
+                    <figcaption class="absolute bottom-4 left-4 rounded-full bg-weiss/90 px-3.5 py-1.5 text-sm font-semibold backdrop-blur-sm">Detail: {f.detail.text}</figcaption>
+                  </figure>
+                )}
               </div>
-            </div>
-          </figure>
+            </Fragment>
+          ))}
         </div>
-      </div>
-    ) : (
-      <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
-        <h2 class="max-w-2xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Gute Arbeit erkennt man an der Fuge.</h2>
-        <div class="mt-14">
+      ) : (
+        <div class="mt-12">
           <PlatzhalterBadge text="Fotos: Platzhalter in geringer Auflösung, Originale folgen" />
           <div class="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {archiv.map((a) => (
-              <img src={a.src} alt={a.alt} width="210" height="158" loading="lazy" class="aspect-4/3 w-full rounded-sm object-cover" />
+              <img src={a.src} alt={a.alt} width="210" height="158" loading="lazy" class="kachel aspect-4/3 w-full object-cover" />
             ))}
           </div>
         </div>
-      </div>
-    )
-  }
-
-  {
-    weitere.length > 0 && (
-      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-x-12 gap-y-16 px-4 pb-24 sm:grid-cols-2 sm:px-6">
-        {weitere.map((f, i) => (
-          <KlemmFoto bild={f.bild} alt={f.alt} notizen={f.notizen} unterschrift={f.etikett} neigung={i % 2 ? '0.8deg' : '-1deg'} bildKlasse={f.ausschnitt ?? ''} sizes="(min-width: 40rem) 45vw, 88vw" class={i % 2 ? 'sm:mt-16' : ''} />
-        ))}
-      </div>
-    )
-  }
+      )
+    }
+  </div>
 </section>

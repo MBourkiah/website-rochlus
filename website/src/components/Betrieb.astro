@@ -1,84 +1,65 @@
 ---
 /**
- * Der Betrieb: links die Aussage, rechts der Werkstattzettel (Kraftpapier)
- * mit den belegten Fakten. Porträt aus src/fotos.mjs, sonst nur im
- * Review-Stand ein Platzhalter. Unbestätigtes im Klärungskasten (nur Review).
- * WICHTIG: Meisterbetrieb/Gründungsjahr NICHT setzen, bis der Kunde bestätigt.
+ * Der Betrieb: Aussage links, Faktenkarte rechts. Porträt aus src/fotos.mjs,
+ * sonst nur im Review-Stand ein Platzhalter. Unbestätigtes (Meister,
+ * Gründungsjahr, Einzugsgebiet) nur im Review-Stand als Klärungshinweis.
  */
 import { Image } from 'astro:assets';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
-import Zwinge from './Zwinge.astro';
 import { istReview } from '../stand';
 import { fotos } from '../fotos.mjs';
+
+const fakten = [
+  ['Ansprechpartner', 'Marc Rochlus, Geschäftsführer'],
+  ['Sitz', 'Kranzbinderweg 15, 51067 Köln'],
+  ['Einsatzgebiet', 'Köln und Umgebung'],
+  ['Rechtsform', 'Inhabergeführte GmbH'],
+];
 ---
 
-<section id="betrieb" class="scroll-mt-20 border-t border-linie">
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-28">
-    <div class="lg:col-span-6">
-      <h2 class="text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Ein Kölner Betrieb. Kein Vermittlungsportal.</h2>
-      <p class="mt-7 max-w-lg text-lg leading-relaxed text-graphit-soft">
+<section id="betrieb" class="scroll-mt-20">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-6 lg:px-8 lg:py-24">
+    <div class="auftauchen lg:col-span-6 lg:pr-8">
+      <h2 class="text-[clamp(2rem,3.8vw,3.4rem)] leading-[0.95]">Ein Kölner Betrieb. Kein Vermittlungs&shy;portal.</h2>
+      <p class="mt-6 max-w-lg text-lg leading-relaxed text-tinte-soft">
         Die Fliesenfachbetrieb Rochlus GmbH sitzt im Kranzbinderweg in Köln und
         wird vom Inhaber geführt. Wer anruft, spricht direkt mit dem Betrieb. Wer
         beauftragt, bekommt die Arbeit vom Fachbetrieb, nicht von wechselnden Kolonnen.
       </p>
       {
-        fotos.inhaber ? (
-          <figure class="mt-10 flex items-center gap-5">
-            <span class="probe w-32 shrink-0 sm:w-40">
-              <Image src={fotos.inhaber.bild} alt={fotos.inhaber.alt} widths={[256, 384]} sizes="10rem" class="aspect-4/5 w-full object-cover" />
-            </span>
-            <figcaption class="text-base text-graphit-soft">
-              <span class="schmal block text-xl font-bold text-graphit">Marc Rochlus</span>
-              Geschäftsführer
-            </figcaption>
-          </figure>
-        ) : (
-          istReview && (
-            <figure class="mt-10 flex items-center gap-5">
-              <span class="grid aspect-4/5 w-32 shrink-0 place-items-center border border-dashed border-zink bg-papier sm:w-36">
-                <PlatzhalterBadge text="Foto folgt" />
-              </span>
-              <figcaption class="text-sm text-graphit-soft">
-                <span class="schmal block text-xl font-bold text-graphit">Marc Rochlus</span>
-                Geschäftsführer. Hier kommt ein Foto von ihm oder dem Team hin.
-              </figcaption>
-            </figure>
-          )
-        )
-      }
-    </div>
-
-    <!-- Werkstattzettel: Kraftpapier, mit der Zwinge an die Wand geklemmt -->
-    <div class="lg:col-span-5 lg:col-start-8 lg:pt-8">
-      <div class="relative rotate-[0.8deg] bg-kraft px-8 pt-10 pb-8 shadow-[var(--schatten-haengend)] sm:px-10">
-        <Zwinge class="absolute -top-[2.35rem] left-1/2 z-10 w-[4.25rem] -translate-x-1/2 text-zink drop-shadow-[0_2px_2px_rgb(30_28_24/0.3)]" />
-        <p class="schmal text-3xl leading-none font-bold">Fliesenfachbetrieb Rochlus&nbsp;GmbH</p>
-        <dl class="mt-6 space-y-3 border-t border-graphit/25 pt-5 text-base">
-          <div class="grid grid-cols-[auto_1fr] gap-x-6">
-            <dt>Ansprechpartner</dt>
-            <dd class="schmal text-lg font-bold">Marc Rochlus, Geschäftsführer</dd>
-          </div>
-          <div class="grid grid-cols-[auto_1fr] gap-x-6">
-            <dt>Sitz</dt>
-            <dd class="font-semibold">Kranzbinderweg 15, 51067 Köln</dd>
-          </div>
-          <div class="grid grid-cols-[auto_1fr] gap-x-6">
-            <dt>Einsatz</dt>
-            <dd class="font-semibold">Köln und Umgebung</dd>
-          </div>
-        </dl>
-      </div>
-      {
         istReview && (
-          <div class="mt-8 border border-dashed border-zink px-5 py-4">
+          <div class="mt-8 max-w-lg rounded-2xl border border-dashed border-tinte-soft/50 px-5 py-4">
             <PlatzhalterBadge text="In Klärung mit dem Betrieb" />
-            <p class="mt-2 text-sm leading-relaxed text-graphit-soft">
-              Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet werden
-              ergänzt, sobald der Betrieb sie bestätigt.
+            <p class="mt-2 text-sm leading-relaxed text-tinte-soft">
+              Gründungsjahr, Meister-Qualifikation und genaues Einzugsgebiet werden ergänzt, sobald der Betrieb sie bestätigt.
             </p>
           </div>
         )
       }
+    </div>
+
+    <div class="auftauchen kachel grid grid-cols-1 bg-weiss sm:grid-cols-[auto_1fr] lg:col-span-6">
+      {
+        fotos.inhaber ? (
+          <Image src={fotos.inhaber.bild} alt={fotos.inhaber.alt} widths={[320, 480]} sizes="16rem" class="h-full max-h-96 w-full object-cover sm:w-56" />
+        ) : (
+          istReview && (
+            <div class="grid min-h-48 place-items-center bg-flaeche p-6 sm:w-56">
+              <PlatzhalterBadge text="Porträt folgt" />
+            </div>
+          )
+        )
+      }
+      <dl class="divide-y divide-linie p-7 lg:p-9">
+        {
+          fakten.map(([k, v]) => (
+            <div class="flex flex-col gap-0.5 py-3.5 first:pt-0 last:pb-0">
+              <dt class="text-sm font-semibold text-tinte-soft">{k}</dt>
+              <dd class="text-lg font-bold">{v}</dd>
+            </div>
+          ))
+        }
+      </dl>
     </div>
   </div>
 </section>

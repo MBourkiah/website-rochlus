@@ -1,66 +1,87 @@
 ---
 /**
- * Leistungen als großes Verzeichnis: drei Zeilen über die volle Breite, links
- * die Gruppe groß, rechts alle Leistungen als fließender Text. Die Zeilen
- * schieben sich beim Scrollen herein; Hover rückt die Zeile leicht ein.
- * Alle 13 Punkte des Bestands. Echte Nahaufnahme (Mosaik) beim Kernhandwerk.
+ * Leistungen als Bento-Raster: die Komplettsanierung als große grüne Kachel,
+ * ein echtes Foto, die drei Leistungsgruppen als Listen-Kacheln, eine echte
+ * Nahaufnahme und eine Anruf-Kachel. Alle 13 Punkte des Bestands.
+ * Aussagen bleiben bei „rund um die Fliese“ — Sanitär/Elektro sind nicht belegt.
  */
 import { Image } from 'astro:assets';
-import { detailMosaikborduere as mosaik } from '../fotos.mjs';
+import Telefon from './Telefon.astro';
+import { fotos, detailMosaikborduere as mosaik } from '../fotos.mjs';
 
+// Nahaufnahme aus dem Hero-Bad, damit kein ganzes Foto doppelt erscheint
+const foto = fotos.bad?.detail;
 const gruppen = [
-  {
-    titel: 'Verlegen',
-    punkte: ['Komplettsanierung inkl. Raumgestaltung', 'Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'],
-    nahaufnahme: true,
-  },
-  {
-    titel: 'Unter und neben der Fliese',
-    punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'],
-  },
-  {
-    titel: 'Planung und Service',
-    punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'],
-  },
+  { titel: 'Verlegen', punkte: ['Wand- und Bodenfliesen', 'Naturstein', 'Verarbeitung edler Materialien', 'Elastische Fugen'] },
+  { titel: 'Unter und neben der Fliese', punkte: ['Trockenausbau', 'Abdichtungsarbeiten', 'Elektrische Fußbodenheizungen', 'Kleine Reparaturarbeiten'] },
+  { titel: 'Planung und Service', punkte: ['Besichtigung und Beratung vor Ort', 'Individuelle Planung', 'Materialanlieferung', 'Überwachung der Leistungen'] },
 ];
 ---
 
-<section id="leistungen" class="scroll-mt-20 border-y border-linie bg-putz-tief/70">
-  <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:py-32">
-    <h2 class="max-w-3xl text-[clamp(2.4rem,5vw,3.75rem)] leading-[0.95]">Was wir machen, und was dazugehört.</h2>
+<section id="leistungen" class="scroll-mt-20">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <div class="auftauchen flex flex-wrap items-end justify-between gap-6">
+      <h2 class="max-w-3xl text-[clamp(2.2rem,4.8vw,4rem)] leading-[0.95]">Was wir machen, und was dazugehört.</h2>
+      <p class="max-w-sm text-lg text-tinte-soft">Ein Betrieb für das ganze Bad, vom Untergrund bis zur Fuge.</p>
+    </div>
 
-    <ul class="mt-14 border-t-2 border-graphit">
+    <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+      <!-- Kernangebot -->
+      <div class="auftauchen auf-gruen kachel flex flex-col justify-between bg-gruen p-8 text-weiss sm:col-span-2 lg:col-span-7 lg:row-span-2 lg:p-12">
+        <div>
+          <h3 class="text-[clamp(1.75rem,4vw,3.25rem)] leading-[0.95]">Komplett&shy;sanierung inkl. Raum&shy;gestaltung</h3>
+          <p class="mt-5 max-w-lg text-lg leading-relaxed text-gruen-soft">
+            Wir übernehmen jede Schicht rund um die Fliese: Untergrund, Abdichtung,
+            Verlegung, Fugen. Material, Format und Verlegebild planen wir mit Ihnen.
+            Ein Ansprechpartner für das ganze Bad.
+          </p>
+        </div>
+        <ol class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/15 max-[22rem]:grid-cols-1 sm:grid-cols-4">
+          {['Untergrund', 'Abdichtung', 'Verlegung', 'Fugen'].map((s, i) => (
+            <li class="bg-gruen-tief px-4 py-4">
+              <span class="breit block text-sm font-bold text-gruen-soft">0{i + 1}</span>
+              <span class="mt-1 block font-bold">{s}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
       {
-        gruppen.map((g, i) => (
-          <li class="verzeichnis-zeile relative grid grid-cols-1 gap-x-10 gap-y-4 border-b border-graphit/25 py-9 lg:grid-cols-12" style={`--i:${i}`}>
-            <h3 class="text-[clamp(2.1rem,4.4vw,3.4rem)] leading-[0.92] tracking-[-0.02em] lg:col-span-5">{g.titel}</h3>
-            <p class="schmal text-[clamp(1.25rem,2.2vw,1.65rem)] leading-snug font-semibold lg:col-span-7 lg:pt-1">
-              {g.punkte.map((p, j) => (
-                <Fragment>
-                  <span class="whitespace-nowrap">{p}</span>
-                  {j < g.punkte.length - 1 && (
-                    <Fragment>
-                      {' '}<span class="text-zink" aria-hidden="true">/</span><span class="sr-only">,</span>{' '}
-                    </Fragment>
-                  )}
-                </Fragment>
+        foto && (
+          <div class="auftauchen foto-zoom kachel relative min-h-72 bg-flaeche sm:col-span-1 lg:col-span-5 lg:row-span-2">
+            <Image src={foto.bild} alt={foto.alt} widths={[400, 640, 960]} sizes="(min-width: 64rem) 30rem, (min-width: 40rem) 50vw, 100vw" class="absolute inset-0 h-full w-full object-cover" />
+            <span class="absolute bottom-4 left-4 rounded-full bg-weiss/90 px-3.5 py-1.5 text-sm font-semibold backdrop-blur-sm">Detail: {foto.text}</span>
+          </div>
+        )
+      }
+
+      {
+        gruppen.map((g) => (
+          <div class="auftauchen kachel bg-weiss p-7 lg:col-span-4 lg:p-8">
+            <h3 class="text-2xl leading-tight">{g.titel}</h3>
+            <ul class="mt-5 space-y-2.5">
+              {g.punkte.map((p) => (
+                <li class="flex items-start gap-3 text-base font-medium">
+                  <span class="mt-2 block h-1.5 w-1.5 shrink-0 rounded-full bg-gruen" aria-hidden="true" />
+                  {p}
+                </li>
               ))}
-            </p>
-            {g.nahaufnahme && (
-              <figure class="flex items-center gap-4 lg:col-span-7 lg:col-start-6">
-                <span class="probe w-28 shrink-0 -rotate-1">
-                  <Image src={mosaik.bild} alt={mosaik.alt} widths={[240, 360]} sizes="7rem" class="aspect-4/3 object-cover" />
-                </span>
-                <figcaption class="text-sm leading-snug text-graphit-soft">Aus einem unserer Bäder: {mosaik.text}</figcaption>
-              </figure>
-            )}
-          </li>
+            </ul>
+          </div>
         ))
       }
-    </ul>
 
-    <p class="mt-10 max-w-xl text-lg text-graphit-soft">
-      Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu. Fragen Sie einfach.
-    </p>
+      <div class="auftauchen foto-zoom kachel relative min-h-56 bg-flaeche lg:col-span-5">
+        <Image src={mosaik.bild} alt={mosaik.alt} widths={[400, 640]} sizes="(min-width: 64rem) 30rem, 100vw" class="absolute inset-0 h-full w-full object-cover" />
+        <span class="absolute bottom-4 left-4 rounded-full bg-weiss/90 px-3.5 py-1.5 text-sm font-semibold backdrop-blur-sm">Detail: {mosaik.text}</span>
+      </div>
+
+      <a href="tel:+492219687575" class="auftauchen kachel group flex flex-col justify-between gap-8 bg-akzent p-7 text-weiss transition-colors duration-200 hover:bg-akzent-tief sm:col-span-1 lg:col-span-7 lg:flex-row lg:items-end lg:p-10">
+        <span class="max-w-sm text-2xl leading-snug font-bold">Ihr Vorhaben steht nicht dabei? Oft gehört es trotzdem dazu.</span>
+        <span class="breit inline-flex items-center gap-3 text-[clamp(1.35rem,3vw,2.2rem)] leading-none font-extrabold whitespace-nowrap">
+          <Telefon size={26} /> 0221 968 75 75
+        </span>
+      </a>
+    </div>
   </div>
 </section>

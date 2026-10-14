@@ -1,51 +1,48 @@
 ---
 /**
- * Kontakt: der große Anhänger als Anruf (Signatur), daneben die Nebenkanäle.
- * Alle Kontaktdaten aus dem Bestand (belegt). Erreichbarkeitszeiten:
- * Platzhalter, im Launch-Stand ausgeblendet.
+ * Kontakt als großer Abschluss auf Grün: Aussage, der große Anruf-Knopf,
+ * daneben die Nebenkanäle. Alle Kontaktdaten aus dem Bestand.
+ * Erreichbarkeitszeiten: Platzhalter, im Launch-Stand ausgeblendet.
  */
-import Anhaenger from './Anhaenger.astro';
+import Telefon from './Telefon.astro';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { istReview } from '../stand';
 ---
 
-<section id="kontakt" class="scroll-mt-20 border-t border-linie bg-putz-tief/70">
-  <div class="mx-auto grid max-w-6xl grid-cols-1 gap-14 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-32">
-    <div class="lg:col-span-7">
-      <h2 class="text-[clamp(2.8rem,6vw,4.75rem)] leading-[0.92]">Einfach anrufen.</h2>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-graphit-soft">
+<section id="kontakt" class="scroll-mt-20 px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+  <div class="auf-gruen kachel mx-auto grid max-w-7xl grid-cols-1 gap-12 bg-gruen px-7 py-14 text-weiss sm:px-12 lg:grid-cols-12 lg:gap-10 lg:px-16 lg:py-20">
+    <div class="auftauchen lg:col-span-7">
+      <h2 class="text-[clamp(2.6rem,6vw,5rem)] leading-[0.92]">Einfach anrufen.</h2>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-gruen-soft">
         Ein Anruf genügt, dann kommen wir zur Besichtigung. Oder Sie schreiben kurz,
         was ansteht und wo (die Postleitzahl reicht), und wir melden uns.
       </p>
-      <div class="mt-10">
-        <Anhaenger kontakt gross zusatz="Kranzbinderweg 15, 51067 Köln" />
-      </div>
+      <a href="tel:+492219687575" data-klingel class="knopf knopf-anruf mt-10 min-h-16 px-7 text-[clamp(1.15rem,3vw,1.9rem)] max-[22rem]:px-4 max-sm:w-full">
+        <Telefon size={26} /> <span class="breit font-extrabold">0221 968 75 75</span>
+      </a>
     </div>
 
-    <dl class="grid content-start gap-7 text-base lg:col-span-4 lg:col-start-9 lg:pt-4">
+    <dl class="auftauchen grid content-start gap-6 border-t border-white/15 pt-8 text-base lg:col-span-4 lg:col-start-9 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
       <div>
-        <dt class="schmal text-xl font-bold">Mobil</dt>
-        <dd>
-          <a href="tel:+491722770674" class="link ziel text-lg">0172 277 06 74</a>
-          <span class="block text-graphit-soft">Wenn unter der Festnetznummer niemand abnimmt.</span>
-        </dd>
+        <dt class="text-sm font-semibold text-gruen-soft">Mobil, wenn niemand abnimmt</dt>
+        <dd><a href="tel:+491722770674" class="link ziel text-lg font-bold">0172 277 06 74</a></dd>
       </div>
       <div>
-        <dt class="schmal text-xl font-bold">E-Mail</dt>
-        <dd><a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link ziel text-lg">mrochlus@web.de</a></dd>
+        <dt class="text-sm font-semibold text-gruen-soft">E-Mail</dt>
+        <dd><a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="link ziel text-lg font-bold">mrochlus@web.de</a></dd>
+      </div>
+      <div>
+        <dt class="text-sm font-semibold text-gruen-soft">Adresse</dt>
+        <dd class="text-lg font-bold">Kranzbinderweg 15, 51067 Köln</dd>
       </div>
       {
         istReview && (
           <div>
-            <dt class="schmal text-xl font-bold">Erreichbarkeit</dt>
+            <dt class="text-sm font-semibold text-gruen-soft">Erreichbarkeit</dt>
             <dd class="mt-1"><PlatzhalterBadge text="Zeiten folgen vom Betrieb" /></dd>
           </div>
         )
       }
-      <div>
-        <dt class="schmal text-xl font-bold">Einsatzgebiet</dt>
-        <dd class="text-lg text-graphit-soft">Köln und Umgebung</dd>
-      </div>
     </dl>
   </div>
 </section>

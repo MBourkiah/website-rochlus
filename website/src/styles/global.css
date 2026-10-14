@@ -1,79 +1,72 @@
 @import "tailwindcss";
 
 /*
- * WERKBANK — die Werkstattwand des Betriebs.
+ * MODERN & MARKANT
  *
- * Heller Kalkputz als Wand. Darauf hängen echte Bäder, mit Zwingen geklemmt,
- * mit Bleistift-Notizen zu dem, was man sieht, neben Materialproben.
- * Graphit schreibt, Kraftpapier beschriftet, Zink hält fest, Kreiderot gehört
- * allein der Handlung „Anrufen“. Eine Schriftfamilie: Bricolage Grotesque.
+ * Klare, helle Grundfläche; tiefes Flaschengrün als tragende Farbfläche
+ * (Kacheln, Ablauf, Kontakt); Terrakotta aus dem Logo ausschließlich für
+ * Anrufen. Eine Schrift: Archivo, breit und schwer für Überschriften, normal
+ * für Text. Bento-Raster aus abgerundeten Kacheln, große echte Fotos.
+ * Keine Metaphern, keine Deko: Ordnung, Maßstab und Präzision tragen.
  */
 :root {
-  /* Wand */
-  --putz: #eeece7;
-  --putz-tief: #e4e1da;
-  --linie: #d3cfc6;
-  --papier: #faf9f6;
+  --grund: #f6f6f3;
+  --flaeche: #ecebe6;
+  --linie: #dad8d2;
+  --weiss: #ffffff;
 
-  /* Schrift & Material */
-  --graphit: #2b2b29;
-  --graphit-soft: #55554f; /* Nebentext auf Putz (≥ 6:1) */
-  --kraft: #c9a77a;
-  --kraft-hell: #ddc39d;
-  --zink: #9a9fa3;
-  --zink-hell: #c8cbcd;
+  --tinte: #121212;
+  --tinte-soft: #4a4a46; /* ≥ 8:1 auf Grund */
 
-  /* Kreiderot: nur für „Anrufen“ */
-  --kreide: #c4452e;
-  --kreide-tief: #a83a26;
+  --gruen: #173f35;
+  --gruen-tief: #10302a;
+  --gruen-soft: #bcd2c7; /* Nebentext auf Grün (≥ 7:1) */
+  --gruen-hell: #dde9e2;
 
-  /* Tiefe: Dinge hängen ein paar Millimeter vor der Wand */
-  --schatten-haengend:
-    0 1px 1px rgb(30 28 24 / 0.12),
-    0 14px 26px -16px rgb(30 28 24 / 0.5);
+  /* Terrakotta (Logo): nur für Anrufen */
+  --akzent: #b0512c;
+  --akzent-tief: #93421f;
 
-  --dauer: 160ms;
+  --radius-kachel: 1.5rem;
   --kurve: cubic-bezier(0.22, 1, 0.36, 1);
-  --kurve-lang: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --color-putz: var(--putz);
-  --color-putz-tief: var(--putz-tief);
+  --color-grund: var(--grund);
+  --color-flaeche: var(--flaeche);
   --color-linie: var(--linie);
-  --color-papier: var(--papier);
-  --color-graphit: var(--graphit);
-  --color-graphit-soft: var(--graphit-soft);
-  --color-kraft: var(--kraft);
-  --color-kraft-hell: var(--kraft-hell);
-  --color-zink: var(--zink);
-  --color-zink-hell: var(--zink-hell);
-  --color-kreide: var(--kreide);
-  --color-kreide-tief: var(--kreide-tief);
+  --color-weiss: var(--weiss);
+  --color-tinte: var(--tinte);
+  --color-tinte-soft: var(--tinte-soft);
+  --color-gruen: var(--gruen);
+  --color-gruen-tief: var(--gruen-tief);
+  --color-gruen-soft: var(--gruen-soft);
+  --color-gruen-hell: var(--gruen-hell);
+  --color-akzent: var(--akzent);
+  --color-akzent-tief: var(--akzent-tief);
 
-  --font-werk: "Bricolage Grotesque Variable", "Arial Narrow", system-ui, sans-serif;
+  --font-sans: "Archivo Variable", system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  scrollbar-color: var(--zink) var(--putz);
+  scrollbar-color: var(--tinte-soft) var(--grund);
 }
 
 body {
-  background-color: var(--putz);
-  color: var(--graphit);
-  font-family: var(--font-werk);
+  background-color: var(--grund);
+  color: var(--tinte);
+  font-family: var(--font-sans);
   font-size: 1.0625rem;
   line-height: 1.6;
-  caret-color: var(--kreide);
+  caret-color: var(--akzent);
   -webkit-font-smoothing: antialiased;
-  font-variant-numeric: tabular-nums;
 }
 
 ::selection {
-  background-color: var(--graphit);
-  color: var(--papier);
+  background-color: var(--gruen);
+  color: var(--weiss);
 }
 
 a,
@@ -84,46 +77,47 @@ summary {
 }
 
 :focus-visible {
-  outline: 2px solid var(--graphit);
+  outline: 2px solid var(--tinte);
   outline-offset: 3px;
-  border-radius: 3px;
+  border-radius: 6px;
+}
+.auf-gruen :focus-visible {
+  outline-color: var(--weiss);
 }
 
 @layer base {
   h1,
   h2,
   h3 {
-    font-family: var(--font-werk);
-    font-stretch: 82%;
-    font-weight: 700;
-    letter-spacing: -0.015em;
+    font-family: var(--font-sans);
+    font-stretch: 118%;
+    font-weight: 800;
+    hyphens: manual;
+    letter-spacing: -0.03em;
     text-wrap: balance;
+  }
+  h3 {
+    letter-spacing: -0.015em;
   }
 }
 
-/*
- * Komponenten liegen in @layer components, damit Tailwind-Utilities im Markup
- * Vorrang vor den Grundregeln haben.
- */
 @layer components {
-  /* Schmale Werkstatt-Auszeichnung (Labels, Notizen, Navigation) */
-  .schmal {
-    font-stretch: 82%;
+  /* Breite Auszeichnung (Zahlen, kurze Labels) */
+  .breit {
+    font-stretch: 118%;
   }
+
   .link,
   .rechtstext a {
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
-    text-underline-offset: 0.3em;
-    text-decoration-color: var(--zink);
-    transition: text-decoration-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve);
+    text-underline-offset: 0.25em;
+    text-decoration-color: color-mix(in oklab, currentColor 40%, transparent);
+    transition: text-decoration-color 160ms var(--kurve);
   }
   .link:hover,
   .rechtstext a:hover {
     text-decoration-color: currentColor;
-  }
-  .link-anruf {
-    text-decoration-color: var(--kreide);
   }
   /* Tippziel ≥ 44px für freistehende Links */
   .ziel {
@@ -132,249 +126,91 @@ summary {
     min-height: 2.75rem;
   }
 
-  /* Kalkputz: feine statische Wandstruktur */
-  .putz-struktur {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.08;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23p)'/%3E%3C/svg%3E");
-  }
-
-  /*
-   * DAS GEKLEMMTE FOTO
-   * Papierrand, leicht schief an die Wand geklemmt (--neigung), Zwinge oben.
-   * Notizen sitzen in Prozent-Koordinaten des Fotos.
-   */
-  .klemmfoto {
-    position: relative;
-    --neigung: -0.8deg;
-  }
-  .klemmfoto-rahmen {
-    position: relative;
-    background: var(--papier);
-    padding: 0.5rem;
-    border-radius: 2px;
-    box-shadow: var(--schatten-haengend);
-    transform: rotate(var(--neigung));
-  }
-  .klemmfoto-rahmen img {
-    display: block;
-    width: 100%;
-    border-radius: 1px;
-  }
-  .klemmfoto-zwinge {
-    position: absolute;
-    top: -2.35rem;
-    left: 50%;
-    z-index: 2;
-    width: 4.25rem;
-    transform: translateX(-50%) rotate(var(--neigung));
-    color: var(--zink);
-    filter: drop-shadow(0 2px 2px rgb(30 28 24 / 0.3));
-  }
-
-  /* Notiz: Punkt auf dem Detail, Bleistiftlinie, Kraftpapier-Etikett */
-  .notiz {
-    position: absolute;
-    left: var(--x);
-    top: var(--y);
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    pointer-events: none;
-  }
-  .notiz--links {
-    flex-direction: row-reverse;
-    transform: translateX(-100%);
-  }
-  .notiz-punkt {
-    width: 0.75rem;
-    height: 0.75rem;
-    flex-shrink: 0;
-    border-radius: 999px;
-    background: var(--graphit);
-    box-shadow: 0 0 0 3px var(--papier);
-    transform: translate(-50%, 0);
-  }
-  .notiz--links .notiz-punkt {
-    transform: translate(50%, 0);
-  }
-  .notiz-linie {
-    width: 2rem;
-    height: 1.5px;
-    background: var(--graphit);
-    transform-origin: left center;
-  }
-  .notiz--links .notiz-linie {
-    transform-origin: right center;
-  }
-  .notiz-text {
-    white-space: nowrap;
-    background: var(--kraft-hell);
-    color: var(--graphit);
-    padding: 0.2rem 0.55rem;
-    border-radius: 2px;
-    font-size: 0.875rem;
-    font-weight: 650;
-    font-stretch: 82%;
-    box-shadow: 0 1px 2px rgb(30 28 24 / 0.25);
-  }
-
-  /*
-   * DER ANHÄNGER (Anruf): Kraftpapier mit abgeschrägten Ecken, Ösenring und
-   * rotem Stempel. Die Form sitzt auf dem inneren Span, damit der Fokusring am
-   * Link nicht abgeschnitten wird; Tiefe über drop-shadow.
-   */
-  .anhaenger {
-    display: inline-block;
-    max-width: 100%;
-    border-radius: 6px;
-    filter: drop-shadow(0 1px 1px rgb(30 28 24 / 0.18)) drop-shadow(0 10px 12px rgb(30 28 24 / 0.2));
-    transform-origin: 1.6rem 50%;
-    transition: transform 400ms var(--kurve-lang);
-  }
-  .anhaenger-form {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 2.9rem 1.8rem 1.1rem 3.4rem;
-    max-width: 100%;
-    background: var(--kraft);
-    color: var(--graphit);
-    clip-path: polygon(1.4rem 0, 100% 0, 100% 100%, 1.4rem 100%, 0 calc(100% - 1.4rem), 0 1.4rem);
-  }
-  @media (max-width: 22rem) {
-    .anhaenger-form {
-      padding-left: 2.9rem;
-      padding-right: 1.1rem;
-      gap: 0.75rem;
-    }
-  }
-  /* Ösenring */
-  .anhaenger-form::before {
-    content: "";
-    position: absolute;
-    left: 1.15rem;
-    top: 50%;
-    width: 1.1rem;
-    height: 1.1rem;
-    border-radius: 999px;
-    transform: translateY(-50%);
-    background: var(--putz);
-    box-shadow:
-      0 0 0 3px var(--zink-hell),
-      inset 0 1px 2px rgb(0 0 0 / 0.25);
-  }
-  .stempel {
-    position: absolute;
-    top: 0.55rem;
-    right: 0.9rem;
-    display: inline-block;
-    border: 2px solid #6e2214;
-    border-radius: 3px;
-    padding: 0.05rem 0.5rem;
-    color: #6e2214;
-    font-size: 0.95rem;
-    font-weight: 750;
-    font-stretch: 82%;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transform: rotate(-7deg);
-  }
-  a.anhaenger:hover {
-    transform: rotate(-1.2deg);
-  }
-  a.anhaenger:active {
-    transform: rotate(-0.4deg) translateY(1px);
-  }
-
-  /* Knopf: Kreiderot, nur für Anrufen */
-  .knopf-anruf {
+  /* Knöpfe: Pille, klar, groß */
+  .knopf {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    min-height: 2.75rem;
-    padding: 0.55rem 1.1rem;
-    border-radius: 4px;
-    background: var(--kreide);
-    color: #fff;
-    font-weight: 650;
-    font-stretch: 85%;
-    transition: background-color var(--dauer) var(--kurve), transform 90ms var(--kurve);
+    min-height: 3rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+    transition:
+      background-color 160ms var(--kurve),
+      color 160ms var(--kurve),
+      border-color 160ms var(--kurve),
+      transform 160ms var(--kurve);
+  }
+  .knopf:active {
+    transform: translateY(1px) scale(0.99);
+  }
+  .knopf-anruf {
+    background: var(--akzent);
+    color: var(--weiss);
   }
   .knopf-anruf:hover {
-    background: var(--kreide-tief);
+    background: var(--akzent-tief);
   }
-  .knopf-anruf:active {
-    transform: translateY(1px);
+  .knopf-zweit {
+    border: 1.5px solid currentColor;
   }
-  .knopf-anruf:focus-visible {
-    outline-color: var(--graphit);
+  .knopf-zweit:hover {
+    background: var(--tinte);
+    border-color: var(--tinte);
+    color: var(--weiss);
   }
-  /* Neutrale Variante (Header, solange das Hero-Anrufschild sichtbar ist) */
-  .knopf-neutral {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    min-height: 2.75rem;
-    padding: 0.55rem 1.1rem;
-    border-radius: 4px;
-    border: 1.5px solid var(--graphit);
-    color: var(--graphit);
-    font-weight: 650;
-    font-stretch: 85%;
-    transition: background-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve), border-color var(--dauer) var(--kurve);
+  .auf-gruen .knopf-zweit:hover {
+    background: var(--weiss);
+    border-color: var(--weiss);
+    color: var(--gruen);
   }
-  .knopf-neutral:hover {
-    background: var(--graphit);
-    color: var(--papier);
+  .knopf .pfeil {
+    transition: transform 200ms var(--kurve);
+  }
+  .knopf:hover .pfeil {
+    transform: translateX(3px);
   }
 
-  /* Materialprobe: quadratisches Muster mit Kraftpapier-Etikett */
-  .probe {
-    position: relative;
-    background: var(--papier);
-    padding: 0.35rem;
-    border-radius: 2px;
-    box-shadow: var(--schatten-haengend);
-  }
-  .probe img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
+  /* Kachel */
+  .kachel {
+    border-radius: var(--radius-kachel);
+    overflow: hidden;
   }
 
+  /* Foto in Kachel: weiches Heranzoomen bei Hover */
+  .foto-zoom img {
+    transition: transform 700ms var(--kurve);
+  }
+  .foto-zoom:hover img {
+    transform: scale(1.04);
+  }
 }
 
-/* Header-Anruf: wird Kreiderot, sobald das Hero-Anrufschild aus dem Blick ist (ab md; darunter gehört Rot der Anrufleiste) */
+/* Header-Anruf: neutral, solange der Hero-Anruf sichtbar ist; danach Terrakotta (ab md) */
 .kopf-anruf {
-  transition: background-color var(--dauer) var(--kurve), color var(--dauer) var(--kurve), border-color var(--dauer) var(--kurve);
+  transition: background-color 160ms var(--kurve), color 160ms var(--kurve), border-color 160ms var(--kurve);
 }
 @media (min-width: 48rem) {
   html[data-anruf-weg]:not([data-klingel-da]) .kopf-anruf {
-    background: var(--kreide);
-    border-color: var(--kreide);
-    color: #fff;
+    background: var(--akzent);
+    border-color: var(--akzent);
+    color: var(--weiss);
   }
   html[data-anruf-weg]:not([data-klingel-da]) .kopf-anruf:hover {
-    background: var(--kreide-tief);
-    border-color: var(--kreide-tief);
+    background: var(--akzent-tief);
+    border-color: var(--akzent-tief);
   }
 }
 
-/* Mobile Anrufleiste: fährt erst ein, wenn das Hero-Anrufschild weg ist (ohne JS: immer da) */
+/* Mobile Anrufleiste: fährt ein, wenn der Hero-Anruf weg ist; eingefahren nicht fokussierbar */
 .anrufleiste {
   transition:
     transform 260ms var(--kurve),
     visibility 0s linear 0s;
 }
-/* Eingefahren auch unsichtbar für Tastatur und Screenreader */
 html.js:not([data-anruf-weg]) .anrufleiste,
 html[data-klingel-da] .anrufleiste {
   transform: translateY(110%);
@@ -385,201 +221,57 @@ html[data-klingel-da] .anrufleiste {
 }
 
 /*
- * BEWEGUNG — ruhig und einmalig:
- * Fotos hängen sich an die Wand (setzen sich in ihre Neigung), Notizlinien
- * zeichnen sich zum Detail, der Bleistiftstrich im Ablauf zieht durch.
- * Inhalte sind ohne JS und bei reduzierter Bewegung immer sichtbar.
+ * BEWEGUNG: Hero baut sich beim Laden gestaffelt auf; Inhalte tauchen beim
+ * Scrollen auf (CSS-Scroll-Timeline, Longhands wegen Minifier). Ohne
+ * Unterstützung oder bei „Bewegung reduzieren“: alles sofort sichtbar.
  */
-html.bewegung [data-bewegung="foto"] .klemmfoto-rahmen {
-  transform: translateY(12px) rotate(0deg);
-  opacity: 0.001;
+@keyframes auftauchen {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
 }
-html.bewegung [data-bewegung="foto"][data-sichtbar] .klemmfoto-rahmen {
-  transform: rotate(var(--neigung));
-  opacity: 1;
-  transition:
-    transform 800ms var(--kurve-lang),
-    opacity 400ms var(--kurve-lang);
+@keyframes foto-auf {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+    clip-path: inset(8% 8% 8% 8% round 1.5rem);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 1.5rem);
+  }
 }
-html.bewegung [data-bewegung="foto"] .notiz-linie {
-  transform: scaleX(0);
-}
-html.bewegung [data-bewegung="foto"] .notiz-text,
-html.bewegung [data-bewegung="foto"] .notiz-punkt {
-  opacity: 0;
-}
-html.bewegung [data-bewegung="foto"][data-sichtbar] .notiz-linie {
-  transform: scaleX(1);
-  transition: transform 450ms var(--kurve-lang);
-  transition-delay: calc(700ms + var(--i, 0) * 220ms);
-}
-html.bewegung [data-bewegung="foto"][data-sichtbar] .notiz-punkt,
-html.bewegung [data-bewegung="foto"][data-sichtbar] .notiz-text {
-  opacity: 1;
-  transition: opacity 300ms var(--kurve-lang);
-  transition-delay: calc(600ms + var(--i, 0) * 220ms);
-}
-html.bewegung [data-bewegung="foto"][data-sichtbar] .notiz-text {
-  transition-delay: calc(950ms + var(--i, 0) * 220ms);
-}
-
-/* Bleistiftstrich: zieht sich einmal durch (waagerecht oder senkrecht) */
-.bleistiftstrich {
-  transform-origin: left center;
-}
-.bleistiftstrich.senkrecht {
-  transform-origin: center top;
-}
-html.bewegung [data-bewegung="strich"] .bleistiftstrich {
-  transform: scaleX(0);
-}
-html.bewegung [data-bewegung="strich"] .bleistiftstrich.senkrecht {
-  transform: scaleY(0);
-}
-html.bewegung [data-bewegung="strich"][data-sichtbar] .bleistiftstrich {
-  transform: none;
-  transition: transform 1200ms var(--kurve-lang) 200ms;
-}
-
-/*
- * KRÄFTIG: Einschwingen beim Laden, Lupe und Striche beim Scrollen.
- */
-
-/* Hero: Foto schwingt an der Zwinge ein, Anhänger pendelt am Ösenring aus */
-@keyframes einschwingen {
-  0% { transform: rotate(-9deg) translateY(-18px); opacity: 0.001; }
-  35% { opacity: 1; }
-  55% { transform: rotate(3.2deg); }
-  75% { transform: rotate(0deg); }
-  100% { transform: rotate(var(--neigung)); }
-}
-@keyframes auspendeln {
-  0% { transform: rotate(14deg); }
-  30% { transform: rotate(-7deg); }
-  55% { transform: rotate(3.5deg); }
-  78% { transform: rotate(-1.2deg); }
-  100% { transform: rotate(0deg); }
-}
-html.bewegung [data-bewegung="schwingen"] .klemmfoto-rahmen {
-  transform-origin: 50% -1.5rem;
-  animation: einschwingen 1400ms var(--kurve-lang) 150ms both;
-}
-html.bewegung [data-bewegung="schwingen"] .notiz-linie {
-  transform: scaleX(0);
-  animation: notiz-zeichnen 450ms var(--kurve-lang) both;
-  animation-delay: calc(1300ms + var(--i, 0) * 200ms);
-}
-html.bewegung [data-bewegung="schwingen"] .notiz-punkt,
-html.bewegung [data-bewegung="schwingen"] .notiz-text {
-  animation: notiz-zeigen 300ms var(--kurve-lang) both;
-  animation-delay: calc(1250ms + var(--i, 0) * 200ms);
-}
-html.bewegung [data-bewegung="schwingen"] .notiz-text {
-  animation-delay: calc(1550ms + var(--i, 0) * 200ms);
-}
-@keyframes notiz-zeichnen {
-  to { transform: scaleX(1); }
-}
-@keyframes notiz-zeigen {
-  from { opacity: 0; }
-}
-html.bewegung .pendel .anhaenger {
-  animation: auspendeln 1600ms var(--kurve-lang) 900ms both;
-}
-
-/* Lupe (Unsere Bäder): ohne Scroll-Animation liegt alles normal untereinander */
-.lupe-bild {
-  transform-origin: var(--lupe-x) var(--lupe-y);
+@media (prefers-reduced-motion: no-preference) {
+  html.bewegung .hero-teil {
+    animation: auftauchen 800ms var(--kurve) both;
+    animation-delay: calc(var(--i, 0) * 110ms);
+  }
+  html.bewegung .hero-foto {
+    animation: foto-auf 1200ms var(--kurve) 150ms both;
+  }
 }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .lupe {
-      height: 240vh;
-      view-timeline-name: --lupe;
-    }
-    .lupe-buehne {
-      position: sticky;
-      top: 4.5rem;
-      min-height: calc(100vh - 4.5rem);
-    }
-    .lupe .klemmfoto-rahmen img {
-      max-height: calc(100vh - 11rem);
-      width: auto;
-      margin-inline: auto;
-    }
-    .lupe-bild {
-      animation-name: lupe-zoom;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: --lupe;
-      animation-range: contain 15% contain 80%;
-    }
-    .lupe-text {
-      animation-name: lupe-text;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: --lupe;
-      animation-range: contain 55% contain 80%;
-    }
-  }
-}
-@keyframes lupe-zoom {
-  to { transform: scale(2.2); }
-}
-@keyframes lupe-text {
-  from { opacity: 0; transform: translateY(10px); }
-}
-
-/* Striche wachsen mit dem Scrollen (wo unterstützt), sonst einmalig per Klasse */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .schicht-strich,
-    .ablauf-strich {
-      animation-name: strich-wachsen;
+    .auftauchen {
+      animation-name: auftauchen;
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: view();
-      animation-range: entry 20% cover 60%;
+      animation-range: entry 0% entry 55%;
     }
-    .schicht-strich.senkrecht { transform-origin: center bottom; }
-    .verzeichnis-zeile,
-    .schritt,
-    .schicht {
-      animation-name: hereinschieben;
+    .hero-parallaxe img {
+      animation-name: parallaxe;
       animation-timing-function: linear;
       animation-fill-mode: both;
       animation-timeline: view();
-      animation-range: entry 0% entry 70%;
+      animation-range: exit 0% exit 100%;
     }
   }
 }
-@keyframes strich-wachsen {
-  from { transform: scale(var(--strich-x, 0), var(--strich-y, 1)); }
-}
-.senkrecht.schicht-strich,
-.senkrecht.ablauf-strich {
-  --strich-x: 1;
-  --strich-y: 0;
-}
-@keyframes hereinschieben {
-  from { opacity: 0; transform: translateX(-28px); }
-}
-
-/* Verzeichnis: Hover rückt die Zeile ein */
-.verzeichnis-zeile h3 {
-  transition: transform 300ms var(--kurve);
-}
-.verzeichnis-zeile:hover h3 {
-  transform: translateX(10px);
-}
-
-/* Dunkler Abschnitt: Fokus hell, Ziffern als Kontur */
-.dunkel :focus-visible {
-  outline-color: var(--papier);
-}
-.dunkel .ziffer {
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--kraft);
+@keyframes parallaxe {
+  to {
+    transform: translateY(8%) scale(1.05);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -591,9 +283,5 @@ html.bewegung .pendel .anhaenger {
   *::after {
     transition-duration: 1ms !important;
     animation: none !important;
-  }
-  a.anhaenger:hover,
-  .verzeichnis-zeile:hover h3 {
-    transform: none;
   }
 }

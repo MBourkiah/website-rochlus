@@ -3,8 +3,8 @@
  * Header: Logo-Wortmarke (verbindlich, public/logo/) inline, damit die Texte
  * darin die self-hosted Fonts nutzen. Die Papier-Hintergrundfläche der SVG
  * wird beim Einbinden entfernt, damit das Logo direkt auf dem Putz steht.
- * Der Anruf-Knopf ist neutral (Graphit-Kontur), solange der Anhänger im Hero
- * sichtbar ist, und wird danach kreiderot (ein Rot pro Blick, siehe Base.astro).
+ * Der Anruf-Knopf ist neutral (Kontur), solange der Hero-Anruf sichtbar ist,
+ * und wird danach terrakotta (ein Akzent pro Blick, siehe Base.astro).
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -19,16 +19,16 @@ const logoLockup = readFileSync(join(process.cwd(), 'public/logo/logo-lockup-lig
 ).replace('viewBox="0 0 640 140"', 'viewBox="18 40 440 96"');
 
 const nav = [
-  { href: '#arbeiten', label: 'Unsere Bäder', nurReview: true },
   { href: '#leistungen', label: 'Leistungen' },
+  { href: '#arbeiten', label: 'Unsere Bäder', nurReview: true },
   { href: '#ablauf', label: 'Ablauf' },
   { href: '#betrieb', label: 'Der Betrieb' },
   { href: '#kontakt', label: 'Kontakt' },
 ].filter((n) => istReview || fotos.referenzen.length > 0 || !n.nurReview);
 ---
 
-<header class="sticky top-0 z-40 border-b border-linie bg-putz/95 backdrop-blur-sm">
-  <div class="mx-auto flex h-18 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+<header class="sticky top-0 z-40 border-b border-linie/70 bg-grund/90 backdrop-blur-md">
+  <div class="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
     <a href="/" class="flex h-11 shrink-0 items-center [&_svg]:h-7 min-[22rem]:[&_svg]:h-8 [&_svg]:w-auto sm:[&_svg]:h-11" aria-label="Fliesenfachbetrieb Rochlus GmbH, zur Startseite">
       <Fragment set:html={logoLockup} />
     </a>
@@ -39,7 +39,7 @@ const nav = [
           <a
             href={n.href}
             data-spy={n.href.slice(1)}
-            class="schmal relative px-3.5 py-3 text-lg font-semibold text-graphit-soft transition-colors duration-150 hover:text-graphit aria-[current]:text-graphit aria-[current]:underline aria-[current]:decoration-2 aria-[current]:underline-offset-8"
+            class="relative rounded-full px-4 py-2.5 text-[0.95rem] font-semibold text-tinte-soft transition-colors duration-150 hover:bg-flaeche hover:text-tinte aria-[current]:bg-flaeche aria-[current]:text-tinte"
           >
             {n.label}
           </a>
@@ -48,23 +48,23 @@ const nav = [
     </nav>
 
     <div class="flex items-center gap-2.5">
-      <a href="tel:+492219687575" class="kopf-anruf knopf-neutral hidden text-lg md:inline-flex">
+      <a href="tel:+492219687575" class="kopf-anruf knopf knopf-zweit hidden min-h-11 py-2 text-[0.95rem] md:inline-flex">
         <Telefon size={16} />
         <span class="hidden sm:inline">0221&nbsp;968&nbsp;75&nbsp;75</span>
         <span class="max-[22rem]:sr-only sm:hidden">Anrufen</span>
       </a>
       <details class="relative lg:hidden">
-        <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded border-[1.5px] border-graphit [&::-webkit-details-marker]:hidden" aria-label="Menü">
+        <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full bg-flaeche [&::-webkit-details-marker]:hidden" aria-label="Menü">
           <span aria-hidden="true" class="flex flex-col gap-1">
-            <span class="block h-0.5 w-4 bg-graphit"></span>
-            <span class="block h-0.5 w-4 bg-graphit"></span>
-            <span class="block h-0.5 w-4 bg-graphit"></span>
+            <span class="block h-0.5 w-4 bg-tinte"></span>
+            <span class="block h-0.5 w-4 bg-tinte"></span>
+            <span class="block h-0.5 w-4 bg-tinte"></span>
           </span>
         </summary>
-        <nav class="absolute right-0 mt-3 flex w-60 flex-col bg-papier p-3 shadow-[var(--schatten-haengend)]" aria-label="Mobile Navigation">
+        <nav class="absolute right-0 mt-3 flex w-64 flex-col rounded-3xl bg-weiss p-3 shadow-[0_20px_40px_-20px_rgb(0_0_0/0.35)]" aria-label="Mobile Navigation">
           {
             nav.map((n) => (
-              <a href={n.href} class="schmal border-b border-linie px-3 py-3 text-xl font-semibold last:border-b-0 hover:underline">
+              <a href={n.href} class="rounded-2xl px-4 py-3.5 text-lg font-semibold hover:bg-flaeche">
                 {n.label}
               </a>
             ))

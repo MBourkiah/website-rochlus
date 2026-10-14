@@ -1,17 +1,17 @@
 ---
 /**
- * Mobile Anrufleiste: fährt ein, sobald der Anhänger (Anruf) im Hero aus dem
+ * Mobile Anrufleiste: fährt ein, sobald der Anruf-Knopf im Hero aus dem
  * Blick ist (ein Rot pro Blick, Logik in Base.astro). Ohne JS immer sichtbar.
  * Safe-Area wird berücksichtigt; index.astro reserviert unten Platz.
  */
 import Telefon from './Telefon.astro';
 ---
 
-<div class="anrufleiste fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_auto] gap-4 border-t border-linie bg-putz/95 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-sm md:hidden">
-  <a href="tel:+492219687575" class="knopf-anruf min-h-13 text-xl whitespace-nowrap max-[22rem]:gap-1.5 max-[22rem]:px-3 max-[22rem]:text-lg">
+<div class="anrufleiste fixed inset-x-0 bottom-0 z-40 grid grid-cols-[1fr_auto] gap-3 border-t border-linie bg-grund/95 px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] backdrop-blur-sm md:hidden">
+  <a href="tel:+492219687575" class="knopf knopf-anruf min-h-13 text-lg max-[22rem]:gap-1.5 max-[22rem]:px-3 max-[22rem]:text-base">
     <Telefon size={18} /> 0221 968 75 75
   </a>
-  <a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="knopf-neutral min-h-13 px-5 text-xl max-[22rem]:px-3 max-[22rem]:text-lg">
+  <a href="mailto:mrochlus@web.de?subject=Anfrage%20Fliesenarbeiten" class="knopf knopf-zweit min-h-13 px-5 text-lg max-[22rem]:px-3 max-[22rem]:text-base">
     E-Mail
   </a>
 </div>
