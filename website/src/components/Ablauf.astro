@@ -16,12 +16,12 @@ const schritte = [
       <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">So läuft Ihr Projekt ab</h2>
       <p class="mt-4 text-lg text-tinte-soft">In vier Schritten vom ersten Anruf zum fertigen Bad.</p>
     </div>
-    <ol class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <ol class="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
       {
         schritte.map((s, i) => (
-          <li class="einblenden karte p-7">
-            <span class="grid h-11 w-11 place-items-center rounded-full bg-tinte text-lg font-bold text-weiss" aria-hidden="true">{i + 1}</span>
-            <h3 class="mt-5 text-xl">
+          <li class="einblenden border-t border-tinte pt-6">
+            <span class="block text-[2.75rem] leading-none font-bold text-linie" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="mt-4 text-xl">
               <span class="sr-only">Schritt {i + 1}: </span>
               {s.titel}
             </h3>

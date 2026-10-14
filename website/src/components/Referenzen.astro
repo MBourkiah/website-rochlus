@@ -1,18 +1,17 @@
 ---
 /**
- * Referenzen: echte Bäder im Bildraster mit kurzer Beschriftung.
- * Ohne Projektfotos in src/fotos.mjs: Archiv-Platzhalter nur im Review-Stand.
- * KEINE erfundenen Projektnamen oder Kundenzitate.
+ * Zwei Bäder im Detail: jedes Projektfoto genau einmal, groß, mit den
+ * Notizen aus src/fotos.mjs als Liste und der Nahaufnahme klein daneben
+ * (nie größer als ihr Ausgangsbild). Das Hero-Bad steht oben im Hero und wird
+ * hier nur mit seiner Nahaufnahme aufgegriffen.
+ * Ohne Projektfotos: Archiv-Platzhalter nur im Review-Stand.
  */
 import { Image } from 'astro:assets';
 import PlatzhalterBadge from './PlatzhalterBadge.astro';
 import { fotos, detailMosaikborduere as mosaik } from '../fotos.mjs';
 
-const bilder = [
-  fotos.bad && { bild: fotos.bad.bild, alt: fotos.bad.alt, text: fotos.bad.etikett, gross: true },
-  ...fotos.referenzen.map((f) => ({ bild: f.bild, alt: f.alt, text: f.etikett, gross: true })),
-  ...[fotos.bad?.detail, ...fotos.referenzen.map((f) => f.detail), mosaik].filter(Boolean).map((d) => ({ bild: d.bild, alt: d.alt, text: d.text, gross: false })),
-].filter(Boolean);
+const faelle = fotos.referenzen.map((f) => ({ ...f, details: [f.detail].filter(Boolean) }));
+const weitereDetails = [fotos.bad?.detail, mosaik].filter(Boolean);
 const archiv = [
   { src: '/bilder/platzhalter-verlegung-boden.jpg', alt: 'Verlegung großformatiger Bodenfliesen' },
   { src: '/bilder/platzhalter-klebebett.jpg', alt: 'Aufziehen des Klebebetts mit der Zahnkelle' },
@@ -23,23 +22,36 @@ const archiv = [
 
 <section id="arbeiten" class="scroll-mt-20 bg-weiss">
   <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-    <div class="einblenden flex flex-wrap items-end justify-between gap-6">
-      <div class="max-w-2xl">
-        <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">Unsere Bäder</h2>
-        <p class="mt-4 text-lg text-tinte-soft">Ein Auszug aus unseren Arbeiten, mit Blick auf die Details.</p>
-      </div>
+    <div class="einblenden max-w-2xl">
+      <h2 class="text-[clamp(2rem,3.6vw,2.75rem)] leading-tight">Gute Arbeit sieht man im Detail</h2>
+      <p class="mt-4 text-lg text-tinte-soft">Bäder, die wir gefliest haben, und was dabei zählt.</p>
     </div>
 
     {
-      fotos.referenzen.length > 0 ? (
-        <div class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          {bilder.map((b) => (
-            <figure class={`einblenden ${b.gross ? 'col-span-2 row-span-2' : ''}`}>
-              <div class="overflow-hidden rounded-lg bg-hell">
-                <Image src={b.bild} alt={b.alt} widths={b.gross ? [480, 720, 960] : [320, 480]} sizes={b.gross ? '(min-width: 64rem) 36rem, 100vw' : '(min-width: 64rem) 18rem, 50vw'} class={`w-full object-cover transition-transform duration-500 hover:scale-[1.03] ${b.gross ? 'aspect-4/5' : 'aspect-square'}`} />
+      faelle.length > 0 ? (
+        <div class="mt-12 space-y-16">
+          {faelle.map((f) => (
+            <article class="einblenden grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-14">
+              <Image src={f.bild} alt={f.alt} widths={[480, 720, 960]} sizes="(min-width: 64rem) 34rem, 92vw" class={`w-full rounded-lg lg:col-span-6 ${f.ausschnitt ?? 'aspect-4/5 object-cover'}`} />
+              <div class="lg:col-span-6 lg:pt-6">
+                <h3 class="text-[clamp(1.5rem,2.4vw,2rem)] leading-tight">{f.etikett}</h3>
+                {f.notizen && (
+                  <ul class="mt-6 border-t border-linie">
+                    {f.notizen.map((n) => (
+                      <li class="border-b border-linie py-3 text-[1.02rem]">{n.text}</li>
+                    ))}
+                  </ul>
+                )}
+                <div class="mt-8 flex flex-wrap gap-6">
+                  {[...f.details, ...weitereDetails].map((d) => (
+                    <figure class="w-40">
+                      <Image src={d.bild} alt={d.alt} widths={[240, 320]} sizes="10rem" class="aspect-square w-full rounded-md object-cover" />
+                      <figcaption class="mt-2 text-sm leading-snug text-tinte-soft">{d.text}</figcaption>
+                    </figure>
+                  ))}
+                </div>
               </div>
-              <figcaption class="mt-3 text-[0.95rem] font-semibold">{b.text}</figcaption>
-            </figure>
+            </article>
           ))}
         </div>
       ) : (
